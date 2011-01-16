@@ -1,0 +1,44 @@
+#summary Snofyre Installation Manual.
+#labels Phase-Deploy,Featured
+
+= Installing Snofyre =
+
+==Prerequisites==
+<table border=0>
+  <tbody>
+    <tr>
+      <td>[http://snofyre.googlecode.com/files/klipper.png]</td>
+      <td>Snofyre and its installer require [http://www.java.com Java] to be installed on the client machine. Please [http://www.java.com/en/download/index.jsp download] and install Java on your machine first. Snofyre also needs an instance of [http://dev.mysql.com/downloads/mysql/ MySQL server] to be installed on the client machine. The Installation Manual will help you with this (see below).</td>
+    </tr>
+  </tbody>
+</table>
+
+== Download Snofyre Installer == 
+<table border=0>
+  <tbody>
+    <tr>
+      <td>[http://code.google.com/p/snofyre/downloads/list http://snofyre.googlecode.com/files/ark.png] </td>
+      <td>Download the Snofyre Installer from the [http://code.google.com/p/snofyre/downloads/list downloads page]</td>
+    </tr>
+  </tbody>
+</table>
+
+==Run Snofyre Installer ==
+<table border=0>
+  <tbody>
+    <tr>
+      <td>[http://docs.snofyre.googlecode.com/hg/install-guide/html/frameset.html http://snofyre.googlecode.com/files/contents2.png]</td>
+      <td> Follow instructions in the [http://docs.snofyre.googlecode.com/hg/install-guide/html/frameset.html Snofyre's Installation Manual]. You can also download the Installation Manual as [http://snofyre.googlecode.com/files/snofyre-installation-manual.pdf PDF].</td>
+    </tr>
+  </tbody>
+</table>
+
+== Support == 
+<table border=0>
+  <tbody>
+    <tr>
+      <td>[http://groups.google.com/group/snofyre-users http://snofyre.googlecode.com/files/help.png]</td>
+      <td>If you have questions, please contact the [http://groups.google.com/group/snofyre-users Snofyre Users Group]. You can also contact the Snofyre Users Group by sending an email to snofyre-users@googlegroups.com</td>
+    </tr>
+  </tbody>
+</table>

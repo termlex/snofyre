@@ -1,0 +1,30 @@
+#summary Poll for Webinar on querying SNOMED CT encoded data
+
+= Poll for Webinar on querying SNOMED CT encoded data =
+
+The purpose of this series is to establish the most important (popular) questions related to querying pre and post-coordinated SNOMED CT encoded data. 
+
+Please vote for existing questions that you feel are more important.. :)
+
+Here is a short abstract of the talk:
+
+The adoption of SNOMED CT by clinical information system developers is expected to lead to an increasing amount of clinical data encoded using SNOMED CT. In order to meet business (clinical and non-clinical) needs, we need to be able to query such SNOMED CT coded data. In the UK, we have been investigating methods that can be used to query SNOMED CT encoded data (both pre and post-coordinated). The focus of this work was to demonstrate that is possible to accurately query SNOMED CT encoded data in a generic, scalable fashion. We use a prototype application (Sappheiros), to demonstrate the ability to author and execute clinically relevant queries over plausible SNOMED CT encoded clinical data. 
+
+The talk covers:
+
+Key aspects of SNOMED CT relevant to querying SNOMED CT data - Why SNOMED CT is hard?
+
+  * Ways of addressing relevant issues
+  * Size, complexity, model mismatches
+  * Heterogenous data structures
+
+Implications for implementation
+  * User interface
+  * Storage/Persistence
+  * Query optimisations
+
+Technical architecture to support post-coordination using an expression library (as implemented in Snofyre)
+
+Service architecture required to support querying (as implemented in Snofyre)
+
+<wiki:gadget url="http://www.google.com/moderator/static/moderator-embed-gadget.xml" height="400" width="800" up_url="http://www.google.com/moderator/#15/e=44f7b&t=44f7b.40" up_sort="HOT" up_hl="en" />

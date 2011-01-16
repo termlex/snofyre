@@ -1,0 +1,7 @@
+#summary This page takes you to the admin page for the Wiki.
+
+== Wiki Admin Link ==
+
+To create a new Wiki Page, go here [http://code.google.com/p/sappheiros/w/edit]
+
+To view a listing of all Wiki pages, go here [http://code.google.com/p/sappheiros/w/list]

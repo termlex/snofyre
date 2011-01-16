@@ -1,0 +1,24 @@
+#summary Snofyre frequently asked questions.
+#labels Featured
+
+= Introduction =
+
+This page contains a list of the frequently asked questions about Snofyre. While every attempt is made to keep this page up to date and accurate, please contact us if you feel this page can be improved in any way.
+
+== Why did you choose the name Snofyre? ==
+Snofyre is an acronym for SNOMED CT Framework for querY & REtrieval, because Snofyre was originally created to demonstrate querying of SNOMED CT encoded data.
+
+== Where can I download Snofyre from? ==
+You can download the latest and greatest version of Snofyre from http://code.google.com/p/snofyre/downloads/list
+
+== What else do I need to run Snofyre? ==
+The Snofyre Installation Manual describes the system requirements, but a quick check list is provided below:
+|| *Software* || *Version* ||
+|| Java || 1.6+ ||
+|| MySQL Server || 5.1+ ||
+
+== Why did you create Snofyre? ==
+We created Snofyre initially as a proof of concept demonstrator, to show that it is technically possible to query SNOMED CT encoded data in a meaningful fashion.
+
+== Is the test data supplied with Snofyre real patient data? ==
+No. Snofyre has the ability to generate plausible clinical data, based on a given set of parameters. The test data supplied with Snofyre is synthetic data that was created using this feature.

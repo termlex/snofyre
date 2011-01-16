@@ -1,0 +1,28 @@
+#summary Getting Started with Snofyre API.
+#labels Phase-Implementation
+
+= Getting Started with Snofyre API =
+
+==Prerequisites==
+  * Snofyre and its installer requires Java SE Development Kit to be installed on the client machine. Please [http://www.oracle.com/technetwork/java/javase/downloads/index.html download] and install the JDK on your machine.
+  * Snofyre requires an instance of MySQL server to store data and execute queries against. You can download MySQL server from http://dev.mysql.com/downloads/mysql/
+
+==Getting Started with Snofyre API==
+Snofyre uses:
+  * [http://maven.apache.org/ Maven] for build and software management.
+  * [http://mercurial.selenic.com/ Mercurial] for version control.
+
+==Checking out===
+  * Download and install Mercurial from http://mercurial.selenic.com/downloads/
+  * Check out the code using {{{ hg clone https://snofyre.googlecode.com/hg/ snofyre }}}.
+  * There is some useful information on http://code.google.com/p/snofyre/source/checkout
+ 
+===Compiling Snofyre===
+  * Download and install Maven from http://maven.apache.org/download.html. Note Snofyre was built using Maven version 2.1.0, so we do not recommend using Maven version 3 yet.
+  * {{{cd}}} to the directory where you've checked out Snofyre code to.
+  * Use {{{mvn clean install}}}.
+  * Note that you'll need to {{{mvn clean install}}} in the folders in the following order:
+
+===Setting up in an IDE===
+  * Since Snofyre uses Maven, most popular IDEs that support Maven projects can be used to compile and build Snofyre.
+  * There are no guides here for setting up Snofyre code in a given IDE, but we welcome contributions on 'how to guides' for your IDE of choice. Please contact us at snofyre-dev@googlegroups.com, if you have ideas or contributions.

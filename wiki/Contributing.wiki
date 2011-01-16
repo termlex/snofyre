@@ -1,0 +1,25 @@
+#summary A guide on how to contribute to Snofyre.
+#labels Featured
+
+= Contributing to Snofyre =
+You can contribute to Snofyre by:
+  * Joining the discsuions
+  * Contributing Content (code or documentation)
+
+==Joining Discussions==
+====General discussions====
+  * You can join the general discussions by joining the [http://groups.google.com/group/snofyre-users Snofyre User Group]
+  * Subscribe by mailing : snofyre-users-subscribe@googlegroups.com
+====Developer discussions====
+  * You can join the general discussions by joining the [http://groups.google.com/group/snofyre-dev Snofyre Developer Group]
+  * Subscribe by mailing : snofyre-dev-subscribe@googlegroups.com
+
+==Contribute Content==
+There are a number of ways to contribute to Snofyre.
+  * You *do not* need to submit code to contribute to Snofyre. You can:
+    * Contribute to documentation like the Wiki or the user manual.
+    * Follow discussion on the [http://groups.google.com/group/snofyre-users Snofyre User Group] and help other users who need assistance or have just got started with Snofyre.
+  * If you are a developer and use Snofyre, then you could:
+    * Contribute to documentation like the Wiki or the developer guide.
+    * Review the code base, report issues, submit patches, add cool new features, etc
+    * If you are interested in contributing to Snofyre, you can check out the code from http://code.google.com/p/snofyre/source/checkout and contribute to discussions on the [http://groups.google.com/group/snofyre-dev Snofyre Developer Group ].

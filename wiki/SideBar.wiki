@@ -1,0 +1,12 @@
+#summary The side bar pragma for the wiki.
+
+  * [WhatsNew What's New]
+  * [Installation Installing Snofyre]
+    * [http://docs.snofyre.googlecode.com/hg/install-guide/html/frameset.html Installation Manual]
+    * [Uninstalling Uninstalling Snofyre]
+    * [TipsAndTricks Tips and tricks]
+  * [GettingStarted Getting Started with Snofyre API]
+  * [FAQs Frequently Asked Questions]
+  * [Contributing Contributing to the project]
+  * [http://code.google.com/p/snofyre/w/list All Wiki Pages List]
+  * [Acknowledgements]

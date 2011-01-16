@@ -1,0 +1,12 @@
+#summary What to do if you have issues with Snofyre
+
+= Support =
+  * *Frequently Asked Questions* - If you have an issue with Snofyre, please look at the [FAQs] page, to see if your issue has already been addressed.
+  * Use keywords from your question in the *search box* at the top of this page, to see if the Wiki already answers your question.
+  * *User Groups* Snofyre has a mailing list and a discussion group where members can discuss issues related to Snofyre. This is the place to go for help on using Snofyre, requesting a new feature or improving an existing one. To start a discussion, please send an email to: <a href="mailto:snofyre-users@googlegroups.com">snofyre-users@googlegroups.com</a>
+  * You may also want to browse the archives of the mailing list located at [http://groups.google.com/group/snofyre-users].
+
+== Bugs ==
+  * If you believe you've found a bug, please report it using the Issue Tracker located at [http://code.google.com/p/snofyre/issues/list]
+
+  * We recommend that you search through the list of reported bugs to see if your bug has already been reported. If you find a new bug, please submit a new bug report with as much detailed information as possible. We'll look at it and get back to you.

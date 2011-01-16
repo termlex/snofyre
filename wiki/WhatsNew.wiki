@@ -1,0 +1,71 @@
+#summary The page that lists the latest features of Snofyre.
+#labels Phase-Requirements,Featured
+
+= Whats New in Snofyre? =
+    
+== Release Notes - Version Version 1.8 ==
+
+=== Bug ===
+    * SCTREPORTING-149 - Simulator does not respect constraints on number of records, when using queries with logical operators
+    * SCTREPORTING-150 - ResultSetTableModel throws an error when generating column names
+    * SCTREPORTING-157 - Help and View Menus not displayed
+    * SCTREPORTING-158 - Menu items throw a now ComponentUI found error when added dynamically
+    * SCTREPORTING-165 - Data generation throws a non-unique identifier error
+    * SCTREPORTING-166 - Data generation throws null pointer error
+    * SCTREPORTING-169 - Query authoring panel adds duplicate query components
+    * SCTREPORTING-170 - Sappheiros installer module has system dependent dependencies
+    * SCTREPORTING-171 - Compile for desktop dependencies package fails
+    * SCTREPORTING-173 - Unknown column 'EXP_ID' in 'field list' thrown when Exclusion criteria are specified
+
+=== Improvement ===
+    * SCTREPORTING-139 - Enable entity classes to use close to user expressions.
+    * SCTREPORTING-140 - Extend Entity model and simulator to save situation expressions
+    * SCTREPORTING-147 - Migrate QueryEngine to use Hibernate Criteria entirely
+    * SCTREPORTING-148 - Migrate Query Execution to Old style hardcoded
+    * SCTREPORTING-151 - Add optimisation strategies for improving query performance
+    * SCTREPORTING-152 - Separate normal forms repository cleanly from the EHR repository
+    * SCTREPORTING-153 - Separate UI framework the Sappheiros services
+    * SCTREPORTING-154 - Migrate to Mercurial
+    * SCTREPORTING-159 - Modify SMTP to use local mail server
+    * SCTREPORTING-161 - Convert UUID usertype to use 16-bit binary datatype
+    * SCTREPORTING-163 - Simplify modular application services
+
+
+=== New Feature ===
+    * SCTREPORTING-137 - Adapt simulator to use SNOMED CT expressions and the updated query model
+    * SCTREPORTING-138 - Adapt Simulator module to use the new information model.
+    * SCTREPORTING-141 - Add a module for managing a normal form repository
+    * SCTREPORTING-142 - Add a view component for the Simulator module
+    * SCTREPORTING-143 - Add feature for generating and storing transitive relationships for expressions
+    * SCTREPORTING-144 - Extend Query Transformer to use normal forms and the Expressions TC table
+    * SCTREPORTING-145 - Add plugins monitor for managing plugins
+    * SCTREPORTING-155 - Migrate SCM to use Mercurial
+    * SCTREPORTING-156 - Add build step for creating a zipped executable
+    * SCTREPORTING-162 - Add ability to generate dll statements from jpa mappings
+    * SCTREPORTING-167 - Add functionality to recreate the database
+    * SCTREPORTING-168 - Add ability to export query results
+    * SCTREPORTING-172 - Create online installer that connects to TRUD
+    * SCTREPORTING-174 - Add scripting support
+
+==Release Notes - Version Version 1.7 ==
+
+=== Bug ===
+    * SCTREPORTING-164 - Query search & authoring dialog unresponsive when some concept types are selected
+
+=== Improvement ===
+    * SCTREPORTING-47 - Create Factory implementation for Query Model entities
+    * SCTREPORTING-123 - Add ability to track selections using Selection Service
+    * SCTREPORTING-127 - Enable view components to use selection service
+    * SCTREPORTING-132 - Migrate Query Model to Interfaces and optimise implementation.
+    * SCTREPORTING-160 - Improve Javadoc comments
+
+=== New Feature ===
+    * SCTREPORTING-124 - Add a Property Change Tracker service
+    * SCTREPORTING-129 - Add persistence mappings to Information Model implementation
+    * SCTREPORTING-130 - Extend query model to handle SNOMED CT expressions
+    * SCTREPORTING-131 - Separate XML and Human readable rendering of query model objects into a new module
+    * SCTREPORTING-133 - Create UI components for handling updated Query Model components
+    * SCTREPORTING-135 - Add JAXB bindings to query model class
+
+=== Task ===
+    * SCTREPORTING-126 - Update POMs to version 1.7
