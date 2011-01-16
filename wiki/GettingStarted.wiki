@@ -10,11 +10,12 @@
 ==Getting Started with Snofyre API==
 Snofyre uses:
   * [http://maven.apache.org/ Maven] for build and software management.
-  * [http://mercurial.selenic.com/ Mercurial] for version control.
+  * [http://subversion.apache.org/ Subversion] for version control.
 
 ==Checking out===
-  * Download and install Mercurial from http://mercurial.selenic.com/downloads/
-  * Check out the code using {{{ hg clone https://snofyre.googlecode.com/hg/ snofyre }}}.
+  * Download and install Subversion from http://subversion.apache.org/packages.html
+  * Check out the code using {{{ svn checkout http://snofyre.googlecode.com/svn/trunk/ snofyre-read-only }}}.
+  * If you do not wish to use bleeding edge code, then check out the code from tags instead of trunk using {{{ svn checkout http://snofyre.googlecode.com/svn/tags/ snofyre-stable}}}. Please browse the tags folder to select a release to avoid downloading all tagged releases.
   * There is some useful information on http://code.google.com/p/snofyre/source/checkout
  
 ===Compiling Snofyre===
