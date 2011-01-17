@@ -6,7 +6,7 @@
     * [Uninstalling Uninstalling Snofyre]
     * [TipsAndTricks Tips and tricks]
   * [GettingStarted Getting Started with Snofyre API]
-    * [snofyreAPIQA]
+    * [Code Quality snofyreAPIQA]
   * [FAQs Frequently Asked Questions]
   * [Contributing Contributing to the project]
   * [http://code.google.com/p/snofyre/w/list All Wiki Pages List]
