@@ -1,5 +1,4 @@
 #summary Downloading Snofyre from TRUD.
-#labels Featured
 
 = Downloading Snofyre from TRUD =
 
