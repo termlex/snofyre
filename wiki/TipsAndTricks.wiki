@@ -1,13 +1,23 @@
 #summary Snofyre Tips and Tricks.
+#labels Phase-Support
 
 = Tips and Tricks for using Snofyre =
+This page contains a list of tips and tricks that are useful when running Snofyre. These tips only refer to the Snofyre Application, not to the API.
 
-Add your content here.
+=== Partial Search Matches ===
+You do not need to type in the entire word/phrase, to bring up results in Snofyre. You can use the first few characters of a term to bring up relevant matches.
 
+== Data Generation ==
+=== Engine parameters ===
+Snofyre allows you to generate data. You can configure Snofyre's data generation engine, using the Data Generation Panel. But default configuration is often optimal.
 
-= Details =
+=== Performance ===
+We do not recommend generating large volumes (in thousands) using Snofyre. Data generation in Snofyre is generally a slow running process, because of a large amount of randomisation features that it uses for creating data. During data generation, Snofyre also uses UUIDs to verfiy and update its underlying optmisation tables, both of which take time.
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+== Queries ==
+=== Saving queries ===
+We recommend saving queries to a file with a xml extension, so they can be opened easily in any other XML editor.
+
+== Miscellaneous ==
+  * When an error dialog pops up, Snofyre automically copies some of the error message stack to the System Clipboard, so you should be able to paste this as additional information when creating an error report.
+  * You can sort the contents of the columns in the Results Table, by clicking on the column name. This is useful when you need an alphanumeric sorting of the free text entries.
