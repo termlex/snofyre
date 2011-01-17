@@ -15,4 +15,6 @@ This section describes the process for downloading Snofyre installer and package
     # If you are on any other operating system : NHSSNOFYRE/1.1.0/NHS_SNOFYREINSTOTHEROS/nhs_snofyreinstotheros_1.1.0_20110101000001.zip
   # When you have downloaded the release file, unzip to a folder of your choice.
   # You can run the installer that you've downloaded to install Snofyre.
-  # The installer will walk you through the process of getting Snofyre up and running. Please refer to the [http://snofyre.googlecode.com/files/snofyre-installation-guide.pdf installation manual] for instructions.
+  # The installer will walk you through the process of getting Snofyre up and running. Please refer to the [http://snofyre.googlecode.com/files/snofyre-installation-manual.pdf installation manual] for instructions.
+
+Please report issues to the [http://groups.google.com/group/snofyre-users Snofyre user group].
