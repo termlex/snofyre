@@ -10,12 +10,10 @@ Snofyre API does not come with any warranties. Please refer to appropriate secti
 = Quality Metrics Breakdown =
 
 Snofyre's code is grouped into the following components
-<pre class="prettyprint">
   * {{{srth-desktop}}}
   * {{{snomed-osgi}}}
   * {{{srth-osgi}}}
   * {{{yasb-osgi}}}
-</pre>
 
 The code quality reports generated from Sonar are posted below. Sonar reports are more appropriate for {{{snomed-osgi}}} and {{{srth-osgi}}} components, which contain most of the reusable services. Given Snofye's use of OSGi based modularity and Spring enabled Dependency Injection, please interpret Sonar's report in this context:
 
