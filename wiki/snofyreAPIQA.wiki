@@ -5,7 +5,7 @@
 
 If you are interested in some code quality assurance of Snofyre API, then this page is for you. 
 
-Snofyre API does not come with any warranties. Please refer to appropriate section of the [http://www.apache.org/licenses/LICENSE-2.0 license]. That said, the code quality of Snofyre API is tested to ensure it follows good software programming guidelines. We use [http://www.sonarsource.com Sonar] to continuously monitor Snofyre code quality. [http://www.sonarsource.com Sonar]  is an open source quality management platform, dedicated to continuously analyze and measure source code quality, from the portfolio to the method.
+Snofyre API does not come with any warranties. Please refer to appropriate section of the [http://www.apache.org/licenses/LICENSE-2.0 license]. That said, the code quality of Snofyre API is tested to ensure it follows good software programming guidelines. We use [http://www.sonarsource.com Sonar] to continuously monitor Snofyre code quality. [http://www.sonarsource.com Sonar]  is an open source quality management platform, dedicated to continuously analyze and measure source code quality.
 
 = Quality Metrics Breakdown =
 
