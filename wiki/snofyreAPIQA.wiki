@@ -15,7 +15,15 @@ Snofyre's code is grouped into the following components
   * {{{srth-osgi}}}
   * {{{yasb-osgi}}}
 
-The code quality reports generated from Sonar are posted below. Sonar reports are more appropriate for {{{snomed-osgi}}} and {{{srth-osgi}}} components, which contain most of the reusable services. Given Snofye's use of OSGi based modularity and Spring enabled Dependency Injection, please interpret Sonar's report in this context:
+The code quality reports generated from Sonar are posted below. Sonar reports are more appropriate for {{{snomed-osgi}}} and {{{srth-osgi}}} components, which contain most of the reusable services. 
+
+|| *Component* || Sonar report ||
+||  {{{srth-osgi}}} || http://snofyre.googlecode.com/files/srth-osgi-sonar-report.pdf ||
+|| {{{snomed-osgi}}} || http://snofyre.googlecode.com/files/snomed-osgi-sonar-report.pdf ||
+|| {{{srth-desktop}}} || http://snofyre.googlecode.com/files/srth-desktop-sonar-report.pdf ||
+|| {{{yasb-osgi}}} || http://snofyre.googlecode.com/files/yasb-osgi-sonar-report.pdf ||
+
+Given Snofye's use of OSGi based modularity and Spring enabled Dependency Injection, please interpret Sonar's report in this context:
 
 || *Sonar Reported Error* || *Snofyre's API paradigm* ||
 ||Signature Declare Throws Exception ||  Snofyre uses {{{org.jdesktop.application.Task}}} for launching long running tasks in a separate thread. The {{{org.jdesktop.application.Task}}} uses a method {{{doInBackground()}}} that throws an Exception as part of its signature.||
