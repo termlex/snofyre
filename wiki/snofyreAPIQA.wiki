@@ -1,0 +1,28 @@
+#summary Snofyre API Code Quality.
+#labels Phase-QA,Phase-Design
+
+= How is Snofyre API code quality checked? =
+
+If you are interested in some code quality assurance of Snofyre API, then this page is for you. 
+
+Snofyre API does not come with any warranties. Please refer to appropriate section of the [http://www.apache.org/licenses/LICENSE-2.0 license]. That said, the code quality of Snofyre API is tested to ensure it follows good software programming guidelines. We use [www.sonarsource.com Sonar] to continuously monitor Snofyre code quality. [www.sonarsource.com Sonar]  is an open source quality management platform, dedicated to continuously analyze and measure source code quality, from the portfolio to the method.
+
+= Quality Metrics Breakdown =
+
+Snofyre's code is grouped into the following components
+  * {{{srth-desktop}}}
+  * snomed-osgi
+  * srth-osgi
+  * yasb-osgi
+
+The code quality reports generated from Sonar are posted below. Given Snofye's use of OSGi based modularity and Spring enabled Dependency Injection, please interpret Sonar's report in this context:
+
+|| *Sonar Reported Error* || *Snofyre's API paradigm* ||
+||Signature Declare Throws Exception ||  Snofyre uses {{{org.jdesktop.application.Task}}} for launching long running tasks in a separate thread. The {{{org.jdesktop.application.Task}}} uses a method {{{doInBackground()}}} that throws an Exception as part of its signature.
+|| Unused Private Field || Snofyre uses a large number of private fields and corresponding {{{setter}}} methods for Dependency Injection. ||
+|| Close Resource || Snofyre uses {{{java.sql.ResultSet}}} objects to pass query results around, which can not be immediately closed, until the results have been processed. Sonar does not like this..||
+|| Anon Inner Length || Snofyre does use longish inner classes for {{{Abstract Actions}}. It'll be nice if someone could improve the code quality by moving these methods outside of the inner class.||
+|| Cyclomatic Complexity || Snofyre does have a lot of code that uses recursion for generating normal forms and data. It'll be really hard to write this code without recursion and long {{{if-else}}} classes. We'd love to hear from you, if you can rewrite these methods in a less complex style.||
+|| Unit Test coverage || Snofyre's components {{{srth-desktop}}} and {{{yasb-osgi}}} are primarily UI specific classes and we have not implemented any test classes to UI functionality||
+
+In most other cases, we would like your help in improving Snofyre API's code quality. Volunteers please? ;) If you are interested, please contact us on the [http://groups.google.com/group/snofyre-dev developers user group].
