@@ -3,7 +3,7 @@
 
 = Downloading Snofyre from TRUD =
 
-This section describes the process for downloading Snofyre installer and packaged data from [https://www.uktcregistration.nss.cfh.nhs.uk/ TRUD]. This is currently needed since some of Snofyre's components contain SNOMED CT concepts and also requires a pre-packaged release of SNOMED CT. We are in the process of creating an installer that can be downloaded from the Google Code site and can directly access TRUD to download the necessary packs. For the moment, you'll need to download Snofyre's installer and data from TRUD.
+This section describes the process for downloading Snofyre installer and packaged data from [https://www.uktcregistration.nss.cfh.nhs.uk/ TRUD]. This is currently needed since some of Snofyre's components contain SNOMED CT concepts and also requires a pre-packaged release of SNOMED CT. We are in the process of creating an installer that can be downloaded from the Google Code site which can download the necessary TRUD packs. For the moment, you'll need to download Snofyre's installer and data from TRUD.
 
 == Accessing Snofyre Data & Installer ==
 
