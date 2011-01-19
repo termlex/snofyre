@@ -4,25 +4,15 @@
 
 Add your content here.
 
-
 = Details =
 
-{{{            <map>
-                <entry key="context" value-ref="contextWrapper" />
-                <entry key="terminologyDAO" value-ref="terminologyConceptDatabaseDAO" />
-                <entry key="normalFormGenerator" value-ref="normalFormGenerator" />
-                <entry key="hierarchyProvider" value-ref="tcHierarchyProvider" />
-                <entry key="queryService" value-ref="queryService" />
-                <entry key="randomSubtypeGenerator" value-ref="randomSubtypeGenerator" />
-                <entry key="searchService" value-ref="terminologySearchService" />
-                <entry key="queryRenderer" value-ref="queryExpressionPlainTextRenderer" />
-                <entry key="expressionRender" value-ref="heuristicBasedHumanReadableRender" />
-                <entry key="queryExpressionFactory" value-ref="queryExpressionFactory" />
-                <entry key="snomedXMLConverter" value-ref="snomedXMLConverter" />
-                <entry key="mrcmService" value-ref="mrcmService" />
-                <entry key="situationWrapper" value-ref="situationExpressionGenerator" />
-                <entry key="expressionXMLConverter" value-ref="expressionXMLConverter" />
-                <entry key="cgfConverter" value-ref="expressionCompositionalGrammarConverter" />
-                <entry key="nfHierarchyProvider" value-ref="normalFormHierarchyProvider" />
-            </map>
-}}}
+|| *Service Name* || *Service Description* ||
+|| terminologyDAO || Access to SNOMED CT content ||
+|| normalFormGenerator || Generates Normal Forms for Concepts/Expressions ||
+|| hierarchyProvider || Provides hierarchy look up for SNOMED CT concepts ||
+|| cgfConverter || Converts a concept/expression into its compositional grammar form ||
+|| situationWrapper || Wraps concept/expression in a Situation With Explicit Context wrapper ||
+|| randomSubtypeGenerator || Returns a random subtype for a given concept or expression ||
+|| expressionRender || Returns a human readable rendering for Concepts/Expressions ||
+|| queryExpressionFactory || Factory service for creating {{{query}}} objects ||
+|| mrcmService || Service that returns sanctioned attributes and values for a given concept ||
