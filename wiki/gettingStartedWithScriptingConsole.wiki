@@ -14,6 +14,27 @@ So the following steps that you'd expect to follow to create a {{{Hello World}}}
   * ~~Import {{{uk.nhs.cfh.dsp.snomed.dao.TerminologyService}}}~~
   * ~~So and so forth…~~
 
+Instead you can access most of Snofyre's underlying services using Snofyre's Scripting Console. In fact, Snofyre's Scripting Console allows access to most of Java's functionality because it is a Groovy Console.
+
+== Starting Snofyre's Scripting Console ==
+In order to launch Snofyre's Scripting Console:
+  * Select {{{Launch scripting console}}} from under {{{Tools}}} menu.
+  * This should launch the scripting console as shown below
+
+=== First steps with scripting ===
+To get started with scripting Snofyre, lets see how easy it is to create a {{{Hello Snofyre}}} example.
+  * Type {{{print 'Hello Snofyre'}}} in the scripting console as shown below.
+
+  * Now run this code using the {{{Run script}}} button. You should see the following output
+
+  * Remember when we said you have access to all of Java from inside the scripting console? Let's show you how. Lets use Java Swing to recreate a more fancy version of our {{{Hello Snofyre}}} example.
+  * Clear the scripting console and type the following code as shown below
+{{{
+import javax.swing.*
+JOptionPane.showMessageDialog(null, "Hello Snofyre")
+}}}
+  * This should display a simple (arguably more pretty) {{{Hello Snofyre}}} message on your screen as shown below.
+
 = Details =
 
 || *Service Name* || *Service Description* ||
