@@ -24,7 +24,9 @@ In order to launch Snofyre's Scripting Console:
 === First steps with scripting ===
 To get started with scripting Snofyre, lets see how easy it is to create a {{{Hello Snofyre}}} example.
   * Type {{{print 'Hello Snofyre'}}} in the scripting console as shown below.
-
+{{{
+print 'Hello Snofyre'
+}}}
   * Now run this code using the {{{Run script}}} button. You should see the following output
 
   * Remember when we said you have access to all of Java from inside the scripting console? Let's show you how. Lets use Java Swing to recreate a more fancy version of our {{{Hello Snofyre}}} example.
@@ -33,6 +35,7 @@ To get started with scripting Snofyre, lets see how easy it is to create a {{{He
 import javax.swing.*
 JOptionPane.showMessageDialog(null, "Hello Snofyre")
 }}}
+  * Now run this code using the {{{Run script}}} button
   * This should display a simple (arguably more pretty) {{{Hello Snofyre}}} message on your screen as shown below.
 
 = Details =
