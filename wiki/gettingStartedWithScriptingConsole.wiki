@@ -6,12 +6,12 @@ Traditionally developers and advanced users have had to use an IDE and follow th
 
 So the following steps that you'd expect to follow to create a {{{Hello World}}} example, are not necessary for Snofyre:
 
-  * Install Maven
-  * Install Mercurial
-  * Check out Snofyre Code from the Snofyre Repo 
-  * Compile using mvn clean install
-  * Now create a class ‘Hello Services’
-  * Import uk.nhs.cfh.dsp.snomed.dao.TerminologyService….
+  * ~~Install Maven~~
+  * ~~Install Mercurial~~
+  * ~~Check out Snofyre Code from the Snofyre Repo~~
+  * ~~Compile using mvn clean install~~
+  * ~~Now create a class {{{Hello Services}}}~~
+  * ~~Import {{{uk.nhs.cfh.dsp.snomed.dao.TerminologyService}}}~~
   * ~~So and so forth…~~
 
 = Details =
