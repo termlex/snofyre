@@ -19,7 +19,9 @@ Instead you can access most of Snofyre's underlying services using Snofyre's Scr
 == Starting Snofyre's Scripting Console ==
 In order to launch Snofyre's Scripting Console:
   * Select {{{Launch scripting console}}} from under {{{Tools}}} menu.
-  * This should launch the scripting console as shown below
+  * This should launch the scripting console as shown below.
+  * You can minimise Snofyre application window while you are working on the scripting console.
+  * Remember we said, minimise not *close*!
 
 === First steps with scripting ===
 To get started with scripting Snofyre, lets see how easy it is to create a {{{Hello Snofyre}}} example.
@@ -38,7 +40,21 @@ JOptionPane.showMessageDialog(null, "Hello Snofyre")
   * Now run this code using the {{{Run script}}} button
   * This should display a simple (arguably more pretty) {{{Hello Snofyre}}} message on your screen as shown below.
 
-= Details =
+=== Accessing Snofyre's Services ===
+One of the most common operations you might perform if you were building a SNOMED CT enabled application is retrieving SNOMED CT content. A typical example of this might be getting the {{{Fully Specified Name}}} for a SNOMED CT concept. Let us show you how easy it is to do this using Snofyre's underlying Services. Snofyre provides a service called {{{TerminologyDAO}}} that offers this functionality out of the box. Let us see how we can use this to retrieve the {{{Fully Specified Name}}} for a SNOMED CT concept with an ID {{{22298006}}}.
+  * Clear the scripting console and type the following into the console
+{{{
+print terminologyDAO.getTerminologyConcept("22298006").getFullySpecifiedName()
+}}}
+  * This should print out the following on in the console output
+{{{
+Myocardial Infarction (disorder)
+}}}
+  * Yep thats right, we've just looked up the {{{Fully Specified Name}}} for a given {{{concept id}}} in SNOMED CT using a single line of code!
+
+== Advanced examples ==
+
+=== Snofyre Services Lookup Table ===
 
 || *Service Name* || *Service Description* ||
 || terminologyDAO || Access to SNOMED CT content ||
