@@ -11,8 +11,8 @@ Add your content here.
 || normalFormGenerator || Generates Normal Forms for Concepts/Expressions ||
 || hierarchyProvider || Provides hierarchy look up for SNOMED CT concepts ||
 || cgfConverter || Converts a concept/expression into its compositional grammar form ||
-|| situationWrapper || Wraps concept/expression in a Situation With Explicit Context wrapper ||
 || randomSubtypeGenerator || Returns a random subtype for a given concept or expression ||
 || expressionRender || Returns a human readable rendering for Concepts/Expressions ||
 || queryExpressionFactory || Factory service for creating {{{query}}} objects ||
 || mrcmService || Service that returns sanctioned attributes and values for a given concept ||
+|| situationWrapper || Wraps concept/expression in a Situation With Explicit Context wrapper ||
