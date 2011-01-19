@@ -1,0 +1,28 @@
+#summary Getting started with Snofyre's Scripting Console
+
+= Getting started with Snofyre's Scripting Console =
+
+Add your content here.
+
+
+= Details =
+
+{{{            <map>
+                <entry key="context" value-ref="contextWrapper" />
+                <entry key="terminologyDAO" value-ref="terminologyConceptDatabaseDAO" />
+                <entry key="normalFormGenerator" value-ref="normalFormGenerator" />
+                <entry key="hierarchyProvider" value-ref="tcHierarchyProvider" />
+                <entry key="queryService" value-ref="queryService" />
+                <entry key="randomSubtypeGenerator" value-ref="randomSubtypeGenerator" />
+                <entry key="searchService" value-ref="terminologySearchService" />
+                <entry key="queryRenderer" value-ref="queryExpressionPlainTextRenderer" />
+                <entry key="expressionRender" value-ref="heuristicBasedHumanReadableRender" />
+                <entry key="queryExpressionFactory" value-ref="queryExpressionFactory" />
+                <entry key="snomedXMLConverter" value-ref="snomedXMLConverter" />
+                <entry key="mrcmService" value-ref="mrcmService" />
+                <entry key="situationWrapper" value-ref="situationExpressionGenerator" />
+                <entry key="expressionXMLConverter" value-ref="expressionXMLConverter" />
+                <entry key="cgfConverter" value-ref="expressionCompositionalGrammarConverter" />
+                <entry key="nfHierarchyProvider" value-ref="normalFormHierarchyProvider" />
+            </map>
+}}}
