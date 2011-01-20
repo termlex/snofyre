@@ -19,7 +19,7 @@ print "Hello Snofyre"
 }}}
  [http://snofyre.googlecode.com/svn/wiki/images/console-hello-1.png]
   * Now run this code using the {{{Run script}}} button. You should see the following output
-[http://snofyre.googlecode.com/svn/wiki/images/console-hello-2.png]
+ [http://snofyre.googlecode.com/svn/wiki/images/console-hello-2.png]
   * Remember when we said you have access to all of Java from inside the scripting console? Let's show you how. Lets use Java Swing to recreate a more fancy version of our {{{Hello Snofyre}}} example.
   * Clear the scripting console and type the following code as shown below
 {{{
@@ -29,7 +29,7 @@ JOptionPane.showMessageDialog(null, "Hello Snofyre")
  [http://snofyre.googlecode.com/svn/wiki/images/console-hello-3.png]
   * Now run this code using the {{{Run script}}} button
   * This should display a simple (arguably more pretty) {{{Hello Snofyre}}} message on your screen as shown below.
-[http://snofyre.googlecode.com/svn/wiki/images/console-hello-4.png]
+ [http://snofyre.googlecode.com/svn/wiki/images/console-hello-4.png]
 
 === Accessing Snofyre's Services ===
 
