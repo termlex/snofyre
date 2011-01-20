@@ -7,6 +7,7 @@
     * [Uninstalling Uninstalling Snofyre]
     * [TipsAndTricks Tips and tricks]
   * [GettingStarted Getting Started with Snofyre API]
+    * [gettingStartedWithScriptingConsole First Steps]
     * [snofyreAPIQA Code Quality]
   * [FAQs Frequently Asked Questions]
   * [Contributing Contributing to the project]
