@@ -14,7 +14,10 @@ Snofyre uses:
 
 ==Checking out===
   * Download and install Subversion from http://subversion.apache.org/packages.html
-  * Check out the code using {{{ svn checkout http://snofyre.googlecode.com/svn/trunk/ snofyre-read-only }}}.
+  * Check out the code using:
+{{{ 
+svn checkout http://snofyre.googlecode.com/svn/trunk/ snofyre-read-only
+}}}
   * If you used the above command, then your directory structure should look like
 {{{
 snofyre-read-only
@@ -23,14 +26,18 @@ snofyre-read-only
   |__ snomed-osgi
   |__ yasb-osgi
 }}}
-  * If you do not wish to use bleeding edge code, then check out the code from tags instead of trunk using {{{ svn checkout http://snofyre.googlecode.com/svn/tags/ snofyre-stable}}}. Please [http://code.google.com/p/snofyre/source/browse/ browse] the tags folder and select a release to avoid downloading all tagged releases.
+  * If you do not wish to use bleeding edge code, then check out the code from tags instead of trunk using:
+{{{ 
+svn checkout http://snofyre.googlecode.com/svn/tags/ snofyre-stable
+}}}
+Please [http://code.google.com/p/snofyre/source/browse/ browse] the tags folder and select a release to avoid downloading all tagged releases.
   * There is some useful information on http://code.google.com/p/snofyre/source/checkout
  
 ===Compiling Snofyre===
   * Download and install Maven from http://maven.apache.org/download.html. Note Snofyre was built using Maven version 2.1.0, so we do not recommend using Maven version 3 yet.
   * {{{cd}}} to the directory where you've checked out Snofyre code to.
   * Use {{{mvn clean install}}}.
-  * Note that you'll need to {{{mvn clean install}}} in the folders in the following order:
+  * Note that you'll need to run {{{mvn clean install}}} in the folders in the following order:
 {{{
 srth-desktop
 snomed-osgi
