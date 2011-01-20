@@ -1,0 +1,9 @@
+#summary Getting started with Snofyre API.
+
+=  Getting started with Snofyre API =
+
+Unlike traditional applications and APIs, there is more than one way to get your hands dirty with Snofyre's API.
+  * *Scripting*:this is the quick and easy way to get a feel for Snofyre's API. You wont have to check out code or install developer tools if you adopt the scripting path. Of course apart from a few keywords you'll essentially be using Java (well Groovy) to talk to Snofyre's API. If like to get a taste for Snofyre API using scripting, head over to this [scriptingIntroduction page].
+  * *Conventional Programming* If you already have to developer tools set up on your machine or if you just full control over what you can do with Snofyre's API, then this path is for you! All the instructions for getting you started are provided on this [conventionalGettingStartedWithSnofyreAPI page].
+
+Whichever path you choose, I hope you enjoy programming with Snofyre API as much as I enjoyed creating it!
