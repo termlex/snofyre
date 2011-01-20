@@ -1,7 +1,7 @@
 #summary The side bar pragma for the wiki.
 
   * [WhatsNew What's New]
-  * [Installation Installing Snofyre]
+  * [Installation Getting Started with Snofyre]
     * [downloadSnofyreFromTRUD Downloading Snofyre]
     * [http://docs.snofyre.googlecode.com/hg/install-guide/html/frameset.html Installation Manual]
     * [Uninstalling Uninstalling Snofyre]
