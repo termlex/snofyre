@@ -1,0 +1,19 @@
+#summary Introduction to Scripting in Snofyre.
+
+= Introduction to Scripting in Snofyre =
+
+Traditionally developers and advanced users have had to use an IDE and follow the following steps to start using APIs. We've tried to make it easier to access Snofyre's API for advanced users and developers by providing a console based access to Snofyre's underlying services. 
+
+So the following steps that you'd expect to follow to create a {{{Hello World}}} example, are not necessary for Snofyre:
+
+  # ~~Install Maven~~
+  # ~~Install Subversion~~
+  # ~~Check out Snofyre Code from the Snofyre Repo~~
+  # ~~Compile using mvn clean install~~
+  # ~~Now create a class {{{Hello Services}}}~~
+  # ~~Import {{{uk.nhs.cfh.dsp.snomed.dao.TerminologyService}}}~~
+  # ~~So and so forth…~~
+
+Instead you can access most of Snofyre's underlying services using Snofyre's Scripting Console. If you have Snofyre up and running, then you can use Scripting out of the box! In fact, Snofyre's Scripting Console allows access to most of Java's functionality because it is a Groovy Console.
+
+Head over to the [gettingStartedWithScriptingConsole Scripting First Steps] to get your first taste of scripting Snofyre.
