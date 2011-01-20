@@ -32,7 +32,6 @@ snofyre-read-only
   * Use {{{mvn clean install}}}.
   * Note that you'll need to {{{mvn clean install}}} in the folders in the following order:
 {{{
-snofyre-read-only
 srth-desktop
 snomed-osgi
 yasb-osgi
