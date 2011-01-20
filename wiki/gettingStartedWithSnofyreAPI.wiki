@@ -8,7 +8,7 @@ Unlike traditional applications and APIs, there is more than one way to get your
 <table border=0>
   <tbody>
     <tr>
-      <td>[http://snofyre.googlecode.com/svn/wiki/images/xterm.png]</td>
+      <td> [http://snofyre.googlecode.com/svn/wiki/images/xterm.png]</td>
       <td>This is the quick and easy way to get a feel for Snofyre's API. You wont have to check out code or install developer tools if you adopt the scripting path. Of course apart from a few keywords you'll essentially be using Java (well [http://groovy.codehaus.org/ Groovy]) to talk to Snofyre's API. If like to get a taste for Snofyre API using scripting, head over to this [scriptingIntroduction page].</td>
     </tr>
   </tbody>
@@ -18,7 +18,7 @@ Unlike traditional applications and APIs, there is more than one way to get your
 <table border=0>
   <tbody>
     <tr>
-      <td>[http://snofyre.googlecode.com/svn/wiki/images/configure.png]</td>
+      <td> [http://snofyre.googlecode.com/svn/wiki/images/configure.png]</td>
       <td>If you already have to developer tools set up on your machine or if you just full control over what you can do with Snofyre's API, then this path is for you! All the instructions for getting you started are provided on this [conventionalGettingStartedWithSnofyreAPI page].</td>
     </tr>
   </tbody>
