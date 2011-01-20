@@ -14,6 +14,6 @@ So the following steps that you'd expect to follow to create a {{{Hello World}}}
   # ~~Import {{{uk.nhs.cfh.dsp.snomed.dao.TerminologyService}}}~~
   # ~~So and so forth…~~
 
-Instead you can access most of Snofyre's underlying services using Snofyre's Scripting Console. If you have Snofyre up and running, then you can use Scripting out of the box! In fact, Snofyre's Scripting Console allows access to most of Java's functionality because it is a Groovy Console.
+Instead you can access most of Snofyre's underlying services using Snofyre's Scripting Console. If you have Snofyre up and running, then you can use Scripting out of the box! In fact, Snofyre's Scripting Console allows access to most of Java's functionality because it is a [http://groovy.codehaus.org/Groovy+Console Groovy Console].
 
 Head over to the [gettingStartedWithScriptingConsole Scripting First Steps] to get your first taste of scripting Snofyre.
