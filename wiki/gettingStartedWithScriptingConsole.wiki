@@ -52,4 +52,4 @@ Myocardial Infarction (disorder)
 }}}
   * Yep thats right! We've just looked up the {{{Fully Specified Name}}} for a given {{{concept id}}} in SNOMED CT using a single line of code!
 
-If all of that sounds interesting, then we've just scratched the surface of Snofyre's API. Head on to the [advancedScripting Advanced scripting] section to learn more.
+If all of that sounds interesting, then we've just scratched the surface of Snofyre's API. Head over to the [advancedScripting Advanced scripting] section to learn more.
