@@ -52,17 +52,4 @@ Myocardial Infarction (disorder)
 }}}
   * Yep thats right! We've just looked up the {{{Fully Specified Name}}} for a given {{{concept id}}} in SNOMED CT using a single line of code!
 
-== Advanced examples ==
-
-=== Snofyre Services Lookup Table ===
-
-|| *Service Name* || *Service Description* ||
-|| terminologyDAO || Access to SNOMED CT content ||
-|| normalFormGenerator || Generates Normal Forms for Concepts/Expressions ||
-|| hierarchyProvider || Provides hierarchy look up for SNOMED CT concepts ||
-|| cgfConverter || Converts a concept/expression into its compositional grammar form ||
-|| randomSubtypeGenerator || Returns a random subtype for a given concept or expression ||
-|| expressionRender || Returns a human readable rendering for Concepts/Expressions ||
-|| queryExpressionFactory || Factory service for creating {{{query}}} objects ||
-|| mrcmService || Service that returns sanctioned attributes and values for a given concept ||
-|| situationWrapper || Wraps concept/expression in a Situation With Explicit Context wrapper ||
+If all of that sounds interesting, then we've just scratched the surface of Snofyre's API. Head on to the [advancedScripting Advanced scripting] section to learn more.
