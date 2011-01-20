@@ -54,6 +54,5 @@ Here is a lookup table of the most commonly used of Snofyre's services.
 || expressionRender || Returns a human readable rendering for Concepts/Expressions ||
 || queryExpressionFactory || Factory service for creating {{{query}}} objects ||
 || mrcmService || Service that returns sanctioned attributes and values for a given concept ||
-|| situationWrapper || Wraps concept/expression in a Situation With Explicit Context wrapper ||
 
 == Joining up services! ==
