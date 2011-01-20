@@ -29,7 +29,9 @@ JOptionPane.showMessageDialog(null, "Hello Snofyre")
   * Now run this code using the {{{Run script}}} button
   * This should display a simple (arguably more pretty) {{{Hello Snofyre}}} message on your screen as shown below.
 [http://snofyre.googlecode.com/svn/wiki/images/console-hello-4.png]
+
 === Accessing Snofyre's Services ===
+
 One of the most common operations you might perform if you were building a SNOMED CT enabled application is retrieving SNOMED CT content. A typical example of this might be getting the {{{Fully Specified Name}}} for a SNOMED CT concept. Let us show you how easy it is to do this using Snofyre's underlying Services. Snofyre provides a service called {{{TerminologyDAO}}} that offers this functionality out of the box. Let us see how we can use this to retrieve the {{{Fully Specified Name}}} for a SNOMED CT concept with an ID {{{22298006}}}.
   * Clear the scripting console and type the following into the console
 {{{
