@@ -3,7 +3,7 @@
 
 = Whats New in Snofyre? =
     
-== Release Notes - Version Version 1.8 ==
+== Release Notes - Version 1.8 ==
 
 === Bug ===
     * SCTREPORTING-149 - Simulator does not respect constraints on number of records, when using queries with logical operators
@@ -47,7 +47,7 @@
     * SCTREPORTING-172 - Create online installer that connects to TRUD
     * SCTREPORTING-174 - Add scripting support
 
-==Release Notes - Version Version 1.7 ==
+==Release Notes - Version 1.7 ==
 
 === Bug ===
     * SCTREPORTING-164 - Query search & authoring dialog unresponsive when some concept types are selected
