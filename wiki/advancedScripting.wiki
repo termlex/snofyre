@@ -2,7 +2,7 @@
 
 = Advanced Scripting Using Snofyre's Scripting Console =
 
-In the previous post, we described the first steps for calling Snofyre's underlying services via the scripting console. Let us now look at some of the more advanced calls we can make to Snofyre's services.
+In the previous post, we described the first steps for calling Snofyre's underlying services via the scripting console. Let us now look at some of the more advanced calls we can make to Snofyre's services. From here on, we wont use as many illustrations as we did before.
 
 == Moving onto Objects ==
 In the previous example, we were printing the values returned by Snofyre to the console's output. This limits us to {{{String}}}s and does not allow us to do much. Let us now see how we can return full fledged Java {{{objects}}} that represent SNOMED CT concepts using Snofyre's services. Let us adapt our previous example of looking up the {{{Fully Specified Name}}} of {{{22298006}}}...
@@ -15,18 +15,20 @@ def concept = terminologyDAO.getTerminologyConcept("22298006")
   * Lets first print out the {{{Fully Specified Name}}} of this {{{concept}}}. To do that, clear the console and type the following:
 {{{
 def concept = terminologyDAO.getTerminologyConcept("22298006")
-print concept.getFullySpecifiedName()
+println concept.getFullySpecifiedName()
 }}}
+[http://snofyre.googlecode.com/svn/wiki/images/terminology-dao-1.png]
   * Now run this code using the {{{Run script}}} button.
   * This should print out our familiar result of:
 {{{
 Myocardial Infarction (disorder)
 }}}
+[http://snofyre.googlecode.com/svn/wiki/images/terminology-dao-2.png]
   * Since we are now dealing with proper Snofyre objects, we can easily print out all the {{{synonyms}}} for this concept, by adding this additional line of code. Our console input should now look like:
 {{{
 def concept = terminologyDAO.getTerminologyConcept("22298006")
-print concept.getFullySpecifiedName()
-print concept.getSynonyms()
+println concept.getFullySpecifiedName()
+println concept.getSynonyms()
 }}}
   * Now run this code using the {{{Run script}}} button.
   * This should print out:
@@ -38,9 +40,38 @@ Myocardial infarction (disorder)
   * You can look up all the available method calls using the Javadoc for {{{SnomedConcept}}} class.
   * When you start using Snofyre's objects you get a lot of this functionality for free. By default, most Snofyre's services return Snofyre objects.
 
-== More objects and Services ==
+== More Services (and objects) ==
 Up until now we've only looked looked at just one of Snofyre's many services and just one of its many classes. Lets now show you some of Snofyre's other services.
 
+=== Hierarchy Provider ===
+Lets say we wanted to get all types of {{{Myocardial infarction }}} specified in SNOMED CT, we can do this off the shelf using the {{{hierarchyProvider}}} service. Lets show you how.
+  * Let use reuse some of the code we previously typed out.
+  * To do that, clear the console and type the following:
+{{{
+def concept = terminologyDAO.getTerminologyConcept("22298006")
+println hierarchyProvider.getChildren(concept.getConceptID())
+}}}
+  * Now run this code using the {{{Run script}}} button.
+  * This should print out something like what is shown below:
+{{{
+Myocardial infarction (disorder)
+[371068009, 233843008, 418044006, 57054005, ... so on...]
+}}}
+  * Notice how this only prints out the {{{concept id}}}s of the children and not entire concepts. This is a performance measure because returning entire objects is computationally expensive, especially if you select an high level concept like {{{Clinical Finding}}}. In creating Snofyre, we made the design decision to only ever return {{{concept id}}}s when using the {{{hierarchyProvider}}} service.
+  * Remember the majority of Snofyre's services return Snofyre {{{object}}}s, not {{{String}}}s.
+  * The {{{getChildren}}} method only returns the first level children of {{{Myocardial infarction }}}. In a lot of cases, we actually want {{{ALL}}} types of {{{Myocardial infarction }}}. 
+  * To do that, clear the console and type the following:
+{{{
+def concept = terminologyDAO.getTerminologyConcept("22298006")
+println hierarchyProvider.getDescendants(concept.getConceptID())
+}}}
+  * Now run this code using the {{{Run script}}} button.
+  * This should print out something like what is shown below:
+{{{
+Myocardial infarction (disorder)
+[371068009, 233843008, 418044006, 57054005, ... A LOT MORE...]
+}}}
+  * Notice again how only {{{concept id}}}s are returned.
 
 === Snofyre Services Lookup Table ===
 Here is a lookup table of the most commonly used Snofyre services.
