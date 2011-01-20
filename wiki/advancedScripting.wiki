@@ -73,6 +73,17 @@ Myocardial infarction (disorder)
 }}}
   * Notice again how only {{{concept id}}}s are returned.
 
+=== Normal Form Generator ===
+If you try creating {{{post-coordinated}}} expressions using SNOMED CT, then you need to convert the {{{post-coordinated}}} expression into its {{{normal form}}} before you can compare it with another {{{post-coordinated}}} expression. The rules for generating the {{{normal form}}} are somewhat complex and use recursive {{{subsumption}}} testing. You can find more information on generating {{{normal forms}}} in the SNOMED CT Technical Implementation Guide. Snofyre provides this ability out of the box in the {{{normalFormGenerator}}} service. Let us see how to generate the normal form of {{{Myocardial infarction }}}.
+  * To do this, clear the console and type the following:
+{{{
+def concept = terminologyDAO.getTerminologyConcept("22298006")
+println normalFormGenerator.getLongNormalFormExpression(concept)
+}}}
+  * Now run this code using the {{{Run script}}} button.
+  * This should print out a longish serialisation of an Snofyre {{{NormalFormExpression}}} object that runs off the bottom of the screen.
+  * Notice again how only {{{concept id}}}s are returned.
+
 === Snofyre Services Lookup Table ===
 Here is a lookup table of the most commonly used Snofyre services.
 
