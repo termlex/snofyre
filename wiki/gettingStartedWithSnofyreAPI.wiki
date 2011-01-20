@@ -9,7 +9,7 @@ Unlike traditional applications and APIs, there is more than one way to get your
   <tbody>
     <tr>
       <td>[http://snofyre.googlecode.com/svn/wiki/images/xterm.png]</td>
-      <td>This is the quick and easy way to get a feel for Snofyre's API. You wont have to check out code or install developer tools if you adopt the scripting path. Of course apart from a few keywords you'll essentially be using Java (well Groovy) to talk to Snofyre's API. If like to get a taste for Snofyre API using scripting, head over to this [scriptingIntroduction page].</td>
+      <td>This is the quick and easy way to get a feel for Snofyre's API. You wont have to check out code or install developer tools if you adopt the scripting path. Of course apart from a few keywords you'll essentially be using Java (well [http://groovy.codehaus.org/ Groovy]) to talk to Snofyre's API. If like to get a taste for Snofyre API using scripting, head over to this [scriptingIntroduction page].</td>
     </tr>
   </tbody>
 </table>
