@@ -30,7 +30,7 @@ snofyre-read-only
 {{{ 
 svn checkout http://snofyre.googlecode.com/svn/tags/ snofyre-stable
 }}}
-Please [http://code.google.com/p/snofyre/source/browse/ browse] the tags folder and select a release to avoid downloading all tagged releases.
+  * Please [http://code.google.com/p/snofyre/source/browse/ browse] the tags folder and select a release to avoid downloading all tagged releases.
   * There is some useful information on http://code.google.com/p/snofyre/source/checkout
  
 ===Compiling Snofyre===
