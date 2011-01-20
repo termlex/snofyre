@@ -121,4 +121,4 @@ Here is a lookup table of the most commonly used Snofyre services.
 || queryExpressionFactory || Factory service for creating {{{query}}} objects ||
 || mrcmService || Service that returns sanctioned attributes and values for a given concept ||
 
-If you are looking for even faster ways of using Snofyre's services, then head over to [joiningServices joining services].
+If you are looking for even faster ways of using Snofyre's services, then head over to [pipingSnofyreServices joining services].
