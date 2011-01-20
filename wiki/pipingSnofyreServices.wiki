@@ -13,6 +13,6 @@ println cgfConverter.getCompositionalForm(normalFormGenerator.getLongNormalFormE
 
 = Where to from here? =
 We've given you enough for you to start using Snofyre's services from the scripting console. If you need more information then refer to 
-  * Snofyre Functional Services Manual
-  * Developer Pages
+  * [http://snofyre.googlecode.com/files/snofyre-functional-services-manual.pdf Snofyre Functional Services Manual]
+  * [http://snofyre.googlecode.com/files/java-docs.zip Java Docs]
   * Post your experiences and questions on http://groups.google.com/group/snofyre-dev
