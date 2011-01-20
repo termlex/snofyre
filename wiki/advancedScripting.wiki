@@ -22,6 +22,22 @@ print concept.getFullySpecifiedName()
 {{{
 Myocardial Infarction (disorder)
 }}}
+  * Since we are now dealing with proper Snofyre objects, we can easily print out all the {{{synonyms}}} for this concept, by adding this additional line of code. Our console input should now look like:
+{{{
+def concept = terminologyDAO.getTerminologyConcept("22298006")
+print concept.getFullySpecifiedName()
+print concept.getSynonyms()
+}}}
+  * Now run this code using the {{{Run script}}} button.
+  * This should print out:
+{{{
+Myocardial infarction (disorder)
+[Heart attack, Cardiac infarction, Myocardial infarct, Heart attack, NOS, Infarction of heart, NOS, Infarction of heart, MI - Myocardial infarction, Cardiac infarction, NOS, Myocardial infarction, NOS, Attack - heart]
+}}}
+  * Of course, you don't have to stop at just {{{synonyms}}}, you can get all its {{{descriptions}}}, {{{relationships}}}, {{{children}}} etc.
+  * You can look up all the available method calls using the Javadoc for {{{SnomedConcept}}} class.
+  * When you start using Snofyre's objects you get a lot of this functionality for free. By default, most Snofyre's services return Snofyre objects.
+
 
 = Details =
 
