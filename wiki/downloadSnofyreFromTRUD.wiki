@@ -8,7 +8,7 @@ This section describes the process for downloading Snofyre installer and package
 
   # Please register with TRUD at https://www.uktcregistration.nss.cfh.nhs.uk/trud/
   #  Please sign up for access to the pack NHSSNOFYRE (and its sub packs) by selecting the packs shown below.
-[http://snofyre.googlecode.com/svn/wiki/images/trud-signup.png]
+  # [http://snofyre.googlecode.com/svn/wiki/images/trud-signup.png]
   # Since the current version of Snofyre bundles SNOMED CT content, you'll be asked to accept the IHTSDO and UKTC licenses.
   # When you have been granted access to the pack (usually an overnight process), download the following following release:
     * If you are on Windows : NHSSNOFYRE/1.1.0/NHS_SNOFYREINST/nhs_snofyreinst_1.1.0_20110101000001.zip
