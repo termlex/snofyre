@@ -4,6 +4,10 @@
 
 In the previous post, we described the first steps for calling Snofyre's underlying services via the scripting console. Let us now look at some of the more advanced calls we can make to Snofyre's services. From here on, we wont use as many illustrations as we did before.
 
+{{{
+For a complete list of all services and method calls provided by Snofyre' please refer to the Snofyre Functional Services Manual and the javadocs.
+}}}
+
 == Moving onto Objects ==
 In the previous example, we were printing the values returned by Snofyre to the console's output. This limits us to {{{String}}}s and does not allow us to do much. Let us now see how we can return full fledged Java {{{objects}}} that represent SNOMED CT concepts using Snofyre's services. Let us adapt our previous example of looking up the {{{Fully Specified Name}}} of {{{22298006}}}...
   * Clear the scripting console and type the following into the console 
