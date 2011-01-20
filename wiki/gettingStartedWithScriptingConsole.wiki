@@ -4,7 +4,8 @@
 
 == Starting Snofyre's Scripting Console ==
 In order to launch Snofyre's Scripting Console:
-  * Select {{{Launch scripting console}}} from under {{{Tools}}} menu.
+  * Select {{{Launch scripting console}}} from under {{{Tools}}} menu as shown below.
+[http://snofyre.googlecode.com/svn/wiki/images/launch-scripting-console.png]
   * This should launch the scripting console as shown below.
 [http://snofyre.googlecode.com/svn/wiki/images/groovy-console.png]
   * You can minimise Snofyre application window while you are working on the scripting console.
