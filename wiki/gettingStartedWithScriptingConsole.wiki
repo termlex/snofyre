@@ -29,6 +29,7 @@ To get started with scripting Snofyre, lets see how easy it is to create a {{{He
 {{{
 print "Hello Snofyre"
 }}}
+[images/console-hello-1.png]
   * Now run this code using the {{{Run script}}} button. You should see the following output
 
   * Remember when we said you have access to all of Java from inside the scripting console? Let's show you how. Lets use Java Swing to recreate a more fancy version of our {{{Hello Snofyre}}} example.
