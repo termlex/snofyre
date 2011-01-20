@@ -8,6 +8,7 @@
     * [TipsAndTricks Tips and tricks]
   * [GettingStarted Getting Started with Snofyre API]
     * [gettingStartedWithScriptingConsole First Steps]
+    * [advancedScripting Advanced Scripting]
     * [snofyreAPIQA Code Quality]
   * [FAQs Frequently Asked Questions]
   * [Contributing Contributing to the project]
