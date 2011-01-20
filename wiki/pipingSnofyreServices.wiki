@@ -1,0 +1,18 @@
+#summary Joining up Snofyre's Services.
+
+= Joining up Snofyre's Services =
+As the advanced users and Java programmers will already realise, we do not have to declare objects at every step. We can {{{pipe}}} or redirect the output of one Snofyre service as the input of another. So we could have printed the {{{compositional grammar form}}} of {{{Myocardial infarction }}} using the two lines shown below.
+{{{
+def concept = terminologyDAO.getTerminologyConcept("22298006")
+println cgfConverter.getCompositionalForm(normalFormGenerator.getLongNormalFormExpression(concept))
+}}}
+  * If you already knew that {{{22298006}}} corresponds to {{{Myocardial infarction }}}, or if you didnt care what it corresponds to, you could have use the following *single* line of code to generate the {{{compositional grammar form}}}:
+{{{
+println cgfConverter.getCompositionalForm(normalFormGenerator.getLongNormalFormExpression(terminologyDAO.getTerminologyConcept("22298006")))
+}}}
+
+= Where to from here? =
+We've given you enough for you to start using Snofyre's services from the scripting console. If you need more information then refer to 
+  * Snofyre Functional Services Manual
+  * Developer Pages
+  * Post your experiences and questions on http://groups.google.com/group/snofyre-dev
