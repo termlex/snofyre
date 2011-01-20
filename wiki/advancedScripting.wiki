@@ -39,6 +39,21 @@ Myocardial infarction (disorder)
   * When you start using Snofyre's objects you get a lot of this functionality for free. By default, most Snofyre's services return Snofyre objects.
 
 == More objects and Services ==
-Up until now we've only looked looked at just one of Snofyre's many services and just one of its many classes. Lets now show you some of Snofyre's other services
+Up until now we've only looked looked at just one of Snofyre's many services and just one of its many classes. Lets now show you some of Snofyre's other services.
+
+
+=== Snofyre Services Lookup Table ===
+Here is a lookup table of the most commonly used of Snofyre's services.
+
+|| *Service Name* || *Service Description* ||
+|| terminologyDAO || Access to SNOMED CT content ||
+|| normalFormGenerator || Generates Normal Forms for Concepts/Expressions ||
+|| hierarchyProvider || Provides hierarchy look up for SNOMED CT concepts ||
+|| cgfConverter || Converts a concept/expression into its compositional grammar form ||
+|| randomSubtypeGenerator || Returns a random subtype for a given concept or expression ||
+|| expressionRender || Returns a human readable rendering for Concepts/Expressions ||
+|| queryExpressionFactory || Factory service for creating {{{query}}} objects ||
+|| mrcmService || Service that returns sanctioned attributes and values for a given concept ||
+|| situationWrapper || Wraps concept/expression in a Situation With Explicit Context wrapper ||
 
 == Joining up services! ==
