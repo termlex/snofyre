@@ -1,0 +1,31 @@
+#summary Advanced Scripting Using Snofyre's Scripting Console
+
+= Advanced Scripting Using Snofyre's Scripting Console =
+
+In the previous post, we described the first steps for calling Snofyre's underlying services via the scripting console. Let us now look at some of the more advanced calls we can make to Snofyre's services.
+
+== Moving onto Objects ==
+In the previous example, we were printing the values returned by Snofyre to the console's output. This limits us to {{{String}}}s and does not allow us to do much. Let us now see how we can return full fledged Java {{{objects}}} that represent SNOMED CT concepts using Snofyre's services. Let us adapt our previous example of looking up the {{{Fully Specified Name}}} of {{{22298006}}}...
+  * Clear the scripting console and type the following into the console 
+{{{
+def concept = terminologyDAO.getTerminologyConcept("22298006")
+}}}
+  * Notice how we use {{{def concept =}}} to assign the value returned by {{{terminologyDAO}}} to an object {{{concept}}}.
+  * Since this {{{concept}}} object represents a SNOMED CT concept, we can use Snofyre API to retrieve all the features of this concept. 
+  * Lets first print out the {{{Fully Specified Name}}} of this {{{concept}}}. To do that, clear the console and type the following:
+{{{
+def concept = terminologyDAO.getTerminologyConcept("22298006")
+print concept.getFullySpecifiedName()
+}}}
+  * Now run this code using the {{{Run script}}} button.
+  * This should print out our familiar result of:
+{{{
+Myocardial Infarction (disorder)
+}}}
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
