@@ -3,7 +3,7 @@
   * [WhatsNew What's New]
   * [Installation Installing Snofyre]
     * [downloadSnofyreFromTRUD Downloading Snofyre]
-    * [http://docs.snofyre.googlecode.com/hg/install-guide/html/frameset.html Installation Manual]
+    * [http://docs.snofyre.googlecode.com/hg/install-guide/html/frameset.html ~~Installation Manual~~]
     * [Uninstalling Uninstalling Snofyre]
     * [TipsAndTricks Tips and tricks]
   * [GettingStarted Getting Started with Snofyre API]
