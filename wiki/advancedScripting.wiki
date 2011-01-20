@@ -82,7 +82,26 @@ println normalFormGenerator.getLongNormalFormExpression(concept)
 }}}
   * Now run this code using the {{{Run script}}} button.
   * This should print out a longish serialisation of an Snofyre {{{NormalFormExpression}}} object that runs off the bottom of the screen.
-  * Notice again how only {{{concept id}}}s are returned.
+  * Don't worry about how long this {{{NormalFormExpression}}} object looks. It just Snofyre's internal object representation.
+  * In fact, there are a few different ways of making the {{{NormalFormExpression}}} object more human readable. We'll cover one of them in the next section.
+
+=== Compositional Grammar Form Generator ===
+We often need a terse way of expressing {{{normal form}}}s, in a way that makes them machine readable (+ parsable) and also slightly more human friendly. One way to do this is to express a {{{normal form}}} using {{{Compositional Grammar}}}. Once again, we can do this out of the box using Snofyre's {{{cgfConverter}}} service.
+  * To do this, clear the console and type the following:
+{{{
+def concept = terminologyDAO.getTerminologyConcept("22298006")
+def nfe = normalFormGenerator.getLongNormalFormExpression(concept)
+println cgfConverter.getCompositionalForm(nfe)
+}}}
+  * Now run this code using the {{{Run script}}} button.
+  * This should print out something like what is shown below:
+{{{
+64572001:{116676008=55641003,
+363698007=74281007}
+}}}
+  * Notice how our previously longishhh {{{NormalFormExpression}}} object  has been represented in a terse form using {{{concept id}}}s and some other symbols. There is a BNF for how the {{{compositional grammar form}}} can be written. Once again, refer to the SNOMED CT Technical Implementation Guide for information.
+  * Arguably we could have added the {{{descriptions}}} against each concept identifier to make a lot more human readable. But for the moment Snofyre does not provide this out of the box.
+  * If you are interested in this feature or would like to help us implement it, please contact us at http://groups.google.com/group/snofyre-dev
 
 === Snofyre Services Lookup Table ===
 Here is a lookup table of the most commonly used Snofyre services.
