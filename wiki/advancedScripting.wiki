@@ -43,7 +43,7 @@ Up until now we've only looked looked at just one of Snofyre's many services and
 
 
 === Snofyre Services Lookup Table ===
-Here is a lookup table of the most commonly used of Snofyre's services.
+Here is a lookup table of the most commonly used Snofyre services.
 
 || *Service Name* || *Service Description* ||
 || terminologyDAO || Access to SNOMED CT content ||
