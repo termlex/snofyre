@@ -31,6 +31,13 @@ snofyre-read-only
   * {{{cd}}} to the directory where you've checked out Snofyre code to.
   * Use {{{mvn clean install}}}.
   * Note that you'll need to {{{mvn clean install}}} in the folders in the following order:
+{{{
+snofyre-read-only
+srth-desktop
+snomed-osgi
+yasb-osgi
+srth-osgi
+}}}
 
 ===Setting up in an IDE===
   * Since Snofyre uses Maven, most popular IDEs that support Maven projects can be used to compile and build Snofyre.
