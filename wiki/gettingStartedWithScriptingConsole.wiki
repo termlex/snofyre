@@ -20,6 +20,7 @@ Instead you can access most of Snofyre's underlying services using Snofyre's Scr
 In order to launch Snofyre's Scripting Console:
   * Select {{{Launch scripting console}}} from under {{{Tools}}} menu.
   * This should launch the scripting console as shown below.
+[http://snofyre.googlecode.com/svn/wiki/images/groovy-console.png]
   * You can minimise Snofyre application window while you are working on the scripting console.
   * Remember we said, minimise not *close*!
 
@@ -31,26 +32,29 @@ print "Hello Snofyre"
 }}}
 [http://snofyre.googlecode.com/svn/wiki/images/console-hello-1.png]
   * Now run this code using the {{{Run script}}} button. You should see the following output
-
+[http://snofyre.googlecode.com/svn/wiki/images/console-hello-2.png]
   * Remember when we said you have access to all of Java from inside the scripting console? Let's show you how. Lets use Java Swing to recreate a more fancy version of our {{{Hello Snofyre}}} example.
   * Clear the scripting console and type the following code as shown below
 {{{
 import javax.swing.*
 JOptionPane.showMessageDialog(null, "Hello Snofyre")
 }}}
+[http://snofyre.googlecode.com/svn/wiki/images/console-hello-3.png]
   * Now run this code using the {{{Run script}}} button
   * This should display a simple (arguably more pretty) {{{Hello Snofyre}}} message on your screen as shown below.
-
+[http://snofyre.googlecode.com/svn/wiki/images/console-hello-4.png]
 === Accessing Snofyre's Services ===
 One of the most common operations you might perform if you were building a SNOMED CT enabled application is retrieving SNOMED CT content. A typical example of this might be getting the {{{Fully Specified Name}}} for a SNOMED CT concept. Let us show you how easy it is to do this using Snofyre's underlying Services. Snofyre provides a service called {{{TerminologyDAO}}} that offers this functionality out of the box. Let us see how we can use this to retrieve the {{{Fully Specified Name}}} for a SNOMED CT concept with an ID {{{22298006}}}.
   * Clear the scripting console and type the following into the console
 {{{
 print terminologyDAO.getTerminologyConcept("22298006").getFullySpecifiedName()
 }}}
+[http://snofyre.googlecode.com/svn/wiki/images/console-hello-5.png]
   * This should print out the following on in the console output
 {{{
 Myocardial Infarction (disorder)
 }}}
+[http://snofyre.googlecode.com/svn/wiki/images/console-hello-6.png]
   * Yep thats right! We've just looked up the {{{Fully Specified Name}}} for a given {{{concept id}}} in SNOMED CT using a single line of code!
 
 If all of that sounds interesting, then we've just scratched the surface of Snofyre's API. Head over to the [advancedScripting Advanced scripting] section to learn more.
