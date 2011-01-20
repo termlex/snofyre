@@ -25,9 +25,9 @@ In order to launch Snofyre's Scripting Console:
 
 === First steps with scripting ===
 To get started with scripting Snofyre, lets see how easy it is to create a {{{Hello Snofyre}}} example.
-  * Type {{{print 'Hello Snofyre'}}} in the scripting console as shown below.
+  * Type {{{print "Hello Snofyre"}}} in the scripting console as shown below.
 {{{
-print 'Hello Snofyre'
+print "Hello Snofyre"
 }}}
   * Now run this code using the {{{Run script}}} button. You should see the following output
 
