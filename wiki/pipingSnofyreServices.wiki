@@ -6,7 +6,8 @@ As the advanced users and Java programmers will already realise, we do not have 
 def concept = terminologyDAO.getTerminologyConcept("22298006")
 println cgfConverter.getCompositionalForm(normalFormGenerator.getLongNormalFormExpression(concept))
 }}}
-  * If you already knew that {{{22298006}}} corresponds to {{{Myocardial infarction }}}, or if you didnt care what it corresponds to, you could have use the following *single* line of code to generate the {{{compositional grammar form}}}:
+
+If you already knew that {{{22298006}}} corresponds to {{{Myocardial infarction }}}, or if you didnt care what it corresponds to, you could have use the following *single* line of code to generate the {{{compositional grammar form}}}:
 {{{
 println cgfConverter.getCompositionalForm(normalFormGenerator.getLongNormalFormExpression(terminologyDAO.getTerminologyConcept("22298006")))
 }}}
