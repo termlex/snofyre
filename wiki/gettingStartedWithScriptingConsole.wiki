@@ -50,7 +50,7 @@ print terminologyDAO.getTerminologyConcept("22298006").getFullySpecifiedName()
 {{{
 Myocardial Infarction (disorder)
 }}}
-  * Yep thats right, we've just looked up the {{{Fully Specified Name}}} for a given {{{concept id}}} in SNOMED CT using a single line of code!
+  * Yep thats right! We've just looked up the {{{Fully Specified Name}}} for a given {{{concept id}}} in SNOMED CT using a single line of code!
 
 == Advanced examples ==
 
