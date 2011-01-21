@@ -19,7 +19,7 @@ Unlike traditional applications and APIs, there is more than one way to get your
   <tbody>
     <tr>
       <td> [http://snofyre.googlecode.com/svn/wiki/images/configure.png]</td>
-      <td>If you already have to developer tools set up on your machine or if you just full control over what you can do with Snofyre's API, then this path is for you! All the instructions for getting you started are provided on this [conventionalGettingStartedWithSnofyreAPI page].</td>
+      <td>If you already have developer tools set up on your machine or if you just full control over what you can do with Snofyre's API, then this path is for you! All the instructions for getting you started are provided on this [conventionalGettingStartedWithSnofyreAPI page].</td>
     </tr>
   </tbody>
 </table>
