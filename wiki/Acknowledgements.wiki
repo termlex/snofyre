@@ -8,4 +8,5 @@ We would like to acknowledge the following entities (organisations, people or pr
 || *Tango Icons* || http://tango.freedesktop.org/Tango_Desktop_Project ||
 || *Fam Fam Silk Icons*|| http://www.famfamfam.com/lab/icons/ ||
 || [http://www.connectingforhealth.nhs.uk/systemsandservices/data Data Standards & Products], NHS Connecting for Health || For sponsoring the SNOMED CT Reporting project and graciously allowing the work to be shared with the rest of the world! ||
+|| Implementation & Outreach Team, Department of Health Informatics, UK || Some of the people who care about SNOMED CT ||
 || Chris Dayman (Mr D) || For creating all the cool media (graphics + video) content for Snofyre ||
