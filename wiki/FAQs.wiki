@@ -18,7 +18,7 @@ The Snofyre Installation Manual describes the system requirements, but a quick c
 || MySQL Server || 5.1+ ||
 
 == Why did you create Snofyre? ==
-We created Snofyre initially as a proof of concept demonstrator, to show that it is technically possible to query SNOMED CT encoded data in a meaningful fashion.
+We created Snofyre initially as a proof of concept demonstrator, to show that it is technically possible to query SNOMED CT encoded data in a meaningful way.
 
 == Is the test data supplied with Snofyre real patient data? ==
 No. Snofyre has the ability to generate plausible clinical data, based on a given set of parameters. The test data supplied with Snofyre is synthetic data that was created using this feature.
