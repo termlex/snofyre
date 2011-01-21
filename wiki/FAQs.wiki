@@ -22,3 +22,6 @@ We created Snofyre initially as a proof of concept demonstrator, to show that it
 
 == Is the test data supplied with Snofyre real patient data? ==
 No. Snofyre has the ability to generate plausible clinical data, based on a given set of parameters. The test data supplied with Snofyre is synthetic data that was created using this feature.
+
+== What operating systems does Snofyre run on? ==
+Snofyre was written in Java. So it was also designed to run on any operating system, as long as Java is installed on it.
