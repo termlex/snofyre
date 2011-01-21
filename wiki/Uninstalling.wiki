@@ -7,5 +7,11 @@ To uninstall Snofyre:
   * Navigate to Snofyre's <tt>Installation folder</tt>
   * Navigate to {{{Uninstaller}}} folder located in the <tt>Installation folder</tt>.
   * Start uninstallation by running the <tt>Snofyre-Uninstaller.jar</tt> file in this folder. You can run the <tt>Snofyre-Uninstaller.jar</tt> by doubling clicking the file.
+  * You'll now see a dialog as shown below.
+  [http://snofyre.googlecode.com/svn/wiki/images/snofyre-uninstall-1.png]
+  * Click the *Uninstall* button to start uninstallation. You should see a progress window as shown below.
+  [http://snofyre.googlecode.com/svn/wiki/images/snofyre-uninstall-2.png]
+  * Once uninstallation has been completed, you'll be shown a <tt>Finished</tt> message as shown below.
+  [http://snofyre.googlecode.com/svn/wiki/images/snofyre-uninstall-3.png]
   * This should uninstall Snofyre.
   * On Windows, Snofyre's <tt>Installation folder</tt> might be deleted, even when you choose force delete of <tt>Installation folder</tt>. It might still contain the <tt>Snofyre-Uninstaller.jar</tt>. If this happens, you can safely delete Snofyre's <tt>Installation folder</tt> and all its content.
