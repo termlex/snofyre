@@ -1,0 +1,27 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+Here is some tips on how to import, edit and debug snofyre framework with Netbeans. 
+
+= Pre-Requisites = 
+
+In order to import edit and debug snofyre you require the following
+ 
+Java 
+Netbeans 6.9.1 
+
+
+= Debugging =
+
+Once you have the project imported in to netbeans you can debug. 
+
+In order to debug the app using NetBeans need to start the bundle in debug mode. From the command prompt in the install directory:
+
+java -Xms250m -Xmx1000m -Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,address=8888,server=y,suspend=y -jar org.eclipse.osgi-3.6.0v20100517.jar -console -configuration platform
+
+Next add a break point in the relevant part of code. 
+
+Next you need to attach the debugger open netbeans, select Debug--> Attach Debugger. 
+
+In the dialog box Select JPDA Debugger  and Port 8888, leave other options as default. 
