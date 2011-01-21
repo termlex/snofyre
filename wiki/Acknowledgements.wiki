@@ -7,4 +7,5 @@ We would like to acknowledge the following entities (organisations, people or pr
 || [http://www.headwaysoftware.com/products/structure101/index.php http://www.structure101.com/structure101-java/images/webapp.gif] || [http://www.headwaysoftware.com/ Headway Software] provided free licenses of [http://www.headwaysoftware.com/products/structure101/index.php Structure 101] for analyzing and managing the architecture of Sappheiros code.|| 
 || *Tango Icons* || http://tango.freedesktop.org/Tango_Desktop_Project ||
 || *Fam Fam Silk Icons*|| http://www.famfamfam.com/lab/icons/ ||
+|| NHS Connecting for Health || For sponsoring the SNOMED CT Reporting project and graciously allowing the work to be shared with the rest of the world! ||
 || Chris Dayman (Mr D) || For creating all the cool media (graphics + video) content for Snofyre ||
