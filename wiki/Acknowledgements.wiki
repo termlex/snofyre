@@ -10,3 +10,4 @@ I would like to acknowledge the following entities (organisations, people or pro
 || [http://www.connectingforhealth.nhs.uk/systemsandservices/data Data Standards & Products], NHS Connecting for Health || For sponsoring the SNOMED CT Reporting project and graciously allowing the work to be shared with the rest of the world! ||
 || Implementation & Outreach Team, Department of Health Informatics, UK || Some of the people that I know, who care about implementation/adoption of SNOMED CT ||
 || Chris Dayman (Mr D) || For creating all the cool media (graphics + video) content for Snofyre ||
+|| Jeremy Rogers || For participating in 'agile development', despite being distracted by Shaun the Sheep and the Kitten ||
