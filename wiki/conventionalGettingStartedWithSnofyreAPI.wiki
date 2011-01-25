@@ -64,4 +64,8 @@ mvn clean install -Dmaven.test.failure.ignore=true
 
 ===Setting up in an IDE===
   * Since Snofyre uses Maven, most popular IDEs that support Maven projects can be used to compile and build Snofyre.
-  * There are no guides here for setting up Snofyre code in a given IDE, but we welcome contributions on 'how to guides' for your IDE of choice. Please contact us at snofyre-dev@googlegroups.com, if you have ideas or contributions.
+  * We have short how to guides for setting up Snofyre as a project in the following IDEs:
+    * [developWithEclipse Eclipse]
+    * [developWithNetBeans NetBeans]
+    * [developWithIntelliJ IntelliJ IDEA]
+  * We welcome contributions to these 'how to guides' for your IDE of choice. Please contact us at snofyre-dev@googlegroups.com, if you have ideas or contributions.
