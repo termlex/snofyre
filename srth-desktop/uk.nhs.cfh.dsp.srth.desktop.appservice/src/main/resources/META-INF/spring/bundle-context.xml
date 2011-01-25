@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+  <!-- regular spring configuration file defining the beans for this
+       bundle. We've kept the osgi definitions in a separate 
+       configuration file so that this file can easily be used
+       for integration testing outside of an OSGi environment -->
+
+    <bean id="errorLoggerService" class="uk.nhs.cfh.dsp.srth.desktop.appservice.error.impl.ErrorLoggerServiceImpl">
+        <property name="errorLogs">
+            <list>
+                    <bean id="errorLog" class="uk.nhs.cfh.dsp.srth.desktop.appservice.error.impl.ErrorLogImpl"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="applicationService" class="uk.nhs.cfh.dsp.srth.desktop.appservice.impl.ApplicationServiceImpl">
+        <property name="errorLoggerService" ref="errorLoggerService"/>
+    </bean>
+</beans>
