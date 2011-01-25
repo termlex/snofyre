@@ -565,10 +565,8 @@
                         <manifestEntries>
                             <!--Add custom meta information to bundle-->
                             <Bundle-Author>${author.name}</Bundle-Author>
-                            <Bundle-Build-Number>${changeSet}</Bundle-Build-Number>
+                            <Bundle-Build-Number>${buildNumber}</Bundle-Build-Number>
                             <Bundle-Build-Time>${timestamp}</Bundle-Build-Time>
-                            <Bundle-Change-Set-Date>${changeSetDate}</Bundle-Change-Set-Date>
-                            <!--<Bundle-Change-Set>${changeSet}</Bundle-Change-Set>-->
                         </manifestEntries>
                     </archive>
                 </configuration>

@@ -59,12 +59,9 @@
   <!--</issueManagement>-->
 
   <scm>
-    <!--<connection>scm:svn:http://commsg1lds.npfit.nhs.uk/svn/tools/trunk/Terminology/snomed/tools/SNOMEDCT_Reporting/srth-osgi/trunk/srth-osgi</connection>-->
-    <!--<developerConnection>scm:svn:http://commsg1lds.npfit.nhs.uk/svn/tools/trunk/Terminology/snomed/tools/SNOMEDCT_Reporting/srth-osgi/trunk/srth-osgi</developerConnection>-->
-    <!--<url>http://commsg1lds.npfit.nhs.uk/svn/tools/trunk/Terminology/snomed/tools/SNOMEDCT_Reporting/srth-osgi/trunk/srth-osgi</url>-->
-    <connection>scm:svn:https://svn.connectingforhealth.nhs.uk/svn/public/srp/srth-osgi/trunk/srth-osgi</connection>
-    <developerConnection>scm:svn:https://svn.connectingforhealth.nhs.uk/svn/public/srp/srth-osgi/trunk/srth-osgi</developerConnection>
-    <url>https://svn.connectingforhealth.nhs.uk/svn/public/srp/srth-osgi/trunk/srth-osgi</url>
+    <connection>scm:svn:https://snofyre.googlecode.com/svn/trunk/srth-osgi</connection>
+    <developerConnection>scm:svn:https://snofyre.googlecode.com/svn/trunk/srth-osgi</developerConnection>
+    <url>https://snofyre.googlecode.com/svn/trunk/srth-osgi</url>
   </scm>
 
   <!--<ciManagement>-->
@@ -102,12 +99,6 @@
     <org.osgi.service.http.port>9191</org.osgi.service.http.port>
     <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
     <log4j.configuration>file:data/log4j.properties</log4j.configuration>
-      <author.name>Jay Kola</author.name>
-      <author.email>jay.kola@gmail.com</author.email>
-      <year>2011</year>
-    <!--<pax.working.directory>D:\Documents and Settings\JAKO1\Desktop\srth-osgi</pax.working.directory>-->
-    <!--<installation.directory>/Users/jay/Desktop/srth-osgi</installation.directory>-->
-    <pax.working.directory>/Users/jay/Desktop/srth-osgi</pax.working.directory>
     <apple.laf.useScreenMenuBar>true</apple.laf.useScreenMenuBar>
     <com.apple.mrj.application.growbox.intrudes>true</com.apple.mrj.application.growbox.intrudes>
     <path.prefix>///..</path.prefix>
@@ -120,7 +111,6 @@
     <module>provision</module>
     <module>distribution</module>
     <module>uk.nhs.cfh.dsp.srth.demographics</module>
-    <!--<module>uk.nhs.cfh.dsp.srth.gui</module>-->
     <module>uk.nhs.cfh.dsp.srth.information.model</module>
     <module>uk.nhs.cfh.dsp.srth.information.model.impl</module>
     <module>uk.nhs.cfh.dsp.srth.query.model</module>
@@ -163,7 +153,6 @@
           <provision>
             <param>--settings.platform=equinox</param>
             <param>--bootDelegation=*</param>
-            <param>--workingDirectory=${pax.working.directory}</param>
             <param>--vmOptions=-Xmx1000m</param>
             <!--<param>__log=DEBUG</param>-->
           </provision>
@@ -185,7 +174,6 @@
             <phase>validate</phase>
             <goals>
               <goal>create</goal>
-              <goal>hgchangeset</goal>
             </goals>
           </execution>
         </executions>
