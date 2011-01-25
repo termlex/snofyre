@@ -52,9 +52,9 @@
     <!--</issueManagement>-->
 
     <scm>
-        <connection>scm:svn:https://svn.connectingforhealth.nhs.uk/svn/public/srp/srth-desktop/trunk/srth-desktop</connection>
-        <developerConnection>scm:svn:https://svn.connectingforhealth.nhs.uk/svn/public/srp/srth-desktop/trunk/srth-desktop</developerConnection>
-        <url>https://svn.connectingforhealth.nhs.uk/svn/public/srp/srth-desktop/trunk/srth-desktop</url>
+        <connection>scm:svn:https://snofyre.googlecode.com/svn/trunk/srth-desktop</connection>
+        <developerConnection>scm:svn:https://snofyre.googlecode.com/svn/trunk/srth-desktop</developerConnection>
+        <url>https://snofyre.googlecode.com/svn/trunk/srth-desktop</url>
     </scm>
 
     <!--<ciManagement>-->
