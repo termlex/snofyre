@@ -1,0 +1,34 @@
+#summary Developing Snofyre with IntelliJ IDEA
+
+= Developing Snofyre with IntelliJ IDEA =
+
+This section assumes that you have already checked out Snofyre's source code using the instructions in ... Please read the instructions on this page, especially the note about test failures if you have not already done so. 
+
+== Creating a New Project for Snofyre ==
+
+Since IntelliJ works beautifully with multi-modular projects, please create a separate module for each of Snofyre's four source projects.
+{{{
+srth-desktop
+snomed-osgi
+yasb-osgi
+srth-osgi
+}}}
+
+This guide walks you through creating a new project for one of source projects. For this example, we'll use {{{srth-desktop}}}.
+
+== Getting Started ==
+  * In IntelliJ, kick off a New Project Creation wizard, using File Menu --> New Project as shown below, or any other method you prefer.
+ [http://snofyre.googlecode.com/svn/wiki/images/intellij-0.png]
+  * In the next screen, choose 'Import from External Model' as shown below and click *Next*.
+ [http://snofyre.googlecode.com/svn/wiki/images/intellij-1.png]
+  * In the next screen, choose Maven as shown below and click *Next*.
+ [http://snofyre.googlecode.com/svn/wiki/images/intellij-2.png]
+  * In the next screen, navigate to the location of the source code you previously checked out and select the {{{srth-desktop}}} folder. In the example shown below, this is located in {{{/Users/jay/Documents/snofyreworkspace}}}. Click *Next* to continue.
+ [http://snofyre.googlecode.com/svn/wiki/images/intellij-3.png]
+  * IntelliJ will automatically detect the Maven project in this folder and preselect it for you as shown below. Click *Next*.
+ [http://snofyre.googlecode.com/svn/wiki/images/intellij-4.png]
+  * IntelliJ again automatically suggests a sensible name for the project as shown below. Its often easy to go with this. So go with this suggestion and click *Finish*.
+ [http://snofyre.googlecode.com/svn/wiki/images/intellij-5.png]
+  * You'll now presented with your workspace with the project structure as shown below.
+ [http://snofyre.googlecode.com/svn/wiki/images/intellij-6.png]
+  * You are now good to go!
