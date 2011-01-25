@@ -60,12 +60,9 @@
     </issueManagement>
 
     <scm>
-        <!--<connection>scm:svn:http://commsg1lds.npfit.nhs.uk/svn/tools/trunk/Terminology/snomed/tools/SNOMEDCT_Reporting/snomed-osgi/trunk/snomed-osgi</connection>-->
-        <!--<developerConnection>scm:svn:http://commsg1lds.npfit.nhs.uk/svn/tools/trunk/Terminology/snomed/tools/SNOMEDCT_Reporting/snomed-osgi/trunk/snomed-osgi</developerConnection>-->
-        <!--<url>http://commsg1lds.npfit.nhs.uk/svn/tools/trunk/Terminology/snomed/tools/SNOMEDCT_Reporting/snomed-osgi/trunk/snomed-osgi</url>-->
-        <connection>scm:svn:https://svn.connectingforhealth.nhs.uk/svn/public/srp/snomed-osgi/trunk/snomed-osgi</connection>
-        <developerConnection>scm:svn:https://svn.connectingforhealth.nhs.uk/svn/public/srp/snomed-osgi/trunk/snomed-osgi</developerConnection>
-        <url>https://svn.connectingforhealth.nhs.uk/svn/public/srp/snomed-osgi/trunk/snomed-osgi</url>
+        <connection>scm:svn:https://snofyre.googlecode.com/svn/trunk/snomed-osgi</connection>
+        <developerConnection>scm:svn:https://snofyre.googlecode.com/svn/trunk/snomed-osgi</developerConnection>
+        <url>https://snofyre.googlecode.com/svn/trunk/snomed-osgi</url>
     </scm>
 
     <ciManagement>
@@ -156,7 +153,7 @@
                         <phase>validate</phase>
                         <goals>
                             <goal>create</goal>
-                            <goal>hgchangeset</goal>
+                            <!--<goal>hgchangeset</goal>-->
                         </goals>
                     </execution>
                 </executions>

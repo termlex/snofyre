@@ -10,8 +10,6 @@
     <properties>
         <spring.dm.version>1.2.0</spring.dm.version>
         <spring.core.version>2.5.6.SEC01</spring.core.version>
-        <!--<author.name>Jay Kola</author.name>-->
-        <!--<yasb.project.version>0.7-SNAPSHOT</yasb.project.version>-->
         <srth.project.version>1.8-SNAPSHOT</srth.project.version>
     </properties>
 
@@ -413,7 +411,7 @@
                             <Bundle-Author>${author.name}</Bundle-Author>
                             <Bundle-Build-Number>${buildNumber}</Bundle-Build-Number>
                             <Bundle-Build-Time>${timestamp}</Bundle-Build-Time>
-                            <Bundle-Change-Set-Date>${changeSetDate}</Bundle-Change-Set-Date>
+                            <!--<Bundle-Change-Set-Date>${changeSetDate}</Bundle-Change-Set-Date>-->
                         </manifestEntries>
                     </archive>
                 </configuration>
