@@ -2,7 +2,7 @@
 
 = Developing Snofyre with IntelliJ IDEA =
 
-This section assumes that you have already checked out Snofyre's source code using the instructions in the getting started [conventionalGettingStartedWithSnofyreAPI page] Please read the instructions on this page, especially the note about test failures if you have not already done so. 
+This section assumes that you have already checked out Snofyre's source code using the instructions in the getting started [conventionalGettingStartedWithSnofyreAPI page] Please read the instructions on this page, especially the note about [conventionalGettingStartedWithSnofyreAPI#Test_failures test failures] if you have not already done so. 
 
 == Creating a New Project for Snofyre ==
 
