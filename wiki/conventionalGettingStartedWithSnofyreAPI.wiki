@@ -36,7 +36,13 @@ svn checkout http://snofyre.googlecode.com/svn/tags/ snofyre-stable
 ===Compiling Snofyre===
   * Download and install Maven from http://maven.apache.org/download.html. Note Snofyre was built using Maven version 2.1.0, so we do not recommend using Maven version 3 yet.
   * {{{cd}}} to the directory where you've checked out Snofyre code to.
-  * Use {{{mvn clean install}}}.
+  * Use {{{mvn clean install}}} to compile and install code.
+  * For example, after using the above instructions to check out code, you can compile code in {{{srth-desktop}}} folder using
+{{{
+cd snofyre-read-only
+cd srth-desktop
+mvn clean install
+}}}
   * Note that you'll need to run {{{mvn clean install}}} in the folders in the following order:
 {{{
 srth-desktop
