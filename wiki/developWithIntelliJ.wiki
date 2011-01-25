@@ -31,4 +31,8 @@ This guide walks you through creating a new project for one of source projects. 
  [http://snofyre.googlecode.com/svn/wiki/images/intellij-5.png]
   * You'll now presented with your workspace with the project structure as shown below.
  [http://snofyre.googlecode.com/svn/wiki/images/intellij-6.png]
+  * Enable version control from the *Version Control* menu as shown below so you can track changes made.
+ [http://snofyre.googlecode.com/svn/wiki/images/intellij-7.png]
+  * Select {{{subversion}}} in the dialog presented as shown below.
+ [http://snofyre.googlecode.com/svn/wiki/images/intellij-8.png]
   * You are now good to go!
