@@ -1,0 +1,791 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <parent>
+        <relativePath>../provision/</relativePath>
+        <groupId>uk.nhs.cfh.dsp.srth-osgi.build</groupId>
+        <artifactId>provision</artifactId>
+        <version>1.8-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <spring.dm.version>1.2.0</spring.dm.version>
+        <spring.core.version>2.5.6.SEC01</spring.core.version>
+        <snobj.project.version>0.8-SNAPSHOT</snobj.project.version>
+        <yasb.project.version>0.8-SNAPSHOT</yasb.project.version>
+        <staging.dir>${project.build.directory}/staging</staging.dir>
+        <configurator.staging.dir>${project.build.directory}/configurator-staging</configurator.staging.dir>
+        <osgi.dir>osgi</osgi.dir>
+        <izpack-standalone.version>4.3.2</izpack-standalone.version>
+        <author.name>Jay Kola</author.name>
+        <author.email>jay.kola@nhs.net</author.email>
+        <application.name>Snofyre</application.name>
+        <installer.name>${application.name}-Installer</installer.name>
+        <app.configurator.name>AppPathFormatter</app.configurator.name>
+        <executable.name>bin</executable.name>
+        <installer.free.packs.location>/Users/Shared/Sappheiros/</installer.free.packs.location>
+        <!--<snomed.data.file.name>snomed-data.zip</snomed.data.file.name>-->
+        <!--<snomed.index.file.name>index.zip</snomed.index.file.name>-->
+        <!--<sappheiros.data.file.name>snofyre-data.zip</sappheiros.data.file.name>-->
+        <!--<sappheiros.javadoc.file.name>apidocs.zip</sappheiros.javadoc.file.name>-->
+        <!--<snomed.mrcm.file.name>mrcm.zip</snomed.mrcm.file.name>-->
+        <inst.man.name>snofyre-installation-manual.pdf</inst.man.name>
+        <func.serv.man.name>snofyre-functional-services-manual.pdf</func.serv.man.name>
+        <tech.arch.man.name>snofyre-technical-architecture-manual.pdf</tech.arch.man.name>
+        <user.man.name>snofyre-user-manual.pdf</user.man.name>
+        <packs.folder>packs</packs.folder>
+        <!--<trud.pack.name>Archive.zip</trud.pack.name>-->
+        <trud.url>www.uktcdownload.nss.cfh.nhs.uk</trud.url>
+        <snofyre.download.url>http://snofyre.googlecode.com/files/</snofyre.download.url>
+        <!--<trud.pack.name>nhs_snofyre_test_pack.zip</trud.pack.name>-->
+        <trud.pack.name>nhs_snofyredata_2.0.0_20110101000001.zip</trud.pack.name>
+        <trud.pack.path>NHSSNOFYRE/2.0.0/NHS_SNOFYREDATA/</trud.pack.path>
+        <api.code.site>http://code.google.com/p/snofyre/</api.code.site>
+        <api.contact.email>snofyre-users@googlegroups.com</api.contact.email>
+        <installation.guide.location>http://docs.snofyre.googlecode.com/hg/install-guide/html/frameset.html</installation.guide.location>
+        <!--<snomed.index.location>/Applications/SRTHApp/bin/index</snomed.index.location>-->
+        <!--<snomed.data.location>/Users/Shared/Sappheiros/</snomed.data.location>-->
+        <!--<snomed.index.location>/Users/Shared/Sappheiros/</snomed.index.location>-->
+        <!--<sappheiros.javadoc.location>/Users/Shared/Sappheiros/</sappheiros.javadoc.location>-->
+        <!--<sappheiros.data.location>/Users/Shared/Sappheiros/</sappheiros.data.location>-->
+    </properties>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
+    <artifactId>distribution</artifactId>
+    <name>srth-osgi - Distribution</name>
+    <packaging>jar</packaging>
+    <version>1.8-SNAPSHOT</version>
+
+    <distributionManagement>
+        <!-- use the following if you're not using a snapshot version. -->
+        <repository>
+            <id>local-release-repo</id>
+            <name>Maven local release repo</name>
+            <url>file://${project.build.directory}/repo</url>
+        </repository>
+        <!-- use the following if you ARE using a snapshot version. -->
+        <snapshotRepository>
+            <id>local-snapshot-repo</id>
+            <name>Maven local snapshot repo</name>
+            <url>file://${project.build.directory}/repo</url>
+        </snapshotRepository>
+    </distributionManagement>
+    
+
+    <!--
+         | imported (non-local) bundles are listed here as dependencies | and
+         will be deployed by pax:provision unless they are marked | with
+         <optional>true</optional>
+     -->
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.eclipse.osgi</groupId>
+            <artifactId>org.eclipse.osgi</artifactId>
+            <version>3.6.0.v20100517</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.equinox</groupId>
+            <artifactId>org.eclipse.equinox.common</artifactId>
+            <version>3.6.0.v20100503</version>
+        </dependency>
+
+        <!-- Local project dependencies -->
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
+            <artifactId>uk.nhs.cfh.dsp.srth.information.model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
+            <artifactId>uk.nhs.cfh.dsp.srth.demographics</artifactId>
+            <version>${project.version}</version>
+        </dependency>        <dependency>
+        <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
+        <artifactId>uk.nhs.cfh.dsp.srth.desktop.actions.querycrud</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
+            <artifactId>uk.nhs.cfh.dsp.srth.desktop.modules.querycreationtreepanel</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
+            <artifactId>uk.nhs.cfh.dsp.srth.desktop.modules.queryrenderer</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
+            <artifactId>uk.nhs.cfh.dsp.srth.desktop.modules.queryresultspanel</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
+            <artifactId>uk.nhs.cfh.dsp.srth.desktop.modules.resultexplanationpanel</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
+            <artifactId>uk.nhs.cfh.dsp.srth.desktop.modules.simulator.viewcomponent</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
+            <artifactId>uk.nhs.cfh.dsp.srth.expression.repository</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
+            <artifactId>uk.nhs.cfh.dsp.srth.information.model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
+            <artifactId>uk.nhs.cfh.dsp.srth.expression.repository.actions</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
+            <artifactId>uk.nhs.cfh.dsp.srth.information.model.impl</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
+            <artifactId>uk.nhs.cfh.dsp.srth.query.converters</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
+            <artifactId>uk.nhs.cfh.dsp.srth.query.model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
+            <artifactId>uk.nhs.cfh.dsp.srth.query.repository</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
+            <artifactId>uk.nhs.cfh.dsp.srth.query.repository.viewcomponent</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
+            <artifactId>uk.nhs.cfh.dsp.srth.query.service</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
+            <artifactId>uk.nhs.cfh.dsp.srth.query.transform</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
+            <artifactId>uk.nhs.cfh.dsp.srth.simulator</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.prefs</artifactId>
+            <version>1.0.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.scr</artifactId>
+            <version>1.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.shell</artifactId>
+            <version>1.4.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.configadmin</artifactId>
+            <version>1.2.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.fileinstall</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.swinglabs</groupId>
+            <artifactId>pdf-renderer</artifactId>
+            <!--<version>${pdf.renderer.version.number}</version>-->
+            <version>1.0.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.swinglabs</groupId>
+            <artifactId>swingx</artifactId>
+            <!--<version>${swingx.version.number}</version>-->
+            <version>1.6</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <!--<version>${dbcp.version.number}</version>-->
+            <version>1.2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <!--<version>${mysql.version.number}</version>-->
+            <version>5.1.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.plexus</groupId>
+            <artifactId>plexus-utils</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.izpack</groupId>
+            <artifactId>izpack-standalone-compiler</artifactId>
+            <version>${izpack-standalone.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>com.springsource.org.apache.commons.net</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+            <version>1.1</version>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>com.springsource.repository.bundles.release</id>
+            <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
+            <url>http://repository.springsource.com/maven/bundles/release</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>com.springsource.repository.bundles.external</id>
+            <name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
+            <url>http://repository.springsource.com/maven/bundles/external</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>com.springsource.repository.libraries.release</id>
+            <name>SpringSource Enterprise Bundle Repository - SpringSource Library Releases</name>
+            <url>http://repository.springsource.com/maven/libraries/release</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>com.springsource.repository.libraries.external</id>
+            <name>SpringSource Enterprise Bundle Repository - External Library Releases</name>
+            <url>http://repository.springsource.com/maven/libraries/external</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>maven2-repository.dev.java.net</id>
+            <name>Java.net Repository for Maven</name>
+            <url>http://download.java.net/maven/2/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-osgi</id>
+            <url>http://s3.amazonaws.com/maven.springframework.org/osgi</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>ops4j.releasees</id>
+            <url>http://repository.ops4j.org/maven2/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>akathist-repository</id>
+            <name>Akathist Repository</name>
+            <url>http://www.9stmaryrd.com/maven</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>akathist-repository</id>
+            <name>Akathist Repository</name>
+            <url>http://www.9stmaryrd.com/maven</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>uk.nhs.cfh.dsp.srth.distribution.DocumentationLauncher</mainClass>
+                            <!--<mainClass>uk.nhs.cfh.dsp.srth.distribution.FileDownloader</mainClass>-->
+                        </manifest>
+                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>                                                    
+                    </archive>
+                    <finalName>${app.configurator.name}</finalName>
+                    <excludes>
+                        <!-- Exclude files in resource directories -->
+                        <exclude>**/*.ini</exclude>
+                        <exclude>**/*.txt</exclude>
+                        <exclude>**/*.xml</exclude>
+                        <exclude>**/*.properties</exclude>
+                        <exclude>**/*.MF</exclude>
+                    </excludes>
+                    <outputDirectory>${staging.dir}/temp</outputDirectory>
+                </configuration>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-dependency-plugin</artifactId>
+              <executions>
+                <execution>
+                  <id>copy</id>
+                  <phase>generate-sources</phase>
+                  <goals>
+                    <goal>list</goal>
+                  </goals>
+                  <configuration>
+                      <excludeClassifiers>true</excludeClassifiers>
+                      <outputScope>false</outputScope>
+                      <excludeScope>provided</excludeScope>
+                      <includeScope>runtime</includeScope>
+                      <excludeGroupIds>
+                          uk.nhs.cfh.dsp.srth-osgi, uk.nhs.cfh.dsp.srth-desktop, uk.nhs.cfh.dsp.yasb, uk.nhs.cfh.dsp.snomed
+                      </excludeGroupIds>
+                      <outputFile>${project.build.outputDirectory}/settings/dependencies.txt</outputFile>
+                  </configuration>
+                </execution>
+                  <execution>
+                      <id>copy-objectasm-jar</id>
+                      <phase>package</phase>
+                      <goals>
+                          <goal>copy</goal>
+                      </goals>
+                      <configuration>
+                          <artifactItems>
+                              <artifactItem>
+                                  <groupId>org.objectweb.asm</groupId>
+                                  <artifactId>com.springsource.org.objectweb.asm</artifactId>
+                                  <version>1.5.3</version>
+                                  <type>jar</type>
+                                  <overWrite>false</overWrite>
+                                  <outputDirectory>${staging.dir}/temp</outputDirectory>
+                              </artifactItem>
+                          </artifactItems>
+                          <!--<outputDirectory>${project.build.directory}/wars</outputDirectory>-->
+                          <overWriteReleases>false</overWriteReleases>
+                          <overWriteSnapshots>true</overWriteSnapshots>
+                      </configuration>
+                  </execution>
+              </executions>
+            </plugin>           
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>prepare-assembly</id> <!-- this is used for inheritance merges -->
+                        <phase>generate-resources</phase> <!-- append to the packaging phase. -->
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <finalName>${osgi.dir}</finalName>
+                            <descriptors>
+                                <descriptor>${basedir}/src/main/assembly/prepare-assembly.xml</descriptor>
+                            </descriptors>
+                            <outputDirectory>${staging.dir}</outputDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>config-assembly</id> <!-- this is used for inheritance merges -->
+                        <phase>package</phase> <!-- append to the packaging phase. -->
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>uk.nhs.cfh.dsp.srth.distribution.DocumentationLauncher</mainClass>
+                                </manifest>
+                            </archive>
+                            <finalName>${app.configurator.name}</finalName>
+                            <descriptors>
+                                <descriptor>${basedir}/src/main/assembly/config-assembly.xml</descriptor>
+                            </descriptors>
+                            <outputDirectory>${staging.dir}/temp</outputDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>installer-assembly</id> <!-- this is used for inheritance merges -->
+                        <phase>deploy</phase> <!-- append to the packaging phase. -->
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <finalName>${executable.name}</finalName>
+                            <descriptors>
+                                <descriptor>${basedir}/src/main/assembly/assembly.xml</descriptor>
+                            </descriptors>
+                            <outputDirectory>${staging.dir}</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-manifest</id>
+                        <!-- here the phase you need -->
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <encoding>utf-8</encoding>
+                            <outputDirectory>${project.build.outputDirectory}/META-INF</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/src/main/resources/META-INF</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-settings</id>
+                        <!-- here the phase you need -->
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <encoding>utf-8</encoding>
+                            <outputDirectory>${project.build.outputDirectory}/settings</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/src/main/resources/settings</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-resources</id>
+                        <!-- here the phase you need -->
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <encoding>utf-8</encoding>
+                            <outputDirectory>${staging.dir}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/src/izpack</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                                <resource>
+                                    <directory>${basedir}/src/main/etc</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-packs</id>
+                        <!-- here the phase you need -->
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <encoding>utf-8</encoding>
+                            <outputDirectory>${staging.dir}/${packs.folder}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${installer.free.packs.location}</directory>
+                                    <includes>
+                                      <include> **/*.zip </include>
+                                      <include> **/*.pdf </include>
+                                    </includes>
+                                    <excludes>
+                                      <exclude> **/*orig*.* </exclude>
+                                      <exclude> **/*fake*.* </exclude>
+                                    </excludes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.groovy.maven</groupId>
+                <artifactId>gmaven-plugin</artifactId>
+                <version>1.0</version>
+                <executions>
+                    <execution>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <source>${staging.dir}/temp/updateDependencies.groovy</source>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin> 
+            <plugin>
+                <groupId>org.codehaus.izpack</groupId>
+                <artifactId>izpack-maven-plugin</artifactId>
+                <version>1.0-alpha-5</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.codehaus.izpack</groupId>
+                        <artifactId>izpack-standalone-compiler</artifactId>
+                        <version>${izpack-standalone.version}</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>standard-installer</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>izpack</goal>
+                        </goals>
+                        <configuration>
+                            <descriptor>${basedir}/src/izpack/install.xml</descriptor>
+                            <descriptorEncoding>utf-8</descriptorEncoding>
+                            <izpackBasedir>${staging.dir}</izpackBasedir>
+                            <customPanelDirectory>${staging.dir}</customPanelDirectory>
+                            <installerFile>${project.build.directory}/${installer.name}.jar</installerFile>
+                        </configuration>
+                    </execution>
+                    <!--<execution>-->
+                        <!--<id>web-installer</id>-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>izpack</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<descriptor>${basedir}/izpack/install.xml</descriptor>-->
+                            <!--<descriptorEncoding>utf-8</descriptorEncoding>-->
+                            <!--<izpackBasedir>${staging.dir}</izpackBasedir>-->
+                            <!--<customPanelDirectory>${staging.dir}</customPanelDirectory>-->
+                            <!--<installerFile>${project.build.directory}/${installer.name}-online.jar</installerFile>-->
+                            <!--<kind>web</kind>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.akathist.maven.plugins.launch4j</groupId>
+                <artifactId>launch4j-maven-plugin</artifactId>
+                <version>1.3</version>
+                <executions>
+                    <execution>
+                        <id>l4j-snofyre-app</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>launch4j</goal>
+                        </goals>
+                        <configuration>
+                            <!--<headerType>console</headerType>-->
+                            <headerType>gui</headerType>
+                            <outfile>${staging.dir}/${application.name}.exe</outfile>
+                            <jar>${staging.dir}/${osgi.dir}.dir/${osgi.dir}/org.eclipse.osgi.jar</jar>
+                            <errTitle>${application.name} Launch Error</errTitle>
+                            <cmdLine>-console -configuration platform</cmdLine>
+                            <classPath>
+                                <mainClass>org.eclipse.core.runtime.adaptor.EclipseStarter</mainClass>
+                                <addDependencies>false</addDependencies>
+                                <preCp>anything</preCp>
+                            </classPath>
+                            <jre>
+                                <minVersion>1.5.0</minVersion>
+                                <initialHeapSize>256</initialHeapSize>
+                                <maxHeapSize>1000</maxHeapSize>
+                                <!--<opt>-console -configuration platform</opt>-->
+                            </jre>
+                            <versionInfo>
+                                <fileVersion>1.2.3.4</fileVersion>
+                                <txtFileVersion>txt file version</txtFileVersion>
+                                <fileDescription>${application.name}</fileDescription>
+                                <copyright>${project.organization.name}</copyright>
+                                <productVersion>4.3.2.1</productVersion>
+                                <txtProductVersion>${project.version}</txtProductVersion>
+                                <productName>S-R-T-H</productName>
+                                <internalName>${application.name}</internalName>
+                                <originalFilename>${application.name}.exe</originalFilename>
+                            </versionInfo>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>l4j-snofyre-installer</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>launch4j</goal>
+                        </goals>
+                        <configuration>
+                            <!--<headerType>console</headerType>-->
+                            <headerType>gui</headerType>
+                            <outfile>${project.build.directory}/${installer.name}.exe</outfile>
+                            <jar>${project.build.directory}/${installer.name}.jar</jar>
+                            <errTitle>Installation Error</errTitle>
+                            <classPath>
+                                <mainClass>com.izforge.izpack.installer.Installer</mainClass>
+                                <addDependencies>false</addDependencies>
+                                <preCp>anything</preCp>
+                            </classPath>
+                            <jre>
+                                <minVersion>1.6.0</minVersion>
+                            </jre>
+                            <versionInfo>
+                                <fileVersion>1.2.3.4</fileVersion>
+                                <txtFileVersion>txt file version</txtFileVersion>
+                                <fileDescription>An Installer for ${application.name}</fileDescription>
+                                <copyright>${project.organization.name}</copyright>
+                                <productVersion>4.3.2.1</productVersion>
+                                <txtProductVersion>${project.version}</txtProductVersion>
+                                <productName>S-R-T-H</productName>
+                                <internalName>${application.name}</internalName>
+                                <originalFilename>${installer.name}.exe</originalFilename>
+                            </versionInfo>
+                        </configuration>
+                    </execution>
+                    <!--<execution>-->
+                        <!--<id>l4j-sappheiros-online-installer</id>-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>launch4j</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--&lt;!&ndash;<headerType>console</headerType>&ndash;&gt;-->
+                            <!--<headerType>gui</headerType>-->
+                            <!--<outfile>${project.build.directory}/${installer.name}-online.exe</outfile>-->
+                            <!--<jar>${project.build.directory}/${installer.name}-online.jar</jar>-->
+                            <!--<errTitle>Installation Error</errTitle>-->
+                            <!--<classPath>-->
+                                <!--<mainClass>com.izforge.izpack.installer.Installer</mainClass>-->
+                                <!--<addDependencies>false</addDependencies>-->
+                                <!--<preCp>anything</preCp>-->
+                            <!--</classPath>-->
+                            <!--<jre>-->
+                                <!--<minVersion>1.5.0</minVersion>-->
+                            <!--</jre>-->
+                            <!--<versionInfo>-->
+                                <!--<fileVersion>1.2.3.4</fileVersion>-->
+                                <!--<txtFileVersion>txt file version</txtFileVersion>-->
+                                <!--<fileDescription>An Online Installer for ${application.name}</fileDescription>-->
+                                <!--<copyright>${project.organization.name}</copyright>-->
+                                <!--<productVersion>4.3.2.1</productVersion>-->
+                                <!--<txtProductVersion>${project.version}</txtProductVersion>-->
+                                <!--<productName>S-R-T-H</productName>-->
+                                <!--<internalName>${application.name}</internalName>-->
+                                <!--<originalFilename>${installer.name}-online.exe</originalFilename>-->
+                            <!--</versionInfo>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                </executions>
+            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.codehaus.mojo</groupId>-->
+                <!--<artifactId>osxappbundle-maven-plugin</artifactId>-->
+                <!--<version>1.0-alpha-2</version>-->
+                <!--<configuration>-->
+                    <!--&lt;!&ndash;<mainClass>org.eclipse.core.runtime.adaptor.EclipseStarter</mainClass>&ndash;&gt;-->
+                    <!--<mainClass>com.izforge.izpack.installer.Installer</mainClass>-->
+                    <!--<jvmVersion>1.5+</jvmVersion>-->
+                    <!--&lt;!&ndash;<buildDirectory>${staging.dir}/macosx</buildDirectory>&ndash;&gt;-->
+                    <!--<dictionaryFile>${staging.dir}/Info.plist</dictionaryFile>-->
+                    <!--<additionalResources>-->
+                        <!--<fileSet>-->
+                            <!--<directory>${project.build.directory}</directory>-->
+                            <!--<includes>-->
+                                <!--<include>${installer.name}.jar</include>-->
+                            <!--</includes>-->
+                        <!--</fileSet>-->
+                    <!--</additionalResources>-->
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<phase>deploy</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>bundle</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+            <!-- Create a Mac OSX bundle -->
+            <!--<plugin>-->
+                <!--<artifactId>maven-antrun-plugin</artifactId>-->
+                <!--<version>1.6</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>create-Mac-OSX-bundle</id>-->
+                        <!--<phase>package</phase>-->
+                        <!--&lt;!&ndash; <phase>package</phase> &ndash;&gt;-->
+                        <!--<goals>-->
+                            <!--<goal>run</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<target>-->
+                                <!--<ant antfile="${staging.dir}/build.xml">-->
+                                  <!--<target name="create_Mac_OSX_bundle"/>-->
+                                <!--</ant>                                -->
+                            <!--</target>-->
+                            <!--<tasks>-->
+                                <!--&lt;!&ndash;<zip destfile="${staging.dir}/bin.zip">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<fileset dir="${staging.dir}/bin.dir/bin/"/>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</zip>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<copy file="${snomed.data.location}/${sappheiros.configuration.guide.name}"&ndash;&gt;-->
+                                      <!--&lt;!&ndash;todir="${staging.dir}" />&ndash;&gt;-->
+                                <!--&lt;!&ndash;<copy file="${snomed.data.location}/${snomed.data.file.name}"&ndash;&gt;-->
+                                      <!--&lt;!&ndash;todir="${staging.dir}" />&ndash;&gt;-->
+                                <!--&lt;!&ndash;<copy file="${sappheiros.data.location}/${sappheiros.data.file.name}"&ndash;&gt;-->
+                                      <!--&lt;!&ndash;todir="${staging.dir}" />&ndash;&gt;-->
+                                <!--&lt;!&ndash;<copy file="${snomed.index.location}/${snomed.index.file.name}"&ndash;&gt;-->
+                                      <!--&lt;!&ndash;todir="${staging.dir}" />&ndash;&gt;-->
+                                <!--&lt;!&ndash;<copy file="${sappheiros.javadoc.location}/${sappheiros.javadoc.file.name}"&ndash;&gt;-->
+                                      <!--&lt;!&ndash;todir="${staging.dir}" />&ndash;&gt;-->
+                                <!--&lt;!&ndash;<copy file="${staging.dir}/temp/${app.configurator.name}.jar"&ndash;&gt;-->
+                                      <!--&lt;!&ndash;todir="${staging.dir}/bin/panels" />&ndash;&gt;-->
+                                <!--&lt;!&ndash;<copy todir="${staging.dir}" >&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<fileset dir="${basedir}/src/main/etc/temp"/>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</copy>&ndash;&gt;-->
+                            <!--</tasks>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+        </plugins>
+    </build>
+
+</project>

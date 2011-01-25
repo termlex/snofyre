@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+  <!-- regular spring configuration file defining the beans for this
+       bundle. We've kept the osgi definitions in a separate 
+       configuration file so that this file can easily be used
+       for integration testing outside of an OSGi environment -->
+
+    <bean id="queryAuthoringTreeViewComponent"
+          class="uk.nhs.cfh.dsp.srth.desktop.modules.querycreationtreepanel.QueryAuthoringTreeViewComponent"
+            init-method="init"
+            destroy-method="dispose" >
+        <property name="applicationService" ref="applicationService"/>
+        <property name="terminologyConceptDAO" ref="terminologyConceptDatabaseDAO"/>
+        <property name="queryService" ref="queryService"/>
+        <property name="terminologySearchService" ref="terminologySearchService"/>
+        <property name="viewComponentService" ref="viewComponentService"/>
+        <property name="selectionService" ref="selectionService"/>
+        <property name="queryExpressionPlainTextRenderer" ref="queryExpressionPlainTextRenderer"/>
+        <property name="normalFormGenerator" ref="normalFormGenerator"/>
+        <property name="humanReadableRender" ref="heuristicBasedHumanReadableRender"/>
+        <property name="queryExpressionFactory" ref="queryExpressionFactory"/>
+        <property name="propertyChangeTrackerService" ref="propertyChangeTrackerService"/>        
+    </bean>
+
+</beans>

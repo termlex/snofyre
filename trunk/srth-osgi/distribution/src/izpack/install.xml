@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
+<!--
+
+    Crown Copyright (C) 2008 - 2011
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+
+<!--
+    An install file for creating the necessary panels for the installer
+-->
+
+    <installation version="1.0">
+
+    <!--
+    The info section.
+    The meaning of the tags should be natural ...
+    -->
+    <info>
+        <appname>${application.name} </appname>
+        <appversion>${project.version}</appversion>
+        <authors>
+            <author name="${author.name}" email="${author.email}" />
+        </authors>
+        <url>${api.code.site}</url>
+        <javaversion>1.6</javaversion>
+        <summarylogfilepath>$INSTALL_PATH/Uninstaller/install.log</summarylogfilepath>
+        <uninstaller name="${application.name}-Uninstaller.jar"/>
+        <!--<webdir>https://svn.connectingforhealth.nhs.uk/svn/public/srp/installer</webdir>-->
+    </info>
+
+    <!--
+    The gui preferences indication.
+    Sets the installer window to 640x480. User will not be able to change the size.
+    -->
+    <guiprefs width="640" height="480" resizable="no">
+        <modifier key="useButtonIcons" value="no"/>
+        <modifier key="useLabelIcons" value="no"/>
+        <modifier key="layoutAnchor" value="NORTHWEST"/>
+        <modifier key="labelGap" value="2"/>
+        <modifier key="useHeadingPanel" value="yes"/>
+        <modifier key="headingLineCount" value="1"/>
+        <modifier key="headingFontSize" value="1.5"/>
+        <modifier key="headingBackgroundColor" value="0x00ffffff"/>
+        <modifier key="headingPanelCounter" value="progressbar"/>
+        <modifier key="headingPanelCounterPos" value="inNavigationPanel"/>
+    </guiprefs>
+
+    <!--
+    The locale section.
+    Asks here to include the English and French langpacks.
+    -->
+    <locale>
+        <langpack iso3="eng" />
+    </locale>
+
+    <conditions>
+        <condition type="variable" id="fullinstallation">
+            <name>install.type.selection</name>
+            <value>full</value>
+        </condition>
+        <condition type="variable" id="custominstallation">
+            <name>install.type.selection</name>
+            <value>lite</value>
+        </condition>
+        <condition type="java" id="installonwindows">
+            <java>
+                <class>com.izforge.izpack.util.OsVersion</class>
+                <field>IS_WINDOWS</field>
+            </java>
+            <returnvalue type="boolean">true</returnvalue>
+        </condition>
+        <condition type="or" id="need.trud.access">
+            <condition type="ref" refid="fullinstallation"/>
+            <condition type="ref" refid="custominstallation" />
+        </condition>
+    </conditions>
+
+    <!--
+    The resources section.
+    The ids must be these ones if you want to use the LicencePanel and/or the InfoPanel.
+    -->
+    <resources>
+        <res id="Heading.image" src="logo.png"/>
+        <res id="HTMLHelloPanel.info" src="hello.html" />
+        <res id="HTMLLicencePanel.licence" src="license.html" />
+        <res id="HTMLInfoPanel.readme" src="readme.html"/>
+        <res id="HTMLInfoPanel.installtype" src="installtype.html" />
+        <!--<res id="HTMLInfoPanel.xinfo" src="xinfo.html" />-->
+        <res id="XHTMLInfoPanel.info" src="xinfo.html" />
+        <res id="userInputSpec.xml" src="userInputSpec.xml" />
+        <res id="shortcutSpec.xml" src="shortcutSpec.xml" />
+        <res id="packsLang.xml_eng" src="i18n/myPacksLang.xml_eng"/>
+        <res id="ProcessPanel.Spec.xml" src="processPanelSpec.xml"/>
+    </resources>
+
+    <jar src="temp/${app.configurator.name}.jar" />
+    <jar src="temp/${app.configurator.name}.dir/${app.configurator.name}/lib/swingx.jar" />
+    <jar src="temp/${app.configurator.name}.dir/${app.configurator.name}/lib/com.springsource.org.apache.commons.net.jar" />
+    <jar src="temp/${app.configurator.name}.dir/${app.configurator.name}/lib/commons-compress.jar" />
+    <jar src="temp/${app.configurator.name}.dir/${app.configurator.name}/lib/commons-dbcp.jar" />
+    <jar src="temp/${app.configurator.name}.dir/${app.configurator.name}/lib/mysql-connector-java.jar" />
+
+    <dynamicvariables>
+      <variable name="app-destination" value="$INSTALL_PATH" />
+      <variable name="system-temp-dir" value="$sys.tmp.dir" />
+      <variable name="trud.url" value="${trud.url}" />
+      <variable name="snofyre.download.url" value="${snofyre.download.url}" />
+      <variable name="pdf.doc.url" value="docs/${inst.man.name}" />
+    </dynamicvariables>
+
+    <!--
+    The panels section.
+    We indicate here which panels we want to use. The order will be respected.
+    -->
+    <panels>
+        <panel classname="HTMLHelloPanel" />
+        <panel classname="HTMLInfoPanel" id="readme"/>
+        <panel classname="HTMLLicencePanel"/>
+        <panel classname="HTMLInfoPanel" id="installtype"/>
+        <panel classname="UserInputPanel" id="installation.selection.panel"/>
+        <panel classname="UserInputPanel" id="trud.connection.parameters" condition="need.trud.access">
+            <validator classname="uk.nhs.cfh.dsp.srth.distribution.TRUDConnectionValidator"/>
+        </panel>
+        <panel classname="TargetPanel" />
+        <panel classname="PacksPanel" />
+        <panel classname="SummaryPanel" />
+        <panel classname="uk.nhs.cfh.dsp.srth.distribution.XHTMLInfoPanel"/>        
+        <panel classname="InstallPanel" />
+        <panel classname="ProcessPanel" condition="need.trud.access">
+            <!--<action stage="postvalidate" classname="uk.nhs.cfh.dsp.srth.distribution.DocumentationLaunchAction" />-->
+        </panel>
+        <panel classname="ShortcutPanel" />
+        <panel classname="UserInputPanel" id="verify.configuration">
+            <validator classname="uk.nhs.cfh.dsp.srth.distribution.ConfigurationCheckListValidator"/>
+        </panel>
+        <panel classname="UserInputPanel" id="jdbc.connection.parameters">
+            <validator classname="uk.nhs.cfh.dsp.srth.distribution.JDBCConnectionValidator" />
+        </panel>
+        <panel classname="SimpleFinishPanel" />
+    </panels>
+
+    <!-- desktop shortcut stuff -->
+    <native type="izpack" name="ShellLink.dll" />
+    <variables>
+         <variable name="InstallerFrame.logfilePath" value="$INSTALL_PATH/Uninstaller/install.log" />
+         <variable name="desktopshortcutcheckboxenabled" value="true" />
+    </variables>
+
+    <!--
+    The packs section.
+    We specify here our packs.
+    -->
+    <packs>
+        <pack name="License" required="yes">
+            <description>The license files</description>
+            <file src="README.TXT" targetdir="$INSTALL_PATH" />
+            <file src="LICENSE.TXT" targetdir="$INSTALL_PATH" />
+        </pack>
+        <pack id="doc" name="Documentation" required="no" loose="false">
+            <description>The documentation for ${application.name} </description>
+            <file src="${packs.folder}/${inst.man.name}" targetdir="$INSTALL_PATH/docs" />
+            <file src="${packs.folder}/${func.serv.man.name}" targetdir="$INSTALL_PATH/docs" />
+            <file src="${packs.folder}/${tech.arch.man.name}" targetdir="$INSTALL_PATH/docs" />
+            <file src="${packs.folder}/${user.man.name}" targetdir="$INSTALL_PATH/docs" />
+        </pack>
+        <pack name="${application.name}-${project.version}" required="yes">
+            <loose>true</loose>
+            <description>The application</description>
+            <file src="${executable.name}.zip" targetdir="$INSTALL_PATH/" unpack="true"/>
+        </pack>
+        <pack name="Post installation scripts" required="yes">
+            <description>Post-installation scripts that handle configuration and clean up</description>
+            <file src="bin/run.sh" targetdir="$INSTALL_PATH/bin" os="mac"/>
+            <file src="bin/run.sh" targetdir="$INSTALL_PATH/bin" os="unix"/>
+            <file src="bin/run.bat" targetdir="$INSTALL_PATH/bin" os="windows"/>
+            <file src="${application.name}.exe" targetdir="$INSTALL_PATH/bin" os="windows"/>
+            <file src="dependencies.html" targetdir="$INSTALL_PATH/bin/settings" override="true"/>
+
+            <parsable type="javaprop" targetfile="$INSTALL_PATH/bin/settings/fakedata-db.properties"/>
+            <parsable type="javaprop" targetfile="$INSTALL_PATH/bin/settings/snomed-db.properties"/>
+            <parsable type="javaprop" targetfile="$INSTALL_PATH/bin/settings/query-engine.properties"/>
+            <parsable type="javaprop" targetfile="$INSTALL_PATH/bin/settings/application.properties"/>
+            
+            <executable targetfile="$INSTALL_PATH/bin/run.sh" stage="never" keep="true" os="mac"/>
+            <executable targetfile="$INSTALL_PATH/bin/run.sh" stage="never" keep="true" os="unix"/>
+            <executable targetfile="$INSTALL_PATH/bin/run.bat" stage="never" keep="true" os="windows"/>
+
+            <file src="temp/${app.configurator.name}.jar" targetdir="$INSTALL_PATH/configurator"/>
+            <file src="temp/${app.configurator.name}.dir/${app.configurator.name}/lib/commons-dbcp.jar"
+                  targetdir="$INSTALL_PATH/configurator/lib"/>
+            <file src="temp/${app.configurator.name}.dir/${app.configurator.name}/lib/commons-compress.jar"
+                  targetdir="$INSTALL_PATH/configurator/lib"/>
+            <file src="temp/${app.configurator.name}.dir/${app.configurator.name}/lib/com.springsource.org.apache.commons.net.jar"
+                  targetdir="$INSTALL_PATH/configurator/lib"/>
+            <file src="temp/${app.configurator.name}.dir/${app.configurator.name}/lib/swingx.jar"
+                  targetdir="$INSTALL_PATH/configurator/lib"/>
+            <file src="temp/${app.configurator.name}.dir/${app.configurator.name}/lib/mysql-connector-java.jar"
+                  targetdir="$INSTALL_PATH/configurator/lib"/>
+            <file src="temp/com.springsource.org.objectweb.asm-1.5.3.jar"
+                  targetdir="$INSTALL_PATH/bin/lib"/>
+
+            <!--<executable targetfile="$INSTALL_PATH/configurator/${app.configurator.name}.jar" stage="postinstall"-->
+                    <!--type="jar">-->
+                <!--<args>-->
+                    <!--<arg value="$INSTALL_PATH/docs/${sappheiros.configuration.guide.name}"/>-->
+                <!--</args>-->
+            <!--</executable>-->
+        </pack>
+    </packs>
+
+</installation>

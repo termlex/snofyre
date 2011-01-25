@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress ALL -->
+<beans:beans xmlns="http://www.springframework.org/schema/osgi"
+             xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/osgi
+http://www.springframework.org/schema/osgi/spring-osgi.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <reference id="queryExpressionXMLRenderer" interface="uk.nhs.cfh.dsp.srth.query.converters.xml.QueryExpressionXMLRenderer"/>
+    <service ref="constraintColumnNameProvider" interface="uk.nhs.cfh.dsp.srth.query.transform.sql.ConstraintColumnNameProvider"/>
+    <reference id="normalFormGenerator" interface="uk.nhs.cfh.dsp.snomed.normaliser.NormalFormGenerator"/>
+    <reference id="clinicalEntryDAO" interface="uk.nhs.cfh.dsp.srth.information.model.impl.ClinicalEntryDAO"/>
+        <reference id="expressionMappingObjectDAO"
+             interface="uk.nhs.cfh.dsp.srth.expression.repository.ExpressionMappingObjectDAO"/>
+    <reference id="expressionSubsumptionRelationshipDAO"
+             interface="uk.nhs.cfh.dsp.srth.expression.repository.ExpressionSubsumptionRelationshipDAO"/>
+        <reference id="expressionCompositionalGrammarConverter"
+             interface="uk.nhs.cfh.dsp.snomed.converters.compositionalgrammar.ExpressionCompositionalGrammarConverter"/>
+    <reference id="expressionComparator"
+               interface="uk.nhs.cfh.dsp.snomed.expression.comparator.ExpressionComparator"/>
+    <reference id="situationExpressionGenerator" interface="uk.nhs.cfh.dsp.snomed.expressiongenerator.SituationExpressionGenerator"/>    
+
+    <service ref="subtypeGetter" interface="uk.nhs.cfh.dsp.srth.query.transform.SubtypeGetter"/>
+    <service ref="sqlQueryEngineService" interface="uk.nhs.cfh.dsp.srth.query.transform.sql.SQLQueryEngineService" />
+
+</beans:beans>

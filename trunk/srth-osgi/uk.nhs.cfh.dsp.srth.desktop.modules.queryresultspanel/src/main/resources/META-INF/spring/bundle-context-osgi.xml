@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/osgi"
+             xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/osgi
+http://www.springframework.org/schema/osgi/spring-osgi.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+    <reference id="queryService" interface="uk.nhs.cfh.dsp.srth.query.service.QueryService"/>
+    <reference id="viewComponentService" interface="uk.nhs.cfh.dsp.srth.desktop.modularframework.ViewComponentService"/>
+    <reference id="actionComponentService" interface="uk.nhs.cfh.dsp.srth.desktop.modularframework.ActionComponentService"/>
+    <reference id="applicationService" interface="uk.nhs.cfh.dsp.srth.desktop.appservice.ApplicationService"/>
+    <!--<reference id="connectionService" interface="uk.nhs.cfh.dsp.srth.dcp.DatabaseConnectionService"/>-->
+    <reference id="sqlQueryEngineService" interface="uk.nhs.cfh.dsp.srth.query.transform.sql.SQLQueryEngineService" />
+    <reference id="queryExpressionHTMLRenderer" interface="uk.nhs.cfh.dsp.srth.query.converters.html.QueryExpressionHTMLRenderer"/>
+    <!--<reference id="hibernateBasedSQLQueryEngineService" interface="uk.nhs.cfh.dsp.srth.query.transform.sql.SQLQueryEngineService"/>-->
+    <reference id="patientDAO" interface="uk.nhs.cfh.dsp.srth.demographics.PatientDAO"/>
+    <reference id="subtypeGetter" interface="uk.nhs.cfh.dsp.srth.query.transform.SubtypeGetter"/>
+
+</beans:beans>
+

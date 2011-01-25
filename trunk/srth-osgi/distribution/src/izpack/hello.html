@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<title>Welcome Panel for ${application.name} - ${project.version}</title>
+</head>
+<body>
+
+<h2>Welcome to ${application.name}</h2>
+
+<p>
+   <b>Version Number: </b> ${project.version}
+   <br><b>Build Number: </b> ${changeSet}
+   <br><b>Build Time: </b> ${timestamp}
+    <br><b>Project Home : </b><a href="${api.code.site}">${api.code.site}</a>
+    <br><b>Author : </b>${author.name}
+    <br><b>Contact : </b>${api.contact.email}
+</p>
+<p>
+    This installer will guide you through the installation process for installing and configuring
+    ${application.name} on your client machine. The installer will open additional documentation if necessary at the
+    appropriate steps.
+</p>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="data.xsd">
+    <db>
+        <name>fakedata2</name>
+        <username>fake_data_user</username>
+        <pwd>mooCOW27</pwd>
+        <!-- <URL>jdbc:mysql://10.149.121.190/</URL> -->
+        <URL>jdbc:mysql://localhost:3306/</URL>
+        <!-- <URL>jdbc:derby:</URL> -->
+        <!-- <URL>jdbc:sqlite:</URL> -->
+        <dialect>MY_SQL</dialect>
+    </db>
+    <test_suite>
+        <export_directory_location>output</export_directory_location>
+    </test_suite>
+    <mapped_columns>
+        <mapped_column name="has_dose">DOSE</mapped_column>
+        <mapped_column name="has_value">VALUE</mapped_column>
+    </mapped_columns>
+</config>
