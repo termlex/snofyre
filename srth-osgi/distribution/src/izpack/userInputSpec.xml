@@ -1,0 +1,150 @@
+<!--
+
+    Crown Copyright (C) 2008 - 2011
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<userInput>
+    <!-- Installation type -->
+    <panel order="0" id="installation.selection.panel" border="false">
+        <field type="title" txt="Select Installation Type" bold="true" size="1" />        
+        <field type="staticText" align="left"
+       txt="Please select an installation type, based on the information you read in the previous screen. Please use the 'Previous' button if  necessary."/>
+        <field type="divider" align="top"/>
+        <field type="radio" variable="install.type.selection">
+            <description align="left" txt="Please select installation type. If you are unsure, then select Full Install."
+                         />
+            <spec>
+                <choice txt="Full Install (Snofyre APP + Snofyre DATA + SNOMED CT DATA)" value="full" set="true" />
+                <choice txt="Lite Install (Snofyre APP + Snofyre DATA)" value="lite" />
+                <choice txt="Snofyre Update (Snofyre APP Only)" value="update" />
+            </spec>
+        </field>
+        <field type="divider" align="bottom"/>
+        <field type="staticText" align="left" txt="Please note that you need to have a TRUD account and must be registered for the NHSSNOFYRE packs."/>
+    </panel>
+    <!-- TRUD connection validator -->
+    <panel order="1" id="trud.connection.parameters" border="false">
+        <field type="staticText" align="left"
+               text="You selected $install.type.selection installation. Please provide your TRUD FTP access credentials. The installer will automatically download relevant data for you from TRUD. This is NOT your email address."/>
+        <field type="space"/>
+        <field type="title" txt="Specify credentials for accessing TRUD" bold="true" size="1" />
+        <field type="divider" align="top"/>
+        <field type="staticText" align="left" txt="Please note that you need to have an TRUD account and must have registered for the NHSSNOFYRE packs."/>
+        <field type="space"/>
+
+        <!-- User name -->
+        <field type="text" align="left" variable="trud.user.name">
+          <spec txt="Enter User Name:" size="25" set=""/>
+            <validator class="com.izforge.izpack.util.NotEmptyValidator"
+                         txt="User name is mandatory!" />
+        </field>
+        <field type="space"/>
+        <!-- Password -->
+        <field type="password" align="left" variable="trud.password">
+          <spec>
+            <pwd txt="Enter Password :" size="25" set=""/>
+          </spec>
+            <validator class="com.izforge.izpack.util.NotEmptyValidator"
+                       txt="Password can not be empty."/>
+        </field>
+        <field type="divider" align="bottom"/>
+    </panel>
+  <!-- Nag screen that reminds users of 'to-do' items -->
+    <panel order="2" id="verify.configuration" layout="left" border="false" column_width="40">
+        <field type="title" txt="Verify Configuration for accessing MySQL server" bold="true" size="1" />
+        <field type="staticText" align="left"
+               txt="Please follow all the steps described in the ${application.name} Installation Manual that the installer automatically opened for you. The installation manual describes how to import ${application.name} and SNOMED CT data into the local installation of MySQL server."/>
+        <field type="space"/>
+        <field type="staticText" align="left" txt="If you closed the manual or the installer did not open it for you, it is located at $INSTALL_PATH\docs\${sappheiros.configuration.guide.name}."/>
+        <!--<field type="space"/>-->
+        <field type="divider" align="top"/>
+
+        <!-- MySQL Server Installed -->
+        <field type="check" align="left" variable="mysql.server.installed.check">
+          <spec txt="Have you installed MySQL Server on the client machine?" true="Yes" false="No"/>
+        </field>
+        <field type="space"/>
+        <field type="check" align="left" variable="mysql.server.user.account.check">
+          <spec txt="Have you set up a dedicated account for ${application.name} on the MySQL serer?" true="Yes" false="No"/>
+        </field>
+        <field type="space"/>
+        <field type="check" align="left" variable="mysql.snomed.data.import.check">
+          <spec txt="Have you imported the supplied SNOMED CT data into MySQL?" true="Yes" false="No"/>
+        </field>
+        <field type="space"/>
+        <field type="check" align="left" variable="mysql.sappheiros.data.import.check">
+          <spec txt="Have you imported the supplied ${application.name} data into MySQL?" true="Yes" false="No"/>
+        </field>
+        <field type="space"/>
+        <field type="check" align="left" variable="mysql.server.snomed.db.permissions.check">
+          <spec txt="Have you set up permissions for accessing SNOMED CT data?" true="Yes" false="No"/>
+        </field>
+        <field type="space"/>
+        <field type="check" align="left" variable="mysql.server.sappheiros.db.permissions.check">
+          <spec txt="Have you set up permissions for accessing ${application.name} data?" true="Yes" false="No"/>
+        </field>
+        <field type="space"/>
+
+        <!-- Final message -->
+        <field type="divider" align="bottom"/>
+        <field type="staticText" align="left"
+               txt="Please move to the next screen only if you have configured the above settings properly!"/>
+    </panel>
+    <!-- Database connection validator -->
+    <panel order="3" id="jdbc.connection.parameters" border="false">
+        <field type="staticText" align="left"
+               txt="You must have followed all the previous steps and imported ${application.name} and SNOMED CT data imto the local installation of MySQL server. In this step, please enter the password that you've specified for the ${application.name}'s MySQL server account."/>
+        <field type="space"/>
+        <field type="title" txt="Specify credentials for accessing MySQL server" bold="true" size="1" />
+        <field type="divider" align="top"/>
+        <field type="staticText" align="left" txt="Please use the default (preset) values where provided, unless you have configured MySQL server using different values."/>
+        <field type="space"/>
+
+        <!-- User name -->
+        <field type="text" align="left" variable="sappheiros.db.user.name">
+          <spec txt="Enter User Name:" size="25" set=""/>
+            <validator class="com.izforge.izpack.util.NotEmptyValidator"
+                         txt="User name is mandatory!" />
+        </field>
+        <field type="space"/>
+        <!-- Password -->
+        <field type="password" align="left" variable="sappheiros.db.password">
+          <spec>
+            <pwd txt="Enter Password :" size="25" set=""/>
+          </spec>
+            <validator class="com.izforge.izpack.util.NotEmptyValidator"
+                       txt="Password can not be empty."/>
+        </field>
+        <!-- Port Number -->
+        <field type="text" align="left" variable="sappheiros.db.port.number">
+          <spec txt="Enter MySQL Port Number :" size="25" set="3306"/>
+            <validator class="com.izforge.izpack.util.NotEmptyValidator"
+                       txt="Please set to 3306, if you are not sure!"/>
+        </field>
+        <!-- Schema Name -->
+        <field type="text" align="left" variable="sappheiros.db.schema.name">
+          <spec txt="Enter ${application.name} Database Name :" size="25" set="fakedata2"/>
+            <validator class="com.izforge.izpack.util.NotEmptyValidator"
+                       txt="Please set to fakedata2, if you are not sure!"/>
+        </field>
+        <!-- Host Name -->
+        <field type="text" align="left" variable="sappheiros.db.host.name">
+          <spec txt="Enter MySQL Server Host Name :" size="25" set="localhost"/>
+            <validator class="com.izforge.izpack.util.NotEmptyValidator"
+                       txt="Please set to localhost, if you are not sure!"/>
+        </field>
+        <field type="divider" align="bottom"/>
+    </panel>
+</userInput>

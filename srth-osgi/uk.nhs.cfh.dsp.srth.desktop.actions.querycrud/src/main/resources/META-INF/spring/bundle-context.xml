@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <!-- regular spring configuration file defining the beans for this
+bundle. We've kept the osgi definitions in a separate
+configuration file so that this file can easily be used
+for integration testing outside of an OSGi environment -->
+
+    <bean id="newQueryAction"
+          class="uk.nhs.cfh.dsp.srth.desktop.actions.querycrud.NewQueryActionComponent"
+          init-method="init"
+          destroy-method="dispose">
+
+        <property name="actionComponentService" ref="actionComponentService"/>
+        <property name="queryService" ref="queryService"/>
+        <property name="applicationService" ref="applicationService"/>
+        <property name="queryExpressionFactory" ref="queryExpressionFactory"/>
+    </bean>
+    <bean id="loadQueryAction"
+          class="uk.nhs.cfh.dsp.srth.desktop.actions.querycrud.LoadQueryFromFileActionComponent"
+          init-method="init"
+          destroy-method="dispose">
+
+        <property name="applicationService" ref="applicationService"/>
+        <property name="actionComponentService" ref="actionComponentService"/>
+        <property name="queryService" ref="queryService"/>
+        <property name="queryExpressionXMLConverter" ref="queryExpressionXMLConverter"/>
+    </bean>
+    <bean id="saveQueryAction"
+          class="uk.nhs.cfh.dsp.srth.desktop.actions.querycrud.SaveQueryToFileActionComponent"
+          init-method="init"
+          destroy-method="dispose">
+
+        <property name="applicationService" ref="applicationService"/>
+        <property name="actionComponentService" ref="actionComponentService"/>
+        <property name="queryService" ref="queryService"/>
+        <property name="queryExpressionFileOutputter" ref="queryExpressionFileOutputter"/>
+    </bean>
+
+    <bean id="saveQueryAsAction"
+          class="uk.nhs.cfh.dsp.srth.desktop.actions.querycrud.SaveQueryAsToFileActionComponent"
+          init-method="init"
+          destroy-method="dispose">
+
+        <property name="applicationService" ref="applicationService"/>
+        <property name="actionComponentService" ref="actionComponentService"/>
+        <property name="queryService" ref="queryService"/>
+        <property name="queryExpressionFileOutputter" ref="queryExpressionFileOutputter"/>
+    </bean>
+
+</beans>

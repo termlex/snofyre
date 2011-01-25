@@ -1,0 +1,10 @@
+#-----------------------------------------------------------------
+# Use this file to add customized Bnd instructions for the bundle
+#-----------------------------------------------------------------
+
+Require-Bundle: com.springsource.org.hibernate, com.springsource.javassist, \
+    com.springsource.org.hsqldb, com.springsource.com.mysql.jdbc, \
+    uk.nhs.cfh.dsp.srth.information.model, \
+    uk.nhs.cfh.dsp.srth.information.model.impl, uk.nhs.cfh.dsp.srth.query.model, \
+    uk.nhs.cfh.dsp.snomed.expression.model, uk.nhs.cfh.dsp.snomed.objectmodel, \
+    uk.nhs.cfh.dsp.srth.query.converters

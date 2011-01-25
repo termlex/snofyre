@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+  <!-- regular spring configuration file defining the beans for this
+       bundle. We've kept the osgi definitions in a separate 
+       configuration file so that this file can easily be used
+       for integration testing outside of an OSGi environment -->
+
+    <bean id="consoleServiceConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="file:${settings.folder.location}/console-service.properties"/>
+        <property name="fileEncoding" value="utf-8"/>
+        <property name="searchSystemEnvironment" value="true"/>
+    </bean>
+
+    <bean id="contextWrapper" class="uk.nhs.cfh.dsp.srth.desktop.modules.scripting.impl.ApplicationContextWrapper" />
+    
+    <bean id="groovyConsoleService" class="uk.nhs.cfh.dsp.srth.desktop.modules.scripting.impl.GroovyConsoleServiceImpl"
+          init-method="initialize" destroy-method="destroy">
+        <property name="bindings">
+            <map>
+                <entry key="context" value-ref="contextWrapper" />
+                <entry key="terminologyDAO" value-ref="terminologyConceptDatabaseDAO" />
+                <entry key="normalFormGenerator" value-ref="normalFormGenerator" />
+                <entry key="hierarchyProvider" value-ref="tcHierarchyProvider" />
+                <entry key="queryService" value-ref="queryService" />
+                <entry key="randomSubtypeGenerator" value-ref="randomSubtypeGenerator" />
+                <entry key="searchService" value-ref="terminologySearchService" />
+                <entry key="queryRenderer" value-ref="queryExpressionPlainTextRenderer" />
+                <entry key="expressionRender" value-ref="heuristicBasedHumanReadableRender" />
+                <entry key="queryExpressionFactory" value-ref="queryExpressionFactory" />
+                <entry key="snomedXMLConverter" value-ref="snomedXMLConverter" />
+                <entry key="mrcmService" value-ref="mrcmService" />
+                <entry key="situationWrapper" value-ref="situationExpressionGenerator" />
+                <entry key="expressionXMLConverter" value-ref="expressionXMLConverter" />
+                <entry key="cgfConverter" value-ref="expressionCompositionalGrammarConverter" />
+                <entry key="nfHierarchyProvider" value-ref="normalFormHierarchyProvider" />
+            </map>
+        </property>
+        <property name="launchAtStart" value="${launch.at.start}"/>
+        <property name="autoClearOutput" value="${auto.clear.output}"/>
+    </bean>
+</beans>

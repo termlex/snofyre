@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <!-- Organisation Information -->
+
+  <organization>
+    <name>NHS Connecting for Health</name>
+    <url>http://www.connectingforhealth.nhs.uk</url>
+  </organization>
+
+  <licenses>
+    <license>
+      <name>Apache 2</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+      <comments>A business-friendly OSS license</comments>
+    </license>
+  </licenses>
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>uk.nhs.cfh.dsp</groupId>
+  <artifactId>srth-osgi</artifactId>
+  <version>1.8-SNAPSHOT</version>
+
+  <name>Sappheiros : A query and retrieval framework for SNOMED CT encoded records - uk.nhs.cfh.dsp.srth-osgi</name>
+
+  <description>This project provides a framework for query and retrieval of SNOMED CT encoded electronic patient data.
+        It contains various modules that allow for :
+        1. A functional query specification for authoring queries using SNOMED CT concepts.
+        2. An OSGI enabled Query Service that executes queries against a given persistence store (MySQL database by default)
+        3. A generic information model for storing patient data in a persistence store (MySQL database by default).
+        4. A visualisation module that allows retrieved results to be displayed in different ways.</description>
+
+  <inceptionYear>2008</inceptionYear>
+
+  <developers>
+    <developer>
+      <id>jay.kola</id>
+      <name>Jay Kola</name>
+      <email>jay.kola@nhs.net</email>
+      <url>http://uk.linkedin.com/in/jaykola</url>
+      <organization>${project.organization.name}</organization>
+      <organizationUrl>${project.organization.url}</organizationUrl>
+      <roles>
+        <role>Lead Architect</role>
+        <role>Developer</role>
+      </roles>
+      <timezone>+0</timezone>
+      <properties />
+    </developer>
+  </developers>
+
+  <!--<issueManagement>-->
+
+  <!--<system>JIRA</system>-->
+
+  <!--<url>http://localhost:8091/browse/SCTREPORTING</url>-->
+
+  <!--</issueManagement>-->
+
+  <scm>
+    <!--<connection>scm:svn:http://commsg1lds.npfit.nhs.uk/svn/tools/trunk/Terminology/snomed/tools/SNOMEDCT_Reporting/srth-osgi/trunk/srth-osgi</connection>-->
+    <!--<developerConnection>scm:svn:http://commsg1lds.npfit.nhs.uk/svn/tools/trunk/Terminology/snomed/tools/SNOMEDCT_Reporting/srth-osgi/trunk/srth-osgi</developerConnection>-->
+    <!--<url>http://commsg1lds.npfit.nhs.uk/svn/tools/trunk/Terminology/snomed/tools/SNOMEDCT_Reporting/srth-osgi/trunk/srth-osgi</url>-->
+    <connection>scm:svn:https://svn.connectingforhealth.nhs.uk/svn/public/srp/srth-osgi/trunk/srth-osgi</connection>
+    <developerConnection>scm:svn:https://svn.connectingforhealth.nhs.uk/svn/public/srp/srth-osgi/trunk/srth-osgi</developerConnection>
+    <url>https://svn.connectingforhealth.nhs.uk/svn/public/srp/srth-osgi/trunk/srth-osgi</url>
+  </scm>
+
+  <!--<ciManagement>-->
+
+  <!--<system>bamboo</system>-->
+
+  <!--<url>http://localhost:8085</url>-->
+
+  <!--&lt;!&ndash;<notifiers>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;<notifier>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;<type>mail</type>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;<sendOnError>true</sendOnError>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;<sendOnFailure>true</sendOnFailure>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;<sendOnSuccess>false</sendOnSuccess>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;<sendOnWarning>false</sendOnWarning>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;<configuration><address>continuum@127.0.0.1</address></configuration>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;</notifier>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;</notifiers>&ndash;&gt;-->
+
+  <!--</ciManagement>-->
+
+  <properties>
+    <!--
+         | some example OSGi runtime properties
+        -->
+    <org.osgi.service.http.port>9191</org.osgi.service.http.port>
+    <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
+    <log4j.configuration>file:data/log4j.properties</log4j.configuration>
+      <author.name>Jay Kola</author.name>
+      <author.email>jay.kola@gmail.com</author.email>
+      <year>2011</year>
+    <!--<pax.working.directory>D:\Documents and Settings\JAKO1\Desktop\srth-osgi</pax.working.directory>-->
+    <!--<installation.directory>/Users/jay/Desktop/srth-osgi</installation.directory>-->
+    <pax.working.directory>/Users/jay/Desktop/srth-osgi</pax.working.directory>
+    <apple.laf.useScreenMenuBar>true</apple.laf.useScreenMenuBar>
+    <com.apple.mrj.application.growbox.intrudes>true</com.apple.mrj.application.growbox.intrudes>
+    <path.prefix>///..</path.prefix>
+  </properties>
+
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>poms</module>
+    <module>provision</module>
+    <module>distribution</module>
+    <module>uk.nhs.cfh.dsp.srth.demographics</module>
+    <!--<module>uk.nhs.cfh.dsp.srth.gui</module>-->
+    <module>uk.nhs.cfh.dsp.srth.information.model</module>
+    <module>uk.nhs.cfh.dsp.srth.information.model.impl</module>
+    <module>uk.nhs.cfh.dsp.srth.query.model</module>
+    <module>uk.nhs.cfh.dsp.srth.query.transform</module>
+    <module>uk.nhs.cfh.dsp.srth.simulator</module>
+    <module>uk.nhs.cfh.dsp.srth.query.service</module>
+    <module>uk.nhs.cfh.dsp.srth.desktop.modules.querycreationtreepanel</module>
+    <module>uk.nhs.cfh.dsp.srth.desktop.actions.querycrud</module>
+    <module>uk.nhs.cfh.dsp.srth.desktop.modules.queryresultspanel</module>
+    <module>uk.nhs.cfh.dsp.srth.query.repository</module>
+    <module>uk.nhs.cfh.dsp.srth.desktop.modules.resultexplanationpanel</module>
+    <module>uk.nhs.cfh.dsp.srth.desktop.modules.queryrenderer</module>
+    <module>uk.nhs.cfh.dsp.srth.query.converters</module>
+    <module>uk.nhs.cfh.dsp.srth.expression.repository</module>
+    <module>uk.nhs.cfh.dsp.srth.desktop.modules.simulator.viewcomponent</module>
+    <module>uk.nhs.cfh.dsp.srth.expression.repository.actions</module>
+    <module>uk.nhs.cfh.dsp.srth.query.repository.viewcomponent</module>
+    <module>uk.nhs.cfh.dsp.srth.desktop.modules.scripting</module>
+    <module>uk.nhs.cfh.dsp.srth.desktop.modules.scripting.actions</module>
+  </modules>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+          <encoding>utf-8</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.ops4j</groupId>
+        <artifactId>maven-pax-plugin</artifactId>
+        <version>1.4</version>
+        <configuration>
+          <!--
+                     | some example Pax-Runner settings
+                    -->
+          <provision>
+            <param>--settings.platform=equinox</param>
+            <param>--bootDelegation=*</param>
+            <param>--workingDirectory=${pax.working.directory}</param>
+            <param>--vmOptions=-Xmx1000m</param>
+            <!--<param>__log=DEBUG</param>-->
+          </provision>
+        </configuration>
+        <executions>
+          <!--
+                        | uncomment to auto-generate IDE files <execution>
+                        <id>ide-support</id> <goals> <goal>eclipse</goal> </goals>
+                        </execution>
+                    -->
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>buildnumber-maven-plugin</artifactId>
+        <version>1.0-beta-4</version>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <goals>
+              <goal>create</goal>
+              <goal>hgchangeset</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <doCheck>false</doCheck>
+          <doUpdate>false</doUpdate>
+          <revisionOnScmFailure>0</revisionOnScmFailure>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.0-beta-7</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.4.3</version>
+        <configuration>
+          <encoding>utf-8</encoding>
+        </configuration>
+      </plugin>
+        <plugin>
+            <inherited>false</inherited>
+            <groupId>com.mycila.maven-license-plugin</groupId>
+            <artifactId>maven-license-plugin</artifactId>
+            <version>1.9.0</version>
+            <configuration>
+                <header>${basedir}/src/etc/header.txt</header>
+                <failIfMissing>true</failIfMissing>
+                <aggregate>true</aggregate>
+                <properties>
+                    <year>${project.inceptionYear} - 2011</year>
+                </properties>
+                <useDefaultExcludes>true</useDefaultExcludes>
+                <failIfMissing>false</failIfMissing>
+                <strictCheck>true</strictCheck>
+                <excludes>
+                    <exclude>LICENSE.txt</exclude>
+                    <exclude>**/src/test/resources/**</exclude>
+                    <exclude>**/src/test/data/**</exclude>
+                    <exclude>target/**</exclude>
+                    <exclude>**/queries/*.xml</exclude>
+                    <exclude>.idea/**</exclude>
+                    <exclude>**/**/osgi.bnd</exclude>
+                    <exclude>**/**/readme.txt</exclude>
+                    <exclude>**/**/README.TXT</exclude>
+                    <exclude>**/**/LICENSE.TXT</exclude>
+                    <exclude>**/**/FINISH.TXT</exclude>
+                    <exclude>**/**/config.ini</exclude>
+                    <exclude>**/**/*.properties</exclude>
+                    <exclude>**/**/*.html</exclude>
+                    <exclude>**/**/*.plist</exclude>
+                    <exclude>**/**/*.icns</exclude>
+                    <exclude>**/**/*.log</exclude>
+                    <exclude>**/**/*.g</exclude>
+                    <exclude>**/**/*.bat</exclude>
+                    <exclude>**/**/*.sh</exclude>
+                    <exclude>**/**/*.releaseBackup</exclude>
+                    <exclude>**/**/*.xml_eng</exclude>
+                    <exclude>**/**/*.hgignore</exclude>
+                    <exclude>**/**/*.hgtags</exclude>
+                    <exclude>**/**/atlassian-ide-plugin.xml</exclude>
+                    <exclude>**/**/JavaApplicationStub</exclude>
+                    <exclude>**/**/PkgInfo</exclude>
+                    <exclude>**/**/bundle-context.xml</exclude>
+                    <exclude>**/**/bundle-context-osgi.xml</exclude>
+                </excludes>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>check-headers</id>
+                    <phase>verify</phase>
+                    <goals>
+                        <goal>check</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+  </build>
+
+  <repositories>
+    <repository>
+      <id>com.springsource.repository.bundles.release</id>
+      <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
+      <url>http://repository.springsource.com/maven/bundles/release</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>com.springsource.repository.bundles.external</id>
+      <name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
+      <url>http://repository.springsource.com/maven/bundles/external</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>com.springsource.repository.libraries.release</id>
+      <name>SpringSource Enterprise Bundle Repository - SpringSource Library Releases</name>
+      <url>http://repository.springsource.com/maven/libraries/release</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>com.springsource.repository.libraries.external</id>
+      <name>SpringSource Enterprise Bundle Repository - External Library Releases</name>
+      <url>http://repository.springsource.com/maven/libraries/external</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>maven2-repository.dev.java.net</id>
+      <name>Java.net Repository for Maven</name>
+      <url>http://download.java.net/maven/2/</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>spring-osgi</id>
+      <url>http://s3.amazonaws.com/maven.springframework.org/osgi</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>ops4j.releasees</id>
+      <url>http://repository.ops4j.org/maven2/</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <reporting>
+    <plugins>
+      <!-- Use mvn javadoc:aggregate to generate javadoc for entire project -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.7</version>
+        <configuration>
+          <doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
+          <encoding>utf-8</encoding>
+          <detectLinks>true</detectLinks>
+          <detectJavaApiLink>true</detectJavaApiLink>
+          <!-- <docletPath>/path/to/UmlGraph.jar</docletPath> -->
+          <docletArtifact>
+            <groupId>org.umlgraph</groupId>
+            <artifactId>doclet</artifactId>
+            <version>5.1</version>
+          </docletArtifact>
+          <additionalparam>-views</additionalparam>
+          <useStandardDocletOptions>true</useStandardDocletOptions>
+          <includeDependencySources>true</includeDependencySources>
+          <includeTransitiveDependencySources>true</includeTransitiveDependencySources>
+          <!--<reportOutputDirectory>${project.build.directory}/docs</reportOutputDirectory>-->
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+
+</project>

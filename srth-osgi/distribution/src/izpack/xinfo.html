@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<title>Installation Configuration</title>
+</head>
+<body>
+<h3>You are almost ready to install $APP_NAME - $APP_VER on your machine.</h3>
+
+<ol>
+<li>${application.name}  will be installed to the following folder on your machine :
+    <br><b>$app-destination</b></li>
+<li>You will not be able to go back after this step, so check the previous screen for a summary of installation settings.</li>
+<li>Please note that the SNOMED CT MySQL Data Pack will require around <b>1GB space</b> after unpacking!</li>
+<li>${application.name} needs a local installation of MySQL for storing SNOMED CT and its own data.</li>
+<li>After installation, please follow the instructions provided in the configuration manual
+    located at : <b>$INSTALL_PATH\docs\${inst.man.name}</b>, to install and
+    configure MySQL for ${application.name} .</li>
+<li>The installer will try to open the configuration in your default PDF reader. If it fails,
+    please open it manually and follow the steps described.</li>
+<li>An online version of the <a href="${installation.guide.location}">installation guide</a> is also available.</li>
+<li>The post-installation step will verify that ${application.name} can access the local MySQL server
+    using the account that you have configured.</li>
+</ol>
+
+</body>
+</html>

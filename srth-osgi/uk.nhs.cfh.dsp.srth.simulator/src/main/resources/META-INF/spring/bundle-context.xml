@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <!-- regular spring configuration file defining the beans for this
+    bundle. We've kept the osgi definitions in a separate
+    configuration file so that this file can easily be used
+    for integration testing outside of an OSGi environment -->
+
+    <bean id="randomSubtypeGenerator" class="uk.nhs.cfh.dsp.srth.simulator.utils.impl.RandomSubtypeGeneratorImpl">
+        <property name="hierarchyProvider" ref="randomSubtypeHierarchyProvider"/>
+        <property name="normalFormGenerator" ref="normalFormGenerator"/>
+        <property name="terminologyConceptDAO" ref="terminologyConceptDatabaseDAO"/>
+        <property name="useNormalFormForRendering" value="false"/>
+    </bean>
+    
+    <bean id="dataGenerationEngine" class="uk.nhs.cfh.dsp.srth.simulator.engine.impl.QueryBasedDataGenerationEngineImpl">
+        <constructor-arg ref="queryService"/>
+
+        <property name="clinicalEntryFactory" ref="entryFactoryService"/>
+        <property name="terminologyConceptDAO" ref="terminologyConceptDatabaseDAO"/>
+        <property name="patientDAO" ref="patientDAO"/>
+        <property name="patientUtilsService" ref="patientUtilsService"/>
+        <property name="propertyChangeTrackerService" ref="propertyChangeTrackerService"/>
+        <property name="ehrFactory" ref="ehrFactoryService"/>
+        <property name="randomSubtypeGenerator" ref="randomSubtypeGenerator"/>
+        <property name="expressionMappingObjectDAO" ref="expressionMappingObjectDAO"/>
+        <property name="expressionSubsumptionRelationshipDAO" ref="expressionSubsumptionRelationshipDAO"/>
+    </bean>
+
+    <bean id="simulatorPropertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="file:${settings.folder.location}/fakedata-db.properties"/>
+        <property name="fileEncoding" value="utf-8"/>
+        <property name="searchSystemEnvironment" value="true"/>
+    </bean>
+
+    <bean id="simulatorDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <bean id="persistenceUnitManager"
+        class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
+        <property name="persistenceXmlLocation" value="file:${settings.folder.location}persistence.xml" />
+        <property name="defaultDataSource" ref="simulatorDataSource" />
+    </bean>
+
+    <bean id="dataGenerationEngineFactory" class="uk.nhs.cfh.dsp.srth.simulator.impl.DataGenerationEngineFactoryImpl">
+        <property name="queryBasedDataGenerationEngine" ref="dataGenerationEngine"/>
+        <property name="persistenceUnitManager" ref="persistenceUnitManager"/>
+        <property name="dataSource" ref="simulatorDataSource"/>
+        <property name="xmlLocation" value="${settings.folder.location}/persistence.xml"/>
+    </bean>
+</beans>

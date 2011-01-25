@@ -1,0 +1,5 @@
+#-----------------------------------------------------------------
+# Use this file to add customized Bnd instructions for the bundle
+#-----------------------------------------------------------------
+
+Required-Bundle: uk.nhs.cfh.dsp.srth.desktop.dependencies

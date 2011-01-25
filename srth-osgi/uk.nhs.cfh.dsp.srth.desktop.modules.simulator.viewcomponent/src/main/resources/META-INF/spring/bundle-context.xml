@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <!-- regular spring configuration file defining the beans for this
+bundle. We've kept the osgi definitions in a separate
+configuration file so that this file can easily be used
+for integration testing outside of an OSGi environment -->
+
+    <bean id="dataGenerationViewComponent"
+          class="uk.nhs.cfh.dsp.srth.desktop.modules.simulator.viewcomponent.DataGenerationViewComponent"
+          init-method="init"
+            destroy-method="dispose">
+        <property name="dataGenerationEngine" ref="dataGenerationEngine"/>
+        <property name="queryService" ref="queryService"/>
+        <property name="applicationService" ref="applicationService"/>
+        <property name="viewComponentService" ref="viewComponentService"/>
+        <property name="propertyChangeTrackerService" ref="propertyChangeTrackerService"/>
+    </bean>
+
+    <bean id="generateDataActionComponent"
+          class="uk.nhs.cfh.dsp.srth.desktop.modules.simulator.viewcomponent.GenerateDataActionComponent"
+          init-method="init"
+            destroy-method="dispose">
+        <property name="dataGenerationEngine" ref="dataGenerationEngine"/>
+        <property name="queryService" ref="queryService"/>
+        <property name="applicationService" ref="applicationService"/>
+        <property name="actionComponentService" ref="actionComponentService"/>
+        <property name="propertyChangeTrackerService" ref="propertyChangeTrackerService"/>
+    </bean>
+
+    <bean id="deleteAllRecordsActionComponent"
+          class="uk.nhs.cfh.dsp.srth.desktop.modules.simulator.viewcomponent.DeleteAllRecordsActionComponent"
+          init-method="init"
+            destroy-method="dispose">
+        <property name="patientDAO" ref="patientDAO"/>
+        <property name="applicationService" ref="applicationService"/>
+        <property name="actionComponentService" ref="actionComponentService"/>
+    </bean>
+
+    <bean id="recreateDatabaseActionComponent"
+          class="uk.nhs.cfh.dsp.srth.desktop.modules.simulator.viewcomponent.RecreateDatabaseActionComponent"
+          init-method="init"
+            destroy-method="dispose">
+        <property name="dataGenerationEngineFactory" ref="dataGenerationEngineFactory"/>
+        <property name="applicationService" ref="applicationService"/>
+        <property name="actionComponentService" ref="actionComponentService"/>
+    </bean>
+</beans>
