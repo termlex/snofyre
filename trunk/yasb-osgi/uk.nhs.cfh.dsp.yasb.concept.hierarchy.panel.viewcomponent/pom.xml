@@ -1,0 +1,116 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <parent>
+        <relativePath>../poms/compiled/</relativePath>
+        <groupId>uk.nhs.cfh.dsp.yasb.build</groupId>
+        <artifactId>compiled-bundle-settings</artifactId>
+        <version>0.8-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <bundle.symbolicName>uk.nhs.cfh.dsp.yasb.concept.hierarchy.panel.viewcomponent</bundle.symbolicName>
+        <bundle.namespace>uk.nhs.cfh.dsp.yasb.concept.hierarchy.panel.viewcomponent</bundle.namespace>
+    </properties>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>uk.nhs.cfh.dsp.yasb</groupId>
+    <artifactId>uk.nhs.cfh.dsp.yasb.concept.hierarchy.panel.viewcomponent</artifactId>
+    <version>0.8-SNAPSHOT</version>
+
+    <name>Concept Hierarchy View Component - ${bundle.symbolicName}</name>
+    <description>A bundle fragment that displays the Concept Hierarchy Panel in a view component.</description>
+
+    <packaging>bundle</packaging>
+
+    <dependencies>
+        <!--
+         | uncomment to add all imported (non-local) bundles to your compilation classpath
+        <dependency>
+          <type>pom</type>
+          <groupId>${parent.groupId}</groupId>
+          <artifactId>provision</artifactId>
+          <optional>true</optional>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi_R4_core</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi_R4_compendium</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.beans</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.context</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.core</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.test</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- Local project dependencies -->
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.snomed</groupId>
+            <artifactId>uk.nhs.cfh.dsp.snomed.objectmodel</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.snomed</groupId>
+            <artifactId>uk.nhs.cfh.dsp.snomed.dao</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.srth-desktop</groupId>
+            <artifactId>uk.nhs.cfh.dsp.srth.desktop.dependencies</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.srth-desktop</groupId>
+            <artifactId>uk.nhs.cfh.dsp.srth.desktop.appservice</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.srth-desktop</groupId>
+            <artifactId>uk.nhs.cfh.dsp.srth.desktop.modularframework</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.yasb</groupId>
+            <artifactId>uk.nhs.cfh.dsp.yasb.concept.hierarchy.panel</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Other dependencies -->
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>com.springsource.javax.persistence</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>com.springsource.org.apache.commons.logging</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+</project>
