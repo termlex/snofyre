@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <!-- regular spring configuration file defining the beans for this
+bundle. We've kept the osgi definitions in a separate
+configuration file so that this file can easily be used
+for integration testing outside of an OSGi environment -->
+
+    <bean id="snomedDAODataSourcePropertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>file:${settings.folder.location}/snomed-db.properties</value>
+                <value>file:${settings.folder.location}/obj-snomed-db.properties</value>
+            </list>
+        </property>
+        <property name="fileEncoding" value="utf-8"/>
+        <property name="searchSystemEnvironment" value="true"/>
+    </bean>
+
+    <bean id="snomedDAODataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" depends-on="snomedDAODataSourcePropertyConfigurer">
+        <property name="driverClassName" value="${snomed.jdbc.driverClassName}"/>
+        <property name="url" value="${snomed.jdbc.url}"/>
+        <property name="username" value="${snomed.jdbc.username}"/>
+        <property name="password" value="${snomed.jdbc.password}"/>
+    </bean>
+
+    <bean id="persistenceDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" depends-on="snomedDAODataSourcePropertyConfigurer">
+        <property name="driverClassName" value="${obj.snomed.jdbc.driverClassName}"/>
+        <property name="url" value="${obj.snomed.jdbc.url}"/>
+        <property name="username" value="${obj.snomed.jdbc.username}"/>
+        <property name="password" value="${obj.snomed.jdbc.password}"/>
+    </bean>
+
+    <bean id="objSCTSessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="persistenceDataSource"/>
+        <property name="annotatedClasses">
+            <list>
+                <value>uk.nhs.cfh.dsp.snomed.objectmodel.impl.AbstractTerminologyConcept</value>
+                <value>uk.nhs.cfh.dsp.snomed.objectmodel.impl.AbstractTerminologyRelationship</value>
+                <value>uk.nhs.cfh.dsp.snomed.objectmodel.impl.SnomedAttributeImpl</value>
+                <value>uk.nhs.cfh.dsp.snomed.objectmodel.impl.SnomedConceptImpl</value>
+                <value>uk.nhs.cfh.dsp.snomed.objectmodel.impl.SnomedDescriptionImpl</value>
+                <value>uk.nhs.cfh.dsp.snomed.objectmodel.impl.SnomedRelationshipImpl</value>
+                <value>uk.nhs.cfh.dsp.snomed.objectmodel.impl.SnomedRoleGroupImpl</value>
+                <value>uk.nhs.cfh.dsp.snomed.expression.model.impl.AbstractExpressionImpl</value>
+                <value>uk.nhs.cfh.dsp.snomed.expression.model.impl.AbstractExpressionWithFocusConcepts</value>
+                <value>uk.nhs.cfh.dsp.snomed.expression.model.impl.AbstractPropertyExpressionImpl</value>
+                <value>uk.nhs.cfh.dsp.snomed.expression.model.impl.AbstractPropertyImpl</value>
+                <value>uk.nhs.cfh.dsp.snomed.expression.model.impl.CloseToUserExpressionImpl</value>
+                <value>uk.nhs.cfh.dsp.snomed.expression.model.impl.ConceptExpressionImpl</value>
+                <value>uk.nhs.cfh.dsp.snomed.expression.model.impl.IntersectionExpressionImpl</value>
+                <value>uk.nhs.cfh.dsp.snomed.expression.model.impl.NormalFormExpressionImpl</value>
+                <value>uk.nhs.cfh.dsp.snomed.expression.model.impl.PropertyExpressionImpl</value>
+                <value>uk.nhs.cfh.dsp.snomed.expression.model.impl.SnomedRelationshipProperty</value>
+                <value>uk.nhs.cfh.dsp.snomed.expression.model.impl.SnomedRelationshipPropertyExpression</value>
+                <value>uk.nhs.cfh.dsp.snomed.expression.model.impl.SnomedRoleGroupProperty</value>
+                <value>uk.nhs.cfh.dsp.snomed.expression.model.impl.SnomedRelationshipPropertyExpression</value>
+                <value>uk.nhs.cfh.dsp.snomed.expression.model.impl.UnionExpressionImpl</value>
+                <value>uk.nhs.cfh.dsp.snomed.objectmodel.ConceptType</value>
+                <value>uk.nhs.cfh.dsp.snomed.objectmodel.ComponentStatus</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${obj.hibernate.dialect}</prop>
+                <prop key="hibernate.show_sql">${obj.hibernate.show_sql}</prop>
+                <prop key="hibernate.hbm2ddl.auto">${obj.hibernate.hbm2ddl.auto}</prop>
+                <prop key="hibernate.jdbc.batch_size">${obj.hibernate.jdbc.batch_size}</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="terminologyConceptDatabaseDAO" class="uk.nhs.cfh.dsp.snomed.dao.impl.SnomedConceptDatabaseDAO"
+          depends-on="snomedDAODataSource">
+        <property name="dataSource" ref="snomedDAODataSource"/>
+    </bean>
+
+    <bean id="springEnabledTerminologyDAO" class="uk.nhs.cfh.dsp.snomed.dao.impl.SpringEnabledSnomedConceptDAO"
+            depends-on="objSCTSessionFactory">
+        <property name="sessionFactory" ref="objSCTSessionFactory"/>
+    </bean>
+
+    <bean id="snomedExpressionDAO" class="uk.nhs.cfh.dsp.snomed.dao.impl.SnomedExpressionDAOImpl"
+            depends-on="objSCTSessionFactory">
+        <property name="sessionFactory" ref="objSCTSessionFactory"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,255 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <parent>
+        <relativePath>../poms/compiled/</relativePath>
+        <groupId>uk.nhs.cfh.dsp.snomed.build</groupId>
+        <artifactId>compiled-bundle-settings</artifactId>
+        <version>0.8-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <bundle.symbolicName>uk.nhs.cfh.dsp.snomed.converters</bundle.symbolicName>
+        <bundle.namespace>uk.nhs.cfh.dsp.snomed.converters</bundle.namespace>
+    </properties>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>uk.nhs.cfh.dsp.snomed</groupId>
+    <artifactId>uk.nhs.cfh.dsp.snomed.converters</artifactId>
+    <version>0.8-SNAPSHOT</version>
+
+    <name>SNOMED CT Converters - ${bundle.symbolicName}</name>
+    <description>A bundle that provides services for converting SNOMED CT into different representations; e.g. XML</description>
+
+    <packaging>bundle</packaging>
+
+    <dependencies>
+        <!--
+         | uncomment to add all imported (non-local) bundles to your compilation classpath
+        <dependency>
+          <type>pom</type>
+          <groupId>${parent.groupId}</groupId>
+          <artifactId>provision</artifactId>
+          <optional>true</optional>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi_R4_core</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi_R4_compendium</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- Test dependencies -->
+        <dependency>
+            <groupId>org.junit</groupId>
+            <artifactId>com.springsource.org.junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>com.springsource.org.apache.commons.configuration</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>com.springsource.org.apache.commons.dbcp</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>com.springsource.org.apache.commons.pool</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>com.springsource.org.apache.commons.logging</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.mysql.jdbc</groupId>
+            <artifactId>com.springsource.com.mysql.jdbc</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>com.springsource.org.hsqldb</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.collect</groupId>
+            <artifactId>com.springsource.com.google.common.collect</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>com.springsource.org.antlr</artifactId>
+            <version>3.1.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>com.springsource.org.antlr.stringtemplate</artifactId>
+            <version>3.2.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Spring dependencies -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.beans</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.context</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.core</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.test</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>com.springsource.javax.persistence</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>com.springsource.org.apache.commons.logging</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jdom</groupId>
+            <artifactId>com.springsource.org.jdom</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.snomed</groupId>
+            <artifactId>uk.nhs.cfh.dsp.snomed.objectmodel</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.snomed</groupId>
+            <artifactId>uk.nhs.cfh.dsp.snomed.expression.model</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.snomed</groupId>
+            <artifactId>uk.nhs.cfh.dsp.snomed.expression.comparator</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.snomed</groupId>
+            <artifactId>uk.nhs.cfh.dsp.snomed.expressiongenerator</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.snomed</groupId>
+            <artifactId>uk.nhs.cfh.dsp.snomed.normaliser</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.snomed</groupId>
+            <artifactId>uk.nhs.cfh.dsp.snomed.hierarchyprovider</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.snomed</groupId>
+            <artifactId>uk.nhs.cfh.dsp.snomed.dao</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.snomed</groupId>
+            <artifactId>uk.nhs.cfh.dsp.snomed.mrcm</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Apache dependencies -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>com.springsource.org.apache.commons.configuration</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        
+        <!-- XStream related dependencies -->
+        <dependency>
+            <groupId>org.xmlpull</groupId>
+            <artifactId>com.springsource.org.xmlpull</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>com.springsource.com.thoughtworks.xstream</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.xml.stream</groupId>
+            <artifactId>com.springsource.javax.xml.stream</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!--
+          We need to have the ANTLR runtime jar when running and compiling.
+        -->
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>com.springsource.org.antlr.runtime</artifactId>
+            <version>3.1.3</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>com.springsource.org.antlr.stringtemplate</artifactId>
+            <version>3.2.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <!--<defaultGoal>install</defaultGoal>-->
+        <plugins>
+            <plugin>
+                <groupId>org.antlr</groupId>
+                <artifactId>antlr3-maven-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                  <sourceDirectory>src</sourceDirectory>
+                  <outputDirectory>
+                    ${project.build.directory}/generated-sources/antlr
+                  </outputDirectory>
+                </configuration>                
+                <executions>
+                    <execution>
+                        <!--<phase>generate-sources</phase>                        -->
+                        <goals>
+                            <goal>antlr</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
