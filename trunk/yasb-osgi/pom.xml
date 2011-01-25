@@ -56,12 +56,9 @@
     <!--</issueManagement>-->
 
     <scm>
-        <!--<connection>scm:svn:http://commsg1lds.npfit.nhs.uk/svn/tools/trunk/Terminology/snomed/tools/SNOMEDCT_Reporting/yasb-osgi/trunk/yasb-osgi</connection>-->
-        <!--<developerConnection>scm:svn:http://commsg1lds.npfit.nhs.uk/svn/tools/trunk/Terminology/snomed/tools/SNOMEDCT_Reporting/yasb-osgi/trunk/yasb-osgi</developerConnection>-->
-        <!--<url>http://commsg1lds.npfit.nhs.uk/svn/tools/trunk/Terminology/snomed/tools/SNOMEDCT_Reporting/yasb-osgi/trunk/yasb-osgi</url>-->
-        <connection>scm:svn:https://svn.connectingforhealth.nhs.uk/svn/public/srp/yasb-osgi/trunk/yasb-osgi</connection>
-        <developerConnection>scm:svn:https://svn.connectingforhealth.nhs.uk/svn/public/srp/yasb-osgi/trunk/yasb-osgi</developerConnection>
-        <url>https://svn.connectingforhealth.nhs.uk/svn/public/srp/yasb-osgi/trunk/yasb-osgi</url>
+        <connection>scm:svn:https://snofyre.googlecode.com/svn/trunk/yasb-osgi</connection>
+        <developerConnection>scm:svn:https://snofyre.googlecode.com/svn/trunk/yasb-osgi</developerConnection>
+        <url>https://snofyre.googlecode.com/svn/trunk/yasb-osgi</url>
     </scm>
 
     <!--<ciManagement>-->
@@ -153,63 +150,63 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.0-beta-7</version>
             </plugin>
-                    <plugin>
-            <inherited>false</inherited>
-            <groupId>com.mycila.maven-license-plugin</groupId>
-            <artifactId>maven-license-plugin</artifactId>
-            <version>1.9.0</version>
-            <configuration>
-                <header>${basedir}/src/etc/header.txt</header>
-                <failIfMissing>true</failIfMissing>
-                <aggregate>true</aggregate>
-                <properties>
-                    <year>${project.inceptionYear} - 2011</year>
-                </properties>
-                <useDefaultExcludes>true</useDefaultExcludes>
-                <failIfMissing>false</failIfMissing>
-                <strictCheck>true</strictCheck>
-                <excludes>
-                    <exclude>LICENSE.txt</exclude>
-                    <exclude>**/src/test/resources/**</exclude>
-                    <exclude>**/src/test/data/**</exclude>
-                    <exclude>target/**</exclude>
-                    <exclude>**/queries/*.xml</exclude>
-                    <exclude>.idea/**</exclude>
-                    <exclude>**/**/osgi.bnd</exclude>
-                    <exclude>**/**/readme.txt</exclude>
-                    <exclude>**/**/README.TXT</exclude>
-                    <exclude>**/**/LICENSE.TXT</exclude>
-                    <exclude>**/**/FINISH.TXT</exclude>
-                    <exclude>**/**/config.ini</exclude>
-                    <exclude>**/**/*.properties</exclude>
-                    <exclude>**/**/*.html</exclude>
-                    <exclude>**/**/*.plist</exclude>
-                    <exclude>**/**/*.icns</exclude>
-                    <exclude>**/**/*.log</exclude>
-                    <exclude>**/**/*.g</exclude>
-                    <exclude>**/**/*.bat</exclude>
-                    <exclude>**/**/*.sh</exclude>
-                    <exclude>**/**/*.releaseBackup</exclude>
-                    <exclude>**/**/*.xml_eng</exclude>
-                    <exclude>**/**/*.hgignore</exclude>
-                    <exclude>**/**/*.hgtags</exclude>
-                    <exclude>**/**/atlassian-ide-plugin.xml</exclude>
-                    <exclude>**/**/JavaApplicationStub</exclude>
-                    <exclude>**/**/PkgInfo</exclude>
-                    <exclude>**/**/bundle-context.xml</exclude>
-                    <exclude>**/**/bundle-context-osgi.xml</exclude>
-                </excludes>
-            </configuration>
-            <executions>
-                <execution>
-                    <id>check-headers</id>
-                    <phase>verify</phase>
-                    <goals>
-                        <goal>check</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
+            <plugin>
+                <inherited>false</inherited>
+                <groupId>com.mycila.maven-license-plugin</groupId>
+                <artifactId>maven-license-plugin</artifactId>
+                <version>1.9.0</version>
+                <configuration>
+                    <header>${basedir}/src/etc/header.txt</header>
+                    <failIfMissing>true</failIfMissing>
+                    <aggregate>true</aggregate>
+                    <properties>
+                        <year>${project.inceptionYear} - 2011</year>
+                    </properties>
+                    <useDefaultExcludes>true</useDefaultExcludes>
+                    <failIfMissing>false</failIfMissing>
+                    <strictCheck>true</strictCheck>
+                    <excludes>
+                        <exclude>LICENSE.txt</exclude>
+                        <exclude>**/src/test/resources/**</exclude>
+                        <exclude>**/src/test/data/**</exclude>
+                        <exclude>target/**</exclude>
+                        <exclude>**/queries/*.xml</exclude>
+                        <exclude>.idea/**</exclude>
+                        <exclude>**/**/osgi.bnd</exclude>
+                        <exclude>**/**/readme.txt</exclude>
+                        <exclude>**/**/README.TXT</exclude>
+                        <exclude>**/**/LICENSE.TXT</exclude>
+                        <exclude>**/**/FINISH.TXT</exclude>
+                        <exclude>**/**/config.ini</exclude>
+                        <exclude>**/**/*.properties</exclude>
+                        <exclude>**/**/*.html</exclude>
+                        <exclude>**/**/*.plist</exclude>
+                        <exclude>**/**/*.icns</exclude>
+                        <exclude>**/**/*.log</exclude>
+                        <exclude>**/**/*.g</exclude>
+                        <exclude>**/**/*.bat</exclude>
+                        <exclude>**/**/*.sh</exclude>
+                        <exclude>**/**/*.releaseBackup</exclude>
+                        <exclude>**/**/*.xml_eng</exclude>
+                        <exclude>**/**/*.hgignore</exclude>
+                        <exclude>**/**/*.hgtags</exclude>
+                        <exclude>**/**/atlassian-ide-plugin.xml</exclude>
+                        <exclude>**/**/JavaApplicationStub</exclude>
+                        <exclude>**/**/PkgInfo</exclude>
+                        <exclude>**/**/bundle-context.xml</exclude>
+                        <exclude>**/**/bundle-context-osgi.xml</exclude>
+                    </excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>check-headers</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
