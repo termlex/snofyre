@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <!-- regular spring configuration file defining the beans for this
+bundle. We've kept the osgi definitions in a separate
+configuration file so that this file can easily be used
+for integration testing outside of an OSGi environment -->
+
+    <bean id="testMrcmPropertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="META-INF/spring/mrcm-db.properties"/>
+        <property name="fileEncoding" value="utf-8"/>
+        <property name="searchSystemEnvironment" value="true"/>
+    </bean>
+
+    <bean id="testMrcmDBDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${mrcm.jdbc.driverClassName}"/>
+        <property name="url" value="${mrcm.jdbc.url}"/>
+        <property name="username" value="${mrcm.jdbc.username}"/>
+        <property name="password" value="${mrcm.jdbc.password}"/>
+    </bean>
+
+    <bean id="testMrcmRepoSessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="testMrcmDBDataSource"/>
+        <property name="annotatedClasses">
+            <list>
+                <value>uk.nhs.cfh.dsp.snomed.mrcm.om.impl.MRCMConstraintImpl</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${mrcm.hibernate.dialect}</prop>
+                <prop key="hibernate.show_sql">${mrcm.hibernate.show_sql}</prop>
+                <prop key="hibernate.hbm2ddl.auto">${mrcm.hibernate.hbm2ddl.auto}</prop>
+                <prop key="hibernate.jdbc.batch_size">${mrcm.hibernate.jdbc.batch_size}</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="testMrcmDAO" class="uk.nhs.cfh.dsp.snomed.mrcm.dao.impl.MRCMDaoImpl">
+        <property name="sessionFactory" ref="testMrcmRepoSessionFactory"/>
+    </bean>
+
+    <bean id="testMrcmGenerator" class="uk.nhs.cfh.dsp.snomed.mrcm.impl.MRCMGeneratorImpl">
+        <property name="mrcmDao" ref="testMrcmDAO"/>
+    </bean>
+
+    <bean id="testMrcmService" class="uk.nhs.cfh.dsp.snomed.mrcm.impl.MRCMServiceImpl"
+            init-method="checkAndIntialiseDatabase">
+        <property name="MRCMDao" ref="testMrcmDAO"/>
+        <property name="mrcmGenerator" ref="testMrcmGenerator"/>
+        <property name="createDatabase" value="${mrcm.createDatabase}"/>
+        <property name="inputFileLocation" value="${mrcm.input.file.location}"/>
+        <property name="defaultInputFile" value="classpath:DB/mrcm/mrcm-table.txt"/>
+    </bean>
+
+</beans>

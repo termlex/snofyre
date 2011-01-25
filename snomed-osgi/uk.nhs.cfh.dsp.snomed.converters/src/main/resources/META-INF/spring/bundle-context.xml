@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <!-- regular spring configuration file defining the beans for this
+bundle. We've kept the osgi definitions in a separate
+configuration file so that this file can easily be used
+for integration testing outside of an OSGi environment -->
+
+    <bean id="humanReadableRendererPropertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="fileEncoding" value="utf-8"/>
+        <property name="searchSystemEnvironment" value="true"/>
+    </bean>
+    <!--<bean id="snomedXMLConverter" class="uk.nhs.cfh.dsp.snomed.converters.xml.impl.SnomedXMLConverterImpl"/>-->
+    <bean id="snomedXMLConverter" class="uk.nhs.cfh.dsp.snomed.converters.xml.impl.XSBasedSnomedXMLConverter"/>
+    
+    <bean id="snomedConceptTreeExpressionProvider"
+          class="uk.nhs.cfh.dsp.snomed.converters.concept.tree.impl.SnomedConceptTreeExpressionProviderImpl">
+        <constructor-arg index="0" ref="terminologyConceptDatabaseDAO"/>
+    </bean>
+    <!--<bean id="humanReadableRenderer" class="uk.nhs.cfh.dsp.snomed.converters.human.readable.impl.HumanReadableRendererImpl"/>-->
+    <bean id="heuristicBasedHumanReadableRender"
+          class="uk.nhs.cfh.dsp.snomed.converters.human.readable.impl.HeuristicBasedHumanReadableRenderImpl"
+            init-method="intialiseCollections">
+        <property name="mrcmService" ref="mrcmService"/>
+        <property name="terminologyConceptDAO" ref="terminologyConceptDatabaseDAO"/>
+        <property name="renderingFileLocation" value="${settings.folder.location}/attributes-rendering.xml"/>
+    </bean>
+    <bean id="expressionXMLConverter" class="uk.nhs.cfh.dsp.snomed.converters.xml.impl.ExpressionXMLConverterImpl"/>
+    <bean id="expressionCompositionalGrammarConverter" class="uk.nhs.cfh.dsp.snomed.converters.compositionalgrammar.impl.ExpressionCompositionalGrammarConverterImpl">
+        <property name="terminologyConceptDAO" ref="terminologyConceptDatabaseDAO"/>
+    </bean>
+</beans>

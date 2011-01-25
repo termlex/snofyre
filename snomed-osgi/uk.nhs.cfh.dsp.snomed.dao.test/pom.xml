@@ -1,0 +1,213 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <parent>
+        <relativePath>../poms/compiled/</relativePath>
+        <groupId>uk.nhs.cfh.dsp.snomed.build</groupId>
+        <artifactId>compiled-bundle-settings</artifactId>
+        <version>0.8-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <bundle.symbolicName>uk.nhs.cfh.dsp.snomed.dao.test</bundle.symbolicName>
+        <bundle.namespace>uk.nhs.cfh.dsp.snomed.dao.test</bundle.namespace>
+        <!--<spring.maven.artifact.version>2.5.4</spring.maven.artifact.version>-->
+    </properties>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>uk.nhs.cfh.dsp.snomed</groupId>
+    <artifactId>uk.nhs.cfh.dsp.snomed.dao.test</artifactId>
+    <version>0.8-SNAPSHOT</version>
+
+    <name>DAO Integration Test Bundle - ${bundle.symbolicName}</name>
+
+    <packaging>bundle</packaging>
+
+    <dependencies>
+        <!--
+         | uncomment to add all imported (non-local) bundles to your compilation classpath
+        <dependency>
+          <type>pom</type>
+          <groupId>${parent.groupId}</groupId>
+          <artifactId>provision</artifactId>
+          <optional>true</optional>
+        </dependency>
+        -->
+        <!--<dependency>-->
+            <!--<groupId>org.osgi</groupId>-->
+            <!--<artifactId>osgi_R4_core</artifactId>-->
+            <!--<optional>true</optional>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.osgi</groupId>-->
+            <!--<artifactId>osgi_R4_compendium</artifactId>-->
+            <!--<optional>true</optional>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.junit</groupId>-->
+        <!--<artifactId>com.springsource.org.junit</artifactId>-->
+        <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework</groupId>-->
+        <!--<artifactId>org.springframework.beans</artifactId>-->
+        <!--<scope>provided</scope>-->
+        <!--<optional>true</optional>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework</groupId>-->
+        <!--<artifactId>org.springframework.context</artifactId>-->
+        <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework</groupId>-->
+        <!--<artifactId>org.springframework.core</artifactId>-->
+        <!--<scope>provided</scope>-->
+        <!--<optional>true</optional>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework</groupId>-->
+        <!--<artifactId>org.springframework.test</artifactId>-->
+        <!--<scope>provided</scope>-->
+        <!--<optional>true</optional>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework.osgi</groupId>-->
+        <!--<artifactId>org.springframework.osgi.test</artifactId>-->
+        <!--<scope>provided</scope>-->
+        <!--</dependency>-->
+
+        <!--  OSGi Implementation -->
+        <!--<dependency>-->
+            <!--<groupId>org.eclipse.osgi</groupId>-->
+            <!--<artifactId>org.eclipse.osgi</artifactId>-->
+            <!--<version>3.5.100.v20090629</version>-->
+            <!--<type>jar</type>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>        -->
+
+        <dependency>
+            <groupId>org.junit</groupId>
+            <artifactId>com.springsource.junit</artifactId>
+            <version>3.8.2</version>
+            <scope>test</scope>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.osgi</groupId>-->
+            <!--<artifactId>org.springframework.osgi.test</artifactId>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.osgi</groupId>-->
+            <!--<artifactId>spring-osgi-mock</artifactId>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.aspectj</groupId>-->
+            <!--<artifactId>com.springsource.org.aspectj.tools</artifactId>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.aopalliance</groupId>-->
+            <!--<artifactId>com.springsource.org.aopalliance</artifactId>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.osgi</groupId>-->
+            <!--<artifactId>spring-osgi-annotation</artifactId>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.objectweb.asm</groupId>-->
+            <!--<artifactId>com.springsource.org.objectweb.asm</artifactId>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+
+        <!--  Logging -->
+        <dependency>
+            <groupId>org.apache.log4j</groupId>
+            <artifactId>com.springsource.org.apache.log4j</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.slf4j</groupId>-->
+            <!--<artifactId>com.springsource.slf4j.org.apache.commons.logging</artifactId>-->
+            <!--<version>1.5.6</version>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
+        <!--&lt;!&ndash; commons-logging in slf4j wrapper &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.slf4j</groupId>-->
+            <!--<artifactId>slf4j-log4j12</artifactId>-->
+            <!--<version>1.4.3</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.slf4j</groupId>-->
+            <!--<artifactId>jcl104-over-slf4j</artifactId>-->
+            <!--<version>1.4.3</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.slf4j</groupId>-->
+            <!--<artifactId>com.springsource.slf4j.log4j</artifactId>-->
+            <!--<version>1.5.6</version>-->
+            <!--<scope>provided</scope>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>log4j</groupId>-->
+                    <!--<artifactId>log4j</artifactId>-->
+                <!--</exclusion>-->
+                <!--<exclusion>-->
+                    <!--<groupId>org.apache.log4j</groupId>-->
+                    <!--<artifactId>com.springsource.org.apache.log4j</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>com.springsource.javax.persistence</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>-->
+            <!--<artifactId>uk.nhs.cfh.dsp.srth.dcp</artifactId>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>uk.nhs.cfh.dsp.snomed</groupId>
+            <artifactId>uk.nhs.cfh.dsp.snomed.dao</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <phase>test</phase>
+                        <goals />
+                    </execution>
+                    <execution>
+                        <id>integration-test</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <skip>false</skip>
+                            <forkMode>pertest</forkMode>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
