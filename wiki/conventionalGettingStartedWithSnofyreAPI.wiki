@@ -50,6 +50,15 @@ snomed-osgi
 yasb-osgi
 srth-osgi
 }}}
+  * Note that maven build will fail because some of the test cases included require access to a SNOMED CT database (as configured for Snofyre). So if you already have Snofyre up and running on your development machine, all your test cases (and your build) will be successful.
+  * If you do not have have Snofyre installed on your development machine, then you are recommend to do so because it'll help you understand how all of Snofyre's components fit together.
+  * If you can not or will not install MySQL server and import all of SNOMED CT into a database (as described in Snofyre's Installation Manual), then you have the following options:
+    * Create the SNOMED CT database on a remote machine/server and change the {{{JDBC}}} connection settings for the unit tests to point to this remote server. The {{{JDBC}}} connection parameters are specified in the snomed-db.properties file in the {{{test/resources}}} folder specified by Maven conventions.
+    * Create Mock objects to replace all calls to the underlying SNOMED CT database. This is the recommended best practice method. Please get in touch on http://groups.google.com/group/snofyre-dev if you have written this or plan to do this.
+    * Finally, this is not recommended practice, but you can ask Maven to ignore all test failures by using:
+{{{
+mvn clean install -Dmaven.test.failure.ignore=true
+}}}
 
 ===Setting up in an IDE===
   * Since Snofyre uses Maven, most popular IDEs that support Maven projects can be used to compile and build Snofyre.
