@@ -58,6 +58,16 @@
                         -->
                         <_include>-osgi.bnd</_include>
                     </instructions>
+                    <!--Tell plugin not to include Maven information in Jar file-->
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                        <manifestEntries>
+                            <!--Add custom meta information to bundle-->
+                            <Bundle-Author>${author.name}</Bundle-Author>
+                            <Bundle-Build-Number>${buildNumber}</Bundle-Build-Number>
+                            <Bundle-Build-Time>${timestamp}</Bundle-Build-Time>
+                        </manifestEntries>
+                    </archive>
                 </configuration>
             </plugin>
             <!--<plugin>-->
