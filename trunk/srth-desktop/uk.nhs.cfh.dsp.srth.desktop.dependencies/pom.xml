@@ -1,0 +1,130 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <parent>
+        <relativePath>../poms/compiled/</relativePath>
+        <groupId>uk.nhs.cfh.dsp.srth-desktop.build</groupId>
+        <artifactId>compiled-bundle-settings</artifactId>
+        <version>1.8-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <bundle.symbolicName>uk.nhs.cfh.dsp.srth.desktop.dependencies</bundle.symbolicName>
+        <bundle.namespace>uk.nhs.cfh.dsp.srth.desktop.dependencies</bundle.namespace>
+    </properties>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>uk.nhs.cfh.dsp.srth-desktop</groupId>
+    <artifactId>uk.nhs.cfh.dsp.srth.desktop.dependencies</artifactId>
+    <version>1.8-SNAPSHOT</version>
+
+    <name>${application.name} Dependencies</name>
+    <description>A bundle that contains all the non OSGi enabled dependencies that ${application.name} uses.</description>
+
+    <packaging>bundle</packaging>
+
+    <dependencies>
+        <!--
+         | uncomment to add all imported (non-local) bundles to your compilation classpath
+        <dependency>
+          <type>pom</type>
+          <groupId>${parent.groupId}</groupId>
+          <artifactId>provision</artifactId>
+          <optional>true</optional>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi_R4_core</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi_R4_compendium</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.junit</groupId>
+            <artifactId>com.springsource.org.junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.beans</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.context</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.core</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.test</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.swinglabs</groupId>
+            <artifactId>swing-worker</artifactId>
+            <version>1.1</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>net.java.dev.appframework</groupId>
+            <artifactId>appframework</artifactId>
+            <version>1.03</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.jidesoft</groupId>
+            <artifactId>jide-oss</artifactId>
+            <version>2.8.0</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.swinglabs</groupId>
+            <artifactId>swingx</artifactId>
+            <version>1.6</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.mydoggy</groupId>
+            <artifactId>mydoggy-api</artifactId>
+            <version>1.4.2</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.mydoggy</groupId>
+            <artifactId>mydoggy-plaf</artifactId>
+            <version>1.4.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.noos.xing</groupId>
+                    <artifactId>mydoggy-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.noos.xing</groupId>
+                    <artifactId>mydoggy-res</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.mydoggy</groupId>
+            <artifactId>mydoggy-res</artifactId>
+            <version>1.4.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jgoodies</groupId>
+            <artifactId>looks</artifactId>
+            <version>2.2.2</version>
+        </dependency>
+    </dependencies>
+
+</project>
