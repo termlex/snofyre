@@ -4,12 +4,15 @@
 
 Here is some tips on how to import, edit and debug snofyre framework with Netbeans. 
 
+
 = Pre-Requisites = 
 
 In order to import edit and debug snofyre you require the following
  
 Java 
 Netbeans 6.9.1 
+
+This section assumes that you have already checked out Snofyre's source code using the instructions in the getting started page. Please read the instructions on this page, especially the note about test failures if you have not already done so
 
 
 = Debugging =
