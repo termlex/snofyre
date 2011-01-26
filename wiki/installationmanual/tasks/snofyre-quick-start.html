@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Snofyre Quick Start"/>
+<meta name="DC.subject" content="running Snofyre, lauching Snofyre"/>
+<meta name="keywords" content="running Snofyre, lauching Snofyre"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-getting-started.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-getting-started.html"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="task-Snofyre-quick-start"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>Snofyre Quick Start</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="task-Snofyre-quick-start"><a name="task-Snofyre-quick-start"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../topics/snofyre-getting-started.html">Running Snofyre</a> &gt; </div>
+<h1 class="book_title">Snofyre Installation Manual - Draft</h1>
+
+    <h1 class="title topictitle1">Snofyre Quick Start</h1>
+
+    
+    <div class="body taskbody">
+        <div class="section context">
+            <div class="p"> The section describes the steps for running Snofyre after successful installation.
+                The directory structure of the <span class="ph filepath">Installation Folder</span> is shown
+                below. The folder called <span class="ph filepath">bin</span> contains all the executables for
+                running Snofyre. The folder <span class="ph filepath">docs</span> contains the API java docs and
+                the Snofyre User Manual. The <span class="ph filepath">Uninstaller</span> folder contains an
+                executable that uninstalls Snofyre from the client machine. The folder <span class="ph filepath">queries</span> contains the test cases that need to be executed for testing
+                Snofyre.
+                <pre>
+Snofyre 
+ |__ LICENSE.TXT 
+ |__ README.TXT 
+ |__ docs 
+ |__ queries
+ |__ Uninstaller
+ |__ data import
+ |__ configurator
+ |__ bin 
+   |__ data 
+   |__ lib 
+   |__ index 
+   |__ settings
+   |__ platform
+   |__ boot
+   |__ Snofyre.app (on Mac OS X platform only)
+   |__ Snofyre.exe (on Windows form only)
+   |__ org.equinox.osgi-xxxxx.jar 
+   |__ run.bat (on Windows platform only)
+   |__ run.sh (on *nix platform only)                    
+                </pre></div>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step">
+                <span class="ph cmd">Navigate to the <span class="ph filepath">Installation Folder</span> on your machine.</span>
+            </li>
+<li class="li step">
+                <span class="ph cmd">Navigate to the <span class="ph filepath">bin</span> sub folder, under the <span class="ph filepath">Installation Folder</span>.</span>
+            </li>
+<li class="li step">
+                <span class="ph cmd">You can launch Snofyre in your client in the following ways: </span>
+                <ul class="ul choices">
+                    <li class="li choice"> On the Windows platform , Snofyre can be also launched using the
+                            <span class="ph filepath">Snofyre.exe</span> file located in the <span class="ph filepath">bin</span> sub folder of the <span class="ph filepath">Installation
+                            Folder</span>. This is typically done by double clicking the
+                            <span class="ph filepath">Snofyre.exe</span> file. <div class="cautiontitle">CAUTION:</div><div class="note caution"> If you are
+                            using Windows Vista or 7, you need to right click on the <tt class="ph tt">Snofyre.exe</tt> executable located in the <span class="ph filepath">INSTALLATION_FOLDER/bin</span> and select <span class="ph uicontrol">Run as
+                                Adminstrator</span> to launch Snofyre correctly. The <tt class="ph tt">run.bat</tt> file will not work on these versions of Windows!
+                        </div>
+</li>
+
+                    <li class="li choice"> On the Windows XP and earlier, Snofyre can be also launched using the
+                            <span class="ph filepath">run.bat</span> file located in the <span class="ph filepath">bin</span> sub folder of the <span class="ph filepath">Installation
+                            Folder</span>. This is typically done by double clicking the
+                            <span class="ph filepath">run.bat</span> file. <div class="cautiontitle">CAUTION:</div><div class="note caution"> If you are
+                            using Windows Vista or 7, the <tt class="ph tt">run.bat</tt> file will not work on
+                            these versions of Windows! </div>
+</li>
+
+                    <li class="li choice"> Mac OS X users (10.5+) can launch Snofyre using <tt class="ph tt">Snofyre.app</tt>
+                        located in <span class="ph filepath">Installation Folder/bin</span>. If it not present,
+                        you can download it by following this <a class="xref" href="http://snofyre.googlecode.com/files/Snofyre.app.zip" target="_blank">link</a>. </li>
+
+                    <li class="li choice"> On the *nix platform, launch Snofyre using the <span class="ph filepath">run.sh</span> script, located in the <span class="ph filepath">bin</span> sub
+                        folder of the <span class="ph filepath">Installation Folder</span>. </li>
+
+                </ul>
+
+                 This starts up and displays Snofyre window on the screen as shown below.
+                        <div class="note attention"><span class="attentiontitle">Attention:</span>  The first time Snofyre is run on the client machine,
+                        the application window is initialised as fairly small window.The user needs
+                        to resize the window. Snofyre will from then remember the user specified
+                        window size on each restart. </div>
+
+            </li>
+</ol>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/snofyre-getting-started.html">Running Snofyre</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>
