@@ -1,0 +1,17 @@
+#summary code design principles used in Snofyre.
+
+= Snofyre Code Design Principles =
+Snofyre uses some general design principles and coding practices. In building Snofyre using a modular, service oriented archtiecture, we followed some general good principles to keep the application design clean. These generic principles make it easy to understand, configure and extend Snofyre in a clean way. If you are thinking of reusing Snofyre's components or extending the Snofyre prototype application, please follow these principles.
+
+== Generic Programming Principles ==
+  * MVC Pattern : Wherever possible, Snofyre uses the Model View Controller paradigm. This allows the creation of domain objects that services can use and views and controllers that correspond to view and action components.
+  * Interfaces : Within Snofyre we generally pass Interfaces around and not Classes. This allows Snofyre to delegate all dynamic activation and deactivation of services to the underlying OSGi and Dependency frameworks.
+  * Factory Objects : Where possible all domain objects in Snofyre are instantiated using a corresponding Factory object. This is simply good programming practice!
+  * OSGi References: Though Snofyre uses OSGi to for modular design, it does not add OSGi specific code to any of its implemented classes or interfaces. There are no OSGi Activators!. All of this is handled by Spring and Spring DM using XML configuration. This means we can use Snofyre's modules in a non- OSGi and non-Spring environment without having to add these dependencies.
+  * Unit Tests: Snofyre includes JUnit test cases for all services it implements! Please follow this convention when extending Snofyre. Testing is a fundamental apsect of creating good software!
+
+== Generic Application Design Principles ==
+  * Configuration files: All application configuration files always reside in the following path INSTALLATION_PATH/bin/settings. We recommend using Java properties files where possible. If this is not possible, we recommend using Apache Commons Config
+  * Components/Modules: All Snofyre modules/components must reside in the following path INSTALLATION_PATH/bin/lib.
+  * Data : All Snofyre data (files loaded at boot or embedded databases) must reside in the following path INSTALLATION_PATH/bin/data.
+  * Encoding: Please use UTF-8 where possible for all source code and configuration files.
