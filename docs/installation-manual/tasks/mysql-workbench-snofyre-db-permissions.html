@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Setting Permissions for Snofyre Data"/>
+<meta name="DC.subject" content="setting permissions"/>
+<meta name="keywords" content="setting permissions"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/mysql-workbench-account-permissions-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/mysql-workbench-account-permissions-overview.html"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="taskId"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>Setting Permissions for Snofyre Data</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="taskId"><a name="taskId"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../topics/mysql-workbench-account-permissions-overview.html">Settings permissions for Snofyre Account</a> &gt; </div>
+<h1 class="book_title">Snofyre Installation Manual - Draft</h1>
+
+    <h1 class="title topictitle1">Setting Permissions for Snofyre Data</h1>
+
+    
+    <div class="body taskbody">
+        <div class="section context">
+            <p class="p">This section describes the process for setting up access permissions for the Snofyre
+                data on the local MySQL server using the MySQL workbench.</p>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step">
+                <span class="ph cmd">In the home screen of MySQL Workbench, double click on <span class="ph uicontrol">snofyre@localhost</span> under the <span class="ph uicontrol">Server
+                        Adminstration</span> as shown below.</span>
+                 
+                    <p class="p"><img class="image" src="../images/new-server-instance-7.png" height="334" width="221"/></p>
+
+                
+            </li>
+<li class="li step">
+                <span class="ph cmd">In the screen that opens, click on <span class="ph uicontrol">Accounts</span> tab as shown
+                    in the screen below.</span>
+                 
+                    <p class="p"><img class="image" src="../images/new-user-account-3.png" height="316" width="409"/></p>
+
+                
+            </li>
+<li class="li step">
+                <span class="ph cmd">In the screen that appears, click on the <span class="ph uicontrol">Schema
+                        Privileges</span> tab as shown below.</span>
+                 
+                    <p class="p"><img class="image" src="../images/setting-permissions-1.png" height="213" width="399"/></p>
+
+                
+            </li>
+<li class="li step">
+                <span class="ph cmd">In the screen that appears, select <span class="ph uicontrol">snofyre</span> user from the
+                    list of users under the <span class="ph uicontrol">Users</span> list as shown below. Then
+                    click the <span class="ph uicontrol">Add Entry</span> button, as shown below.</span>
+                 
+                    <p class="p"><img class="image" src="../images/setting-permissions-2.png" height="214" width="401"/></p>
+
+                
+            </li>
+<li class="li step">
+                <span class="ph cmd">In the dialog that opens:</span>
+                <ol type="a" class="ol substeps">
+                    <li class="li substep">
+                        <span class="ph cmd">Select the <span class="ph uicontrol">Selected host</span> option from under
+                                <span class="ph uicontrol">Host</span> as shown below.</span>
+                    </li>
+
+                    <li class="li substep">
+                        <span class="ph cmd">From the <span class="ph uicontrol">dropdown</span> list beside <span class="ph uicontrol">Selected host</span> select <span class="ph uicontrol">localhost</span>
+                            option as shown below.</span>
+                    </li>
+
+                    <li class="li substep">
+                        <span class="ph cmd">Select <span class="ph uicontrol">Selected schema</span> from under <span class="ph uicontrol">Schema</span>.</span>
+                    </li>
+
+                    <li class="li substep">
+                        <span class="ph cmd">In the <span class="ph uicontrol">list</span> to the right, select <span class="ph uicontrol">fakedata2</span>.</span>
+                    </li>
+
+                    <li class="li substep">
+                        <span class="ph cmd">Click the <span class="ph uicontrol">Ok</span> button.</span>
+                    </li>
+
+                </ol>
+
+                 
+                    <p class="p"><img class="image" src="../images/setting-permissions-3b.png" height="319" width="289"/></p>
+
+                
+            </li>
+<li class="li step">
+                <span class="ph cmd">In the same screen, select <span class="ph uicontrol">fakedata2</span> from under
+                        <span class="ph uicontrol">Select a user and pick privileges...</span> and click
+                        <span class="ph uicontrol">Select ALL</span> button from under <span class="ph uicontrol">Object
+                        Rights</span> as shown below. Click the <span class="ph uicontrol">Save
+                        Changes</span> button as shown below.</span>
+                 
+                    <p class="p"><img class="image" src="../images/setting-permissions-4b.png" height="177" width="401"/></p>
+
+                
+                 MySQL Workbench should have now configured the appropriate permission
+                    for <tt class="ph tt">snofyre</tt> user to access Snofyre data.
+            </li>
+</ol>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/mysql-workbench-account-permissions-overview.html">Settings permissions for Snofyre Account</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>
