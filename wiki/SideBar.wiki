@@ -16,6 +16,7 @@
       * [developWithNetBeans Developing with Netbeans]
       * [developWithIntelliJ Developing with  IntelliJ IDEA]
     * [snofyreAPIQA Code Quality]
+    * [snofyreCodeDesignPrinciples Code/Design Practices]
   * [FAQs Frequently Asked Questions]
   * [Contributing Contributing to Snofyre]
   * [Acknowledgements]
