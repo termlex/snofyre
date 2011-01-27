@@ -52,9 +52,9 @@
     <!--</issueManagement>-->
 
     <scm>
-        <connection>scm:svn:https://snofyre.googlecode.com/svn/trunk/srth-desktop</connection>
-        <developerConnection>scm:svn:https://snofyre.googlecode.com/svn/trunk/srth-desktop</developerConnection>
-        <url>https://snofyre.googlecode.com/svn/trunk/srth-desktop</url>
+        <connection>scm:svn:https://snofyre.googlecode.com/svn/tags/srth-desktop/srth-desktop-1.8</connection>
+        <developerConnection>scm:svn:https://snofyre.googlecode.com/svn/tags/srth-desktop/srth-desktop-1.8</developerConnection>
+        <url>https://snofyre.googlecode.com/svn/tags/srth-desktop/srth-desktop-1.8</url>
     </scm>
 
     <!--<ciManagement>-->
@@ -120,11 +120,11 @@
                     <revisionOnScmFailure>0</revisionOnScmFailure>
                 </configuration>
             </plugin>
-            <plugin>
+            <!-- <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.0-beta-7</version>
-            </plugin>
+            </plugin> -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
@@ -190,8 +190,37 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- Add the maven release plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <tagBase>https://snofyre.googlecode.com/svn/tags/srth-desktop</tagBase>
+                </configuration>
+            </plugin>
         </plugins>
+
+        <!-- Extension to add wagon-webdav plugin -->
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-webdav</artifactId>
+                <version>1.0-beta-2</version>
+            </extension>
+        </extensions>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>googlecode.snofyre.releaserepo</id>
+            <url>dav:https://snofyre.googlecode.com/svn/maven-repo/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>googlecode.snofyre.snapshotrepo</id>
+            <url>dav:https://snofyre.googlecode.com/svn/maven-repo/snapshots</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
 
     <repositories>
         <repository>
