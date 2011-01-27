@@ -27,6 +27,10 @@ In order to debug the app using NetBeans need to start the bundle in debug mode.
 
 java -Xms250m -Xmx1000m -Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,address=8888,server=y,suspend=y -jar org.eclipse.osgi-3.6.0v20100517.jar -console -configuration platform
 
+Alternatively download the bat file below place in the bin directory of your SNOFYRE install, and click to launch in debug mode. 
+
+http://snofyre.googlecode.com/files/debug.bat
+
 Next add a break point in the relevant part of code. 
 
 Next you need to attach the debugger open netbeans, select Debug--> Attach Debugger. 
