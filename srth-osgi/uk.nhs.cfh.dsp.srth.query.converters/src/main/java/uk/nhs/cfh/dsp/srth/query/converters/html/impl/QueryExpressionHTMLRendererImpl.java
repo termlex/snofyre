@@ -106,7 +106,8 @@ public class QueryExpressionHTMLRendererImpl implements QueryExpressionHTMLRende
         if (queryStatement != null)
         {
             // loop through contained expressions and concat their labels
-            String label = "<b>ALL patients who have </b>";
+            // TODO use some for of nesting instead of a single line for the statement
+            String label = "<b>ALL patients who have </b><br/>";
             for(QueryExpression exp : queryStatement.getContainedExpressions())
             {
                 label = label+getHTMLHumanReadableLabelForExpression(exp);
@@ -338,16 +339,16 @@ public class QueryExpressionHTMLRendererImpl implements QueryExpressionHTMLRende
             // add subsumption strategy
             if(SubsumptionVocabulary.SELF_OR_ANY_TYPE_OF == strategy)
             {
-                text = text+"<font color=#C04838> or ANY of it its types</font>";
+                text = text+"<font color=#C04838> or ANY kind of</font>";
             }
             else if(SubsumptionVocabulary.ANY_TYPE_OF_BUT_NOT_SELF == strategy)
             {
-                text = text+"<font color=#C04838> ANY if its types EXCEPT self</font>";
+                text = text+"<font color=#C04838> ANY kind of EXCEPT self</font>";
 
             }
             else
             {
-                text = text+"<font color=#C04838> without ANY if its types</font>";
+                text = text+"<font color=#C04838> without ANY kind of</font>";
             }
 
             return text;
