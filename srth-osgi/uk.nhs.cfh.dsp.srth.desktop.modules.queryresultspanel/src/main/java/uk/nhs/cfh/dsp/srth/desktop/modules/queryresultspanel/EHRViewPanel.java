@@ -132,18 +132,21 @@ public class EHRViewPanel extends JPanel {
             procedures.addAll(ehr.getInvestigations());
             allProceduresTableModel.populateDataList(procedures);
             // set cell renderers
-            setCellRenderers();
+            setCellRenderers(this);
         }
     }
 
     /**
      * Sets the cell renderers.
      */
-    private void setCellRenderers() {
+    private void setCellRenderers(Container container) {
         // loop through all components of this panel and if component is a JXTable, then set custom cell renderer
-        for(int c=0; c<getComponentCount(); c++)
+        for(int c=0; c<container.getComponentCount(); c++)
+
+        //TODO TJI need to to get the TabPanel component and iterate over each of its tables and set the cellRenderer
+            //
         {
-            Component comp = getComponent(c);
+            Component comp = container.getComponent(c);
             if(comp instanceof JXTable)
             {
                 JXTable jxTable = (JXTable) comp;
@@ -153,6 +156,10 @@ public class EHRViewPanel extends JPanel {
                 }
 
                 jxTable.setHighlighters(HighlighterFactory.createAlternateStriping());
+            }
+            else if(comp instanceof Container)
+            {
+                setCellRenderers((Container)comp);
             }
         }
     }
