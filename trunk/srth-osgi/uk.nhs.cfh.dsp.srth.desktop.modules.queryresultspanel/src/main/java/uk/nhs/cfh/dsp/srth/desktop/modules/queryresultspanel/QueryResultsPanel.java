@@ -98,7 +98,7 @@ public class QueryResultsPanel extends JPanel implements QueryEngineServiceListe
     private static final String QUERY_TIME_PREFIX = "<html><b>Time taken to return results for query : <font color =\"eee\"> ";
     
     /** The Constant QUERY_TIME_SUFFIX. */
-    private static final String QUERY_TIME_SUFFIX = " milliseconds</font></b></html>";
+    private static final String QUERY_TIME_SUFFIX = " seconds</font></b></html>";
     
     /** The Constant QUERY_COUNT_PREFIX. */
     private static final String QUERY_COUNT_PREFIX = "<html><b>Number of record entries satisfying criteria in the query : <font color =\"eee\"> ";
@@ -309,6 +309,8 @@ public class QueryResultsPanel extends JPanel implements QueryEngineServiceListe
      * @param queryTime the query time
      */
     public synchronized void queryTimeChanged(long queryTime) {
+        queryTime/=1000;
+        queryTime= Math.round((double)queryTime );
         queryTimeLabel.setText(QUERY_TIME_PREFIX+queryTime+QUERY_TIME_SUFFIX);
     }
 
