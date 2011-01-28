@@ -9,8 +9,9 @@
     <properties>
         <spring.dm.version>1.2.0</spring.dm.version>
         <spring.core.version>2.5.6.SEC01</spring.core.version>
-        <snobj.project.version>0.8-SNAPSHOT</snobj.project.version>
-        <yasb.project.version>0.8-SNAPSHOT</yasb.project.version>
+        <snobj.project.version>0.8</snobj.project.version>
+        <srth.desktop.version>1.8</srth.desktop.version>
+        <yasb.project.version>0.8</yasb.project.version>
         <log4j.artefact.name>com.springsource.org.apache.log4j</log4j.artefact.name>
         <log4j.artefact.vesion>1.2.15</log4j.artefact.vesion>
     </properties>
@@ -475,12 +476,12 @@
         <dependency>
             <groupId>uk.nhs.cfh.dsp.srth-desktop</groupId>
             <artifactId>uk.nhs.cfh.dsp.srth.desktop.modularframework</artifactId>
-            <version>${project.version}</version>
+            <version>${srth.desktop.version}</version>
         </dependency>
         <dependency>
             <groupId>uk.nhs.cfh.dsp.srth-desktop</groupId>
             <artifactId>uk.nhs.cfh.dsp.srth.desktop.uiframework</artifactId>
-            <version>${project.version}</version>
+            <version>${srth.desktop.version}</version>
         </dependency>
         <dependency>
             <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
@@ -490,12 +491,12 @@
         <dependency>
             <groupId>uk.nhs.cfh.dsp.srth-desktop</groupId>
             <artifactId>uk.nhs.cfh.dsp.srth.desktop.dependencies</artifactId>
-            <version>${project.version}</version>
+            <version>${srth.desktop.version}</version>
         </dependency>
         <dependency>
             <groupId>uk.nhs.cfh.dsp.srth-desktop</groupId>
             <artifactId>uk.nhs.cfh.dsp.srth.desktop.appservice</artifactId>
-            <version>${project.version}</version>
+            <version>${srth.desktop.version}</version>
         </dependency>
         <dependency>
             <groupId>uk.nhs.cfh.dsp.snomed</groupId>
