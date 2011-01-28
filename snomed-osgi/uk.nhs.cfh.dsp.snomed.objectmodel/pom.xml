@@ -4,7 +4,7 @@
         <relativePath>../poms/compiled/</relativePath>
         <groupId>uk.nhs.cfh.dsp.snomed.build</groupId>
         <artifactId>compiled-bundle-settings</artifactId>
-        <version>0.8</version>
+        <version>0.8-SNAPSHOT</version>
     </parent>
 
     <properties>
@@ -16,7 +16,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>uk.nhs.cfh.dsp.snomed</groupId>
     <artifactId>uk.nhs.cfh.dsp.snomed.objectmodel</artifactId>
-    <version>0.8</version>
+    <version>0.8-SNAPSHOT</version>
 
     <name>SNOMED CT Object Model - ${bundle.symbolicName}</name>
     <description>A bundle that provides a Java Object Model that represents SNOMED CT concepts</description>

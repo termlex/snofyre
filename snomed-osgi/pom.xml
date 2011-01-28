@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <!-- Organisation Information -->
 
@@ -20,7 +20,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>uk.nhs.cfh.dsp</groupId>
     <artifactId>uk.nhs.cfh.dsp.snomed</artifactId>
-    <version>0.8</version>
+    <version>0.8-SNAPSHOT</version>
 
     <!--
      | describe your project here
@@ -60,9 +60,9 @@
     </issueManagement>
 
     <scm>
-        <connection>scm:svn:https://snofyre.googlecode.com/svn/tags/snomed-osgi/uk.nhs.cfh.dsp.snomed-0.8</connection>
-        <developerConnection>scm:svn:https://snofyre.googlecode.com/svn/tags/snomed-osgi/uk.nhs.cfh.dsp.snomed-0.8</developerConnection>
-        <url>https://snofyre.googlecode.com/svn/tags/snomed-osgi/uk.nhs.cfh.dsp.snomed-0.8</url>
+        <connection>scm:svn:https://snofyre.googlecode.com/svn/trunk/snomed-osgi</connection>
+        <developerConnection>scm:svn:https://snofyre.googlecode.com/svn/trunk/snomed-osgi</developerConnection>
+        <url>https://snofyre.googlecode.com/svn/trunk/snomed-osgi</url>
     </scm>
 
     <ciManagement>

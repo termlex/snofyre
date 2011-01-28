@@ -4,7 +4,7 @@
         <relativePath>../poms/compiled/</relativePath>
         <groupId>uk.nhs.cfh.dsp.snomed.build</groupId>
         <artifactId>compiled-bundle-settings</artifactId>
-        <version>0.8</version>
+        <version>0.8-SNAPSHOT</version>
     </parent>
 
     <properties>
@@ -15,7 +15,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>uk.nhs.cfh.dsp.snomed</groupId>
     <artifactId>uk.nhs.cfh.dsp.snomed.expressiongenerator</artifactId>
-    <version>0.8</version>
+    <version>0.8-SNAPSHOT</version>
 
     <name>Expression Generator - ${bundle.symbolicName}</name>
     <description>A bundle for converting snomed concepts into expressions</description>
