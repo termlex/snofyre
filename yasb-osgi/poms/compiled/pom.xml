@@ -12,9 +12,8 @@
     <properties>
         <spring.dm.version>1.2.0</spring.dm.version>
         <spring.core.version>2.5.6.SEC01</spring.core.version>
-        <author.name>Jay Kola</author.name>
-        <snobj.project.version>0.8-SNAPSHOT</snobj.project.version>
-        <srth.project.version>1.8-SNAPSHOT</srth.project.version>
+        <snobj.project.version>0.8</snobj.project.version>
+        <srth.desktop.version>1.8</srth.desktop.version>
     </properties>
 
     <name>yasb - bundle instructions</name>
