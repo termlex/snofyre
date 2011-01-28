@@ -114,7 +114,7 @@
             <!-- Extension to add wagon-webdav plugin -->
         <extensions>
             <extension>
-                <groupId>org.jvnet.maven.wagon</groupId>
+                <groupId>org.jvnet.wagon-svn</groupId>
                 <artifactId>wagon-svn</artifactId>
                 <version>1.9</version>
             </extension>
