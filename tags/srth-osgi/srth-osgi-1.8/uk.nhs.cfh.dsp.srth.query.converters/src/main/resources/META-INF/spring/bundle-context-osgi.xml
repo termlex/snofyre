@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/osgi"
+             xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/osgi
+http://www.springframework.org/schema/osgi/spring-osgi.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <service ref="queryExpressionXMLRenderer" interface="uk.nhs.cfh.dsp.srth.query.converters.xml.QueryExpressionXMLRenderer"/>
+    <service ref="queryExpressionHTMLRenderer" interface="uk.nhs.cfh.dsp.srth.query.converters.html.QueryExpressionHTMLRenderer"/>
+    <service ref="queryExpressionPlainTextRenderer" interface="uk.nhs.cfh.dsp.srth.query.converters.text.QueryExpressionPlainTextRenderer"/>
+    <service ref="xmlToQueryExpressionTransformer" interface="uk.nhs.cfh.dsp.srth.query.converters.xml.XMLToQueryExpressionTransformer"/>
+    <service ref="queryExpressionFileOutputter" interface="uk.nhs.cfh.dsp.srth.query.converters.file.QueryExpressionFileOutputter"/>
+    <reference id="heuristicBasedHumanReadableRender" interface="uk.nhs.cfh.dsp.snomed.converters.human.readable.HumanReadableRender"/>
+    <!--<reference id="humanReadableRender" interface="uk.nhs.cfh.dsp.snomed.converters.human.readable.HumanReadableRender"/>-->
+    <reference id="queryExpressionFactory" interface="uk.nhs.cfh.dsp.srth.query.model.om.QueryExpressionFactory"/>
+    <service ref="queryExpressionXMLConverter" interface="uk.nhs.cfh.dsp.srth.query.converters.xml.QueryExpressionXMLConverter"/>
+
+</beans:beans>

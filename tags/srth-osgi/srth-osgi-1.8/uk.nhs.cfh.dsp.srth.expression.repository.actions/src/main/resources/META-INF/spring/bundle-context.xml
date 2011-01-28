@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+  <!-- regular spring configuration file defining the beans for this
+       bundle. We've kept the osgi definitions in a separate 
+       configuration file so that this file can easily be used
+       for integration testing outside of an OSGi environment -->
+
+    <bean id="populateTCTableActionComponent"
+          class="uk.nhs.cfh.dsp.srth.expression.repository.actions.PopulateTCTableActionComponent"
+          init-method="init"
+          destroy-method="dispose">
+        <property name="applicationService" ref="applicationService"/>
+        <property name="actionComponentService" ref="actionComponentService"/>
+        <property name="expressionTransitiveClosureTableGenerator" ref="expressionTransitiveClosureTableGenerator"/>
+    </bean>
+
+    <bean id="purgeExpressionRepositoryActionComponent"
+          class="uk.nhs.cfh.dsp.srth.expression.repository.actions.PurgeExpressionRepositoryActionComponent"
+          init-method="init"
+          destroy-method="dispose">
+        <property name="applicationService" ref="applicationService"/>
+        <property name="actionComponentService" ref="actionComponentService"/>
+        <property name="expressionMappingObjectDAO" ref="expressionMappingObjectDAO"/>
+        <property name="expressionSubsumptionRelationshipDAO" ref="expressionSubsumptionRelationshipDAO"/>
+    </bean>
+
+    <bean id="purgeTCTableActionComponent"
+          class="uk.nhs.cfh.dsp.srth.expression.repository.actions.PurgeTCTableActionComponent"
+          init-method="init"
+          destroy-method="dispose">
+        <property name="applicationService" ref="applicationService"/>
+        <property name="actionComponentService" ref="actionComponentService"/>
+        <property name="expressionSubsumptionRelationshipDAO" ref="expressionSubsumptionRelationshipDAO"/>
+    </bean>
+
+</beans>

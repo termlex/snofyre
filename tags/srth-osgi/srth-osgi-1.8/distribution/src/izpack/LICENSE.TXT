@@ -1,0 +1,27 @@
+## --- LICENSE FILE FOR Sappheiros --- #
+
+Sappheiros is currently not licensed in any form of open source license. It is
+expected that both the binaries and source code will soon be available under a variant of open
+source license. Until, then Sappheiros binaries (and source files) are copyright
+of NHS Connecting for Health. Any attempt to illegally reverse engineer is needless...
+Please contact Jay Kola (jay.kola@nhs.net) if you would like a copy of the source code... :)
+
+Please respect Intellectual Property!
+
+### ----- DISCLAIMER ----- #
+THIS SOFTWARE IS PROVIDED BY NHS Connecting for Health 'AS IS' AND ANY
+EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL NHS Connecting for Health BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+* SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+#### ---- LICENSE OF BUNDLED LIBRARIES --- #
+Sappheiros uses a large number of open source libraries. All of these libraries
+are included in the lib folder of the application and are covered by their respective licenses.
+Sappheiros license and copyright does not cover these libraries. Please refer
+to the licenses for appropriate information.

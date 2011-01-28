@@ -1,0 +1,14 @@
+## --- Installation Configuration for ${application.name} --- #
+
+Congratulations! You are almost ready to install $APP_NAME - $APP_VER on your machine.
+2. ${application.name} will be installed to the following folder on your machine : $INSTALL_PATH
+3. ${application.name} needs a local installation of MySQL for storing SNOMED CT and its own data.
+4. After installation, please follow the instructions provided in the configuration manual
+    located at : $INSTALL_PATH/docs/${sappheiros.configuration.guide.name}, to install and
+    configure MySQL for Sappheiros.
+5. The installer will try to open the configuration in your default PDF reader. If it fails,
+    please open it manually and follow the steps described.
+5. Once you have followed the instructions in the ${sappheiros.configuration.guide.name}
+    manual, move to the next step, by clicking Next.
+6. The next step will verify that ${application.name} can access the local MySQL server using
+    the account that you have configured.

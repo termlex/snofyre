@@ -1,0 +1,873 @@
+<Query__Statement>
+  <containedExpressions class="linked-hash-set">
+    <Query__Component__Expression>
+      <containedExpressions class="linked-hash-set" />
+      <parentExpression class="Query_Statement" reference="/Query__Statement" />
+      <runTimeStatus>EXECUTE</runTimeStatus>
+      <metaData>
+        <creators />
+        <publishers />
+        <contributors />
+        <createdDate>2010-03-29 21:31:11.388 BST</createdDate>
+        <modifiedDates />
+        <sources />
+        <temporalCoverage class="org.hibernate.collection.PersistentSet" />
+        <licenses />
+        <audienceEducationLevels />
+        <audienceMediators />
+        <provenances />
+        <rightsHolders />
+        <instructionalMethods />
+        <accrualMethods />
+        <accrualPeriodicities />
+        <accrualPolicies />
+        <id>0</id>
+      </metaData>
+      <uuid>8d840ba5-25e2-47ab-b973-2f6a66bbb9e4</uuid>
+      <includedConstraint>
+        <type>TERMINOLOGY</type>
+        <value>
+          <value class="Close_To_User_Expression">
+            <uuid>fae17bda-7f49-4489-942b-e6a39aa6563c</uuid>
+            <parentExpressions class="org.hibernate.collection.PersistentSet" />
+            <childExpressions class="org.hibernate.collection.PersistentSet" />
+            <equivalentExpressions class="org.hibernate.collection.PersistentSet" />
+            <focusConcepts class="java.util.Collections$SingletonSet">
+              <element class="Concept">
+                <status>CURRENT</status>
+                <conceptID>22298006</conceptID>
+                <Synonyms class="org.hibernate.collection.PersistentList">
+                  <string>Heart attack</string>
+                  <string>Cardiac infarction</string>
+                  <string>Myocardial infarct</string>
+                  <string>Heart attack, NOS</string>
+                  <string>Infarction of heart, NOS</string>
+                  <string>Infarction of heart</string>
+                  <string>MI - Myocardial infarction</string>
+                  <string>Cardiac infarction, NOS</string>
+                  <string>Myocardial infarction, NOS</string>
+                  <string>Attack - heart</string>
+                </Synonyms>
+                <source>CORE</source>
+                <preferredLabel>Myocardial infarction</preferredLabel>
+                <type>DISEASE</type>
+                <fullySpecifiedName>Myocardial infarction (disorder)</fullySpecifiedName>
+                <isPrimitive>false</isPrimitive>
+                <ctv3ID>X200E</ctv3ID>
+                <snomedID>D3-15000</snomedID>
+                <Descriptions class="org.hibernate.collection.PersistentList">
+                  <Description>
+                    <descriptionID>751689013</descriptionID>
+                    <conceptID>22298006</conceptID>
+                    <term>Myocardial infarction (disorder)</term>
+                    <initialCapStatus>false</initialCapStatus>
+                    <descriptionType>FULLY_SPECIFIED_NAME</descriptionType>
+                    <language>en</language>
+                    <source>CORE</source>
+                  </Description>
+                  <Description>
+                    <descriptionID>37443015</descriptionID>
+                    <conceptID>22298006</conceptID>
+                    <term>Heart attack</term>
+                    <initialCapStatus>false</initialCapStatus>
+                    <descriptionType>SYNONYM</descriptionType>
+                    <language>en</language>
+                    <source>CORE</source>
+                  </Description>
+                  <Description>
+                    <descriptionID>37442013</descriptionID>
+                    <conceptID>22298006</conceptID>
+                    <term>Cardiac infarction</term>
+                    <initialCapStatus>false</initialCapStatus>
+                    <descriptionType>SYNONYM</descriptionType>
+                    <language>en</language>
+                    <source>CORE</source>
+                  </Description>
+                  <Description>
+                    <descriptionID>37436014</descriptionID>
+                    <conceptID>22298006</conceptID>
+                    <term>Myocardial infarction</term>
+                    <initialCapStatus>false</initialCapStatus>
+                    <descriptionType>PREFERRED_TERM</descriptionType>
+                    <language>en</language>
+                    <source>CORE</source>
+                  </Description>
+                  <Description>
+                    <descriptionID>1784873012</descriptionID>
+                    <conceptID>22298006</conceptID>
+                    <term>Myocardial infarct</term>
+                    <initialCapStatus>false</initialCapStatus>
+                    <descriptionType>SYNONYM</descriptionType>
+                    <language>en</language>
+                    <source>CORE</source>
+                  </Description>
+                  <Description>
+                    <descriptionID>37440017</descriptionID>
+                    <conceptID>22298006</conceptID>
+                    <term>Heart attack, NOS</term>
+                    <initialCapStatus>false</initialCapStatus>
+                    <descriptionType>SYNONYM</descriptionType>
+                    <language>en</language>
+                    <source>CORE</source>
+                  </Description>
+                  <Description>
+                    <descriptionID>37438010</descriptionID>
+                    <conceptID>22298006</conceptID>
+                    <term>Infarction of heart, NOS</term>
+                    <initialCapStatus>false</initialCapStatus>
+                    <descriptionType>SYNONYM</descriptionType>
+                    <language>en</language>
+                    <source>CORE</source>
+                  </Description>
+                  <Description>
+                    <descriptionID>37441018</descriptionID>
+                    <conceptID>22298006</conceptID>
+                    <term>Infarction of heart</term>
+                    <initialCapStatus>false</initialCapStatus>
+                    <descriptionType>SYNONYM</descriptionType>
+                    <language>en</language>
+                    <source>CORE</source>
+                  </Description>
+                  <Description>
+                    <descriptionID>1784872019</descriptionID>
+                    <conceptID>22298006</conceptID>
+                    <term>MI - Myocardial infarction</term>
+                    <initialCapStatus>true</initialCapStatus>
+                    <descriptionType>SYNONYM</descriptionType>
+                    <language>en</language>
+                    <source>CORE</source>
+                  </Description>
+                  <Description>
+                    <descriptionID>37439019</descriptionID>
+                    <conceptID>22298006</conceptID>
+                    <term>Cardiac infarction, NOS</term>
+                    <initialCapStatus>true</initialCapStatus>
+                    <descriptionType>SYNONYM</descriptionType>
+                    <language>en</language>
+                    <source>CORE</source>
+                  </Description>
+                  <Description>
+                    <descriptionID>37437017</descriptionID>
+                    <conceptID>22298006</conceptID>
+                    <term>Myocardial infarction, NOS</term>
+                    <initialCapStatus>true</initialCapStatus>
+                    <descriptionType>SYNONYM</descriptionType>
+                    <language>en</language>
+                    <source>CORE</source>
+                  </Description>
+                  <Description>
+                    <descriptionID>219521000000119</descriptionID>
+                    <conceptID>22298006</conceptID>
+                    <term>Attack - heart</term>
+                    <initialCapStatus>true</initialCapStatus>
+                    <descriptionType>SYNONYM</descriptionType>
+                    <language>en-GB</language>
+                    <source>UKEX</source>
+                  </Description>
+                </Descriptions>
+                <Relationships class="org.hibernate.collection.PersistentList">
+                  <Relationship>
+                    <relationshipID>184430024</relationshipID>
+                    <sourceConceptID>22298006</sourceConceptID>
+                    <targetConceptID>57809008</targetConceptID>
+                    <relationshipType>116680003</relationshipType>
+                    <relationshipName>Is a</relationshipName>
+                    <relationshipGroup>0</relationshipGroup>
+                    <source>CORE</source>
+                    <refinability>NOT_REFINABLE</refinability>
+                    <type>DEFINING</type>
+                  </Relationship>
+                  <Relationship>
+                    <relationshipID>2689547022</relationshipID>
+                    <sourceConceptID>22298006</sourceConceptID>
+                    <targetConceptID>128599005</targetConceptID>
+                    <relationshipType>116680003</relationshipType>
+                    <relationshipName>Is a</relationshipName>
+                    <relationshipGroup>0</relationshipGroup>
+                    <source>CORE</source>
+                    <refinability>NOT_REFINABLE</refinability>
+                    <type>DEFINING</type>
+                  </Relationship>
+                  <Relationship>
+                    <relationshipID>3298215027</relationshipID>
+                    <sourceConceptID>22298006</sourceConceptID>
+                    <targetConceptID>55641003</targetConceptID>
+                    <relationshipType>116676008</relationshipType>
+                    <relationshipName>Associated morphology</relationshipName>
+                    <relationshipGroup>1</relationshipGroup>
+                    <source>CORE</source>
+                    <targetConcept>
+                      <status>CURRENT</status>
+                      <conceptID>55641003</conceptID>
+                      <Synonyms class="org.hibernate.collection.PersistentList">
+                        <string>Infarction</string>
+                        <string>Infarction, NOS</string>
+                        <string>Infarct, NOS</string>
+                      </Synonyms>
+                      <source>CORE</source>
+                      <preferredLabel>Infarct</preferredLabel>
+                      <fullySpecifiedName>Infarct (morphologic abnormality)</fullySpecifiedName>
+                      <isPrimitive>true</isPrimitive>
+                      <ctv3ID>XUGQV</ctv3ID>
+                      <snomedID>M-54700</snomedID>
+                      <Descriptions class="org.hibernate.collection.PersistentList">
+                        <Description>
+                          <descriptionID>794038016</descriptionID>
+                          <conceptID>55641003</conceptID>
+                          <term>Infarct (morphologic abnormality)</term>
+                          <initialCapStatus>false</initialCapStatus>
+                          <descriptionType>FULLY_SPECIFIED_NAME</descriptionType>
+                          <language>en</language>
+                          <source>CORE</source>
+                        </Description>
+                        <Description>
+                          <descriptionID>92491010</descriptionID>
+                          <conceptID>55641003</conceptID>
+                          <term>Infarction</term>
+                          <initialCapStatus>false</initialCapStatus>
+                          <descriptionType>SYNONYM</descriptionType>
+                          <language>en</language>
+                          <source>CORE</source>
+                        </Description>
+                        <Description>
+                          <descriptionID>92488010</descriptionID>
+                          <conceptID>55641003</conceptID>
+                          <term>Infarct</term>
+                          <initialCapStatus>false</initialCapStatus>
+                          <descriptionType>PREFERRED_TERM</descriptionType>
+                          <language>en</language>
+                          <source>CORE</source>
+                        </Description>
+                        <Description>
+                          <descriptionID>92490011</descriptionID>
+                          <conceptID>55641003</conceptID>
+                          <term>Infarction, NOS</term>
+                          <initialCapStatus>false</initialCapStatus>
+                          <descriptionType>SYNONYM</descriptionType>
+                          <language>en</language>
+                          <source>CORE</source>
+                        </Description>
+                        <Description>
+                          <descriptionID>92489019</descriptionID>
+                          <conceptID>55641003</conceptID>
+                          <term>Infarct, NOS</term>
+                          <initialCapStatus>false</initialCapStatus>
+                          <descriptionType>SYNONYM</descriptionType>
+                          <language>en</language>
+                          <source>CORE</source>
+                        </Description>
+                      </Descriptions>
+                      <Relationships class="org.hibernate.collection.PersistentList">
+                        <Relationship>
+                          <relationshipID>238592020</relationshipID>
+                          <sourceConceptID>55641003</sourceConceptID>
+                          <targetConceptID>6574001</targetConceptID>
+                          <relationshipType>116680003</relationshipType>
+                          <relationshipName>Is a</relationshipName>
+                          <relationshipGroup>0</relationshipGroup>
+                          <source>CORE</source>
+                          <refinability>NOT_REFINABLE</refinability>
+                          <type>DEFINING</type>
+                        </Relationship>
+                      </Relationships>
+                      <sourceRelationships class="org.hibernate.collection.PersistentList">
+                        <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[3]/targetConcept/Relationships/Relationship" />
+                      </sourceRelationships>
+                      <targetRelationships class="org.hibernate.collection.PersistentList" />
+                      <childIDSet class="org.hibernate.collection.PersistentSet">
+                        <string>36560003</string>
+                        <string>47559000</string>
+                        <string>74310003</string>
+                        <string>72647007</string>
+                        <string>79770005</string>
+                        <string>71911007</string>
+                        <string>31092005</string>
+                        <string>55470003</string>
+                        <string>35696001</string>
+                        <string>43618000</string>
+                        <string>27876002</string>
+                        <string>60007006</string>
+                        <string>81037000</string>
+                        <string>85844000</string>
+                        <string>38640009</string>
+                        <string>22333001</string>
+                        <string>52481007</string>
+                        <string>56229006</string>
+                        <string>71292007</string>
+                        <string>28208008</string>
+                      </childIDSet>
+                      <parentIDSet class="org.hibernate.collection.PersistentSet">
+                        <string>6574001</string>
+                      </parentIDSet>
+                      <refiningRelationships class="org.hibernate.collection.PersistentList" />
+                      <definingRelationships class="org.hibernate.collection.PersistentList">
+                        <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[3]/targetConcept/Relationships/Relationship" />
+                      </definingRelationships>
+                      <optionalRelationships class="org.hibernate.collection.PersistentList" />
+                      <mandatoryRelationships class="org.hibernate.collection.PersistentList" />
+                      <descendantIds class="org.hibernate.collection.PersistentSet" />
+                      <ancestorIds class="org.hibernate.collection.PersistentSet" />
+                      <children class="org.hibernate.collection.PersistentList" />
+                      <descendants class="org.hibernate.collection.PersistentList" />
+                      <ancestors class="org.hibernate.collection.PersistentList" />
+                      <parents class="org.hibernate.collection.PersistentList" />
+                      <proximalPrimtiveIds class="org.hibernate.collection.PersistentSet" />
+                      <Role__Groups class="org.hibernate.collection.PersistentList" />
+                    </targetConcept>
+                    <refinability>OPTIONAL</refinability>
+                    <type>DEFINING</type>
+                  </Relationship>
+                  <Relationship>
+                    <relationshipID>3298216026</relationshipID>
+                    <sourceConceptID>22298006</sourceConceptID>
+                    <targetConceptID>74281007</targetConceptID>
+                    <relationshipType>363698007</relationshipType>
+                    <relationshipName>Finding site</relationshipName>
+                    <relationshipGroup>1</relationshipGroup>
+                    <source>CORE</source>
+                    <targetConcept>
+                      <status>CURRENT</status>
+                      <conceptID>74281007</conceptID>
+                      <Synonyms class="org.hibernate.collection.PersistentList">
+                        <string>Myocardium</string>
+                        <string>Myocardium, NOS</string>
+                        <string>Cardiac muscle</string>
+                      </Synonyms>
+                      <source>CORE</source>
+                      <preferredLabel>Myocardium structure</preferredLabel>
+                      <type>BODY_STRUCTURE</type>
+                      <fullySpecifiedName>Myocardium structure (body structure)</fullySpecifiedName>
+                      <isPrimitive>true</isPrimitive>
+                      <ctv3ID>XC0Is</ctv3ID>
+                      <snomedID>T-32020</snomedID>
+                      <Descriptions class="org.hibernate.collection.PersistentList">
+                        <Description>
+                          <descriptionID>814763019</descriptionID>
+                          <conceptID>74281007</conceptID>
+                          <term>Myocardium structure (body structure)</term>
+                          <initialCapStatus>false</initialCapStatus>
+                          <descriptionType>FULLY_SPECIFIED_NAME</descriptionType>
+                          <language>en</language>
+                          <source>CORE</source>
+                        </Description>
+                        <Description>
+                          <descriptionID>123357010</descriptionID>
+                          <conceptID>74281007</conceptID>
+                          <term>Myocardium</term>
+                          <initialCapStatus>false</initialCapStatus>
+                          <descriptionType>SYNONYM</descriptionType>
+                          <language>en</language>
+                          <source>CORE</source>
+                        </Description>
+                        <Description>
+                          <descriptionID>502654017</descriptionID>
+                          <conceptID>74281007</conceptID>
+                          <term>Myocardium structure</term>
+                          <initialCapStatus>false</initialCapStatus>
+                          <descriptionType>PREFERRED_TERM</descriptionType>
+                          <language>en</language>
+                          <source>CORE</source>
+                        </Description>
+                        <Description>
+                          <descriptionID>123358017</descriptionID>
+                          <conceptID>74281007</conceptID>
+                          <term>Myocardium, NOS</term>
+                          <initialCapStatus>false</initialCapStatus>
+                          <descriptionType>SYNONYM</descriptionType>
+                          <language>en</language>
+                          <source>CORE</source>
+                        </Description>
+                        <Description>
+                          <descriptionID>123359013</descriptionID>
+                          <conceptID>74281007</conceptID>
+                          <term>Cardiac muscle</term>
+                          <initialCapStatus>false</initialCapStatus>
+                          <descriptionType>SYNONYM</descriptionType>
+                          <language>en</language>
+                          <source>CORE</source>
+                        </Description>
+                      </Descriptions>
+                      <Relationships class="org.hibernate.collection.PersistentList">
+                        <Relationship>
+                          <relationshipID>268831027</relationshipID>
+                          <sourceConceptID>74281007</sourceConceptID>
+                          <targetConceptID>272657006</targetConceptID>
+                          <relationshipType>116680003</relationshipType>
+                          <relationshipName>Is a</relationshipName>
+                          <relationshipGroup>0</relationshipGroup>
+                          <source>CORE</source>
+                          <refinability>NOT_REFINABLE</refinability>
+                          <type>DEFINING</type>
+                        </Relationship>
+                        <Relationship>
+                          <relationshipID>859319020</relationshipID>
+                          <sourceConceptID>74281007</sourceConceptID>
+                          <targetConceptID>302509004</targetConceptID>
+                          <relationshipType>123005000</relationshipType>
+                          <relationshipName>Part of</relationshipName>
+                          <relationshipGroup>0</relationshipGroup>
+                          <source>CORE</source>
+                          <refinability>NOT_REFINABLE</refinability>
+                          <type>ADDITIONAL</type>
+                        </Relationship>
+                      </Relationships>
+                      <sourceRelationships class="org.hibernate.collection.PersistentList">
+                        <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[4]/targetConcept/Relationships/Relationship" />
+                        <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[4]/targetConcept/Relationships/Relationship[2]" />
+                      </sourceRelationships>
+                      <targetRelationships class="org.hibernate.collection.PersistentList" />
+                      <childIDSet class="org.hibernate.collection.PersistentSet">
+                        <string>122448007</string>
+                        <string>118755002</string>
+                        <string>58148009</string>
+                        <string>362012001</string>
+                        <string>7872004</string>
+                        <string>20575005</string>
+                        <string>273000</string>
+                        <string>6975006</string>
+                        <string>17475005</string>
+                        <string>7076002</string>
+                        <string>19914004</string>
+                      </childIDSet>
+                      <parentIDSet class="org.hibernate.collection.PersistentSet">
+                        <string>272657006</string>
+                      </parentIDSet>
+                      <refiningRelationships class="org.hibernate.collection.PersistentList" />
+                      <definingRelationships class="org.hibernate.collection.PersistentList">
+                        <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[4]/targetConcept/Relationships/Relationship" />
+                      </definingRelationships>
+                      <optionalRelationships class="org.hibernate.collection.PersistentList" />
+                      <mandatoryRelationships class="org.hibernate.collection.PersistentList" />
+                      <descendantIds class="org.hibernate.collection.PersistentSet" />
+                      <ancestorIds class="org.hibernate.collection.PersistentSet" />
+                      <children class="org.hibernate.collection.PersistentList" />
+                      <descendants class="org.hibernate.collection.PersistentList" />
+                      <ancestors class="org.hibernate.collection.PersistentList" />
+                      <parents class="org.hibernate.collection.PersistentList" />
+                      <proximalPrimtiveIds class="org.hibernate.collection.PersistentSet" />
+                      <Role__Groups class="org.hibernate.collection.PersistentList" />
+                    </targetConcept>
+                    <refinability>OPTIONAL</refinability>
+                    <type>DEFINING</type>
+                  </Relationship>
+                  <Relationship>
+                    <relationshipID>2769995029</relationshipID>
+                    <sourceConceptID>22298006</sourceConceptID>
+                    <targetConceptID>123397009</targetConceptID>
+                    <relationshipType>116680003</relationshipType>
+                    <relationshipName>Is a</relationshipName>
+                    <relationshipGroup>0</relationshipGroup>
+                    <source>CORE</source>
+                    <refinability>NOT_REFINABLE</refinability>
+                    <type>DEFINING</type>
+                  </Relationship>
+                  <Relationship>
+                    <relationshipID>1172487029</relationshipID>
+                    <sourceConceptID>22298006</sourceConceptID>
+                    <targetConceptID>272141005</targetConceptID>
+                    <relationshipType>246112005</relationshipType>
+                    <relationshipName>Severity</relationshipName>
+                    <relationshipGroup>0</relationshipGroup>
+                    <source>CORE</source>
+                    <targetConcept>
+                      <status>CURRENT</status>
+                      <conceptID>272141005</conceptID>
+                      <Synonyms class="org.hibernate.collection.PersistentList" />
+                      <source>CORE</source>
+                      <preferredLabel>Severities</preferredLabel>
+                      <fullySpecifiedName>Severities (qualifier value)</fullySpecifiedName>
+                      <isPrimitive>true</isPrimitive>
+                      <ctv3ID>XM0EN</ctv3ID>
+                      <snomedID>R-407F6</snomedID>
+                      <Descriptions class="org.hibernate.collection.PersistentList">
+                        <Description>
+                          <descriptionID>407204018</descriptionID>
+                          <conceptID>272141005</conceptID>
+                          <term>Severities</term>
+                          <initialCapStatus>false</initialCapStatus>
+                          <descriptionType>PREFERRED_TERM</descriptionType>
+                          <language>en</language>
+                          <source>CORE</source>
+                        </Description>
+                        <Description>
+                          <descriptionID>664630018</descriptionID>
+                          <conceptID>272141005</conceptID>
+                          <term>Severities (qualifier value)</term>
+                          <initialCapStatus>false</initialCapStatus>
+                          <descriptionType>FULLY_SPECIFIED_NAME</descriptionType>
+                          <language>en</language>
+                          <source>CORE</source>
+                        </Description>
+                      </Descriptions>
+                      <Relationships class="org.hibernate.collection.PersistentList">
+                        <Relationship>
+                          <relationshipID>90692026</relationshipID>
+                          <sourceConceptID>272141005</sourceConceptID>
+                          <targetConceptID>258349007</targetConceptID>
+                          <relationshipType>116680003</relationshipType>
+                          <relationshipName>Is a</relationshipName>
+                          <relationshipGroup>0</relationshipGroup>
+                          <source>CORE</source>
+                          <refinability>NOT_REFINABLE</refinability>
+                          <type>DEFINING</type>
+                        </Relationship>
+                      </Relationships>
+                      <sourceRelationships class="org.hibernate.collection.PersistentList">
+                        <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[6]/targetConcept/Relationships/Relationship" />
+                      </sourceRelationships>
+                      <targetRelationships class="org.hibernate.collection.PersistentList" />
+                      <childIDSet class="org.hibernate.collection.PersistentSet">
+                        <string>371924009</string>
+                        <string>371923003</string>
+                        <string>399166001</string>
+                        <string>255604002</string>
+                        <string>24484000</string>
+                        <string>6736007</string>
+                      </childIDSet>
+                      <parentIDSet class="org.hibernate.collection.PersistentSet">
+                        <string>258349007</string>
+                      </parentIDSet>
+                      <refiningRelationships class="org.hibernate.collection.PersistentList" />
+                      <definingRelationships class="org.hibernate.collection.PersistentList">
+                        <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[6]/targetConcept/Relationships/Relationship" />
+                      </definingRelationships>
+                      <optionalRelationships class="org.hibernate.collection.PersistentList" />
+                      <mandatoryRelationships class="org.hibernate.collection.PersistentList" />
+                      <descendantIds class="org.hibernate.collection.PersistentSet" />
+                      <ancestorIds class="org.hibernate.collection.PersistentSet" />
+                      <children class="org.hibernate.collection.PersistentList" />
+                      <descendants class="org.hibernate.collection.PersistentList" />
+                      <ancestors class="org.hibernate.collection.PersistentList" />
+                      <parents class="org.hibernate.collection.PersistentList" />
+                      <proximalPrimtiveIds class="org.hibernate.collection.PersistentSet" />
+                      <Role__Groups class="org.hibernate.collection.PersistentList" />
+                    </targetConcept>
+                    <refinability>MANDATORY</refinability>
+                    <type>QUALIFIER</type>
+                  </Relationship>
+                  <Relationship>
+                    <relationshipID>1172488023</relationshipID>
+                    <sourceConceptID>22298006</sourceConceptID>
+                    <targetConceptID>288526004</targetConceptID>
+                    <relationshipType>246456000</relationshipType>
+                    <relationshipName>Episodicity</relationshipName>
+                    <relationshipGroup>0</relationshipGroup>
+                    <source>CORE</source>
+                    <targetConcept>
+                      <status>CURRENT</status>
+                      <conceptID>288526004</conceptID>
+                      <Synonyms class="org.hibernate.collection.PersistentList" />
+                      <source>CORE</source>
+                      <preferredLabel>Episodicities</preferredLabel>
+                      <fullySpecifiedName>Episodicities (qualifier value)</fullySpecifiedName>
+                      <isPrimitive>true</isPrimitive>
+                      <ctv3ID>Xa48Q</ctv3ID>
+                      <snomedID>R-424F0</snomedID>
+                      <Descriptions class="org.hibernate.collection.PersistentList">
+                        <Description>
+                          <descriptionID>428184016</descriptionID>
+                          <conceptID>288526004</conceptID>
+                          <term>Episodicities</term>
+                          <initialCapStatus>false</initialCapStatus>
+                          <descriptionType>PREFERRED_TERM</descriptionType>
+                          <language>en</language>
+                          <source>CORE</source>
+                        </Description>
+                        <Description>
+                          <descriptionID>682870015</descriptionID>
+                          <conceptID>288526004</conceptID>
+                          <term>Episodicities (qualifier value)</term>
+                          <initialCapStatus>false</initialCapStatus>
+                          <descriptionType>FULLY_SPECIFIED_NAME</descriptionType>
+                          <language>en</language>
+                          <source>CORE</source>
+                        </Description>
+                      </Descriptions>
+                      <Relationships class="org.hibernate.collection.PersistentList">
+                        <Relationship>
+                          <relationshipID>109498025</relationshipID>
+                          <sourceConceptID>288526004</sourceConceptID>
+                          <targetConceptID>272103003</targetConceptID>
+                          <relationshipType>116680003</relationshipType>
+                          <relationshipName>Is a</relationshipName>
+                          <relationshipGroup>0</relationshipGroup>
+                          <source>CORE</source>
+                          <refinability>NOT_REFINABLE</refinability>
+                          <type>DEFINING</type>
+                        </Relationship>
+                        <Relationship>
+                          <relationshipID>109497024</relationshipID>
+                          <sourceConceptID>288526004</sourceConceptID>
+                          <targetConceptID>303102005</targetConceptID>
+                          <relationshipType>116680003</relationshipType>
+                          <relationshipName>Is a</relationshipName>
+                          <relationshipGroup>0</relationshipGroup>
+                          <source>CORE</source>
+                          <refinability>NOT_REFINABLE</refinability>
+                          <type>DEFINING</type>
+                        </Relationship>
+                      </Relationships>
+                      <sourceRelationships class="org.hibernate.collection.PersistentList">
+                        <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[7]/targetConcept/Relationships/Relationship" />
+                        <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[7]/targetConcept/Relationships/Relationship[2]" />
+                      </sourceRelationships>
+                      <targetRelationships class="org.hibernate.collection.PersistentList" />
+                      <childIDSet class="org.hibernate.collection.PersistentSet">
+                        <string>303350001</string>
+                        <string>272131007</string>
+                        <string>255217005</string>
+                        <string>394846009</string>
+                        <string>303351002</string>
+                        <string>288527008</string>
+                      </childIDSet>
+                      <parentIDSet class="org.hibernate.collection.PersistentSet">
+                        <string>303102005</string>
+                        <string>272103003</string>
+                      </parentIDSet>
+                      <refiningRelationships class="org.hibernate.collection.PersistentList" />
+                      <definingRelationships class="org.hibernate.collection.PersistentList">
+                        <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[7]/targetConcept/Relationships/Relationship" />
+                        <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[7]/targetConcept/Relationships/Relationship[2]" />
+                      </definingRelationships>
+                      <optionalRelationships class="org.hibernate.collection.PersistentList" />
+                      <mandatoryRelationships class="org.hibernate.collection.PersistentList" />
+                      <descendantIds class="org.hibernate.collection.PersistentSet" />
+                      <ancestorIds class="org.hibernate.collection.PersistentSet" />
+                      <children class="org.hibernate.collection.PersistentList" />
+                      <descendants class="org.hibernate.collection.PersistentList" />
+                      <ancestors class="org.hibernate.collection.PersistentList" />
+                      <parents class="org.hibernate.collection.PersistentList" />
+                      <proximalPrimtiveIds class="org.hibernate.collection.PersistentSet" />
+                      <Role__Groups class="org.hibernate.collection.PersistentList" />
+                    </targetConcept>
+                    <refinability>MANDATORY</refinability>
+                    <type>QUALIFIER</type>
+                  </Relationship>
+                  <Relationship>
+                    <relationshipID>3126078028</relationshipID>
+                    <sourceConceptID>22298006</sourceConceptID>
+                    <targetConceptID>288524001</targetConceptID>
+                    <relationshipType>263502005</relationshipType>
+                    <relationshipName>Clinical course</relationshipName>
+                    <relationshipGroup>0</relationshipGroup>
+                    <source>CORE</source>
+                    <targetConcept>
+                      <status>CURRENT</status>
+                      <conceptID>288524001</conceptID>
+                      <Synonyms class="org.hibernate.collection.PersistentList" />
+                      <source>CORE</source>
+                      <preferredLabel>Courses</preferredLabel>
+                      <fullySpecifiedName>Courses (qualifier value)</fullySpecifiedName>
+                      <isPrimitive>true</isPrimitive>
+                      <ctv3ID>Xa48J</ctv3ID>
+                      <snomedID>R-424EF</snomedID>
+                      <Descriptions class="org.hibernate.collection.PersistentList">
+                        <Description>
+                          <descriptionID>682868012</descriptionID>
+                          <conceptID>288524001</conceptID>
+                          <term>Courses (qualifier value)</term>
+                          <initialCapStatus>false</initialCapStatus>
+                          <descriptionType>FULLY_SPECIFIED_NAME</descriptionType>
+                          <language>en</language>
+                          <source>CORE</source>
+                        </Description>
+                        <Description>
+                          <descriptionID>428182017</descriptionID>
+                          <conceptID>288524001</conceptID>
+                          <term>Courses</term>
+                          <initialCapStatus>false</initialCapStatus>
+                          <descriptionType>PREFERRED_TERM</descriptionType>
+                          <language>en</language>
+                          <source>CORE</source>
+                        </Description>
+                      </Descriptions>
+                      <Relationships class="org.hibernate.collection.PersistentList">
+                        <Relationship>
+                          <relationshipID>109494028</relationshipID>
+                          <sourceConceptID>288524001</sourceConceptID>
+                          <targetConceptID>272103003</targetConceptID>
+                          <relationshipType>116680003</relationshipType>
+                          <relationshipName>Is a</relationshipName>
+                          <relationshipGroup>0</relationshipGroup>
+                          <source>CORE</source>
+                          <refinability>NOT_REFINABLE</refinability>
+                          <type>DEFINING</type>
+                        </Relationship>
+                        <Relationship>
+                          <relationshipID>109495027</relationshipID>
+                          <sourceConceptID>288524001</sourceConceptID>
+                          <targetConceptID>303102005</targetConceptID>
+                          <relationshipType>116680003</relationshipType>
+                          <relationshipName>Is a</relationshipName>
+                          <relationshipGroup>0</relationshipGroup>
+                          <source>CORE</source>
+                          <refinability>NOT_REFINABLE</refinability>
+                          <type>DEFINING</type>
+                        </Relationship>
+                      </Relationships>
+                      <sourceRelationships class="org.hibernate.collection.PersistentList">
+                        <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[8]/targetConcept/Relationships/Relationship" />
+                        <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[8]/targetConcept/Relationships/Relationship[2]" />
+                      </sourceRelationships>
+                      <targetRelationships class="org.hibernate.collection.PersistentList" />
+                      <childIDSet class="org.hibernate.collection.PersistentSet">
+                        <string>44180009</string>
+                        <string>424124008</string>
+                        <string>373935005</string>
+                        <string>19939008</string>
+                        <string>61751001</string>
+                        <string>255299009</string>
+                        <string>90734009</string>
+                      </childIDSet>
+                      <parentIDSet class="org.hibernate.collection.PersistentSet">
+                        <string>303102005</string>
+                        <string>272103003</string>
+                      </parentIDSet>
+                      <refiningRelationships class="org.hibernate.collection.PersistentList" />
+                      <definingRelationships class="org.hibernate.collection.PersistentList">
+                        <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[8]/targetConcept/Relationships/Relationship" />
+                        <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[8]/targetConcept/Relationships/Relationship[2]" />
+                      </definingRelationships>
+                      <optionalRelationships class="org.hibernate.collection.PersistentList" />
+                      <mandatoryRelationships class="org.hibernate.collection.PersistentList" />
+                      <descendantIds class="org.hibernate.collection.PersistentSet" />
+                      <ancestorIds class="org.hibernate.collection.PersistentSet" />
+                      <children class="org.hibernate.collection.PersistentList" />
+                      <descendants class="org.hibernate.collection.PersistentList" />
+                      <ancestors class="org.hibernate.collection.PersistentList" />
+                      <parents class="org.hibernate.collection.PersistentList" />
+                      <proximalPrimtiveIds class="org.hibernate.collection.PersistentSet" />
+                      <Role__Groups class="org.hibernate.collection.PersistentList" />
+                    </targetConcept>
+                    <refinability>MANDATORY</refinability>
+                    <type>QUALIFIER</type>
+                  </Relationship>
+                </Relationships>
+                <sourceRelationships class="org.hibernate.collection.PersistentList">
+                  <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship" />
+                  <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[2]" />
+                  <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[3]" />
+                  <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[4]" />
+                  <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[5]" />
+                  <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[6]" />
+                  <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[7]" />
+                  <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[8]" />
+                </sourceRelationships>
+                <targetRelationships class="org.hibernate.collection.PersistentList" />
+                <childIDSet class="org.hibernate.collection.PersistentSet">
+                  <string>371068009</string>
+                  <string>233843008</string>
+                  <string>418044006</string>
+                  <string>57054005</string>
+                  <string>129574000</string>
+                  <string>194800006</string>
+                  <string>194797009</string>
+                  <string>428196007</string>
+                  <string>194802003</string>
+                  <string>194801005</string>
+                  <string>194856005</string>
+                  <string>394710008</string>
+                  <string>1755008</string>
+                  <string>194804002</string>
+                  <string>314207007</string>
+                  <string>42531007</string>
+                </childIDSet>
+                <parentIDSet class="org.hibernate.collection.PersistentSet">
+                  <string>123397009</string>
+                  <string>128599005</string>
+                  <string>57809008</string>
+                </parentIDSet>
+                <refiningRelationships class="org.hibernate.collection.PersistentList">
+                  <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[6]" />
+                  <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[7]" />
+                  <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[8]" />
+                </refiningRelationships>
+                <definingRelationships class="org.hibernate.collection.PersistentList">
+                  <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship" />
+                  <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[2]" />
+                  <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[5]" />
+                </definingRelationships>
+                <optionalRelationships class="org.hibernate.collection.PersistentList">
+                  <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[3]" />
+                  <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[4]" />
+                </optionalRelationships>
+                <mandatoryRelationships class="org.hibernate.collection.PersistentList">
+                  <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[6]" />
+                  <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[7]" />
+                  <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[8]" />
+                </mandatoryRelationships>
+                <descendantIds class="org.hibernate.collection.PersistentSet" />
+                <ancestorIds class="org.hibernate.collection.PersistentSet" />
+                <children class="org.hibernate.collection.PersistentList" />
+                <descendants class="org.hibernate.collection.PersistentList" />
+                <ancestors class="org.hibernate.collection.PersistentList" />
+                <parents class="org.hibernate.collection.PersistentList" />
+                <proximalPrimtiveIds class="org.hibernate.collection.PersistentSet" />
+                <Role__Groups class="org.hibernate.collection.PersistentList">
+                  <Role__Group>
+                    <relationships class="org.hibernate.collection.PersistentSet">
+                      <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[3]" />
+                      <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[4]" />
+                    </relationships>
+                    <relationshipGroupId>1</relationshipGroupId>
+                    <id>0</id>
+                  </Role__Group>
+                  <Role__Group>
+                    <relationships class="org.hibernate.collection.PersistentSet">
+                      <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[3]" />
+                      <Relationship reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value/focusConcepts/element/Relationships/Relationship[4]" />
+                    </relationships>
+                    <relationshipGroupId>1</relationshipGroupId>
+                    <id>0</id>
+                  </Role__Group>
+                </Role__Groups>
+              </element>
+            </focusConcepts>
+            <relationshipExpressions class="org.hibernate.collection.PersistentSet" />
+            <roleGroupExpressions class="org.hibernate.collection.PersistentSet" />
+            <relationships class="org.hibernate.collection.PersistentSet" />
+            <roleGroups class="org.hibernate.collection.PersistentSet" />
+            <propertyExpressions class="org.hibernate.collection.PersistentSet" />
+          </value>
+          <id>0</id>
+        </value>
+        <dimensionVocabulary>NULL</dimensionVocabulary>
+        <name>Expression</name>
+        <id>0</id>
+        <subsumption>SELF_OR_ANY_TYPE_OF</subsumption>
+        <expression class="Close_To_User_Expression" reference="/Query__Statement/containedExpressions/Query__Component__Expression/includedConstraint/value/value" />
+        <uuid>fae17bda-7f49-4489-942b-e6a39aa6563c</uuid>
+      </includedConstraint>
+      <excludedConstraints />
+      <additionalConstraints />
+    </Query__Component__Expression>
+  </containedExpressions>
+  <runTimeStatus>EXECUTE</runTimeStatus>
+  <metaData>
+    <creators />
+    <publishers />
+    <contributors />
+    <createdDate>2010-03-29 21:31:06.618 BST</createdDate>
+    <modifiedDates />
+    <sources />
+    <temporalCoverage class="org.hibernate.collection.PersistentSet" />
+    <licenses />
+    <audienceEducationLevels />
+    <audienceMediators />
+    <provenances />
+    <rightsHolders />
+    <instructionalMethods />
+    <accrualMethods />
+    <accrualPeriodicities />
+    <accrualPolicies />
+    <id>0</id>
+  </metaData>
+  <uuid>22808328-4269-4c0e-bb86-314c5afed711</uuid>
+  <physicalLocation serialization="custom">
+    <java.net.URI>
+      <default>
+        <string>file:/Users/jay/Desktop/T2-Queries/mi.xml</string>
+      </default>
+    </java.net.URI>
+  </physicalLocation>
+</Query__Statement>

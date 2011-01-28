@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/osgi"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/osgi
+http://www.springframework.org/schema/osgi/spring-osgi.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	<service ref="demographicsFactoryService" interface="uk.nhs.cfh.dsp.srth.demographics.DemographicsEntityFactory" />
+    <!--<reference id="connectionService" interface="uk.nhs.cfh.dsp.srth.dcp.DatabaseConnectionService"/>-->
+    <service ref="personUtilsService" interface="uk.nhs.cfh.dsp.srth.demographics.PersonUtilsService"/>
+    <service ref="patientUtilsService" interface="uk.nhs.cfh.dsp.srth.demographics.PatientUtilsService"/>
+    <service ref="patientDAO" interface="uk.nhs.cfh.dsp.srth.demographics.PatientDAO"/>
+    
+</beans:beans>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <!-- regular spring configuration file defining the beans for this
+bundle. We've kept the osgi definitions in a separate
+configuration file so that this file can easily be used
+for integration testing outside of an OSGi environment -->
+
+    <bean id="testExpressionRepoPropertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <!--<property name="location" value="META-INF/spring/snomed-db.properties"/>-->
+        <property name="locations">
+            <list>
+                <value>META-INF/spring/expressionRepo-db.properties</value>
+                <value>META-INF/spring/snomed-db.properties</value>
+            </list>
+        </property>
+        <property name="fileEncoding" value="utf-8"/>
+        <property name="searchSystemEnvironment" value="true"/>
+    </bean>
+
+    <bean id="testSnomedDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+          destroy-method="close">
+        <property name="driverClassName" value="${sjdbc.driverClassName}"/>
+        <property name="url" value="${sjdbc.url}"/>
+        <property name="username" value="${sjdbc.username}"/>
+        <property name="password" value="${sjdbc.password}"/>
+    </bean>
+
+    <bean id="testTerminologyDAO" class="uk.nhs.cfh.dsp.snomed.dao.impl.SnomedConceptDatabaseDAO">
+        <constructor-arg index="0" ref="testSnomedDataSource"/>
+    </bean>
+
+    <bean id="testHumanReadableRenderer" class="uk.nhs.cfh.dsp.snomed.converters.human.readable.impl.HumanReadableRendererImpl"/>
+
+    <bean id="testExpressionComparator"
+          class="uk.nhs.cfh.dsp.snomed.expression.comparator.impl.UnidirectionalExpressionComparatorImpl">
+        <constructor-arg  index="0" ref="testSnomedDataSource"/>
+        <constructor-arg index="1" ref="testTerminologyDAO"/>
+    </bean>
+
+    <bean id="testNormalFormHierarchyProvider" class="uk.nhs.cfh.dsp.snomed.hierarchyprovider.impl.NormalFormHierarchyProviderImpl"
+          init-method="initialiseStatements"
+          depends-on="testSnomedDataSource">
+        <property name="schemaName" value="${snomed.schema.name}"/>
+        <property name="relationshipTableName" value="${relationship.table.name}"/>
+        <property name="attributeName" value="${attribute.name}"/>
+        <property name="attributeValue" value="${attribute.value}"/>
+        <property name="sourceColumnName" value="${source.column.name}"/>
+        <property name="targetColumnName" value="${target.column.name}"/>
+        <property name="tcTableName" value="${tc.table.name}"/>
+        <property name="subTypeColumnName" value="${tc.subtype.column.name}"/>
+        <property name="superTypeColumnName" value="${tc.supertype.column.name}"/>
+        <property name="conceptTableName" value="${concept.table.name}"/>
+        <property name="conceptIdColumnName" value="${concept.id.column.name}"/>
+        <property name="conceptIsPrimitiveColumnName" value="${concept.isprimitive.column.name}"/>
+        <constructor-arg index="0" ref="testSnomedDataSource"/>
+        <constructor-arg index="1" ref="testTerminologyDAO"/>
+    </bean>
+
+    <bean id="testNormalFormGenerator"
+          class="uk.nhs.cfh.dsp.snomed.normaliser.impl.NormalFormGeneratorImpl">
+        <property name="expressionComparator" ref="testExpressionComparator"/>
+        <property name="normalFormHierarchyProvider" ref="testNormalFormHierarchyProvider"/>
+        <property name="terminologyConceptDAO" ref="testTerminologyDAO"/>
+    </bean>
+
+    <bean id="testSituationExpressionGenerator"
+          class="uk.nhs.cfh.dsp.snomed.expressiongenerator.impl.SituationExpressionGeneratorImpl"
+          init-method="initialiseParentConcepts">
+        <property name="terminologyConceptDAO" ref="testTerminologyDAO"/>
+    </bean>
+
+    <bean id="testExpressionCompositionalGrammarConverter" class="uk.nhs.cfh.dsp.snomed.converters.compositionalgrammar.impl.ExpressionCompositionalGrammarConverterImpl">
+        <property name="terminologyConceptDAO" ref="testTerminologyDAO"/>
+    </bean>
+
+    <bean id="testEntityFactoryService" class="uk.nhs.cfh.dsp.srth.information.model.impl.internal.ClinicalEntityFactoryImpl">
+        <property name="humanReadableRender" ref="testHumanReadableRenderer"/>
+        <property name="normalFormGenerator" ref="testNormalFormGenerator"/>
+        <property name="situationExpressionGenerator" ref="testSituationExpressionGenerator"/>
+    </bean>
+
+    <bean id="testExpressionRepoDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+          destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <bean id="testSessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="testExpressionRepoDataSource"/>
+        <property name="annotatedClasses">
+            <list>
+                <value>uk.nhs.cfh.dsp.srth.expression.repository.om.impl.ExpressionMappingObjectImpl</value>
+                <value>uk.nhs.cfh.dsp.srth.expression.repository.om.impl.ExpressionSubsumptionRelationshipImpl</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+                <prop key="hibernate.jdbc.batch_size">${hibernate.jdbc.batch_size}</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="testExpressionMappingObjectDAO"
+          class="uk.nhs.cfh.dsp.srth.expression.repository.impl.ExpressionMappingObjectDAOImpl">
+        <property name="sessionFactory" ref="testSessionFactory"/>
+    </bean>
+
+    <bean id="testExpressionSubsumptionRelationshipDAO"
+          class="uk.nhs.cfh.dsp.srth.expression.repository.impl.ExpressionSubsumptionRelationshipDAOImpl">
+        <property name="sessionFactory" ref="testSessionFactory"/>
+    </bean>
+
+    <bean id="testExpressionTransitiveClosureTableGenerator"
+          class="uk.nhs.cfh.dsp.srth.expression.repository.impl.ExpressionTransitiveClosureTableGeneratorImpl">
+        <property name="expressionComparator" ref="testExpressionComparator"/>
+        <property name="expressionCompositionalGrammarConverter" ref="testExpressionCompositionalGrammarConverter"/>
+        <property name="expressionMappingObjectDAO" ref="testExpressionMappingObjectDAO"/>
+        <property name="expressionSubsumptionRelationshipDAO" ref="testExpressionSubsumptionRelationshipDAO"/>
+    </bean>
+
+</beans>

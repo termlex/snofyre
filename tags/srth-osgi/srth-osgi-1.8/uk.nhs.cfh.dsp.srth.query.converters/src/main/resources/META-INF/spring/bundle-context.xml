@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <!-- regular spring configuration file defining the beans for this
+bundle. We've kept the osgi definitions in a separate
+configuration file so that this file can easily be used
+for integration testing outside of an OSGi environment -->
+
+    <bean id="queryExpressionXMLRenderer" class="uk.nhs.cfh.dsp.srth.query.converters.xml.impl.QueryExpressionXMLRendererImpl"/>
+    <bean id="queryExpressionHTMLRenderer" class="uk.nhs.cfh.dsp.srth.query.converters.html.impl.QueryExpressionHTMLRendererImpl">
+        <constructor-arg ref="heuristicBasedHumanReadableRender"/>
+    </bean>
+    <bean id="queryExpressionPlainTextRenderer" class="uk.nhs.cfh.dsp.srth.query.converters.text.impl.QueryExpressionPlainTextRendererImpl">
+        <property name="queryExpressionHTMLRenderer" ref="queryExpressionHTMLRenderer"/>
+    </bean>
+    <bean id="xmlToQueryExpressionTransformer" class="uk.nhs.cfh.dsp.srth.query.converters.xml.impl.XMLToQueryExpressionTransformerImpl">
+        <constructor-arg ref="queryExpressionFactory"/>
+    </bean>
+    <bean id="queryExpressionXMLConverter" class="uk.nhs.cfh.dsp.srth.query.converters.xml.impl.QueryExpressionXMLConverterImpl"/>
+    <bean id="queryExpressionFileOutputter" class="uk.nhs.cfh.dsp.srth.query.converters.file.impl.QueryExpressionFileOutputterImpl">
+        <property name="queryExpressionXMLConverter" ref="queryExpressionXMLConverter"/>
+    </bean>
+
+</beans>
