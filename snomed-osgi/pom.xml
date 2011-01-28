@@ -20,7 +20,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>uk.nhs.cfh.dsp</groupId>
     <artifactId>uk.nhs.cfh.dsp.snomed</artifactId>
-    <version>0.8-SNAPSHOT</version>
+    <version>0.8</version>
 
     <!--
      | describe your project here
@@ -60,9 +60,9 @@
     </issueManagement>
 
     <scm>
-        <connection>scm:svn:https://snofyre.googlecode.com/svn/trunk/snomed-osgi</connection>
-        <developerConnection>scm:svn:https://snofyre.googlecode.com/svn/trunk/snomed-osgi</developerConnection>
-        <url>https://snofyre.googlecode.com/svn/trunk/snomed-osgi</url>
+        <connection>scm:svn:https://snofyre.googlecode.com/svn/tags/snomed-osgi/uk.nhs.cfh.dsp.snomed-0.8</connection>
+        <developerConnection>scm:svn:https://snofyre.googlecode.com/svn/tags/snomed-osgi/uk.nhs.cfh.dsp.snomed-0.8</developerConnection>
+        <url>https://snofyre.googlecode.com/svn/tags/snomed-osgi/uk.nhs.cfh.dsp.snomed-0.8</url>
     </scm>
 
     <ciManagement>
