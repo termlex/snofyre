@@ -1,0 +1,7 @@
+#-----------------------------------------------------------------
+# Use this file to add customized Bnd instructions for the bundle
+#-----------------------------------------------------------------
+
+Require-Bundle: com.springsource.org.hibernate, com.springsource.javassist, \
+    com.springsource.org.hsqldb, com.springsource.org.hibernate.annotations.common, \
+    uk.nhs.cfh.dsp.snomed.mrcm, uk.nhs.cfh.dsp.snomed.expressiongenerator
