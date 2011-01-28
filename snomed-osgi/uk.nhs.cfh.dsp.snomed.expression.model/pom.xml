@@ -4,7 +4,7 @@
         <relativePath>../poms/compiled/</relativePath>
         <groupId>uk.nhs.cfh.dsp.snomed.build</groupId>
         <artifactId>compiled-bundle-settings</artifactId>
-        <version>0.8-SNAPSHOT</version>
+        <version>0.8</version>
     </parent>
 
     <properties>
@@ -15,7 +15,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>uk.nhs.cfh.dsp.snomed</groupId>
     <artifactId>uk.nhs.cfh.dsp.snomed.expression.model</artifactId>
-    <version>0.8-SNAPSHOT</version>
+    <version>0.8</version>
 
     <name>Expression Model - ${bundle.symbolicName}</name>
     <description>A bundle that represents a generic model for handling expressions</description>
