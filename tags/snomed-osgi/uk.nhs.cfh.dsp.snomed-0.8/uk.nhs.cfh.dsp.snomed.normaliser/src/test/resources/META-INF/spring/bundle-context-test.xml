@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+  <!-- regular spring configuration file defining the beans for this
+       bundle. We've kept the osgi definitions in a separate
+       configuration file so that this file can easily be used
+       for integration testing outside of an OSGi environment -->
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="META-INF/spring/snomed-db.properties"/>
+        <property name="fileEncoding" value="utf-8"/>
+        <property name="searchSystemEnvironment" value="true"/>
+    </bean>
+
+    <bean id="testSnomedDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <bean id="testTerminologyDAO" class="uk.nhs.cfh.dsp.snomed.dao.impl.SnomedConceptDatabaseDAO">
+        <constructor-arg index="0" ref="testSnomedDataSource"/>
+    </bean>
+
+    <bean id="testExpressionComparator"
+          class="uk.nhs.cfh.dsp.snomed.expression.comparator.impl.UnidirectionalExpressionComparatorImpl">
+        <constructor-arg  index="0" ref="testSnomedDataSource"/>
+        <constructor-arg index="1" ref="testTerminologyDAO"/>
+    </bean>
+
+    <!--<bean id="testNormalFormHierarchyProvider" class="uk.nhs.cfh.dsp.snomed.hierarchyprovider.impl.NormalFormHierarchyProviderImpl"-->
+            <!--init-method="initialiseStatements">-->
+        <!--<constructor-arg index="0" ref="testSnomedDataSource"/>-->
+        <!--<constructor-arg index="1" ref="testTerminologyDAO"/>-->
+    <!--</bean>-->
+
+    <bean id="testNormalFormHierarchyProvider" class="uk.nhs.cfh.dsp.snomed.hierarchyprovider.impl.NormalFormHierarchyProviderImpl"
+          init-method="initialiseStatements"
+          depends-on="testSnomedDataSource">
+        <property name="schemaName" value="${snomed.schema.name}"/>
+        <property name="relationshipTableName" value="${relationship.table.name}"/>
+        <property name="attributeName" value="${attribute.name}"/>
+        <property name="attributeValue" value="${attribute.value}"/>
+        <property name="sourceColumnName" value="${source.column.name}"/>
+        <property name="targetColumnName" value="${target.column.name}"/>
+        <property name="tcTableName" value="${tc.table.name}"/>
+        <property name="subTypeColumnName" value="${tc.subtype.column.name}"/>
+        <property name="superTypeColumnName" value="${tc.supertype.column.name}"/>
+        <property name="conceptTableName" value="${concept.table.name}"/>
+        <property name="conceptIdColumnName" value="${concept.id.column.name}"/>
+        <property name="conceptIsPrimitiveColumnName" value="${concept.isprimitive.column.name}"/>
+        <constructor-arg index="0" ref="testSnomedDataSource"/>
+        <constructor-arg index="1" ref="testTerminologyDAO"/>
+    </bean>
+
+    <bean id="testNormalFormGenerator"
+                            class="uk.nhs.cfh.dsp.snomed.normaliser.impl.NormalFormGeneratorImpl">
+        <property name="expressionComparator" ref="testExpressionComparator"/>
+        <property name="normalFormHierarchyProvider" ref="testNormalFormHierarchyProvider"/>
+        <property name="terminologyConceptDAO" ref="testTerminologyDAO"/>
+    </bean>
+
+</beans>
