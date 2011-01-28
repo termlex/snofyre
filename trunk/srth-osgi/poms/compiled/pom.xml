@@ -11,8 +11,9 @@
         <spring.dm.version>1.2.0</spring.dm.version>
         <spring.core.version>2.5.6.SEC01</spring.core.version>
         <author.name>Jay Kola</author.name>
-        <snobj.project.version>0.8-SNAPSHOT</snobj.project.version>
-        <yasb.project.version>0.8-SNAPSHOT</yasb.project.version>
+        <snobj.project.version>0.8</snobj.project.version>
+        <srth.desktop.version>1.8</srth.desktop.version>
+        <yasb.project.version>0.8</yasb.project.version>
     </properties>
 
     <modelVersion>4.0.0</modelVersion>
@@ -439,6 +440,26 @@
 
             <!-- Local project Dependencies -->
             <dependency>
+                <groupId>uk.nhs.cfh.dsp.srth-desktop</groupId>
+                <artifactId>uk.nhs.cfh.dsp.srth.desktop.modularframework</artifactId>
+                <version>${srth.desktop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>uk.nhs.cfh.dsp.srth-desktop</groupId>
+                <artifactId>uk.nhs.cfh.dsp.srth.desktop.uiframework</artifactId>
+                <version>${srth.desktop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>uk.nhs.cfh.dsp.srth-desktop</groupId>
+                <artifactId>uk.nhs.cfh.dsp.srth.desktop.dependencies</artifactId>
+                <version>${srth.desktop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>uk.nhs.cfh.dsp.srth-desktop</groupId>
+                <artifactId>uk.nhs.cfh.dsp.srth.desktop.appservice</artifactId>
+                <version>${srth.desktop.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>uk.nhs.cfh.dsp.snomed</groupId>
                 <artifactId>uk.nhs.cfh.dsp.snomed.expressiongenerator</artifactId>
                 <version>${snobj.project.version}</version>
@@ -670,10 +691,21 @@
     <reporting>
         <plugins>
             <plugin>
-            <artifactId>maven-javadoc-plugin</artifactId>
-            <configuration>
-            <charset>utf-8</charset>
-            </configuration>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
+                <encoding>utf-8</encoding>
+                <detectLinks>true</detectLinks>
+                <detectJavaApiLink>true</detectJavaApiLink>
+                <failOnError>false</failOnError>
+                <docletArtifact>
+                    <groupId>org.umlgraph</groupId>
+                    <artifactId>doclet</artifactId>
+                    <version>5.1</version>
+                </docletArtifact>
+                <additionalparam>-views</additionalparam>
+                <useStandardDocletOptions>true</useStandardDocletOptions>
+                <includeDependencySources>true</includeDependencySources>
+                <includeTransitiveDependencySources>true</includeTransitiveDependencySources>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
