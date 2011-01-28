@@ -4,7 +4,7 @@
         <relativePath>../poms/compiled/</relativePath>
         <groupId>uk.nhs.cfh.dsp.yasb.build</groupId>
         <artifactId>compiled-bundle-settings</artifactId>
-        <version>0.8</version>
+        <version>0.9-SNAPSHOT</version>
     </parent>
 
     <properties>
@@ -16,7 +16,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>uk.nhs.cfh.dsp.yasb</groupId>
     <artifactId>uk.nhs.cfh.dsp.yasb.concept.hierarchy.panel</artifactId>
-    <version>0.8</version>
+    <version>0.9-SNAPSHOT</version>
 
     <name>Concept Hierarchy Panel - ${bundle.symbolicName}</name>
 
