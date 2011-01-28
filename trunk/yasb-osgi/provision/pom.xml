@@ -4,7 +4,7 @@
     <parent>
         <groupId>uk.nhs.cfh.dsp</groupId>
         <artifactId>yasb</artifactId>
-        <version>0.8-SNAPSHOT</version>
+        <version>0.8</version>
     </parent>
 
     <properties>
