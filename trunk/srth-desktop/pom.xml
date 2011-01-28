@@ -289,6 +289,7 @@
                 <version>2.7</version>
                 <configuration>
                     <doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
+                    <failOnError>false</failOnError>
                     <encoding>utf-8</encoding>
                     <detectLinks>true</detectLinks>
                     <detectJavaApiLink>true</detectJavaApiLink>
