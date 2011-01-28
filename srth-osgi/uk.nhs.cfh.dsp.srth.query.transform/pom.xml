@@ -4,7 +4,7 @@
         <relativePath>../poms/compiled/</relativePath>
         <groupId>uk.nhs.cfh.dsp.srth-osgi.build</groupId>
         <artifactId>compiled-bundle-settings</artifactId>
-        <version>1.8-SNAPSHOT</version>
+        <version>1.8</version>
     </parent>
 
     <properties>
@@ -15,7 +15,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
     <artifactId>uk.nhs.cfh.dsp.srth.query.transform</artifactId>
-    <version>1.8-SNAPSHOT</version>
+    <version>1.8</version>
 
     <name>Sappheiros Query Transform Bundle</name>
     <description>A bundle that contains the logic for transforming a given Sappheiros query into its

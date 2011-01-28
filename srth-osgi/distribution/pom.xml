@@ -4,7 +4,7 @@
         <relativePath>../provision/</relativePath>
         <groupId>uk.nhs.cfh.dsp.srth-osgi.build</groupId>
         <artifactId>provision</artifactId>
-        <version>1.8-SNAPSHOT</version>
+        <version>1.8</version>
     </parent>
 
     <properties>
@@ -54,7 +54,7 @@
     <artifactId>distribution</artifactId>
     <name>srth-osgi - Distribution</name>
     <packaging>jar</packaging>
-    <version>1.8-SNAPSHOT</version>
+    <version>1.8</version>
 
     <distributionManagement>
         <!-- use the following if you're not using a snapshot version. -->
@@ -758,12 +758,12 @@
                         <!--<configuration>-->
                             <!--<target>-->
                                 <!--<ant antfile="${staging.dir}/build.xml">-->
-                                  <!--<target name="create_Mac_OSX_bundle"/>-->
+                                  <!--<target name="create_Mac_OSX_bundle" />-->
                                 <!--</ant>                                -->
                             <!--</target>-->
                             <!--<tasks>-->
                                 <!--&lt;!&ndash;<zip destfile="${staging.dir}/bin.zip">&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<fileset dir="${staging.dir}/bin.dir/bin/"/>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<fileset dir="${staging.dir}/bin.dir/bin/" />&ndash;&gt;-->
                                 <!--&lt;!&ndash;</zip>&ndash;&gt;-->
                                 <!--&lt;!&ndash;<copy file="${snomed.data.location}/${sappheiros.configuration.guide.name}"&ndash;&gt;-->
                                       <!--&lt;!&ndash;todir="${staging.dir}" />&ndash;&gt;-->
@@ -778,7 +778,7 @@
                                 <!--&lt;!&ndash;<copy file="${staging.dir}/temp/${app.configurator.name}.jar"&ndash;&gt;-->
                                       <!--&lt;!&ndash;todir="${staging.dir}/bin/panels" />&ndash;&gt;-->
                                 <!--&lt;!&ndash;<copy todir="${staging.dir}" >&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<fileset dir="${basedir}/src/main/etc/temp"/>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<fileset dir="${basedir}/src/main/etc/temp" />&ndash;&gt;-->
                                 <!--&lt;!&ndash;</copy>&ndash;&gt;-->
                             <!--</tasks>-->
                         <!--</configuration>-->
