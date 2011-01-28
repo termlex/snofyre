@@ -84,8 +84,6 @@
         <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
         <log4j.configuration>file:log4j.properties</log4j.configuration>
         <apple.laf.useScreenMenuBar>true</apple.laf.useScreenMenuBar>
-        <!--<installation.directory>/Users/jay/Desktop/yasb</installation.directory>-->
-        <installation.directory>D:\Documents and Settings\JAKO1\Desktop\yasb</installation.directory>
         <com.apple.mrj.application.growbox.intrudes>true</com.apple.mrj.application.growbox.intrudes>
         <path.prefix>//..</path.prefix>
     </properties>
@@ -95,7 +93,6 @@
     <modules>
         <module>poms</module>
         <module>provision</module>
-        <!--<module>uk.nhs.cfh.dsp.yasb</module>-->
         <module>uk.nhs.cfh.dsp.yasb.indexgenerator</module>
         <module>uk.nhs.cfh.dsp.yasb.search</module>
         <module>uk.nhs.cfh.dsp.yasb.indexprovider</module>
@@ -130,7 +127,6 @@
                     <provision>
                         <param>--platform=equinox</param>
                         <param>--bootDelegation=*</param>
-                        <param>--workingDirectory=${installation.directory}</param>
                     </provision>
                 </configuration>
                 <executions>
@@ -145,10 +141,14 @@
                     -->
                 </executions>
             </plugin>
+            <!-- Add the maven release plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.0-beta-7</version>
+                <version>2.1</version>
+                <configuration>
+                    <tagBase>https://snofyre.googlecode.com/svn/tags/yasb-osgi</tagBase>
+                </configuration>
             </plugin>
             <plugin>
                 <inherited>false</inherited>
@@ -273,8 +273,11 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>2.7</version>
                 <configuration>
+                    <encoding>utf-8</encoding>
+                    <detectLinks>true</detectLinks>
+                    <failOnError>false</failOnError>
+                    <detectJavaApiLink>true</detectJavaApiLink>
                     <doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
-                    <!-- <docletPath>/path/to/UmlGraph.jar</docletPath> -->
                     <docletArtifact>
                         <groupId>org.umlgraph</groupId>
                         <artifactId>doclet</artifactId>
@@ -284,11 +287,6 @@
                     <useStandardDocletOptions>true</useStandardDocletOptions>
                 </configuration>
             </plugin>
-            <!--<plugin>-->
-              <!--<groupId>com.soebes.maven.plugins.dmg</groupId>-->
-              <!--<artifactId>doxygen-maven-plugin</artifactId>-->
-              <!--<version>1.0.1</version>-->
-            <!--</plugin>-->
         </plugins>
     </reporting>
 </project>
