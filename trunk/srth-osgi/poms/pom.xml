@@ -4,7 +4,7 @@
     <parent>
         <groupId>uk.nhs.cfh.dsp</groupId>
         <artifactId>srth-osgi</artifactId>
-        <version>1.8</version>
+        <version>1.9-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -100,7 +100,7 @@
                 <type>pom</type>
                 <groupId>uk.nhs.cfh.dsp.srth-osgi.build</groupId>
                 <artifactId>provision</artifactId>
-                <version>1.8</version>
+                <version>1.9-SNAPSHOT</version>
                 <scope>provided</scope>
                 <optional>true</optional>
             </dependency>

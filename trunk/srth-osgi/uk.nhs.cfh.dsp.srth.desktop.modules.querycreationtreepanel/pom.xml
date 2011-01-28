@@ -4,7 +4,7 @@
         <relativePath>../poms/compiled/</relativePath>
         <groupId>uk.nhs.cfh.dsp.srth-osgi.build</groupId>
         <artifactId>compiled-bundle-settings</artifactId>
-        <version>1.8</version>
+        <version>1.9-SNAPSHOT</version>
     </parent>
 
     <properties>
@@ -16,7 +16,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
     <artifactId>uk.nhs.cfh.dsp.srth.desktop.modules.querycreationtreepanel</artifactId>
-    <version>1.8</version>
+    <version>1.9-SNAPSHOT</version>
 
     <name>Sappheiros Query Creation Panel</name>
     <description>A view component in Sappheiros that allows the user to author a query.</description>
