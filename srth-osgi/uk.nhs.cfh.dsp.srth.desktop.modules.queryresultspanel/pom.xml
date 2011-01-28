@@ -4,7 +4,7 @@
         <relativePath>../poms/compiled/</relativePath>
         <groupId>uk.nhs.cfh.dsp.srth-osgi.build</groupId>
         <artifactId>compiled-bundle-settings</artifactId>
-        <version>1.8</version>
+        <version>1.9-SNAPSHOT</version>
     </parent>
 
     <properties>
@@ -16,7 +16,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>uk.nhs.cfh.dsp.srth-osgi</groupId>
     <artifactId>uk.nhs.cfh.dsp.srth.desktop.modules.queryresultspanel</artifactId>
-    <version>1.8</version>
+    <version>1.9-SNAPSHOT</version>
 
     <name>Sappheiros Query Results View Component</name>
     <description>A view component that renders the results of executing a query in Sappheiros</description>

@@ -4,7 +4,7 @@
         <relativePath>../provision/</relativePath>
         <groupId>uk.nhs.cfh.dsp.srth-osgi.build</groupId>
         <artifactId>provision</artifactId>
-        <version>1.8</version>
+        <version>1.9-SNAPSHOT</version>
     </parent>
 
     <properties>
@@ -54,7 +54,7 @@
     <artifactId>distribution</artifactId>
     <name>srth-osgi - Distribution</name>
     <packaging>jar</packaging>
-    <version>1.8</version>
+    <version>1.9-SNAPSHOT</version>
 
     <distributionManagement>
         <!-- use the following if you're not using a snapshot version. -->
