@@ -690,23 +690,27 @@
     </build>
     <reporting>
         <plugins>
-            <plugin>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
-                <encoding>utf-8</encoding>
-                <detectLinks>true</detectLinks>
-                <detectJavaApiLink>true</detectJavaApiLink>
-                <failOnError>false</failOnError>
-                <docletArtifact>
-                    <groupId>org.umlgraph</groupId>
-                    <artifactId>doclet</artifactId>
-                    <version>5.1</version>
-                </docletArtifact>
-                <additionalparam>-views</additionalparam>
-                <useStandardDocletOptions>true</useStandardDocletOptions>
-                <includeDependencySources>true</includeDependencySources>
-                <includeTransitiveDependencySources>true</includeTransitiveDependencySources>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-javadoc-plugin</artifactId>-->
+                <!--<version>2.7</version>-->
+                <!--<configuration>-->
+                    <!--<doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>-->
+                    <!--<encoding>utf-8</encoding>-->
+                    <!--<detectLinks>true</detectLinks>-->
+                    <!--<detectJavaApiLink>true</detectJavaApiLink>-->
+                    <!--<failOnError>false</failOnError>-->
+                    <!--<docletArtifact>-->
+                        <!--<groupId>org.umlgraph</groupId>-->
+                        <!--<artifactId>doclet</artifactId>-->
+                        <!--<version>5.1</version>-->
+                    <!--</docletArtifact>-->
+                    <!--<additionalparam>-views</additionalparam>-->
+                    <!--<useStandardDocletOptions>true</useStandardDocletOptions>-->
+                    <!--<includeDependencySources>true</includeDependencySources>-->
+                    <!--<includeTransitiveDependencySources>true</includeTransitiveDependencySources>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
