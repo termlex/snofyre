@@ -288,6 +288,7 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>2.7</version>
                 <configuration>
+                    <failOnError>false</failOnError>
                     <doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
                     <encoding>utf-8</encoding>
                     <detectLinks>true</detectLinks>
