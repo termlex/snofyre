@@ -102,19 +102,19 @@
         <dependency>
             <groupId>uk.nhs.cfh.dsp.srth-desktop</groupId>
             <artifactId>uk.nhs.cfh.dsp.srth.desktop.modularframework</artifactId>
-            <version>${project.version}</version>
+            <!--<version>${project.version}</version>-->
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>uk.nhs.cfh.dsp.srth-desktop</groupId>
             <artifactId>uk.nhs.cfh.dsp.srth.desktop.appservice</artifactId>
-            <version>${project.version}</version>
+            <!--<version>${project.version}</version>-->
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>uk.nhs.cfh.dsp.srth-desktop</groupId>
             <artifactId>uk.nhs.cfh.dsp.srth.desktop.dependencies</artifactId>
-            <version>${project.version}</version>
+            <!--<version>${project.version}</version>-->
             <scope>provided</scope>
         </dependency>
         <dependency>
