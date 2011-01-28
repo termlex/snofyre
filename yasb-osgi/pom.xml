@@ -208,7 +208,27 @@
                 </executions>
             </plugin>
         </plugins>
+        <!-- Extension to add wagon-webdav plugin -->
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-webdav</artifactId>
+                <version>1.0-beta-2</version>
+            </extension>
+        </extensions>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>googlecode.snofyre.releaserepo</id>
+            <url>dav:https://snofyre.googlecode.com/svn/maven-repo/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>googlecode.snofyre.snapshotrepo</id>
+            <url>dav:https://snofyre.googlecode.com/svn/maven-repo/snapshots</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
 
     <pluginRepositories>
         <pluginRepository>
