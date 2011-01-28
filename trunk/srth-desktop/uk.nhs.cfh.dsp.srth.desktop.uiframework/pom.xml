@@ -4,7 +4,7 @@
         <relativePath>../poms/compiled/</relativePath>
         <groupId>uk.nhs.cfh.dsp.srth-desktop.build</groupId>
         <artifactId>compiled-bundle-settings</artifactId>
-        <version>1.8</version>
+        <version>1.9-SNAPSHOT</version>
     </parent>
 
     <properties>
@@ -20,7 +20,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>uk.nhs.cfh.dsp.srth-desktop</groupId>
     <artifactId>uk.nhs.cfh.dsp.srth.desktop.uiframework</artifactId>
-    <version>1.8</version>
+    <version>1.9-SNAPSHOT</version>
 
     <name>${application.name} Desktop UI framework</name>
     <description>The base UI framework used by ${application.name} to create a desktop application.</description>
