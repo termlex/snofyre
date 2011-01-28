@@ -1,5 +1,0 @@
-<langpack>
-    <str id="myApplication" txt="${application.name}"/>
-    <str id="myApplication.description" txt="${project.description}"/>
-    <str id="XHTMLInfoPanel.headline" txt="Important Information"/>
-</langpack>
