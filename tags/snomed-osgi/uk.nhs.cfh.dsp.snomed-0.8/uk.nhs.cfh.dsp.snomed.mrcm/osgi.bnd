@@ -1,0 +1,7 @@
+#-----------------------------------------------------------------
+# Use this file to add customized Bnd instructions for the bundle
+#-----------------------------------------------------------------
+
+Import-Package: com.mysql.jdbc;version="5.1", org.hsqldb;version="1.8" ,*
+Require-Bundle: com.springsource.org.hibernate, com.springsource.javassist, \
+    com.springsource.org.hsqldb, com.springsource.org.hibernate.annotations.common
