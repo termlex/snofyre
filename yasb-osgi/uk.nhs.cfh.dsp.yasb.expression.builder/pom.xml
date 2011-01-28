@@ -4,7 +4,7 @@
         <relativePath>../poms/compiled/</relativePath>
         <groupId>uk.nhs.cfh.dsp.yasb.build</groupId>
         <artifactId>compiled-bundle-settings</artifactId>
-        <version>0.8-SNAPSHOT</version>
+        <version>0.8</version>
     </parent>
 
     <properties>
@@ -15,7 +15,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>uk.nhs.cfh.dsp.yasb</groupId>
     <artifactId>uk.nhs.cfh.dsp.yasb.expression.builder</artifactId>
-    <version>0.8-SNAPSHOT</version>
+    <version>0.8</version>
 
     <name>Expression Builder - ${bundle.symbolicName}</name>
     <description>A module that allows post-coordinated SNOMED CT expression to be built.</description>

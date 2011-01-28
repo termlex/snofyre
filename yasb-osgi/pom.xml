@@ -19,7 +19,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>uk.nhs.cfh.dsp</groupId>
     <artifactId>yasb</artifactId>
-    <version>0.8-SNAPSHOT</version>
+    <version>0.8</version>
 
     <name>Yet Another SNOMED CT Browser - uk.nhs.cfh.dsp.yasb</name>
 
@@ -56,9 +56,9 @@
     <!--</issueManagement>-->
 
     <scm>
-        <connection>scm:svn:https://snofyre.googlecode.com/svn/trunk/yasb-osgi</connection>
-        <developerConnection>scm:svn:https://snofyre.googlecode.com/svn/trunk/yasb-osgi</developerConnection>
-        <url>https://snofyre.googlecode.com/svn/trunk/yasb-osgi</url>
+        <connection>scm:svn:https://snofyre.googlecode.com/svn/tags/yasb-osgi/yasb-0.8</connection>
+        <developerConnection>scm:svn:https://snofyre.googlecode.com/svn/tags/yasb-osgi/yasb-0.8</developerConnection>
+        <url>https://snofyre.googlecode.com/svn/tags/yasb-osgi/yasb-0.8</url>
     </scm>
 
     <!--<ciManagement>-->
