@@ -227,7 +227,17 @@
         </plugin>
         </plugins>
     </build>
-
+<distributionManagement>
+        <repository>
+            <id>googlecode.snofyre.releaserepo</id>
+            <url>dav:https://snofyre.googlecode.com/svn/maven-repo/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>googlecode.snofyre.snapshotrepo</id>
+            <url>dav:https://snofyre.googlecode.com/svn/maven-repo/snapshots</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
     <repositories>
         <repository>
             <id>com.springsource.repository.bundles.release</id>
