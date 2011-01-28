@@ -1,0 +1,11 @@
+#-----------------------------------------------------------------
+# Use this file to add customized Bnd instructions for the bundle
+#-----------------------------------------------------------------
+
+Embed-Dependency: *;scope=compile|system;inline=true
+Embed-Transitive: true
+#Import-Package: !javax.jnlp, !org.apache.batik.ext.awt.*, !org.apache.commons.configuration.*;version="1.6.0",\
+ #org.noos.xing.mydoggy.plaf.ui.look.*;version="1.5.0", org.apache.commons.configuration.*;version="1.5.0", *
+#Import-Package: !javax.jnlp, !org.apache.batik.ext.awt.*, !apple.laf.*, !sun.*, !com.sun.java.swing.plaf.windows.*, \
+ # org.noos.xing.mydoggy.plaf.ui.look.*;version="1.5.0",*
+DynamicImport-Package: *
