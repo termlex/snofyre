@@ -1,0 +1,12 @@
+#-----------------------------------------------------------------
+# Use this file to add customized Bnd instructions for the bundle
+#-----------------------------------------------------------------
+
+Embed-Dependency: *;scope=compile|system
+# Embed-Transitive: true
+#Import-Package: !javax.jnlp, !org.apache.batik.ext.awt.*, !apple.laf.*, !com.sun.java.swing.plaf.windows.*, \
+# !sun.*,!javax.microedition.*, *;resolution:=optional
+Import-Package: !javax.jnlp, !org.apache.batik.ext.awt.*, !sun.*,!javax.microedition.*, *;resolution:=optional
+Export-Package: !org.springframework.*, !sun.*, *
+Bundle-ClassPath: ., {maven-dependencies}
+DynamicImport-Package: *
