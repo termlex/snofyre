@@ -28,7 +28,7 @@
   <tbody>
     <tr>
       <td>[http://docs.snofyre.googlecode.com/hg/install-guide/html/frameset.html http://snofyre.googlecode.com/files/contents2.png]</td>
-      <td>Follow instructions in the [hhttps://snofyre.googlecode.com/svn/docs/installationmanual/index.html Snofyre's Installation Manual]. You can also download the Installation Manual as [http://snofyre.googlecode.com/files/snofyre-installation-manual.pdf PDF].</td>
+      <td>Follow instructions in the [https://snofyre.googlecode.com/svn/docs/installationmanual/index.html Snofyre's Installation Manual]. You can also download the Installation Manual as [http://snofyre.googlecode.com/files/snofyre-installation-manual.pdf PDF].</td>
     </tr>
   </tbody>
 </table>
