@@ -18,7 +18,7 @@
   <tbody>
     <tr>
       <td>[http://code.google.com/p/snofyre/downloads/list http://snofyre.googlecode.com/files/ark.png] </td>
-      <td>~~Download the Snofyre Installer from the [http://code.google.com/p/snofyre/downloads/list downloads page].~~ For the moment, please follow these [downloadSnofyreFromTRUD instructions].</td>
+      <td>Download the Snofyre Installer from the [http://code.google.com/p/snofyre/downloads/list downloads page]. <ul><li>Windows installer direct download [http://snofyre.googlecode.com/files/Snofyre-1.8-Installer.exe link]</li><li>Cross platform installer direct download [http://snofyre.googlecode.com/files/Snofyre-1.8-Installer.jar link].</li></ul>.</td>
     </tr>
   </tbody>
 </table>
@@ -27,11 +27,10 @@
 <table border=0>
   <tbody>
     <tr>
-      <td>[http://docs.snofyre.googlecode.com/hg/install-guide/html/frameset.html http://snofyre.googlecode.com/files/contents2.png]</td>
-      <td>Follow instructions in the [https://snofyre.googlecode.com/svn/docs/installationmanual/index.html Snofyre's Installation Manual]. You can also download the Installation Manual as [http://snofyre.googlecode.com/files/snofyre-installation-manual.pdf PDF].</td>
+      <td>[http://snofyre.googlecode.com/svn/docs/installationmanual/index.html http://snofyre.googlecode.com/files/contents2.png]</td>
+      <td>Follow instructions in the [http://snofyre.googlecode.com/svn/docs/installationmanual/index.html Snofyre's Installation Manual]. You can also download the Installation Manual as [http://snofyre.googlecode.com/files/snofyre-installation-manual.pdf PDF]. <ul><li>If you have problems with the installer's D FTP download feature, select installation type 'Update'.</li> <li>Manually download the NHS_SNOFYREDATA pack from the [http://www.uktcregistration.nss.cfh.nhs.uk/trud3/user/guest/home new TRUD site] using your browser.</li><li>Extract pack contents to the installation folder, using 7zip, WinRar, WinZip or something similar.</li></ul></td>
     </tr>
-  </tbody>
-</table>
+  </tbody
 
 == Support == 
 <table border=0>
