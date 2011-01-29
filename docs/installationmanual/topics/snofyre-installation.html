@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Snofyre Installation Overview"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-installation-first-steps.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-installation-first-steps.html"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="topic-1"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>Snofyre Installation Overview</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="topic-1"><a name="topic-1"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../topics/snofyre-installation-first-steps.html">Snofyre Installer First Steps</a> &gt; </div>
+<h1 class="book_title">Snofyre Installation Manual - Draft</h1>
+
+    <h1 class="title topictitle1">Snofyre Installation Overview</h1>
+
+    <div class="body">
+        <p class="p">This chapter provides an oveview of installing Snofyre on a client machine that meets
+            the <a class="xref" href="systemRequirements.html#topic-1">System
+            Requirements</a>.</p>
+
+        <div class="note attention"><span class="attentiontitle">Attention:</span> The details of the installation of the Snofyre and its
+            configuration described here apply to version 1.8. It is likely that these details might
+            change in the future. </div>
+
+        <div class="note attention"><span class="attentiontitle">Attention:</span> This chapter also assumes that the user has already Java Run Time
+            Evironment installed on their machine. For any issues with installing these software,
+            please refer to the platform specific instructions on <a class="xref" href="http://www.java.com" target="_blank">http://www.java.com</a>.</div>
+
+        <p class="p">It is possible to install and run Snofyre in a <em class="ph i">Client</em> mode or a <em class="ph i">Server</em>
+            mode.</p>
+
+        <div class="section" id="topic-1__client_mode"><a name="topic-1__client_mode"><!-- --></a><strong class="ph b">Client Mode</strong><p class="p">In this mode only files necessary for running
+                the Snofyre as a client are installed. This mode only requires the Sun Java Run
+                Time to be installed on the user machine. It does not require installation of a
+                MySQL server on the user machine. In this mode, the SNOMED content and test data
+                required for running Snofyre are located on a remote server machine. This data is
+                accessed by Snofyre during initialisation and when queries are executed. This
+                installation mode will not be described in the configuration manual since Snofyre
+                version 1.8 does not support this installation mode.</p>
+</div>
+
+        <div class="section" id="topic-1__server_mode"><a name="topic-1__server_mode"><!-- --></a><strong class="ph b">Server Mode</strong><p class="p">In this mode all files necessary for
+                generating data and executing queries from Snofyre are installed on the local
+                machine. This mode requires installation of a local MySQL server. The MySQL server
+                will then need to be configured before it can be populated with SNOMED content and
+                data generation. The remaining sections of this manual describe the process for
+                installing and configuring MySQL on the local machine for Snofyre to use.</p>
+<div class="p">The following are the steps for obtaining and installing Snofyre on a client
+                    machine.<ol class="ol">
+                    <li class="li">Download a copy of the Snofyre installer from the download location. The
+                        download location for version 1.8 is accessible only within the NHS
+                        Connection for Health network. The installer is located at the network
+                        location S:\SRTHImpl\Snofyre\Installers</li>
+
+                    <li class="li">The following is the directory structure of the download location.
+                        <pre>
+ Snofyre
+    |__ Snofyre-mysql-configuration.pdf
+    |__ ReadMe.txt
+    |__ Installers
+            |__ Snofyre-Fat-Installer.exe
+            |__ Snofyre-Fat-Installer.jar
+
+                    </pre>
+                        In the future, Snofyre might be made available for dowload outside the
+                        CFH network. </li>
+
+                    <li class="li">Download the file <em class="ph i">SRTHApp.zip</em> from the above location to a location
+                        of your choice.</li>
+
+                    <li class="li">Once the file has been successfully downloaded, please run the installer and
+                        follow the steps to install Snofyre to a folder on your local machine.
+                        From now on, we will refer to this folder where you have installed <em class="ph i">Snofyre</em> as the <em class="ph i"><strong class="ph b">Installation Folder</strong></em>. On Windows, we
+                        recommend that the the folder is extracted to <em class="ph i">C:\Program Files</em>. This
+                        will result in a new folder called <em class="ph i">C:\Program Files\Snofyre</em> being
+                        generated after installation.</li>
+
+                    </ol>
+
+                </div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/snofyre-installation-first-steps.html">Snofyre Installer First Steps</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>
