@@ -4,4 +4,6 @@
 
 When Snofyre  was open sourced and made available to the world, we did not know what others would use it for. On this page, you'll find a collection of user 'stories'; what they did or intend to do with Snofyre...
 
+Please get in touch on the [http://groups.google.com/group/snofyre-users Snofyre User Group], if you would like to share your experience or plans for Snofyre application or Snofyre API.
+
 == Details ==
