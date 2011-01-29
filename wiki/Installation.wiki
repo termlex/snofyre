@@ -18,7 +18,7 @@
   <tbody>
     <tr>
       <td>[http://code.google.com/p/snofyre/downloads/list http://snofyre.googlecode.com/files/ark.png] </td>
-      <td>Download the Snofyre Installer from the [http://code.google.com/p/snofyre/downloads/list downloads page]. <ul><li>Windows installer direct download [http://snofyre.googlecode.com/files/Snofyre-1.8-Installer.exe link]</li><li>Cross platform installer direct download [http://snofyre.googlecode.com/files/Snofyre-1.8-Installer.jar link].</li></ul>.</td>
+      <td>Download the Snofyre Installer from the [http://code.google.com/p/snofyre/downloads/list downloads page]. <ul><li>Windows installer direct download [http://snofyre.googlecode.com/files/Snofyre-1.8-Installer.exe link]</li><li>Cross platform installer direct download [http://snofyre.googlecode.com/files/Snofyre-1.8-Installer.jar link].</li><li>We recommend using MySQL Server version 5.1</li></ul>.</td>
     </tr>
   </tbody>
 </table>
