@@ -18,7 +18,7 @@
   <tbody>
     <tr>
       <td>[http://code.google.com/p/snofyre/downloads/list http://snofyre.googlecode.com/files/ark.png] </td>
-      <td>~~Download the Snofyre Installer from the [http://code.google.com/p/snofyre/downloads/list downloads page].~~ For the moment, please follow these [downloadSnofyreFromTRUD instructions].</td>
+      <td>Download the Snofyre Installer from the [http://code.google.com/p/snofyre/downloads/list downloads page]. For the moment, please follow these [downloadSnofyreFromTRUD instructions].</td>
     </tr>
   </tbody>
 </table>
