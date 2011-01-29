@@ -1,0 +1,7 @@
+#summary Snofyre User Stories
+
+= Snofyre User Experiences =
+
+When Snofyre  was open sourced and made available to the world, we did not know what others would use it for. On this page, you'll find a collection of user 'stories'; what they did or intend to do with Snofyre...
+
+== Details ==
