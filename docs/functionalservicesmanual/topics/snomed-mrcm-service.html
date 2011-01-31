@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="SNOMED CT MRCM Service"/>
+<meta name="abstract" content="This module provides services for retrieving sanctioned attributes for a given SnomedConcept based on the Machine Readable Concept Model."/>
+<meta name="description" content="This module provides services for retrieving sanctioned attributes for a given SnomedConcept based on the Machine Readable Concept Model."/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snomed-services-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snomed-services-overview.html"/>
+<meta name="DC.Creator" content="http://code.google.com/p/snofyre/"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Publisher" content="NHS Connecting for Health"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="snomed-mrcm-service"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>SNOMED CT MRCM Service</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="snomed-mrcm-service"><a name="snomed-mrcm-service"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../topics/snomed-services-overview.html">SNOMED CT Modules and Services</a> &gt; </div>
+<h1 class="book_title">Snofyre Functional Services Manual - Draft</h1>
+
+    <h1 class="title topictitle1">SNOMED CT MRCM Service</h1>
+
+    
+    <div class="body"><p class="shortdesc">This module provides services for retrieving sanctioned attributes for a given <span class="keyword apiname">SnomedConcept</span>
+        based on the Machine Readable Concept Model.</p>
+
+        <div class="section"><h2 class="title sectiontitle">What is it?</h2>
+            
+            <p class="p" id="snomed-mrcm-service__definition"><a name="snomed-mrcm-service__definition"><!-- --></a>This module provides services for retrieving sanctioned attributes for a given <span class="keyword apiname">SnomedConcept</span>
+                based on the Machine Readable Concept Model.</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Why do you need it?</h2>
+            
+            <p class="p"> 
+                SNOMED CT provides the ability to create post-coordinated expressions at run time, by combining two or more 
+                existing <span class="keyword apiname">SnomedConcept</span>s. Since in the absense of any constraints on how post-coordinated 
+                expressions are created, it is possible to create non-sensical expressions. For example, in the absence of rules, 
+                it will be possible to create a post-coordinated expression that represents <tt class="ph tt">Pain</tt> with <tt class="ph tt">finding site</tt> 
+                <tt class="ph tt">Aspirin tablet</tt>. The Machine Readable Concept Model (MRCM) provides the rules that describe permissible 
+                (sanctioned) relationships between <span class="keyword apiname">SnomedConcept</span>s. For example, the MRCM does not sanction 
+                a relationship of type <tt class="ph tt">finding site</tt> between <tt class="ph tt">Pain</tt> and <tt class="ph tt">Aspirin tablet</tt>. 
+            </p>
+
+            <p class="p">
+                The MRCM service provides the calls that permit lookup of <tt class="ph tt">sanctioned attributes</tt> for a given 
+                <span class="keyword apiname">SnomedConcept</span> or <tt class="ph tt">concept type</tt>.
+            </p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">How do you use it?</h2>
+            
+            <p class="p"> 
+                The following figure illustrates the main classes implemented in this module. These
+                classes implement common features needed to return sanctioned <tt class="ph tt">attributes</tt> for a given 
+                <span class="keyword apiname">SnomedConcept</span> and <tt class="ph tt">values</tt> for a given <tt class="ph tt">attribute</tt>.
+            </p>
+
+            <p class="p">
+                <img class="image" src="../images/modules/snomed-mrmc-service-uml.png" height="285" width="288"/>
+            </p>
+
+            <p class="p">The most important class in this model is <span class="keyword apiname">ExpressionComparator</span>. 
+                These classes provides the usual methods for comparing <span class="keyword apiname">Expression</span>s or <span class="keyword apiname">SnomedConcept</span>s. 
+                The following is a list of some of the commonly used methods in the above classes. </p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Important Classes and Methods</h2>
+            
+            <div class="p">
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all"><caption><span class="tablecap">Table 1. Methods in <span class="keyword apiname">MRCMService</span></span></caption>
+                        
+                        
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" width="30%" id="d10941e155">Method Name</th>
+
+                                <th class="entry" valign="top" width="70%" id="d10941e158">Description</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d10941e155 ">getSanctionedAttributes</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d10941e158 ">return sanctioned <tt class="ph tt">attributes</tt> for a given <span class="keyword apiname">ConceptType</span> or concept id.</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d10941e155 ">getSanctionedValues</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d10941e158 ">return sanctioned <tt class="ph tt">values</tt> for a given <span class="keyword apiname">ConceptType</span> or concept id.</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+                The class also provides methods for performing the saving, deleting and finding <span class="keyword apiname">MRCMConstraint</span>s. 
+            </div>
+
+            <div class="p">
+                <span class="keyword apiname">MRCMDao</span>
+                <dl class="dl">
+                    
+                        <dt class="dt dlterm"/>
+
+                        <dd class="dd">implements DAO methods for creating and maintaining <span class="keyword apiname">MRCMConstraint</span>s.</dd>
+
+                    
+                </dl>
+ 
+            </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Gotchas</h2>
+            
+            <div class="note important"><span class="importanttitle">Important:</span> 
+                <span class="keyword apiname">MRCMService</span> does not support cardinality related constraints and also does not manage any refinements 
+                that are inherited down the concept model. For example, it is currently not possible to use <span class="keyword apiname">MRCMService</span> 
+                to constrain a <tt class="ph tt">Situation with Explicit Context</tt>, to have either an <tt class="ph tt">associated finding</tt> or 
+                <tt class="ph tt">associated procedure</tt>, but not both. This feature might be implemented in a future release.
+            </div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/snomed-services-overview.html">SNOMED CT Modules and Services</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="SNOMED CT Expression Model Module"/>
+<meta name="abstract" content="This module is a representation of relevant SNOMED CT post-coordinatd expressisons as Java classes."/>
+<meta name="description" content="This module is a representation of relevant SNOMED CT post-coordinatd expressisons as Java classes."/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snomed-services-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snomed-services-overview.html"/>
+<meta name="DC.Creator" content="http://code.google.com/p/snofyre/"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Publisher" content="NHS Connecting for Health"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="snomed-expression-model"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>SNOMED CT Expression Model Module</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="snomed-expression-model"><a name="snomed-expression-model"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../topics/snomed-services-overview.html">SNOMED CT Modules and Services</a> &gt; </div>
+<h1 class="book_title">Snofyre Functional Services Manual - Draft</h1>
+
+    <h1 class="title topictitle1">SNOMED CT Expression Model Module</h1>
+
+    
+    <div class="body"><p class="shortdesc">This module is a representation of relevant SNOMED CT post-coordinatd expressisons as
+        Java classes.</p>
+
+        <div class="section" id="snomed-expression-model__definition"><a name="snomed-expression-model__definition"><!-- --></a><h2 class="title sectiontitle">What is it?</h2>
+            
+            <p class="p">This module is a representation of relevant SNOMED CT post-coordinated expressions as
+                Java classes.</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Why do you need it?</h2>
+            
+            <p class="p"> The object model representation allows the programmer to represent and manipulate
+                SNOMED CT post-coordinated epxressions as pure old Java objects. This allows the
+                developer to transform post-coordinated expressions into different forms.
+                Post-coordinated expressions are typically nested objects with 'expressions'
+                contained inside other 'expressions'. This module provides the functionality for
+                handling these nested structures. </p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">How do you use it?</h2>
+            
+            <p class="p"> The following figure illustrates the main classes implemented in this module. These
+                represent the most commonly needed features for using post-coordinated expressions. </p>
+
+            <p class="p">
+                <img class="image" src="../images/modules/snomed-expression-model-uml.png" height="108" width="539"/>
+            </p>
+
+            <p class="p">The most important classes in this model are the <span class="keyword apiname">Expression</span>,
+                    <span class="keyword apiname">CloseToUserExpression</span>, <span class="keyword apiname">NormalFormExpression</span> and <span class="keyword apiname">SituationExpression</span>.
+                These classes represent the corresponding notions as described in the IHTSDO's
+                Technical Implementation Guidance document. The following is a list of some of the
+                commonly used methods in the above classes. </p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Important Classes and Methods</h2>
+            
+            <div class="p">
+                <span class="keyword apiname">Expression</span>
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all"><caption><span class="tablecap">Table 1. Methods in <span class="keyword apiname">Expression</span></span></caption>
+                        
+                        
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" width="30%" id="d8615e106">Method Name</th>
+
+                                <th class="entry" valign="top" width="70%" id="d8615e109">Description</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d8615e106 ">getChildExpressions</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d8615e109 ">returns the child <span class="keyword apiname">Expression</span>s contained in this
+                                    expression.</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d8615e106 ">getParentExpressions</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d8615e109 ">returns the parent <span class="keyword apiname">Expression</span>s of this
+                                    expression.</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+                The class also provides methods for assigning identifiers and equivalent
+                expressions. Please refer to the Javadocs provided for a complete list of methods. </div>
+
+            <div class="p">
+                <span class="keyword apiname">NormalFormExpression</span>
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all"><caption><span class="tablecap">Table 2. Methods in <span class="keyword apiname">NormalFormExpression</span></span></caption>
+                        
+                        
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" width="30%" id="d8615e166">Method Name</th>
+
+                                <th class="entry" valign="top" width="70%" id="d8615e169">Description</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d8615e166 ">getCompositionalGrammarForm</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d8615e169 ">gets the compositional grammar form of this expression.</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d8615e166 ">getFocusConcepts</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d8615e169 ">gets the focus <span class="keyword apiname">SnomedConcept</span>s that this expression is
+                                    associated with</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d8615e166 ">getProximalPrimitives</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d8615e169 ">gets the proximal primitive <span class="keyword apiname">SnomedConcept</span>s for this
+                                    expression.</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+                This class implements other utility methods for returning canonical form,
+                singleton focus concepts, etc. Please refer to the Javadocs provided for a complete
+                list of methods. </div>
+
+            <div class="p">
+                <span class="keyword apiname">CloseToUserExpression</span>
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all"><caption><span class="tablecap">Table 3. Methods in <span class="keyword apiname">CloseToUserExpression</span></span></caption>
+                        
+                        
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" width="30%" id="d8615e235">Method Name</th>
+
+                                <th class="entry" valign="top" width="70%" id="d8615e238">Description</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d8615e235 ">getCompositionalGrammarForm</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d8615e238 ">gets the compositional grammar form of this expression.</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d8615e235 ">getFocusConcepts</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d8615e238 ">gets the focus <span class="keyword apiname">SnomedConcept</span>s that this expression is
+                                    associated with</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d8615e235 ">getRefinementExpressions</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d8615e238 ">gets the refinement <span class="keyword apiname">Expression</span>s that have been
+                                    applied on this expression.</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+                This class implements other utility methods for returning canonical form,
+                singleton focus concepts, etc. Please refer to the Javadocs provided for a complete
+                list of methods. </div>
+
+            <div class="p">
+                <span class="keyword apiname">SituationExpression</span>
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all"><caption><span class="tablecap">Table 4. Methods in <span class="keyword apiname">SituationExpression</span></span></caption>
+                        
+                        
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" width="30%" id="d8615e304">Method Name</th>
+
+                                <th class="entry" valign="top" width="70%" id="d8615e307">Description</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d8615e304 ">getAssociatedContext</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d8615e307 ">gets the context associated with this situation.</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d8615e304 ">getTemporalContext</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d8615e307 ">gets the temporal context associated with this situation.</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d8615e304 ">getSubjectRelationship</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d8615e307 ">gets the subject relationship associated with this situation.</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d8615e304 ">getFocusExpression or getFocusConcept</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d8615e307 ">gets the focus expression or concept that holds the associated finding
+                                    or procedure.</td>
+
+                            </tr>
+                           
+                        </tbody>
+
+                    </table>
+</div>
+
+                This class implements other utility methods for returning canonical form,
+                singleton focus concepts, etc. Please refer to the Javadocs provided for a complete
+                list of methods. </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Gotchas</h2>
+            
+            <div class="note important"><span class="importanttitle">Important:</span> All instances of <span class="keyword apiname">Expression</span> use the canonical
+                form to determine equality. This could be moved to a 'visitor' pattern in future
+                releases.</div>
+
+            <div class="note important"><span class="importanttitle">Important:</span> Note that using the <span class="keyword apiname">getSingletonFocusConcept</span>
+                method on <span class="keyword apiname">CloseToUserExpression</span> or <span class="keyword apiname">NormalFormExpression</span> will force the expression to lose the rest of
+                the focus concepts, if present. This is currently logged as a warning in the
+                logs.</div>
+
+            <div class="note note"><span class="notetitle">Note:</span> Subclasses of <span class="keyword apiname">SituationExpression</span> validate objects
+                passed to <span class="keyword apiname">getFocusExpression</span> or <span class="keyword apiname">getFocusConcept</span>. Please refer to the javadocs for more
+                information.</div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/snomed-services-overview.html">SNOMED CT Modules and Services</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>

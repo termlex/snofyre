@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Snofyre Query Modules and Services"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-core-services-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-core-services-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-query-model.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-query-transformer-service.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-query-dao-service.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-data-generator-service.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-information-model-service.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-demographics-service.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Creator" content="http://code.google.com/p/snofyre/"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Publisher" content="NHS Connecting for Health"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="topic-Snofyre-query-services-overview"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>Snofyre Query Modules and Services</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="topic-Snofyre-query-services-overview"><a name="topic-Snofyre-query-services-overview"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../topics/snofyre-core-services-overview.html">Services Overview</a> &gt; <a class="link" href="../index.html" title="TOC">TOC</a> &gt; </div>
+<h1 class="book_title">Snofyre Functional Services Manual - Draft</h1>
+
+    <h1 class="title topictitle1">Snofyre Query Modules and Services</h1>
+
+    <div class="body">
+        <p class="p">This section provides an overview of the query related functionality in Snofyre. While
+            the following sections describe the individual modules (or services) in greater detail,
+            this section describes how these modules are related to each other. The modular, service
+            oriented architecture of Snofyre allows for modules to be linked, which can be
+            visualised as a stack of modules built on top of each other, as shown <a class="xref" href="#topic-Snofyre-query-services-overview__fig-Snofyre-query-services-overview">below</a>
+        </p>
+
+        <div class="fig fignone" id="topic-Snofyre-query-services-overview__fig-Snofyre-query-services-overview"><a name="topic-Snofyre-query-services-overview__fig-Snofyre-query-services-overview"><!-- --></a><span class="figcap">Figure 1. Overview of Query related services in
+                Snofyre</span>
+            <img class="image" src="../images/modules/Snofyre-query-services-overview.png" height="263" width="204"/>
+        </div>
+
+        <div class="p">At the bottom of the stack is the representation of an abstract query formalism related
+            classes, provided by the <span class="keyword apiname">Snofyre Query Model</span> module. This module is
+            an integral part of all other modules, which add more functionality on top of this
+            module. For example, the <span class="keyword apiname">Snofyre Query Transformer Service</span> generatse
+            appropriate <tt class="ph tt">SQL</tt> statements based on the logical operators specified in the
+                <span class="keyword apiname">Snofyre Query Model</span> module. In general, the modules at the top of
+            the stack reuse the modules lower down, adding more functionality. <div class="note tip"><span class="tiptitle">Tip:</span>  An
+                overview of the components is presented below. A detailed description of the
+                individual components and how to use them is presented in the Snofyre Functional
+                Services Manual. </div>
+</div>
+
+        <div class="p">
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all"><caption><span class="tablecap">Table 1. Query Service Components</span></caption>
+                    
+                    
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" width="30%" id="d1595e77">Component</th>
+
+                            <th class="entry" valign="top" width="70%" id="d1595e80">Summary Description</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" width="30%" headers="d1595e77 ">Snofyre Query Model</td>
+
+                            <td class="entry" valign="top" width="70%" headers="d1595e80 ">
+                                <p class="p">This module is a representation of the Snofyre's underlying query formalism as Java
+                classes.</p>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="30%" headers="d1595e77 ">Snofyre Query Transformer Service</td>
+
+                            <td class="entry" valign="top" width="70%" headers="d1595e80 ">
+                                <p class="p">This module provides the methods that transform the a given <span class="keyword apiname">QueryExpression</span> into its corresponding 
+                <tt class="ph tt">SQL</tt> statements.</p>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="30%" headers="d1595e77 ">Snofyre Query DAO Service</td>
+
+                            <td class="entry" valign="top" width="70%" headers="d1595e80 ">
+                                <p class="p">This module provides the methods for storing and retrieving <span class="keyword apiname">QueryExpression</span>s stored in 
+                database.</p>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="30%" headers="d1595e77 ">Snofyre Data Generator Service</td>
+
+                            <td class="entry" valign="top" width="70%" headers="d1595e80 ">
+                                <p class="p">This module provides the methods for creating plausible clinical data containing pre and post-coordinated 
+                expressions.</p>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="30%" headers="d1595e77 ">Snofyre Information Model</td>
+
+                            <td class="entry" valign="top" width="70%" headers="d1595e80 ">
+                                
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="30%" headers="d1595e77 ">Snofyre Demographics Model</td>
+
+                            <td class="entry" valign="top" width="70%" headers="d1595e80 ">
+                                
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../topics/snofyre-query-model.html">Snofyre Query Model Module</a></strong><br/>
+This module is a representation of the Snofyre's underlying query formalism as Java         classes.</li>
+<li class="link ulchildlink"><strong><a href="../topics/snofyre-query-transformer-service.html">Snofyre Query Transformer Service</a></strong><br/>
+This module provides the methods that transform the a given <span class="keyword apiname">QueryExpression</span> into its corresponding          <tt class="ph tt">SQL</tt> statements.</li>
+<li class="link ulchildlink"><strong><a href="../topics/snofyre-query-dao-service.html">Snofyre Query DAO Service</a></strong><br/>
+This module provides the methods for storing and retrieving <span class="keyword apiname">QueryExpression</span>s stored in          database.</li>
+<li class="link ulchildlink"><strong><a href="../topics/snofyre-data-generator-service.html">Snofyre Data Generator Service</a></strong><br/>
+This module provides the methods for creating plausible clinical data containing pre and post-coordinated           expressions.     </li>
+<li class="link ulchildlink"><strong><a href="../topics/snofyre-information-model-service.html">Snofyre Information Model Module</a></strong><br/>
+This module provides contains a representation of all the Java classes that constitute the Information Model      of Snofyre.</li>
+<li class="link ulchildlink"><strong><a href="../topics/snofyre-demographics-service.html">Snofyre Demographics Model Module</a></strong><br/>
+This module provides contains a representation of all the Java classes that constitute the Demographics Model          of Snofyre.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/snofyre-core-services-overview.html">Services Overview</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>

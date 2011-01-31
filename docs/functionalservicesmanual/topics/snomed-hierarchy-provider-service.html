@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="SNOMED CT Hierarchy Provider Service"/>
+<meta name="abstract" content="This module provides services for returning parents, children, ancestors descendants and proximal primitives for a given SnomedConcept."/>
+<meta name="description" content="This module provides services for returning parents, children, ancestors descendants and proximal primitives for a given SnomedConcept."/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snomed-services-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snomed-services-overview.html"/>
+<meta name="DC.Creator" content="http://code.google.com/p/snofyre/"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Publisher" content="NHS Connecting for Health"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="snomed-hierarchy-provider-service"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>SNOMED CT Hierarchy Provider Service</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="snomed-hierarchy-provider-service"><a name="snomed-hierarchy-provider-service"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../topics/snomed-services-overview.html">SNOMED CT Modules and Services</a> &gt; </div>
+<h1 class="book_title">Snofyre Functional Services Manual - Draft</h1>
+
+    <h1 class="title topictitle1">SNOMED CT Hierarchy Provider Service</h1>
+
+    
+    <div class="body"><p class="shortdesc">
+            This module provides services for returning <tt class="ph tt">parents</tt>, <tt class="ph tt">children</tt>, <tt class="ph tt">ancestors</tt>  
+            <tt class="ph tt">descendants</tt> and <tt class="ph tt">proximal primitives</tt> for a given <span class="keyword apiname">SnomedConcept</span>.
+    </p>
+
+        <div class="section"><h2 class="title sectiontitle">What is it?</h2>
+            
+            <p class="p" id="snomed-hierarchy-provider-service__definition"><a name="snomed-hierarchy-provider-service__definition"><!-- --></a>This module provides services for returning <tt class="ph tt">parents</tt>, <tt class="ph tt">children</tt>, <tt class="ph tt">ancestors</tt>  
+                <tt class="ph tt">descendants</tt> and <tt class="ph tt">proximal primitives</tt> for a given <span class="keyword apiname">SnomedConcept</span>.</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Why do you need it?</h2>
+            
+            <p class="p"> 
+                Often querying SNOMED CT encoded data involves returning parts of SNOMED CT's hierarchies that 
+                are types of a given <span class="keyword apiname">SnomedConcept</span>. Since SNOMED CT's content is organised as 
+                <tt class="ph tt">poly-hierarchies</tt> (a concept can have more than one parent), retrieving all types of a 
+                given <span class="keyword apiname">SnomedConcept</span> by traversing multiple hierarchies becomes a performance 
+                bottle-neck. The <span class="keyword apiname">SNOMED CT Hierarchy Provider Service</span> provides the methods to 
+                return all types of a given <span class="keyword apiname">SnomedConcept</span>, by efficient use of an underlying 
+                <tt class="ph tt">Transitive Closure Table</tt>. This makes it easier for the developer to retrieve 
+                <tt class="ph tt">parents</tt>, <tt class="ph tt">children</tt>, <tt class="ph tt">ancestors</tt>,  
+                <tt class="ph tt">descendants</tt> and <tt class="ph tt">proximal primitives</tt> for a given <span class="keyword apiname">SnomedConcept</span>.
+            </p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">How do you use it?</h2>
+            
+            <p class="p">
+                The following figure illustrates the main classes implemented in this module. The methods implemeneted 
+                reflect the most commonly features of a hierarchy provider.
+            </p>
+
+            <p class="p">
+                <img class="image" src="../images/modules/snomed-hierarchy-provider-service-uml.png" height="132" width="377"/>
+            </p>
+
+            <p class="p">The most important classes in this model are the <span class="keyword apiname">HierarchyProvider</span>
+                and <span class="keyword apiname">NormalFormHierarchyProvider</span>. <span class="keyword apiname">NormalFormHierarchyProvider</span> extends 
+                <span class="keyword apiname">HierarchyProvider</span> to add ability to return <tt class="ph tt">proximal primitives</tt> for a given 
+                <span class="keyword apiname">SnomedConcept</span>.
+            </p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Important Classes and Methods</h2>
+            
+            <div class="p">
+                <span class="keyword apiname">HierarchyProvider</span>
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all">
+                        
+                        
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" id="d10057e184">Class Name</th>
+
+                                <th class="entry" valign="top" id="d10057e187">Method Name</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d10057e184 ">getChildren</td>
+
+                                <td class="entry" valign="top" headers="d10057e187 ">returns the ids of all the <tt class="ph tt">children</tt> of the given <span class="keyword apiname">SnomedConcept</span>.</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d10057e184 ">getParents</td>
+
+                                <td class="entry" valign="top" headers="d10057e187 ">returns the ids of all the <tt class="ph tt">parents</tt> of the given <span class="keyword apiname">SnomedConcept</span>.</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d10057e184 ">getAncestors</td>
+
+                                <td class="entry" valign="top" headers="d10057e187 ">returns the ids of all the <tt class="ph tt">ancestors</tt> of the given <span class="keyword apiname">SnomedConcept</span>.</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d10057e184 ">getDescendants</td>
+
+                                <td class="entry" valign="top" headers="d10057e187 ">returns the ids of all the <tt class="ph tt">descendants</tt> of the given <span class="keyword apiname">SnomedConcept</span>.</td>
+
+                            </tr>
+
+                            
+                        </tbody>
+
+                    </table>
+</div>
+
+                Please refer to the Javadocs provided for a complete list of methods. </div>
+
+            <div class="p">
+                <span class="keyword apiname">NormalFormHierarchyProvider</span>
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all">
+                        
+                        
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" id="d10057e275">Class Name</th>
+
+                                <th class="entry" valign="top" id="d10057e278">Method Name</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d10057e275 ">getProximalPrimitiveParents</td>
+
+                                <td class="entry" valign="top" headers="d10057e278 ">gets the <tt class="ph tt">proximal primitives</tt> for a given <span class="keyword apiname">SnomedConcept</span>.</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d10057e275 ">getFullyDefinedParents</td>
+
+                                <td class="entry" valign="top" headers="d10057e278 ">gets the <tt class="ph tt">fully defined parents</tt> for a given <span class="keyword apiname">SnomedConcept</span>.</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+                This class implements other utility methods for returning primitive parents, primitive ancestors etc.
+                Please refer to the Javadocs provided for a complete list of methods. 
+            </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Gotchas</h2>
+            
+            <div class="note important"><span class="importanttitle">Important:</span> Methods implemented by <span class="keyword apiname">HierarchyProvider</span> only return the ids 
+                of the <span class="keyword apiname">SnomedConcept</span>s for the given method. Returning <span class="keyword apiname">SnomedConcept</span>s 
+                instead of ids is inefficient because it creates large nested object references.
+            </div>
+
+            <div class="note note"><span class="notetitle">Note:</span> Note that using one variant of <span class="keyword apiname">getProximalPrimitivesParents</span> method on 
+                <span class="keyword apiname">HierarchyProvider</span> returns <span class="keyword apiname">SnomedConcept</span>. Since the number of 
+                <tt class="ph tt">proximal primitives</tt> for a given <span class="keyword apiname">SnomedConcept</span> is limited, this method can return
+                <span class="keyword apiname">SnomedConcept</span>s.
+            </div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/snomed-services-overview.html">SNOMED CT Modules and Services</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>

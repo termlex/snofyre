@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="SNOMED CT Data Access Module (DAO Module)"/>
+<meta name="abstract" content="This module provides services for accessing SNOMED CT content stored in a relational database."/>
+<meta name="description" content="This module provides services for accessing SNOMED CT content stored in a relational database."/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snomed-services-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snomed-services-overview.html"/>
+<meta name="DC.Creator" content="http://code.google.com/p/snofyre/"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Publisher" content="NHS Connecting for Health"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="snomed-dao-service"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>SNOMED CT Data Access Module (DAO Module)</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="snomed-dao-service"><a name="snomed-dao-service"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../topics/snomed-services-overview.html">SNOMED CT Modules and Services</a> &gt; </div>
+<h1 class="book_title">Snofyre Functional Services Manual - Draft</h1>
+
+    <h1 class="title topictitle1">SNOMED CT Data Access Module (DAO Module)</h1>
+
+    
+    <div class="body"><p class="shortdesc">This module provides services for accessing SNOMED CT content stored in a relational
+        database.</p>
+
+        <div class="section"><h2 class="title sectiontitle">What is it?</h2>
+            
+            <p class="p" id="snomed-dao-service__definition"><a name="snomed-dao-service__definition"><!-- --></a>This module provides services for accessing SNOMED CT content stored in a relational
+                database.</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Why do you need it?</h2>
+            
+            <p class="p"> The data access services provide a level of abstraction, insulating the developer
+                from the underlying schema of the relational database where SNOMED CT content is
+                stored. The data access module returns the Java class representation provided
+                    <span class="keyword apiname">SNOMED CT Object Model</span> module. </p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">How do you use it?</h2>
+            
+            <p class="p"> 
+                The following figure illustrates the main classes implemented in this module. These
+                classes implement common features needed to return <span class="keyword apiname">SNOMED CT Object Module</span>
+                classes.
+            </p>
+
+            <div class="p">
+                <div class="fig fignone"><span class="figcap">Figure 1. Class model for DAO Module</span>
+                    
+                    <img class="image" src="../images/modules/snomed-dao-uml.png" height="182" width="397"/>
+                </div>
+              
+            </div>
+
+            <p class="p">The most important classes in this model are the <span class="keyword apiname">TerminologyConceptDAO</span> 
+                and <span class="keyword apiname">SnomedExpressionDAO</span>. These classes implement the usual methods for 
+                retrieving, saving and deleting <span class="keyword apiname">SnomedConcept</span>s and <span class="keyword apiname">Expression</span>s. 
+                The following is a list of some of the commonly used methods in the above classes. </p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Important Classes and Methods</h2>
+            
+            <div class="p">
+                <span class="keyword apiname">TerminologyConceptDAO</span>
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all"><caption><span class="tablecap">Table 1. Methods in <span class="keyword apiname">TerminologyConceptDAO</span></span></caption>
+                        
+                        
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" width="30%" id="d6508e118">Method Name</th>
+
+                                <th class="entry" valign="top" width="70%" id="d6508e121">Description</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d6508e118 ">getTerminologyConcept</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d6508e121 ">returns the <span class="keyword apiname">SnomedConcept</span> for the given concept id.</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d6508e118 ">getCurrentConceptForConcept</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d6508e121 ">returns the appropriate current <span class="keyword apiname">SnomedConcept</span> for a given inactive <span class="keyword apiname">SnomedConcept</span>.</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+                The class also provides methods for returning a collection of concepts based on a search terms. 
+                Please refer to the Javadocs provided for a complete list of methods. 
+            </div>
+
+            <div class="p">
+                
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all"><caption><span class="tablecap">Table 2. Methods in <span class="keyword apiname">SnomedExpressionDAO</span></span></caption>
+                        
+                        
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" width="30%" id="d6508e178">Method Name</th>
+
+                                <th class="entry" valign="top" width="70%" id="d6508e181">Description</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d6508e178 ">saveExpression</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d6508e181 ">save the given <span class="keyword apiname">Expression</span> to the database.</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d6508e178 ">find</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d6508e181 ">returns a matching <span class="keyword apiname">Expression</span> when a UUID is passed.</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+                This class implements other utility methods for deleting expressions and returing all expressions in database. 
+                Please refer to the Javadocs provided for a complete list of methods. 
+            </div>
+
+            <div class="p">
+                
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all"><caption><span class="tablecap">Table 3. Methods in <span class="keyword apiname">TerminologyConceptUtils</span></span></caption>
+                        
+                        
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" width="30%" id="d6508e235">Method Name</th>
+
+                                <th class="entry" valign="top" width="70%" id="d6508e238">Description</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d6508e235 ">getConceptForID</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d6508e238 ">a static utility method that returns the <span class="keyword apiname">SnomedConcept</span> for the given concept id.</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+            </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Gotchas</h2>
+            
+            <div class="note note"><span class="notetitle">Note:</span> 
+                All instances of concepts returned by <span class="keyword apiname">TerminologyConceptDAO</span> can be safely be cast to 
+                <span class="keyword apiname">SnomedConcept</span>. This might change if an different concrete implementation to support
+                other terminologies is implemented.
+            </div>
+
+            <div class="note important"><span class="importanttitle">Important:</span> We do not recommend calling the <span class="keyword apiname">getAllConceptsInTerminology</span> method in
+                <span class="keyword apiname">TerminologyConceptDAO</span>.</div>
+
+            <div class="note important"><span class="importanttitle">Important:</span> 
+                The current implementation of <span class="keyword apiname">TerminologyConceptDAO</span> focusses on reead-only call for retrieving
+                SNOMED CT content. The methods for saving content are not implemented!
+            </div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/snomed-services-overview.html">SNOMED CT Modules and Services</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>

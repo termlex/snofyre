@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Snofyre Query Transformer Service"/>
+<meta name="abstract" content="This module provides the methods that transform the a given QueryExpression into its corresponding SQL statements."/>
+<meta name="description" content="This module provides the methods that transform the a given QueryExpression into its corresponding SQL statements."/>
+<meta name="DC.Relation" scheme="URI" content="../topics/query-services-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/query-services-overview.html"/>
+<meta name="DC.Creator" content="http://code.google.com/p/snofyre/"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Publisher" content="NHS Connecting for Health"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="topic-Snofyre-query-transformer-service"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>Snofyre Query Transformer Service</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="topic-Snofyre-query-transformer-service"><a name="topic-Snofyre-query-transformer-service"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../topics/query-services-overview.html">Snofyre Query Modules and Services</a> &gt; </div>
+<h1 class="book_title">Snofyre Functional Services Manual - Draft</h1>
+
+    <h1 class="title topictitle1">Snofyre Query Transformer Service</h1>
+
+    
+    <div class="body"><p class="shortdesc">This module provides the methods that transform the a given <span class="keyword apiname">QueryExpression</span> into its corresponding 
+        <tt class="ph tt">SQL</tt> statements.</p>
+
+        <div class="section"><h2 class="title sectiontitle">What is it?</h2>
+            
+            <p class="p" id="topic-Snofyre-query-transformer-service__definition"><a name="topic-Snofyre-query-transformer-service__definition"><!-- --></a>This module provides the methods that transform the a given <span class="keyword apiname">QueryExpression</span> into its corresponding 
+                <tt class="ph tt">SQL</tt> statements.</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Why do you need it?</h2>
+            
+            <p class="p"> 
+                The <span class="keyword apiname">Snofyre Query Model</span> allows creation of complex queries, 
+                using logical operators like 'AND', 'OR', 'NOT', etc. However, during query execution, these queries 
+                need to be translate into statements that the persistence backend understands. If you use a <tt class="ph tt">SQL</tt> 
+                based backend, then we need a way to transform <span class="keyword apiname">Snofyre Query Model</span> objects into 
+                <tt class="ph tt">SQL</tt> statements. The <span class="keyword apiname">Snofyre Query Transform Service</span> provides the ability 
+                to generate <tt class="ph tt">SQL</tt> statements for a <span class="keyword apiname">QueryExpression</span>, translating the 
+                contained logical operators into their <tt class="ph tt">SQL</tt> equivalents. 
+            </p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">How do you use it?</h2>
+            
+            <p class="p">The following figure illustrates the main classes implemented in this module. </p>
+
+            <div class="p">
+                <div class="fig fignone"><span class="figcap">Figure 1. Class Model for Query Objects</span>
+                    
+                    <img class="image" src="../images/modules/query-transform-uml.png" height="167" width="368"/>
+                </div>
+
+            </div>
+
+            <p class="p">The most important classes in this module are <span class="keyword apiname">SQLQueryEngineService</span>,
+                <span class="keyword apiname">MySQLReportingQueryExecutionEngineService</span> and <span class="keyword apiname">SubtypeGetter</span>. 
+                The <span class="keyword apiname">SQLQueryEngineService</span> class represents the base methods implemented by the 
+                service. <span class="keyword apiname">MySQLReportingQueryExecutionEngineService</span> is a concrete implementation of 
+                the <span class="keyword apiname">SQLQueryEngineService</span>, that generates <tt class="ph tt">SQL</tt> statements in the <tt class="ph tt">MySQL</tt> 
+                dialect. <span class="keyword apiname">SubtypeGetter</span> gets the ids of expressions in the expression repository that 
+                satisfy a given <span class="keyword apiname">TerminologyConstraint</span>. 
+            </p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Important Classes and Methods</h2>
+            
+            <div class="p">
+                <span class="keyword apiname">SQLQueryEngineService</span>
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all"><caption><span class="tablecap">Table 1. Methods in <span class="keyword apiname">SQLQueryEngineService</span></span></caption>
+                        
+                        
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" width="30%" id="d5735e168">Method Name</th>
+
+                                <th class="entry" valign="top" width="70%" id="d5735e171">Description</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d5735e168 ">getResultSetForReportinQuery</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d5735e171 ">returns a <span class="keyword apiname">java.sql.ResultSet</span> object that represents the result 
+                                    of executing a given <span class="keyword apiname">QueryExpression</span>.</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d5735e168 ">getTableNameForExpression</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d5735e171 ">gets the table name under which the intermediate results for a 
+                                    <span class="keyword apiname">QueryExpression</span> have been created.</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d5735e168 ">setStrategy</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d5735e171 ">sets the <span class="keyword apiname">TableCreationStrategy</span> that determines if a <tt class="ph tt">SQL</tt> 
+                                    table of view is generated for this <span class="keyword apiname">QueryExpression</span> during execution.
+                                </td>
+
+                            </tr>
+                         
+                        </tbody>
+
+                    </table>
+</div>
+
+                The class also provides methods for getting getting intermediate results of individual query expressions. 
+                Please refer to the Javadocs provided for a complete list of methods. </div>
+
+            <p class="p">
+                <span class="keyword apiname">MySQLReportingQueryExecutionEngineService</span>
+                This class implements all the methods of a <span class="keyword apiname">SQLQueryEngineService</span>, generating the <tt class="ph tt">SQL</tt> 
+                in a <tt class="ph tt">MySQL</tt> dialect.
+                Please refer to the Javadocs provided for a complete list of methods. </p>
+
+            <div class="p">
+                <span class="keyword apiname">SubtypeGetter</span>
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all"><caption><span class="tablecap">Table 2. Methods in <span class="keyword apiname">SubtypeGetter</span></span></caption>
+                        
+                        
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" width="30%" id="d5735e264">Method Name</th>
+
+                                <th class="entry" valign="top" width="70%" id="d5735e267">Description</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d5735e264 ">getSubTypeIdsForConstraint</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d5735e267 ">gets the ids of expressions in the expression repository that 
+                                    satisfy a given <span class="keyword apiname">TerminologyConstraint</span>.</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+                There are other methods for getting the location where this statement is stored. Please refer to the Javadocs
+                provided for a complete list of methods. </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Gotchas</h2>
+            
+            <div class="cautiontitle">CAUTION:</div><div class="note caution">Using the method <span class="keyword apiname">setIgnoreTransitiveClosureTable</span> on <span class="keyword apiname">SubtypeGetter</span> 
+                    will increase the query execution time considerably.
+                .</div>
+
+            <div class="note attention"><span class="attentiontitle">Attention:</span> The current implementation does not generate SQL for <span class="keyword apiname">TemporalConstraint</span>s, 
+                even though it allows for them to be created.</div>
+
+            <div class="note note"><span class="notetitle">Note:</span> <span class="keyword apiname">HibernateBasedSQLQueryEngineServiceImpl</span> is only implemented in part. It must not 
+                be used, unless the developer has extended its implementation.
+            </div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/query-services-overview.html">Snofyre Query Modules and Services</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>

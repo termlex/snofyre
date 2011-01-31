@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="SNOMED CT Object Model Module"/>
+<meta name="abstract" content="This module is a representation of relevant SNOMED CT content as Java classes."/>
+<meta name="description" content="This module is a representation of relevant SNOMED CT content as Java classes."/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snomed-services-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snomed-services-overview.html"/>
+<meta name="DC.Creator" content="http://code.google.com/p/snofyre/"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Publisher" content="NHS Connecting for Health"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="topic-snomed-object-model"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>SNOMED CT Object Model Module</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="topic-snomed-object-model"><a name="topic-snomed-object-model"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../topics/snomed-services-overview.html">SNOMED CT Modules and Services</a> &gt; </div>
+<h1 class="book_title">Snofyre Functional Services Manual - Draft</h1>
+
+    <h1 class="title topictitle1">SNOMED CT Object Model Module</h1>
+
+    
+    <div class="body"><p class="shortdesc">This module is a representation of relevant SNOMED CT content as Java
+        classes.</p>
+
+        <div class="section"><h2 class="title sectiontitle">What is it?</h2>
+            
+            <p class="p" id="topic-snomed-object-model__definition"><a name="topic-snomed-object-model__definition"><!-- --></a>This module is a representation of relevant SNOMED CT content as Java classes.</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Why do you need it?</h2>
+            
+            <p class="p"> The object model representation allows the programmer to represent and manipulate
+                SNOMED CT content as pure old Java objects. If you intend to do anything more than a
+                few calls to look at SNOMED CT content, it makes a lot of sense to work with SNOMED
+                CT content as Java objects. </p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">How do you use it?</h2>
+            
+            <p class="p">The following figure illustrates the main classes implemented in this module. These
+                represent the most commonly used aspects of SNOMED CT's content. </p>
+
+            <p class="p"><img class="image" src="../images/modules/snomed-object-model.png" height="124" width="471"/>
+            </p>
+
+            <p class="p">The most important classes in this module are the <span class="keyword apiname">SnomedConcept</span>,
+                    <span class="keyword apiname">SnomedDescription</span>, <span class="keyword apiname">SnomedRelationship</span> and
+                    <span class="keyword apiname">SnomedRoleGroup</span>. These classes represent the corresponding
+                notions as described in the IHTSDO's Technical Implementation Guidance document. The
+                following is a list of some of the commonly used methods in the above classes. </p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Important Classes and Methods</h2>
+            
+            <div class="p">
+                <span class="keyword apiname">SnomedConcept</span>
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all"><caption><span class="tablecap">Table 1. Methods in <span class="keyword apiname">SnomedConcept</span></span></caption>
+                        
+                        
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" width="30%" id="d12092e105">Method Name</th>
+
+                                <th class="entry" valign="top" width="70%" id="d12092e108">Description</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d12092e105 ">getConceptId</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d12092e108 ">returns the concept id of this concept</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d12092e105 ">getDescriptions</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d12092e108 ">gets all the <span class="keyword apiname">SnomedDescription</span>s on this concept</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d12092e105 ">getFullySpecifiedName</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d12092e108 ">gets the fully specified name of this concept</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d12092e105 ">getSourceRelationships</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d12092e108 ">gets the <span class="keyword apiname">SnomedRelationship</span>s for this concept is the
+                                    source</td>
+
+                            </tr>
+ 
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d12092e105 ">getTargetRelationships</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d12092e108 ">gets the <span class="keyword apiname">SnomedRelationship</span>s for this concept is the
+                                    target</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d12092e105 ">getRoleGroups</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d12092e108 ">gets the <span class="keyword apiname">SnomedRoleGroup</span>s for this concept</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d12092e105 ">getParents</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d12092e108 ">gets the <span class="keyword apiname">SnomedConcept</span>s that are parents of this
+                                    concept</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d12092e105 ">getChildren</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d12092e108 ">gets the <span class="keyword apiname">SnomedConcept</span>s that are children of this
+                                    concept.</td>
+
+                            </tr>
+
+                            
+                        </tbody>
+
+                    </table>
+</div>
+
+                The class also provides methods for getting descendants, ancestors,
+                corresponding CTV3 ID, etc. Please refer to the Javadocs provided for a complete
+                list of methods. </div>
+
+            <div class="p">
+                <span class="keyword apiname">SnomedDescription</span>
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all"><caption><span class="tablecap">Table 2. Methods in <span class="keyword apiname">SnomedDescription</span></span></caption>
+                        
+                        
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" width="30%" id="d12092e232">Method Name</th>
+
+                                <th class="entry" valign="top" width="70%" id="d12092e235">Description</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d12092e232 ">getTerm</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d12092e235 ">gets the textual term associated with this description</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d12092e232 ">getConceptId</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d12092e235 ">gets the id of the <span class="keyword apiname">SnomedConcept</span>, this description is
+                                    associated with.</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+                This class implements other methods for getting the language, description
+                type, etc. Please refer to the Javadocs provided for a complete list of methods. </div>
+
+            <div class="p">
+                <span class="keyword apiname">SnomedRelationship</span>
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all"><caption><span class="tablecap">Table 3. Methods in <span class="keyword apiname">SnomedRelationship</span></span></caption>
+                        
+                        
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" width="30%" id="d12092e289">Method Name</th>
+
+                                <th class="entry" valign="top" width="70%" id="d12092e292">Description</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d12092e289 ">getRelationshipType</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d12092e292 ">gets the relationship type id as specified in SNOMED CT.</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d12092e289 ">getRefinability</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d12092e292 ">returns the value of refinability (one of mandatory, not-refinable and
+                                    optional).</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+                 There are other methods for getting the source and target <span class="keyword apiname">SnomedConcept</span>s, relationship id, etc. Please refer to the Javadocs
+                provided for a complete list of methods. </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Gotchas</h2>
+            
+            <div class="note note"><span class="notetitle">Note:</span> The <span class="keyword apiname">SnomedConcept</span> class only has methods to return
+                the ids for the descendants and ancestors of a given concept. Returning actual
+                    <span class="keyword apiname">SnomedConcept</span>s causes excessive memory usage because of the
+                large object graphs this causes.</div>
+
+            <div class="note note"><span class="notetitle">Note:</span> The current implementation does not implement support for managing
+                Subsets.</div>
+
+            <div class="note attention"><span class="attentiontitle">Attention:</span> The current implementation only has minimal support for tracking
+                historical relationships.</div>
+
+            <div class="note remember"><span class="remembertitle">Remember:</span> The current implementation is based on the Release Format 1 (RF1) data
+                structures. It does not implement implement Release Format 2 specific
+                features.</div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/snomed-services-overview.html">SNOMED CT Modules and Services</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="SNOMED CT Normaliser Service"/>
+<meta name="abstract" content="This module provides services for generating the long and short normal forms of a given SnomedConcept or Expression."/>
+<meta name="description" content="This module provides services for generating the long and short normal forms of a given SnomedConcept or Expression."/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snomed-services-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snomed-services-overview.html"/>
+<meta name="DC.Creator" content="http://code.google.com/p/snofyre/"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Publisher" content="NHS Connecting for Health"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="snomed-normaliser-module"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>SNOMED CT Normaliser Service</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="snomed-normaliser-module"><a name="snomed-normaliser-module"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../topics/snomed-services-overview.html">SNOMED CT Modules and Services</a> &gt; </div>
+<h1 class="book_title">Snofyre Functional Services Manual - Draft</h1>
+
+    <h1 class="title topictitle1">SNOMED CT Normaliser Service</h1>
+
+    
+    <div class="body"><p class="shortdesc">This module provides services for generating the long and short normal forms of a given <span class="keyword apiname">SnomedConcept</span> 
+        or <span class="keyword apiname">Expression</span>.</p>
+
+        <div class="section"><h2 class="title sectiontitle">What is it?</h2>
+            
+            <p class="p" id="snomed-normaliser-module__definition"><a name="snomed-normaliser-module__definition"><!-- --></a>This module provides services for generating the long and short normal forms of a given <span class="keyword apiname">SnomedConcept</span> 
+                or <span class="keyword apiname">Expression</span>.</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Why do you need it?</h2>
+            
+            <p class="p">
+                While it is possible to compare two given <span class="keyword apiname">SnomedConcept</span>s for subsumption or equivalence using the 
+                <tt class="ph tt">Transitive Closure Table</tt>, this method can be be applied to comparing <span class="keyword apiname">Expressions</span>. The IHTSDO's 
+                approved methodology for comparing <span class="keyword apiname">Expressions</span> is to compare their <tt class="ph tt">Normal Forms</tt>. This requires 
+                the ability to convert a given <span class="keyword apiname">SnomedConcept</span> or <span class="keyword apiname">Expression</span> into its <tt class="ph tt">normal form</tt>. 
+                The generation of a <tt class="ph tt">normal form</tt>, involves applying IHTSDO approved heuristics recursively. This provides a service 
+                that implements these heuristics, making it easier for the developer to generate <tt class="ph tt">normal forms</tt> by calling the service.
+            </p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">How do you use it?</h2>
+            
+            <p class="p"> 
+                The following figure illustrates the main classes implemented in this module. These
+                classes implement the alogorithms needed to generate <tt class="ph tt">normal form</tt>s for <span class="keyword apiname">SnomedConcept</span>s and
+                <span class="keyword apiname">Expressions</span>s.
+            </p>
+
+            <p class="p">
+                <img class="image" src="../images/modules/snomed-normaliser-service-uml.png" height="133" width="184"/>
+            </p>
+
+            <p class="p">The most important class in this model is <span class="keyword apiname">NormalFormGenerator</span>. 
+                This classes provides the methods for for generating the long and short normal forms of a given <span class="keyword apiname">SnomedConcept</span> 
+                or <span class="keyword apiname">Expression</span>.</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Important Classes and Methods</h2>
+            
+            <div class="p">
+                <span class="keyword apiname">NormalFormGenerator</span>
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all"><caption><span class="tablecap">Table 1. Methods in <span class="keyword apiname">NormalFormGenerator</span></span></caption>
+                        
+                        
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" width="30%" id="d11539e155">Method Name</th>
+
+                                <th class="entry" valign="top" width="70%" id="d11539e158">Description</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d11539e155 ">getLongNormalFormExpression</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d11539e158 ">returns the <tt class="ph tt">long normal form</tt> of a given <span class="keyword apiname">SnomedConcept</span> 
+                                    or <span class="keyword apiname">Expression</span>.</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="30%" headers="d11539e155 ">getShortNormalFormExpression</td>
+
+                                <td class="entry" valign="top" width="70%" headers="d11539e158 ">returns the <tt class="ph tt">short normal form</tt> of a given <span class="keyword apiname">SnomedConcept</span> 
+                                    or <span class="keyword apiname">Expression</span>.</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+                The class also provides methods for generating <tt class="ph tt">normal form</tt>s for <span class="keyword apiname">SnomedConcept</span>s, by only providing 
+                the corresponding concept id. 
+            </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Gotchas</h2>
+            
+            <div class="note important"><span class="importanttitle">Important:</span> 
+                <span class="keyword apiname">NormalFormGenerator</span> implements a method <span class="keyword apiname">getLongNormalFormExpressionForRendering</span>, which 
+                is an utility that is used to constrain and generate post-coordinated expression creation at the user interface. You are advise 
+                not to use this method because it is likely to be deprecated in future releases.
+            </div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/snomed-services-overview.html">SNOMED CT Modules and Services</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>
