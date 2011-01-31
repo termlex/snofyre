@@ -19,7 +19,7 @@ There are number of ways you can collaborate with the Snofyre community.
   <tbody>
     <tr>
       <td> [http://snofyre.googlecode.com/svn/wiki/images/kedit.png]</td>
-      <td>If you already used Snofyre, or you are wondering what others have used Snofyre for, then this is the place to head to. We've collected some user feedback on the [userStories User Feedback] page. We like to call them User Stories.</td>
+      <td>If you've already used Snofyre, or you are wondering what others have used Snofyre for, then this is the place to head to. We've collected some user feedback on the [userStories User Feedback] page. We like to call them User Stories. If you would like to contribute your own user story, please get in touch on the [http://groups.google.com/group/snofyre-users User Group]</td>
     </tr>
   </tbody>
 </table>
