@@ -1,0 +1,25 @@
+#summary Snofyre Community Home
+
+=  How to engage with the Snofyre community =
+
+There are number of ways you can collaborate with the Snofyre community.
+
+== User & Developer Groups == 
+<table border=0>
+  <tbody>
+    <tr>
+      <td> [http://snofyre.googlecode.com/svn/wiki/images/konversation.png]</td>
+      <td>This is the place to start, if you are thinking of using Snofyre or extending Snofyre. There are separate communities for both. You can find out more about this on the collaboration [Contributing page].</td>
+    </tr>
+  </tbody>
+</table>
+
+== User Stories == 
+<table border=0>
+  <tbody>
+    <tr>
+      <td> [http://snofyre.googlecode.com/svn/wiki/images/kedit.png]</td>
+      <td>If you already used Snofyre, or you are wondering what others have used Snofyre for, then this is the place to head to. We've collected some user feedback on the [userStories User Feedback] page. We like to call them User Stories.</td>
+    </tr>
+  </tbody>
+</table>
