@@ -2,7 +2,7 @@
 
 = Snofyre Documentation =
 
-Snofyre comes with a few hundred pages of documentation and a few thousand lines of Java code comments. If you've tried Snofyre and are now interested in finding out how to reuse Snofyre's services or if you want to know what it does under the hood, then this documentation will be useful.
+Snofyre comes with a few hundred pages of documentation and a few thousand lines of Java code comments. If you've tried Snofyre and are now interested in finding out how to reuse Snofyre's services or if you want to know what it does under the hood, then this documentation will be useful. Please note that the links to the HTML manuals provided below do not open in a new page. Google Code Hosting sadly seems to lack this basic functionality, where you can ask a hyperlink to open in a new page!
 
 == Snofyre User Manual ==
 This manual covers the basics of how to use Snofyre, including basic features like creating and executing queries and advanced features like data generation. An online [https://snofyre.googlecode.com/svn/docs/usermanual/index.html HTML] version and a [http://snofyre.googlecode.com/files/snofyre-user-manual.pdf PDF] version are available. 
