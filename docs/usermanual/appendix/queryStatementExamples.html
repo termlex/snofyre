@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Query Statement Examples"/>
+<meta name="DC.Relation" scheme="URI" content="../appendix/appendix.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../appendix/appendix.html"/>
+<meta name="DC.Creator" content="http://code.google.com/p/snofyre/"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Publisher" content="NHS Connecting for Health"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="topic-1"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>Query Statement Examples</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="topic-1"><a name="topic-1"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../appendix/appendix.html">Appendix</a> &gt; </div>
+<h1 class="book_title">Snofyre User Manual - Draft</h1>
+
+    <h1 class="title topictitle1">Query Statement Examples</h1>
+
+    <div class="body">
+        <p class="p">The section provides examples of query statements that can be used in the Snofyre.</p>
+
+        <p class="p" id="topic-1__query_example_1"><a name="topic-1__query_example_1"><!-- --></a>Query | All patients with Diabetes | is query that contains a single
+            Query Criterion (with a query term of 'Diabetes')</p>
+
+        <div class="p" id="topic-1__query_example_2"><a name="topic-1__query_example_2"><!-- --></a>Query | All patients with Diabetes AND Hypertension | is a query
+            that contains three query criteria; <ol class="ol">
+                <li class="li">QueryCriterion (with query term of 'Diabetes')</li>
+
+                <li class="li">QueryCriterion (with query term 'Hypertension')</li>
+
+                <li class="li">Intersection Expression that contains QueryCriterion objects #1 and #2</li>
+
+            </ol>
+</div>
+
+        <div class="p" id="topic-1__query_example_3"><a name="topic-1__query_example_3"><!-- --></a>Query | All patients with 'Diabetes' AND (Renal Disease OR Heart
+            Disease) | contains 5 reporting expressions.<ol class="ol">
+                <li class="li">QueryCriterion with query term 'Diabetes'</li>
+
+                <li class="li">QueryCriterion with query term 'Renal Disease'</li>
+
+                <li class="li">QueryCriterion with query term 'Heart Disease'</li>
+
+                <li class="li">Union Expression containing QueryCriterion objects #2 and # 3</li>
+
+                <li class="li">Intersection Expression containing QueryCriterion #1 and Union Expression
+                    #4</li>
+
+            </ol>
+</div>
+
+        <div class="p" id="topic-1__query_example_4"><a name="topic-1__query_example_4"><!-- --></a>Query | All patients who have (Radiotherapy to axilla (procedure)
+            and all descendants AND Excision of breast tissue (procedure) and all descendants AND
+            (History of malignant neoplasm of breast (situation) and all descendants OR Malignant
+            tumor of breast (disorder) and all descendants))| contains 6 reporting expressions. <ol class="ol">
+                <li class="li">QueryCriterion with query term 'Radiotherapy to axilla (procedure)'</li>
+
+                <li class="li">QueryCriterion with query term 'Excision of breast tissue (procedure)'</li>
+
+                <li class="li">QueryCriterion with query term 'History of malignant neoplasm of breast
+                    (situation)'</li>
+
+                <li class="li">QueryCriterion with query term 'Malignant tumor of breast (disorder)'</li>
+
+                <li class="li">Union Expression containing QueryCriterion expressions #3 and #4.</li>
+
+                <li class="li">Intersection Expression containing <ul class="ul">
+                        <li class="li">QueryCriterion #1</li>
+
+                        <li class="li">QueryCriterion #2</li>
+
+                        <li class="li">Union Expression #5</li>
+
+                    </ul>
+</li>
+
+            </ol>
+</div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../appendix/appendix.html">Appendix</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>
