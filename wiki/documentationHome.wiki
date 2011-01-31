@@ -1,0 +1,16 @@
+#summary documentation for Snofyre
+
+= Snofyre Documentation =
+
+Snofyre comes with a few hundred pages of documentation and a few thousand lines of Java code comments. If you've tried Snofyre and are now interested in finding out how to reuse Snofyre's services or if you want to know what it does under the hood, then this documentation will be useful.
+
+== Snofyre User Manual ==
+This manual covers the basics of how to use Snofyre, including basic features like creating and executing queries and advanced features like data generation. An online [https://snofyre.googlecode.com/svn/docs/usermanual/index.html HTML] version and a [http://snofyre.googlecode.com/files/snofyre-user-manual.pdf PDF] version are available. 
+
+== Snofyre Technical Architecture Manual ==
+This manual tells you how Snofyre works under the hood. It provides an overview of all the 'moving parts' the various frameworks and components that make Snofyre work. This is recommended reading if you want to peek under Snofyre's hood or tweak any of its features. An online [https://snofyre.googlecode.com/svn/docs/technicalarchitecturemanual/index.html HTML] version and a [http://snofyre.googlecode.com/files/snofyre-technical-architecture-manual.pdf PDF] version are available. 
+
+== Snofyre Functional Services Manual ==
+This manual tells you what the reusable components of Snofyre are and how you can reuse them. It tells you what 'services' come out of the box and how you might be able to use them. This manual is also a good lead into the Javadocs. An online [https://snofyre.googlecode.com/svn/docs/functionalservicesmanual/index.html HTML] version and a [http://snofyre.googlecode.com/files/snofyre-functional-services-manual.pdf PDF] version are available. 
+
+If you are a developer, then the documentation provided under the [gettingStartedWithSnofyreAPI Programming Snofyre] section is also relevant.
