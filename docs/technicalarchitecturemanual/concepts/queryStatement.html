@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Query Statement"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/queryModel.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-model-architecture-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/queryModel.html"/>
+<meta name="DC.Creator" content="http://code.google.com/p/snofyre/"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Publisher" content="NHS Connecting for Health"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept-query-statement"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>Query Statement</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="concept-query-statement"><a name="concept-query-statement"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../topics/snofyre-model-architecture-overview.html">Design &amp; Modeling Overview</a> &gt; <a class="link" href="../topics/queryModel.html">Query Model</a> &gt; </div>
+<h1 class="book_title">Snofyre Technical Architecture Manual - Draft</h1>
+
+    <h1 class="title topictitle1">Query Statement</h1>
+
+    
+    <div class="body conbody">
+        <p class="p" id="concept-query-statement__definition"><a name="concept-query-statement__definition"><!-- --></a>A entity that encapsulates one or more Query Expressions and
+            contains sufficient logic to be executed against a data store. It is the equivalent of
+            the logical transform of a user defined reporting query that is to be executed for data
+            retrieval.</p>
+
+        <div class="p">A Query Statement usually contains atleast one Query Expression (the minimum being a single
+            Query Component Expression). The following are all valid examples of a query statements.
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all"><caption><span class="tablecap">Table 1. Query Statement Examples</span></caption>
+                    
+                    
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" width="30%" id="d4774e51">Clinical Statement</th>
+
+                            <th class="entry" valign="top" width="70%" id="d4774e54">Query Statement</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" width="30%" headers="d4774e51 ">All patients with Diabetes</td>
+
+                            <td class="entry" valign="top" width="70%" headers="d4774e54 ">
+                                <p class="p">Query | All patients with Diabetes | is query that contains a single
+            Query Criterion (with a query term of 'Diabetes')</p>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="30%" headers="d4774e51 ">All patients with Diabetes AND Hypertension</td>
+
+                            <td class="entry" valign="top" width="70%" headers="d4774e54 ">
+                                <div class="p">Query | All patients with Diabetes AND Hypertension | is a query
+            that contains three query criteria; <ol class="ol">
+                <li class="li">QueryCriterion (with query term of 'Diabetes')</li>
+
+                <li class="li">QueryCriterion (with query term 'Hypertension')</li>
+
+                <li class="li">Intersection Expression that contains QueryCriterion objects #1 and #2</li>
+
+            </ol>
+</div>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="30%" headers="d4774e51 ">All patients with 'Diabetes' AND (Renal Disease OR Heart
+                                Disease)</td>
+
+                            <td class="entry" valign="top" width="70%" headers="d4774e54 ">
+                                <div class="p">Query | All patients with 'Diabetes' AND (Renal Disease OR Heart
+            Disease) | contains 5 reporting expressions.<ol class="ol">
+                <li class="li">QueryCriterion with query term 'Diabetes'</li>
+
+                <li class="li">QueryCriterion with query term 'Renal Disease'</li>
+
+                <li class="li">QueryCriterion with query term 'Heart Disease'</li>
+
+                <li class="li">Union Expression containing QueryCriterion objects #2 and # 3</li>
+
+                <li class="li">Intersection Expression containing QueryCriterion #1 and Union Expression
+                    #4</li>
+
+            </ol>
+</div>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/queryModel.html">Query Model</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>

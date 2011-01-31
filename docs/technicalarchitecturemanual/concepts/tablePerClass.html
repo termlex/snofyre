@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Table per Class Mapping"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/databaseSchemaDesign.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-model-architecture-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/databaseSchemaDesign.html"/>
+<meta name="DC.Creator" content="http://code.google.com/p/snofyre/"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Publisher" content="NHS Connecting for Health"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept-table-per-class"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>Table per Class Mapping</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="concept-table-per-class"><a name="concept-table-per-class"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../topics/snofyre-model-architecture-overview.html">Design &amp; Modeling Overview</a> &gt; <a class="link" href="../topics/databaseSchemaDesign.html">Database Schema Designs</a> &gt; </div>
+<h1 class="book_title">Snofyre Technical Architecture Manual - Draft</h1>
+
+    <h1 class="title topictitle1">Table per Class Mapping</h1>
+
+    
+    <div class="body conbody">
+        <p class="p" id="concept-table-per-class__definition"><a name="concept-table-per-class__definition"><!-- --></a>This is the object model to relational model mapping structure where every class in
+    the object model is mapped to a separate table.</p>
+
+        <div class="p" id="concept-table-per-class__features_table_per_class_mapping"><a name="concept-table-per-class__features_table_per_class_mapping"><!-- --></a>The following are the salient features of this
+                strategy.<ul class="ul">
+                <li class="li"> This strategy chooses to ignore the inheritance hierarchy. </li>
+
+                <li class="li"> A table for each concrete object is created. </li>
+
+                <li class="li"> Relationships between tables are managed by using foreign keys and joins across
+                    tables at run time. </li>
+
+                <li class="li"> The application manages the creation and updates for all the tables
+                    dynamically. </li>
+
+                <li class="li"> This approach has the advantage that we have distinct tables for each class and
+                    we know how to query each entry against the class. </li>
+
+                <li class="li"> The disadvantage of this approach is the number of queries that have to be run
+                    against the database in order to answer a query across the class hierarchy. </li>
+
+                <li class="li"> For query generation and retrieval, the application will manage all appropriate
+                    tables that will have to be queried o Involves multiple selects and joins across
+                    different tables.</li>
+
+            </ul>
+</div>
+<div class="example">For example, in the figure shown, in order to retrieve all patients
+            who had a procedure that happened on a given date, we would have to perform the
+            following selects <ul class="ul">
+                <li class="li"> Select PATIENT_ID FROM INTERVENTIONS WHERE INTERVENTION_DATE = ? </li>
+
+                <li class="li"> UNION </li>
+
+                <li class="li"> Select PATIENT_ID FROM INTERVENTIONS WHERE MEDICATION_DATE = ? </li>
+
+                <li class="li"> UNION </li>
+
+                <li class="li"> Select PATIENT_ID FROM INTERVENTIONS WHERE INVESTIGATION_DATE = ?</li>
+
+            </ul>
+<br/><a name="concept-table-per-class__fig_table_per_class"><!-- --></a><img class="image" id="concept-table-per-class__fig_table_per_class" src="../images/tech-arch/table-per-concrete-class.png" alt="Figure showing Table per Concrete Class Mapping Structure"/><br/></div>
+</div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/databaseSchemaDesign.html">Database Schema Designs</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Query Entities and Relationships"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/queryModel.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-model-architecture-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/queryModel.html"/>
+<meta name="DC.Creator" content="http://code.google.com/p/snofyre/"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Publisher" content="NHS Connecting for Health"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="topic-1"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>Query Entities and Relationships</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="topic-1"><a name="topic-1"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../topics/snofyre-model-architecture-overview.html">Design &amp; Modeling Overview</a> &gt; <a class="link" href="../topics/queryModel.html">Query Model</a> &gt; </div>
+<h1 class="book_title">Snofyre Technical Architecture Manual - Draft</h1>
+
+    <h1 class="title topictitle1">Query Entities and Relationships</h1>
+
+    <div class="body">
+        <p class="p">The ability of the Snofyre to author and execute complex queries is dependent on the
+            ability to combine different simpler query entities to create a more complex query. This
+            section provides an overview of the different entities available in Snofyre. </p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all"><caption><span class="tablecap">Table 1. Query Entity Types</span></caption>
+                
+                
+                <thead class="thead" align="left">
+                    <tr class="row">
+                        <th class="entry" valign="top" width="30%" id="d9465e47">Entity Type</th>
+
+                        <th class="entry" valign="top" width="70%" id="d9465e50">Short Description</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody class="tbody">
+                    <tr class="row">
+                        <td class="entry" valign="top" width="30%" headers="d9465e47 ">Query Expression</td>
+
+                        <td class="entry" valign="top" width="70%" headers="d9465e50 ">
+                            <p class="p">A Query Expression represents the abstract notion of
+            an atomic entity that that is used to create a query. In fact, all query entities
+            available within the Snofyre like <a class="xref" href="../concepts/query-component-expression.html#concept-query-component-expression">Sub Query Expression</a>, <a class="xref" href="../concepts/unionExpression.html#concept-union-expression">Union Expression</a> and <a class="xref" href="../concepts/intersectionExpression.html#concept-intersection-expression">Intersection
+                Expression</a> are all types of a Query Expression. This high level
+            abstraction allows for a query to be authored using any combination of sub query, union
+            or intersection expressions.</p>
+
+                        </td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" width="30%" headers="d9465e47 ">Query Criterion</td>
+
+                        <td class="entry" valign="top" width="70%" headers="d9465e50 ">
+                            <p class="p">A Query Criterion is the SNOMED CT encoded 'token' which the user
+            specifies as the criterion for retrieving clinical records/entries that match the
+            'token'. A Query Criterion can either be a SNOMED CT concept or a SNOMED CT encoded
+            post-coordinated expression. </p>
+
+                        </td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" width="30%" headers="d9465e47 ">Query Component Expression</td>
+
+                        <td class="entry" valign="top" width="70%" headers="d9465e50 ">
+                            <p class="p">A Query Component Expression is an entity that is
+            encapsulates a <a class="xref" href="../concepts/queryTerm.html#conceptId">Query Term</a> and
+            necessary descriptions that qualify the record entries matched against the search token
+            contained within the <a class="xref" href="../concepts/query-criterion.html#concept-query-criterion">Query Term</a>. A Query Component Expression is especially useful
+            for defining the precise boundaries on a 'search token' in relation to the subsumption
+            and concept descriptions that are features of SNOMED CT. </p>
+
+                        </td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" width="30%" headers="d9465e47 ">Intersection Expression</td>
+
+                        <td class="entry" valign="top" width="70%" headers="d9465e50 ">
+                            <p class="p">An Intersection Expression represents a collection of
+        two or more <a class="xref" href="../concepts/query-expression.html#concept-query-expression">Reporting
+            Expressions</a> joined using a logic <tt class="ph tt">AND</tt> operator (Intersection operator in Set
+                theory).</p>
+
+                        </td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" width="30%" headers="d9465e47 ">Union Expression</td>
+
+                        <td class="entry" valign="top" width="70%" headers="d9465e50 ">
+                            <p class="p">An Union Expression represents a collection of two or more <a class="xref" href="../concepts/query-expression.html#concept-query-expression">Query Expressions</a>
+            joined using a logic <tt class="ph tt">OR</tt> operator (Union operator in Set theory).</p>
+
+                        </td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" width="30%" headers="d9465e47 ">Query Statement</td>
+
+                        <td class="entry" valign="top" width="70%" headers="d9465e50 ">
+                            <p class="p">A entity that encapsulates one or more Query Expressions and
+            contains sufficient logic to be executed against a data store. It is the equivalent of
+            the logical transform of a user defined reporting query that is to be executed for data
+            retrieval.</p>
+
+                        </td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" width="30%" headers="d9465e47 ">Additional Constraint</td>
+
+                        <td class="entry" valign="top" width="70%" headers="d9465e50 ">
+                            <p class="p">An Additional Constraint is a numerical or temporal
+            criterion that can be used to refine the records that match a Query Component
+            Expression.
+        </p>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">Query Enity Relationships</h2>
+            
+            <p class="p">This section provides an overview of the relationships between the different query
+                entities. Since a Query Statement is an instance of Query Expression, it can contain
+                other Query Expressions that in turn can contain other Reporting Expressions. This
+                extensible model allows a Query Statement to be created using Query Component,
+                Intersection and Union expressions as components. Each of these components can be
+                refined using Additional Constraints.</p>
+
+            <div class="p">The following figure depicts the relationships between the various query entities
+                using UML.
+                <div class="fig fignone"><span class="figcap">Figure 1. Class Model for Query Objects</span>
+                    
+                    <img class="image" src="../images/modules/query-model-uml.png" height="83" width="469"/>
+                 </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/queryModel.html">Query Model</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>

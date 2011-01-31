@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Information Model"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-model-architecture-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/clinicalEntry.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/clinicalEvent.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/clinicalFinding.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/clinicalObservation.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/intervention.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/anatomicalLocation.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/investigation.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/medication.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/informationModelEntityRelationships.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-model-architecture-overview.html"/>
+<meta name="DC.Creator" content="http://code.google.com/p/snofyre/"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Publisher" content="NHS Connecting for Health"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="topic-information-model"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>Information Model</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="topic-information-model"><a name="topic-information-model"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../topics/snofyre-model-architecture-overview.html">Design &amp; Modeling Overview</a> &gt; </div>
+<h1 class="book_title">Snofyre Technical Architecture Manual - Draft</h1>
+
+    <h1 class="title topictitle1">Information Model</h1>
+
+    <div class="body">
+        <p class="p">This chapter offers a brief overview of the Information models that were used in the
+            Snofyre architecture and some of the implications of information models on the reporting
+            capabilities of Snofyre.</p>
+
+        <div class="p" id="topic-information-model__im_design_decisions"><a name="topic-information-model__im_design_decisions"><!-- --></a>Snofyre uses a propietary information model to persist and
+            retrieve objects (especially when simulated data is being generated). Since the main
+            focus of Snofyre is the Terminology Model rather than the Information Model, the
+            information model used in Snofyre is restricted using the following design
+                principles.<ul class="ul">
+                <li class="li">The Information Model will only include entities that are essential for clinical
+                    records with a primary focus on the terminology model.</li>
+
+                <li class="li">The attributes declared on the Information Model classes will be restricted to
+                    those defined by the scope of the project. The range and scope of attributes
+                    used might change to accomodate any change in the scope of the project in the
+                    future.</li>
+
+                <li class="li">Every clinical entity in the Information Model will encapsulate a SNOMED CT
+                    concept (or clinical expression) where appropriate.</li>
+
+                <li class="li">No conscious effort was made to align the different entities in the Information
+                    Model or the record structure itself with any known or published standards.</li>
+
+            </ul>
+</div>
+
+        <div class="section"><strong class="ph b">Information Model Entities</strong><p class="p">The following is a short description of the
+                important entites used within the Information Model. Please refer to the java docs
+                for more information if required.</p>
+</div>
+
+    </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../concepts/clinicalEntry.html">Clinical Entry</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/clinicalEvent.html">Clinical Event</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/clinicalFinding.html">Clinical Finding Entity</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/clinicalObservation.html">Clinical Observation Entity</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/intervention.html">Intervention Entity</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/anatomicalLocation.html">Anatomical Location Entity</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/investigation.html">Investigation Entity</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/medication.html">Medication Entity</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../topics/informationModelEntityRelationships.html">Information Model Entity Relationships</a></strong><br/>
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/snofyre-model-architecture-overview.html">Design &amp; Modeling Overview</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>

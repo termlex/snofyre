@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Query Expression"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/queryModel.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-model-architecture-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/queryModel.html"/>
+<meta name="DC.Creator" content="http://code.google.com/p/snofyre/"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Publisher" content="NHS Connecting for Health"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept-query-expression"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>Query Expression</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="concept-query-expression"><a name="concept-query-expression"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../topics/snofyre-model-architecture-overview.html">Design &amp; Modeling Overview</a> &gt; <a class="link" href="../topics/queryModel.html">Query Model</a> &gt; </div>
+<h1 class="book_title">Snofyre Technical Architecture Manual - Draft</h1>
+
+    <h1 class="title topictitle1">Query Expression</h1>
+
+    
+    <div class="body conbody"><p class="p" id="concept-query-expression__definition"><a name="concept-query-expression__definition"><!-- --></a>A Query Expression represents the abstract notion of
+            an atomic entity that that is used to create a query. In fact, all query entities
+            available within the Snofyre like <a class="xref" href="query-component-expression.html#concept-query-component-expression">Sub Query Expression</a>, <a class="xref" href="unionExpression.html#concept-union-expression">Union Expression</a> and <a class="xref" href="intersectionExpression.html#concept-intersection-expression">Intersection
+                Expression</a> are all types of a Query Expression. This high level
+            abstraction allows for a query to be authored using any combination of sub query, union
+            or intersection expressions.</p>
+
+        <div class="example" id="concept-query-expression__query_expression_examples"><a name="concept-query-expression__query_expression_examples"><!-- --></a><ul class="ul">
+                <li class="li" id="concept-query-expression__query_expression_example_1"><a name="concept-query-expression__query_expression_example_1"><!-- --></a>
+                    <p class="p">Query | All patients with Diabetes | is query that contains a single
+            Query Criterion (with a query term of 'Diabetes')</p>
+
+                </li>
+
+                <li class="li" id="concept-query-expression__query_expression_example_2"><a name="concept-query-expression__query_expression_example_2"><!-- --></a>
+                    <div class="p">Query | All patients with Diabetes AND Hypertension | is a query
+            that contains three query criteria; <ol class="ol">
+                <li class="li">QueryCriterion (with query term of 'Diabetes')</li>
+
+                <li class="li">QueryCriterion (with query term 'Hypertension')</li>
+
+                <li class="li">Intersection Expression that contains QueryCriterion objects #1 and #2</li>
+
+            </ol>
+</div>
+
+                </li>
+
+                <li class="li" id="concept-query-expression__query_expression_example_3"><a name="concept-query-expression__query_expression_example_3"><!-- --></a>
+                    <div class="p">Query | All patients with 'Diabetes' AND (Renal Disease OR Heart
+            Disease) | contains 5 reporting expressions.<ol class="ol">
+                <li class="li">QueryCriterion with query term 'Diabetes'</li>
+
+                <li class="li">QueryCriterion with query term 'Renal Disease'</li>
+
+                <li class="li">QueryCriterion with query term 'Heart Disease'</li>
+
+                <li class="li">Union Expression containing QueryCriterion objects #2 and # 3</li>
+
+                <li class="li">Intersection Expression containing QueryCriterion #1 and Union Expression
+                    #4</li>
+
+            </ol>
+</div>
+
+                </li>
+
+            </ul>
+.
+            </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/queryModel.html">Query Model</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Database Schema Designs"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-model-architecture-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/tablePerClass.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/tablePerClassHierarchy.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/tablePerSubClass.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-model-architecture-overview.html"/>
+<meta name="DC.Creator" content="http://code.google.com/p/snofyre/"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Publisher" content="NHS Connecting for Health"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="topic-database-schema-designs"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>Database Schema Designs</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="topic-database-schema-designs"><a name="topic-database-schema-designs"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../topics/snofyre-model-architecture-overview.html">Design &amp; Modeling Overview</a> &gt; </div>
+<h1 class="book_title">Snofyre Technical Architecture Manual - Draft</h1>
+
+    <h1 class="title topictitle1">Database Schema Designs</h1>
+
+    <div class="body">
+        <p class="p">This chapter describes the database schemas that were used to persist SNOMED CT encoded
+            test data that was generated as part of the project. It offers a brief overview of the
+            various table normalisation strategies considered and their implications on Snofyre's
+            reporting capabilities.</p>
+
+        <p class="p">It is traditional for clinical data to be treated as being made of distinct types of
+            entities. It is likely that when an object oriented language like Java is used to
+            represent the various clinical entities that comprise the clinical record, <em class="ph i">Object
+                Inheritance</em> and <em class="ph i">Polymorphism</em> are used to represent relationships between
+            the entities. However, in the absence of established means for persisting object
+            oriented data, there is a tendency to persist objects using mature technologies like
+            relational databases. It is not always possible to translate all the features of an
+            object oriented model into a relational model. Normalisation of relational table schema
+            is one such option for handling relationships between objects (though this does not
+            completely handle object inheritance). This section discusses the options for
+            normalisation of database tables used for persisting clinical data within an object
+            oriented information model that uses inheritance. </p>
+
+        <div class="section"><strong class="ph b">Problem Summary</strong><div class="p">In the world of Object Oriented Models vs Relational Model
+                    <ul class="ul">
+                    <li class="li">Object oriented models allow for the existence of ‘is a’ and a ‘has a’
+                        relationship to exist.</li>
+
+                    <li class="li">Relation Models only allow for the existence of ‘has a’ relationship</li>
+
+                </ul>
+In this context, ‘Inheritance’ is the ‘is a ‘ relationship that we are
+                interested in. Persisting object oriented data to a relational database requires
+                that object inheritance be incorporated into the relational database schemata. The
+                following is a brief description of the options for representing inheritance
+                hierarchy within a relational database. Please note that this discussion does not
+                deal with proprietary implementations of inheritance within certain relational
+                database management systems (RDBMS).</div>
+<div class="p">There are at least three different
+                options to handle inheritance with the RDBMS. Salient features of these three
+                mapping options are shown below.
+                    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all"><caption><span class="tablecap">Table 1. Flavours of Schema Design</span></caption>
+                            
+                            
+                            <thead class="thead" align="left">
+                                <tr class="row">
+                                    <th class="entry" valign="top" width="30%" id="d8202e72">Design Name</th>
+
+                                    <th class="entry" valign="top" width="70%" id="d8202e75">Short Summary</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody class="tbody">
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="30%" headers="d8202e72 ">Table Per Class</td>
+
+                                    <td class="entry" valign="top" width="70%" headers="d8202e75 ">
+                                        <p class="p">This is the object model to relational model mapping structure where every class in
+    the object model is mapped to a separate table.</p>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="30%" headers="d8202e72 ">Table per Class Hierarchy</td>
+
+                                    <td class="entry" valign="top" width="70%" headers="d8202e75 ">   
+                                        <p class="p">This is the object model to relational model mapping structure where all classes in
+            an inheritance hierarchy are mapped to a single table.
+        </p>
+</td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="30%" headers="d8202e72 ">Table per Sub Class</td>
+
+                                    <td class="entry" valign="top" width="70%" headers="d8202e75 ">                            <p class="p">This is the object model to relational model mapping structure where a separate
+    table is created for every sub class in the class hierarchy.</p>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+</div>
+
+                    
+                    The user is referred to topics on <a class="xref" href="../concepts/tablePerClass.html#concept-table-per-class">Table per Class
+                    Mapping</a>, <a class="xref" href="../concepts/tablePerClassHierarchy.html#concept-table-per-class-hierarchy">Table Per Class Hierarchy Mapping</a> and <a class="xref" href="../concepts/tablePerSubClass.html#concept-table-per-sub-class">Table per Sub
+                    Class Mapping</a> for more information on these mappings.</div>
+</div>
+
+        <div class="section"><strong class="ph b">Design Decisions</strong><div class="p" id="topic-database-schema-designs__rdbms_design_decisions"><a name="topic-database-schema-designs__rdbms_design_decisions"><!-- --></a>In view of the features of
+                the object model - relational model mapping strategies and the scope of the project,
+                the following principles were adopted for deciding the flavour of database schema to
+                be used in Snofyre.<ul class="ul">
+                    <li class="li">It is assumed that querying in the context of secondary uses of clinical
+                        data is performed over database tables that are completely
+                        denormalised.</li>
+
+                    <li class="li">For the purpose of demonstrating reporting capabilities, it is assumed that
+                        it is easier to create denormalised tables from normalised tables than the
+                        other way around.</li>
+
+                    <li class="li">It is assumed that denormalised table schemas will be easier to create in
+                        any ETL (Extraction, Transformation and Load) procedures that might need to
+                        be carried out if Snofyre were to be demonstrated across to a different
+                        database.</li>
+
+                </ul>
+</div>
+</div>
+
+    </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../concepts/tablePerClass.html">Table per Class Mapping</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/tablePerClassHierarchy.html">Table Per Class Hierarchy Mapping</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/tablePerSubClass.html">Table per Sub Class Mapping</a></strong><br/>
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/snofyre-model-architecture-overview.html">Design &amp; Modeling Overview</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>

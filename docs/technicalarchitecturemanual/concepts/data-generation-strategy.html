@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Data Generation Strategy"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/data-generation-process-considerations.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-process-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/data-generation-process-considerations.html"/>
+<meta name="DC.Creator" content="http://code.google.com/p/snofyre/"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Publisher" content="NHS Connecting for Health"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept-data-generation-strategy"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>Data Generation Strategy</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="concept-data-generation-strategy"><a name="concept-data-generation-strategy"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../topics/snofyre-process-overview.html">Process Overview</a> &gt; <a class="link" href="../topics/data-generation-process-considerations.html">Data Generation Considerations</a> &gt; </div>
+<h1 class="book_title">Snofyre Technical Architecture Manual - Draft</h1>
+
+    <h1 class="title topictitle1">Data Generation Strategy</h1>
+
+    
+    <div class="body conbody">
+        <p class="p" id="concept-data-generation-strategy__definition"><a name="concept-data-generation-strategy__definition"><!-- --></a>Data generation strategy refers to the selection process by which Snofyre chooses to add new record entries 
+            to existing patient records or to new patient records during data generation.
+        </p>
+
+        <div class="p"> 
+            <span class="q">"The total number of <tt class="ph tt">clinical entries</tt> stored in Snofyre at any given point of time is a product of the 
+                number of <tt class="ph tt">patient records</tt> and the number of <tt class="ph tt">clinical entries</tt> in each <tt class="ph tt">patient record</tt>.
+            "</span>
+            So, there are at least three different ways in which the total number of <tt class="ph tt">clinical entries</tt> in Snofyre's underlying 
+            database can be increased.
+            <ul class="ul">
+                <li class="li">Increasing the absolute number of <tt class="ph tt">patient records</tt></li>
+
+                <li class="li">Increasing the number of <tt class="ph tt">clinical entries</tt> in each <tt class="ph tt">patient record</tt>.</li>
+
+                <li class="li">Increasing numbers of both <tt class="ph tt">clinical entries</tt> and <tt class="ph tt">patient records</tt>.</li>
+
+            </ul>
+
+        </div>
+
+        <div class="p">
+            Snofyre supports three flavours of <tt class="ph tt">Data generation strategies</tt> that roughly 
+            correspond to these notions.
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all"><caption><span class="tablecap">Table 1. Flavours of Data Generation Strategy</span></caption>
+                    
+                    
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" width="30%" id="d1767e101">Strategy Name</th>
+
+                            <th class="entry" valign="top" width="70%" id="d1767e104">Summary Description</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" width="30%" headers="d1767e101 ">ADD_NEW_ALWAYS</td>
+
+                            <td class="entry" valign="top" width="70%" headers="d1767e104 ">Always increases the absolute number of patients by creating new patient records.</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="30%" headers="d1767e101 ">ALWAYS_APPEND</td>
+
+                            <td class="entry" valign="top" width="70%" headers="d1767e104 ">Only ever adds new entries to existing patient records.</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="30%" headers="d1767e101 ">ADD_IF_NOT_EXISTS</td>
+
+                            <td class="entry" valign="top" width="70%" headers="d1767e104 ">Only adds new patient records if specified entries number exceeds existing number of patients.
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+
+        </div>
+
+        <div class="example">For example, if Snofyre's database already contains 100 record entries (100 patient records with 1 clincal entry each) 
+            and we chose to add 500 new record entries with different data generation strategies, here is what would happen:
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all"><caption><span class="tablecap">Table 2. Flavours of Data Generation Strategy</span></caption>
+                    
+                    
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" width="30%" id="d1767e159">Strategy Name</th>
+
+                            <th class="entry" valign="top" width="70%" id="d1767e162">Result</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" width="30%" headers="d1767e159 ">ADD_NEW_ALWAYS</td>
+
+                            <td class="entry" valign="top" width="70%" headers="d1767e162 ">Result in a total of 600 patient records with 1 clinical entry in each patient record.</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="30%" headers="d1767e159 ">ALWAYS_APPEND</td>
+
+                            <td class="entry" valign="top" width="70%" headers="d1767e162 ">Results in a total of 100 patient records with all new 500 entries randomly added to the patient records. So 
+                            on an average each patient record might have about 6 clinical entries.</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="30%" headers="d1767e159 ">ADD_IF_NOT_EXISTS</td>
+
+                            <td class="entry" valign="top" width="70%" headers="d1767e162 ">Results in the creation of 500 patient records, with 2 entries per record for all existing 100 records and 
+                                1 entry per record for each of the newly created 400 patient records.
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/data-generation-process-considerations.html">Data Generation Considerations</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Snofyre Generic Architecture Principles"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/application-framework-introduction.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/application-framework-introduction.html"/>
+<meta name="DC.Creator" content="http://code.google.com/p/snofyre/"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Publisher" content="NHS Connecting for Health"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="topic-snofyre-generic-architecture-principles"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>Snofyre Generic Architecture Principles</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="topic-snofyre-generic-architecture-principles"><a name="topic-snofyre-generic-architecture-principles"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../topics/application-framework-introduction.html">Architecture Overview</a> &gt; </div>
+<h1 class="book_title">Snofyre Technical Architecture Manual - Draft</h1>
+
+    <h1 class="title topictitle1">Snofyre Generic Architecture Principles</h1>
+
+    <div class="body">
+        <div class="p"> In building Snofyre using a modular, service oriented archtiecture, we followed some
+            general good principles to keep the application design clean. These generic principles
+            make it easy to understand, configure and extend Snofyre in a clean way. <div class="note tip"><span class="tiptitle">Tip:</span>  We recommend adopting these following principles if you are thinking of
+                extending Snofyre's code base. </div>
+</div>
+
+        <div class="section" id="topic-snofyre-generic-architecture-principles__snofyre-generic-programming-principles"><a name="topic-snofyre-generic-architecture-principles__snofyre-generic-programming-principles"><!-- --></a><h2 class="title sectiontitle">Generic Programming Principles</h2>
+            
+            <ul class="ul">
+                <li class="li">MVC Pattern : Wherever possible, Snofyre uses the <tt class="ph tt">Model View Controller</tt>
+                    paradigm. This allows the creation of domain objects that services can use and
+                    views and controllers that correspond to <tt class="ph tt">view</tt> and <tt class="ph tt">action</tt>
+                    components. </li>
+
+                <li class="li"> Interfaces : Within Snofyre we generally pass <tt class="ph tt">Interfaces</tt> around and
+                    not <tt class="ph tt">Classes</tt>. This allows Snofyre to delegate all dynamic activation and
+                    deactivation of services to the underlying OSGi and Dependency frameworks. </li>
+
+                <li class="li"> Factory Interfaces : Where possible all domain objects in Snofyre are
+                    instantiated using a corresponding <tt class="ph tt">Factory</tt> interface. This is simply
+                    good programming practice! </li>
+
+                <li class="li"> OSGi References: Though Snofyre uses OSGi to for modular design, it does not
+                    add OSGi specific code to any of its implemented classes or interfaces. There
+                    are no OSGi <tt class="ph tt">Activators</tt>!. All of this is handled by Spring and Spring DM
+                    using XML configuration. This means we can use Snofyre's modules in a non-OSGi
+                    and non-Spring environment without having to add these dependencies. </li>
+
+                <li class="li">Unit Tests: Snofyre includes JUnit test cases for all services it implements!
+                    Please follow this convention when extending Snofyre. Testing is a fundamental
+                    apsect of creating good software!</li>
+
+            </ul>
+
+        </div>
+
+        <div class="section" id="topic-snofyre-generic-architecture-principles__snofyre-generic-application-design-principles"><a name="topic-snofyre-generic-architecture-principles__snofyre-generic-application-design-principles"><!-- --></a><h2 class="title sectiontitle">Generic Application Design Principles</h2>
+            
+            <ul class="ul">
+                <li class="li">Configuration files: All application configuration files always reside in the
+                    following path <span class="ph filepath">INSTALLATION_PATH/bin/settings</span>. We recommend
+                    using Java properties files where possible. If this is not possible, we
+                    recommend using <tt class="ph tt">Apache Commons Config</tt>
+                </li>
+
+                <li class="li"> Components/Modules: All Snofyre modules/components must reside in the following
+                    path <span class="ph filepath">INSTALLATION_PATH/bin/lib</span>. </li>
+
+                <li class="li"> Data : All Snofyre data (files loaded at boot or embedded databases) must
+                    reside in the following path <span class="ph filepath">INSTALLATION_PATH/bin/data</span>. </li>
+
+                <li class="li"> Encoding: Please use <tt class="ph tt">UTF-8</tt> where possible for all source code and
+                    configuration files. </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/application-framework-introduction.html">Architecture Overview</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>

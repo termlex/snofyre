@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Services Overview"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snomed-services-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/query-services-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/search-services-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Creator" content="http://code.google.com/p/snofyre/"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Publisher" content="NHS Connecting for Health"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="topic-1"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>Services Overview</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="topic-1"><a name="topic-1"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; </div>
+<h1 class="book_title">Snofyre Technical Architecture Manual - Draft</h1>
+
+    <h1 class="title topictitle1">Services Overview</h1>
+
+    <div class="body">
+        <p class="p">This section descibes how the various service components in Snofyre are organised. It
+            also introduces to some of the key vocabulary and that will be used later on in this
+            guide. </p>
+
+        <p class="p">Since Snofyre is based on functional architecture, it is composed of components that
+            provide different functionalities. Each of these individual components that provides a
+            specific application functionality or feature is referred to as a <strong class="ph b">Module</strong>. Some of
+            this vocabulary is borrowed from OSGi<a name="fnsrc_1" href="#fntarg_1"><sup>1</sup></a>, the modularity framework that Snofyre uses behind the scenes. A
+            collection of <em class="ph i">modules</em> that implement related software functionality, to satisfy a
+            functional requirement is called a <strong class="ph b">Service</strong>. In OSGi speak, a Snofyre <em class="ph i">module</em> and <em class="ph i">service</em> are equivalent to an OSGi <em class="ph i">bundle</em> and <em class="ph i">service</em> respectively. </p>
+
+        <div class="p"> The various modules (and services) that are implemented in Snofyre can be grouped into
+            three broad categories: <ul class="ul">
+                <li class="li">SNOMED CT Services</li>
+
+                <li class="li">Search Services</li>
+
+                <li class="li">Query Services</li>
+
+            </ul>
+<div class="fig fignone" id="topic-1__fig-snofyre-high-level-framework-overview"><a name="topic-1__fig-snofyre-high-level-framework-overview"><!-- --></a><span class="figcap">Figure 1. Snofyre Service Layer
+                    Overview</span>
+                <img class="image" src="../images/tech-arch/snofyre-functional-services-stack.png" height="118" width="299"/>
+            </div>
+SNOMED CT Services (and modules) implement functionality for representing, storing
+            and performing common operations on SNOMED CT content (concepts, relationships and
+            descriptions). On the other hand Query Services (and modules) deal with representing
+            functionality for supporting querying of SNOMED CT encoded data (not SNOMED CT content).
+            Most of the query related functionality has origins in the primary motivation of
+            Snofyre, explained <a class="xref" href="Snofyre-overview.html#topic-1__Snofyre-background">earlier</a>. Conceptually it is useful to separate Search Services
+            (and modules) from the rest of SNOMED CT Services because search functionality in
+            Snofyre is not based on traditional database search. It uses Lucene to provide lexical
+            search functionality.</div>
+
+        <div class="p">Since Snofyre uses a number of number of open source frameworks to implement some of its
+            functionality, the reader might find it useful to understand concepts related to these
+            underlying frameworks. The following is a list of concepts that the might be of
+            interest. <ul class="ul">
+                <li class="li">Dependency Injection (Spring , Spring DM)</li>
+
+                <li class="li">Modularity (OSGi)</li>
+
+                <li class="li">Object Relational Mapping (Hibernate)</li>
+
+                <li class="li">Lucene</li>
+
+                <li class="li">Tokenisation in Search</li>
+
+            </ul>
+</div>
+
+    </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../topics/snomed-services-overview.html">SNOMED CT Modules and Services</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../topics/query-services-overview.html">Snofyre Query Modules and Services</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../topics/search-services-overview.html">Search Services and Modules</a></strong><br/>
+</li>
+</ul>
+</div>
+<div class="fn"><a name="fntarg_1" href="#fnsrc_1"><sup>1</sup></a>  <a class="xref" href="http://www.osgi.org/About/Technology">http://www.osgi.org/About/Technology</a>OSGi is a dynamic module system for
+                Java</div><script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>

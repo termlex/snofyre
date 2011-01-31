@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Query Execution Process"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-process-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-process-overview.html"/>
+<meta name="DC.Creator" content="http://code.google.com/p/snofyre/"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Publisher" content="NHS Connecting for Health"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="topic-snofyre-query-execution-process"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>Query Execution Process</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="topic-snofyre-query-execution-process"><a name="topic-snofyre-query-execution-process"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../topics/snofyre-process-overview.html">Process Overview</a> &gt; </div>
+<h1 class="book_title">Snofyre Technical Architecture Manual - Draft</h1>
+
+    <h1 class="title topictitle1">Query Execution Process</h1>
+
+    <div class="body">
+        <p class="p">This section provides an overview of how Snofyre executes and generates results for a
+            given query against data contained in the data store. In order to focus on key
+            application logic, this section does not describe all the events that occur at the user
+            interface level during query execution.</p>
+
+        <div class="p">When the user creates a new query or load an existing query (from file) and pushes the
+                <span class="ph uicontrol">Run Query</span>button, Snofyre typically returns some results,
+            which are displayed in the <a class="xref" href="../appendix/resultViewPanel.html#topic-snofyre-query-results-panel">Query Results Panel</a>. The high level steps of this process are
+                shown in the figure below. 
+            <div class="fig fignone" id="topic-snofyre-query-execution-process__fig-snofyre-query-execution-process"><a name="topic-snofyre-query-execution-process__fig-snofyre-query-execution-process"><!-- --></a><span class="figcap">Figure 1. Snofyre's Query Execution
+                Process</span>
+                <img class="image" src="../images/tech-arch/query-execution-process-overview.png" height="265" width="427"/>
+            </div>
+
+        </div>
+
+            <div class="section" id="topic-snofyre-query-execution-process__detailed-steps"><a name="topic-snofyre-query-execution-process__detailed-steps"><!-- --></a><h2 class="title sectiontitle">Detailed steps</h2>
+                
+                The steps of this process are listed here and are also displayed in the figure
+                below. <ul class="ul">
+                    <li class="li">The SNOMED CT concept or post-coordinated expressions specified in the <a class="xref" href="../concepts/query-criterion.html#concept-query-criterion">query criterion</a> of a <a class="xref" href="../concepts/queryStatement.html#concept-query-statement">query</a> is identified.</li>
+
+                    <li class="li">The <tt class="ph tt">Short Normal Form (SNF)</tt> of this <tt class="ph tt">concept</tt> or <tt class="ph tt">post-coordinated expression</tt> is generated.</li>
+
+                    <li class="li">All the expressions stored in the database are compared against the <tt class="ph tt">Short
+                        Normal Form (SNF)</tt> for subsumption or equivalence. This step can be
+                        broken down into : <ul class="ul">
+                            <li class="li">Interate through every expression in the database.</li>
+
+                            <li class="li">Since every expression is stored in the compositional grammar form, it
+                                is parsed and an object representation is recreated.</li>
+
+                            <li class="li">The <tt class="ph tt">Long Normal Form (LNF)</tt> of this reconstituted expression is
+                                generated.</li>
+
+                            <li class="li">The generated <tt class="ph tt">Long Normal Form (LNF)</tt> is compared with the <tt class="ph tt">Short Normal Form (SNF)</tt> of the query criterion for equivalence
+                                or subsumption.</li>
+
+                            <li class="li">If the <tt class="ph tt">Long Normal Form (LNF)</tt> is subsumed, then the expression
+                                in the given row is included in the results. If it not equivalent or
+                                subsumed, it is excluded from the result set.</li>
+
+                            <li class="li">This process is repeated for every expression stored in the database,
+                                till entries in all the rows have been processed.</li>
+
+                        </ul>
+</li>
+
+                </ul>
+
+                <div class="fig fignone" id="topic-snofyre-query-execution-process__fig-snofyre-query-execution-process"><a name="topic-snofyre-query-execution-process__fig-snofyre-query-execution-process"><!-- --></a><span class="figcap">Figure 2. Snofyre's Query Execution
+                    Process</span>
+                    <img class="image" src="../images/tech-arch/query-execution-process-1.png" height="311" width="428"/>
+                </div>
+
+                <p class="p">Snofyre uses three functional services to perform the various tasks in this
+                    process. These services are described below. </p>
+
+            </div>
+
+        <div class="section"><h2 class="title sectiontitle">Normal Form Generator</h2>
+            
+            <div class="p">The Normal Form Generator carries is involved in the following steps:<ul class="ul">
+                    <li class="li">Generation of <tt class="ph tt">Short Normal Form</tt> of the <tt class="ph tt">Query
+                        Criterion</tt>.</li>
+
+                    <li class="li">Generation of <tt class="ph tt">Long Normal Form</tt> of the <tt class="ph tt">expression</tt> stored in
+                        the database.</li>
+
+                </ul>
+Details of normal form generation are described in greater detail in the
+                Functional Services Manual. <div class="note attention"><span class="attentiontitle">Attention:</span> Please note that the <tt class="ph tt">Short
+                        Normal Form</tt> of the <tt class="ph tt">Query Criterion</tt> is created, not the <tt class="ph tt">Long Normal Form</tt>.</div>
+</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Expression Converter</h2>
+            
+            <div class="p">The <tt class="ph tt">Expression Converter</tt> service parses the expression stored in the
+                database and generates an object representation of the expression. Details of the
+                    <tt class="ph tt">Expression Converter</tt> are described in the Functional Services Manual.
+                    <div class="note attention"><span class="attentiontitle">Attention:</span> Since the expressions stored in the database are
+                    represented in their <tt class="ph tt">compositional grammar form</tt>, we need the <tt class="ph tt">Expression Converter</tt> to their object form. </div>
+</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Expression Comparator</h2>
+            
+            <div class="p">The <tt class="ph tt">Expression Comparator</tt> service compares the <tt class="ph tt">Long Normal Form</tt> of
+                the <tt class="ph tt">expression</tt> stored in the database, with the <tt class="ph tt">Short Normal Form</tt>
+                of the <tt class="ph tt">query criterion</tt>. The results of this test determine if the given
+                expression will be included in or excluded from the result of query. <div class="note attention"><span class="attentiontitle">Attention:</span> Please note that the heuristics used by <tt class="ph tt">Expression
+                        Comparator</tt> service are implemented in Java code and do not reside in
+                    any stored procedure in the database. </div>
+</div>
+
+        </div>
+
+        <p class="p"> The various steps in the process at which these three services act is shown below. </p>
+
+        <div class="fig fignone" id="topic-snofyre-query-execution-process__fig-services-in-query-execution-process"><a name="topic-snofyre-query-execution-process__fig-services-in-query-execution-process"><!-- --></a><span class="figcap">Figure 3. Services involved in Query
+                Execution Process</span>
+            <img class="image" src="../images/tech-arch/query-execution-process-2.png" height="309" width="439"/>
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/snofyre-process-overview.html">Process Overview</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Query Component Expression"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/queryModel.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-model-architecture-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/queryModel.html"/>
+<meta name="DC.Creator" content="http://code.google.com/p/snofyre/"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Publisher" content="NHS Connecting for Health"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept-query-component-expression"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>Query Component Expression</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="concept-query-component-expression"><a name="concept-query-component-expression"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../topics/snofyre-model-architecture-overview.html">Design &amp; Modeling Overview</a> &gt; <a class="link" href="../topics/queryModel.html">Query Model</a> &gt; </div>
+<h1 class="book_title">Snofyre Technical Architecture Manual - Draft</h1>
+
+    <h1 class="title topictitle1">Query Component Expression</h1>
+
+    
+    <div class="body conbody"><p class="p" id="concept-query-component-expression__definition"><a name="concept-query-component-expression__definition"><!-- --></a>A Query Component Expression is an entity that is
+            encapsulates a <a class="xref" href="queryTerm.html#conceptId">Query Term</a> and
+            necessary descriptions that qualify the record entries matched against the search token
+            contained within the <a class="xref" href="query-criterion.html#concept-query-criterion">Query Term</a>. A Query Component Expression is especially useful
+            for defining the precise boundaries on a 'search token' in relation to the subsumption
+            and concept descriptions that are features of SNOMED CT. </p>
+<div class="section" id="concept-query-component-expression__included_query_criterion"><a name="concept-query-component-expression__included_query_criterion"><!-- --></a><h2 class="title sectiontitle">Included Query Criterion</h2>
+            
+            <p class="p">A Query Component Expression always encapsulates a single 'search token' in the form
+                of a Query Criterion to specify the record entries to be matched against. This Query
+                Criterion instance is referred to as the Included Query Term since all record
+                entries matching this term will be returned. The scope of records returned can be
+                narrowed or broadened using Subsumption strategy of the query term. </p>
+
+        </div>
+
+        <div class="example">Query | Get all patients who have 'Myocardial Infarction'| is a Sub Query
+            Expression that contains a Query Term 'Myocardial Infarction'. </div>
+
+        <div class="section" id="concept-query-component-expression__excluded_query_criterion"><a name="concept-query-component-expression__excluded_query_criterion"><!-- --></a><h2 class="title sectiontitle">Exluded Query Criteria</h2>
+            
+            <div class="p">Though the boundaries of a 'search token' can be defined using the Subsumption
+                strategy property on the Query Criterion, there are cases where some 'search tokens'
+                will need to be excluded from the concept hierarchy specified by the Subsumption
+                Strategy. The Query Component Expression allows these excluded search tokens to be
+                specified as 'Excluded Criteria' within the results matched by the 'search token' of
+                the Included Query Criteria. <div class="note note"><span class="notetitle">Note:</span> A Query Component Expression can contain zero or
+                    more excluded query terms. Each of these Excluded Query Criteria can in turn
+                    specify their own Subsumption strategy. </div>
+</div>
+
+        </div>
+
+        <div class="example">Query | Get all patients who have 'Myocardial Infarction' EXCEPT 'Acute Q Wave
+            Myocardial Infarction'| is a Sub Query Expression that contains:<ul class="ul">
+                <li class="li">Included Query Term : 'Myocardial Infarction'</li>
+
+                <li class="li">Excluded Query Term : 'Acute Q Wave Myocardial Infarction'</li>
+
+            </ul>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Additional Constraints</h2>
+            <a class="xref" href="additionalConstraint.html#conceptId"> Additional
+                Constraints</a> represent another way of refining the matches that are returned
+            by a Query Component Expression. The combination of Subsumption strategy, excluded terms
+            and additional criteria offers the user a generic but effective mechanism to specify the
+            criteria for record retrieval. </div>
+</div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/queryModel.html">Query Model</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>

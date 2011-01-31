@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Query Results Panel"/>
+<meta name="DC.Relation" scheme="URI" content="../appendix/appendix.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../appendix/appendix.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/dockedPanel.html"/>
+<meta name="DC.Creator" content="http://code.google.com/p/snofyre/"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Publisher" content="NHS Connecting for Health"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="topic-snofyre-query-results-panel"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>Query Results Panel</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="topic-snofyre-query-results-panel"><a name="topic-snofyre-query-results-panel"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../appendix/appendix.html">Appendix</a> &gt; </div>
+<h1 class="book_title">Snofyre Technical Architecture Manual - Draft</h1>
+
+    <h1 class="title topictitle1">Query Results Panel</h1>
+
+    <div class="body">
+        <p class="p">This is the part of Snofyre's graphical user interface displays the results of the
+            execution of a query against the test data.</p>
+
+        <div class="p">This panel is usually located at the top right hand side of the application. <br/><a name="topic-snofyre-query-results-panel__fig_active_query_panel"><!-- --></a><img class="image" id="topic-snofyre-query-results-panel__fig_active_query_panel" src="../images/user-manual/query-results-panel.png" height="150" width="454" alt="Figure showing Query Results Panel"/><br/> It contains two sections: <ul class="ul">
+                <li class="li">Query Statistics</li>
+
+                <li class="li">Results Table</li>
+
+            </ul>
+</div>
+
+        <div class="section"><strong class="ph b">Query Statistics</strong><div class="p">This section of the panel displays information about<ul class="ul">
+                    <li class="li">Number of patients satisfying the criteria specified in the query.</li>
+
+                    <li class="li">Query Time : The time needed to execute the query against the test data and
+                        display the results in the Results View Panel. Please refer to <a class="xref" href="../topics/interpretingResults.html#topic-1__query_time">Query Time</a> for more information. <div class="note note"><span class="notetitle">Note:</span> 
+                            The time take to return the results set from the backend might be
+                            slightly less than the time needed to return the result set from the
+                            database and render in the table in the graphical user interface.
+                        </div>
+</li>
+
+                </ul>
+</div>
+</div>
+
+        <div class="section"><strong class="ph b">Results Table</strong><p class="p">This section of the panel displays the results of query
+                execution for visual inspection by the user. The table in general displays the
+                following information.</p>
+<ul class="ul">
+                <li class="li">Patient Id : The id of the patient who satisfied all the criteria defined in the
+                    query.</li>
+
+                <li class="li">Free Text Entry : The free text entry corresponding to the necessary criteria in
+                    the query.</li>
+
+                <li class="li">Entry Time : The entry time for every entry corresponding to the necessary
+                    criteria in the query.</li>
+
+                <li class="li">Concept ID : The concept ID or UUID (if present) that corresponds to the
+                    necessary criteria that satisfy the query.</li>
+
+            </ul>
+<div class="note important"><span class="importanttitle">Important:</span>  Snofyre hides the Entry Time and Concept ID columns in the
+                Results Table by default. </div>
+<div class="note tip"><span class="tiptitle">Tip:</span>  You can sort the contents of the
+                columns in the Results Table, by clicking on the column name. This is useful when
+                you need an alphanumeric sorting of the free text entries. </div>
+<p class="p">Please refer to
+                    <a class="xref" href="../topics/interpretingResults.html#topic-1">Interpreting Results</a> for more information on 'necessary criteria' and
+                the the columns included in each result set. </p>
+</div>
+
+    </div>
+
+    <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../appendix/appendix.html">Appendix</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong><br/>
+<div><a class="link" href="../concepts/dockedPanel.html">Docked Panel</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>

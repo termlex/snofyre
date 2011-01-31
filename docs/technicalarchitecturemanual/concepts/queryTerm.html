@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Query Term"/>
+<meta name="DC.subject" content="Query Term, search token, token, subsumption"/>
+<meta name="keywords" content="Query Term, search token, token, subsumption"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="conceptId"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>Query Term</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="conceptId"><a name="conceptId"><!-- --></a>
+
+<div class="breadcrumb"/>
+<h1 class="book_title">Snofyre Technical Architecture Manual - Draft</h1>
+
+    <h1 class="title topictitle1">Query Term</h1>
+
+    
+    <div class="body conbody"><p class="p" id="conceptId__query_term_definition"><a name="conceptId__query_term_definition"><!-- --></a>A query term is the SNOMED CT encoded 'token' which the
+            user specifies as the criterion for retrieving clinical records/entries that match the
+            'token'. A Query Term can either be a SNOMED CT concept ID or a SNOMED CT encoded
+            clinical expression. </p>
+<div class="note note"><span class="notetitle">Note:</span> Typically users associate concept ids and text strings
+            with query terms, but in a post-coordination enabled system,it might not always be
+            possible to associate a single concept id or text string with a Query
+            Term.</div>
+<div class="example" id="conceptId__query_term_example"><a name="conceptId__query_term_example"><!-- --></a>The following are all valid examples of a
+            Query Term: <ul class="ul">
+                <li class="li">22298006|Myocardial Infarction (disorder)|</li>
+
+                <li class="li">222 ...</li>
+
+            </ul>
+</div>
+<div class="section" id="conceptId__subsumption_strategy"><a name="conceptId__subsumption_strategy"><!-- --></a><strong class="ph b">Subsumption Strategy</strong><div class="p">The
+                boundaries of a 'search token' can be defined using the Subsumption strategy
+                property which allows the user to specify the depth in the concept hierarchy that
+                needs to be traversed while returning matches.<dl class="dl">
+                    
+                        <dt class="dt dlterm">SELF_ONLY</dt>
+
+                        <dd class="dd">Specifies that only the 'search token' included in the Query Term is to
+                            be used to return matches.</dd>
+
+                    
+                </dl>
+<dl class="dl">
+                    
+                        <dt class="dt dlterm">ALL_CHILDREN</dt>
+
+                        <dd class="dd">Specifies that the 'search token' in the Query Term and all its child
+                            concepts/expressions are to be used to return matches.</dd>
+
+                    
+                </dl>
+<dl class="dl">
+                    
+                        <dt class="dt dlterm">ALL_DESCENDANTS</dt>
+
+                        <dd class="dd">Specifies that the 'search token' in the Query Term and all its
+                            descendant concepts/expressions are to be used to return matches.</dd>
+
+                    
+                </dl>
+<dl class="dl">
+                    
+                        <dt class="dt dlterm">ALL_CHILDREN_EXCEPT_SELF</dt>
+
+                        <dd class="dd">Specifies that all the children of the 'search token' in the Query Term
+                            but not the 'search token' itself are to be used to return matches.</dd>
+
+                    
+                </dl>
+<dl class="dl">
+                    
+                        <dt class="dt dlterm">ALL_DESCENDANTS_EXCEPT_SELF</dt>
+
+                        <dd class="dd">Specifies that all the descendants of the 'search token' in the Query
+                            Term but not the 'search token' itself are to be used to return
+                            matches.</dd>
+
+                    
+                </dl>
+</div>
+</div>
+<div class="example" id="conceptId__example_subsumption"><a name="conceptId__example_subsumption"><!-- --></a>In the following figure, we
+            represent subsumption relations between 5 entities. <br/><a name="conceptId__fig_subsumption"><!-- --></a><img class="image" id="conceptId__fig_subsumption" src="../images/subsumption.png" alt="Subsumption Relationships Example"/><br/><div class="p">The following are the named logical relationships between Entity A and the
+                other entities.
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="void" border="1" rules="all"><caption><span class="tablecap">Table 1. Named Subsumption Relationships</span></caption>
+                        
+                        
+                        
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" id="d5090e125">Entity </th>
+
+                                <th class="entry" valign="top" id="d5090e128">Relationship to Entity </th>
+
+                                <th class="entry" valign="top" id="d5090e131">Entities with Relationship</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d5090e125 "><strong class="ph b">A</strong></td>
+
+                                <td class="entry" valign="top" headers="d5090e128 "><em class="ph i">CHILDREN</em></td>
+
+                                <td class="entry" valign="top" headers="d5090e131 ">B, C</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d5090e125 "><strong class="ph b">A</strong></td>
+
+                                <td class="entry" valign="top" headers="d5090e128 "><em class="ph i">DESCENDANTS</em></td>
+
+                                <td class="entry" valign="top" headers="d5090e131 ">B,C, D, E</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d5090e125 "><strong class="ph b">B</strong></td>
+
+                                <td class="entry" valign="top" headers="d5090e128 "><em class="ph i">CHILDREN</em></td>
+
+                                <td class="entry" valign="top" headers="d5090e131 ">-</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d5090e125 "><strong class="ph b">B</strong></td>
+
+                                <td class="entry" valign="top" headers="d5090e128 "><em class="ph i">DESCENDANTS</em></td>
+
+                                <td class="entry" valign="top" headers="d5090e131 ">-</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d5090e125 "><strong class="ph b">C</strong></td>
+
+                                <td class="entry" valign="top" headers="d5090e128 "><em class="ph i">CHILDREN</em></td>
+
+                                <td class="entry" valign="top" headers="d5090e131 ">D, E</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d5090e125 "><strong class="ph b">C</strong></td>
+
+                                <td class="entry" valign="top" headers="d5090e128 "><em class="ph i">DESCENDANTS</em></td>
+
+                                <td class="entry" valign="top" headers="d5090e131 ">-</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+</div>
+</div>
+<div class="example">Query | Get all patients with 'Myocardial Infarction'
+            | typically returns all patients who have a mention of 'Myocardial Infarction' in their
+            record. However, this query typically will not return patients with 'Acute Q Wave
+            Myocardial Infarction' even though "Acute Q Wave Myocardial Infarction' is a type of
+            'Myocardial Infarction'. In fact, SNOMED CT lists 75 types of 'Myocardial Infarction'
+            and ideally, one would expect the afore mentioned query to return any patient who had
+            any of the 75 types of 'Myocardial Infarction'.</div>
+</div>
+
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>

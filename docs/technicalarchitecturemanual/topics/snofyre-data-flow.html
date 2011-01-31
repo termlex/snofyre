@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Data Flow in Snofyre"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-process-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/snofyre-process-overview.html"/>
+<meta name="DC.Creator" content="http://code.google.com/p/snofyre/"/>
+<meta name="DC.Creator" content="Jay Kola"/>
+<meta name="DC.Publisher" content="NHS Connecting for Health"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="topic-snofyre-data-flow"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../gsite.css"/>
+<title>Data Flow in Snofyre</title>
+<script type="text/javascript" src="../prettify-2009-01-08/prettify.js">//filler</script><link rel="stylesheet" type="text/css" href="../prettify-2009-01-08/prettify.css"/><link rel="stylesheet" type="text/css" href="../qwcode.highlight.css"/></head>
+<body id="topic-snofyre-data-flow"><a name="topic-snofyre-data-flow"><!-- --></a>
+
+<div class="breadcrumb"><a class="link" href="../index.html" title="TOC">TOC</a> &gt; <a class="link" href="../topics/snofyre-process-overview.html">Process Overview</a> &gt; </div>
+<h1 class="book_title">Snofyre Technical Architecture Manual - Draft</h1>
+
+    <h1 class="title topictitle1">Data Flow in Snofyre</h1>
+
+    <div class="body">
+        <p class="p">This section provides a high level view of how data is generated and manipulated
+            (queried) in Snofyre. We refer to this as <tt class="ph tt">Data Flow</tt>, even though there is no
+            transaction of data outside of Snofyre. However, under the hood data is being transacted
+            between the MySQL persistence store and Snofyre's components. </p>
+
+        <div class="p"> Of all the various components that comprise Snofyre, there are two important components
+            that deal exclusively with data transactions. <ul class="ul">
+                <li class="li">Data Generator : This component creates new data and stores it in the MySQL
+                    database.</li>
+
+                <li class="li">Query Executor : This component queries the data in the underlying MySQL
+                    database and presents it to the user.</li>
+
+            </ul>
+Most user actions in Snofyre's user interface deal one of these two transactional
+            components. Both <tt class="ph tt">Data Generator</tt> and <tt class="ph tt">Query Executor</tt> are infact high
+            level abstract notions. In reality, they are just a collection of Snofyre's services
+            that together carry out these high level functions. </div>
+
+        <div class="fig fignone" id="topic-snofyre-data-flow__fig-snofyre-high-level-framework-overview"><a name="topic-snofyre-data-flow__fig-snofyre-high-level-framework-overview"><!-- --></a><span class="figcap">Figure 1. Snofyre's High Level
+                Components</span>
+            <img class="image" src="../images/tech-arch/snofyre-application-components-overview.png" height="324" width="445"/>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Query Executor</h2>
+            
+            <div class="p">The Query Executor consists of the <a class="xref" href="snofyre-query-transformer-service.html#topic-Snofyre-query-transformer-service" title="This module provides the methods that transform the a given QueryExpression into its corresponding SQL statements.">Query Transformer Service</a>, that transforms Query objects
+                into corresponding SQL statements. These SQL statements are then executed against
+                the MySQL database and the results returned are displayed on the screen. The details
+                of query execution are described in greater detail in LINK HERE.. <div class="note attention"><span class="attentiontitle">Attention:</span> It is important to remember that the Query Transformer Service
+                    generates MySQL specifc native SQL and uses JDBC to execute queries against the
+                    underlying database. </div>
+</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Data Generator</h2>
+            
+            <div class="p">The Data Generator consists of the <a class="xref" href="snofyre-data-generator-service.html#topic-Snofyre-data-generator-service" title="This module provides the methods for creating plausible clinical data containing pre and post-coordinated expressions.">Data Generator Service</a>, that generates new data based on
+                parameters specified using a query. The Data Generator Service generates random sub
+                types of the criteria specified in the query and stores this random data within
+                patient records held in the MySQL database. The details of data generation are
+                described in greater detail in LINK HERE.. <div class="note attention"><span class="attentiontitle">Attention:</span> It is important to
+                    remember that unlike the Query Transformer Service, the Data Generator Service
+                    uses Hibernate as the broker to store data to the MySQL database. Since we are
+                    less concerned with the data storage than we are with query, we can afford to
+                    use this Hibernate as an abstraction over the persistence store.</div>
+</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">User Interface</h2>
+            
+            <div class="p">The User Interface concerned with data flow consists of the <a class="xref" href="../appendix/queryCreationPanel.html#topic-snofyre-query-creation-panel">Query Authoring Panel</a>, that allows the user to
+                author/create new queries to execute against existing data and the <a class="xref" href="../appendix/data-generation-panel.html#topic-snofyre-data-generation-panel">Data Generation Panel</a> that allows the user to specify
+                parameters for generating new data. Since details of these user interface components
+                really belongs to the User Manual, we've included only relevant aspects of the
+                underlying service parameters in the next few chapters. <div class="note attention"><span class="attentiontitle">Attention:</span> It is
+                    important to remember that Snofyre's modular architecture means the User
+                    Interface is essentially a thin layer that hooks into the underlying services.
+                    This allows for the existing Java Swing user interface to be replaced with a
+                    different user interface framework (as long as it can talk to the underlying
+                    services).</div>
+</div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/snofyre-process-overview.html">Process Overview</a></div>
+</div>
+</div>
+<script type="text/javascript">prettyPrint();</script><div id="gc-footer" dir="ltr">
+    <hr/>
+    <div class="text">
+        This manual is still being updated. We apologise for illustrations that still display Snofyre's developmental name (Sappheiros).
+        <div class="notice"> SNOMED CT, Java and MySQL are registered trademarks</div>
+    </div>
+    <hr/>    
+</div>
+</body>
+</html>

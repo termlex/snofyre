@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<link rel="stylesheet" type="text/css" href="gsite.css"/>
+<title>SNOFYRE - Technical Architecture Manual How Snofyre works under the hood</title>
+</head>
+<body>
+<ul>
+<li><a href="topics/documentOrganisation.html">How this document is organised</a></li>
+<li><a href="topics/technical-architecture-manual-introduction.html">Introduction</a>
+<ul>
+<li><a href="topics/snofyre-generic-notice.html">Notice</a></li>
+<li><a href="topics/open-government-license.html">License</a></li>
+<li><a href="topics/snofyre-overview.html">What is Snofyre?</a></li>
+</ul>
+</li>
+<li><a href="topics/user-manual-getting-started.html">Getting Started</a>
+<ul>
+<li><a href="topics/purposeOfDocument.html">Purpose of this document</a></li>
+<li><a href="topics/audience.html">Audience</a></li>
+<li><a href="topics/systemRequirements.html">System Requirements</a></li>
+<li><a href="tasks/reporting-issues.html">Reporting Issues</a></li>
+</ul>
+</li>
+<li><a href="topics/application-framework-introduction.html">Architecture Overview</a>
+<ul>
+<li><a href="topics/application-framework-overview.html">Snofyre Application Framework Overview</a></li>
+<li><a href="topics/high-level-application-framework.html">High Level Application Framework</a>
+<ul>
+<li><a href="concepts/modular-docking-framework.html">Modular Docking Framework</a></li>
+<li><a href="concepts/view-component.html">View Component</a></li>
+<li><a href="concepts/action-component.html">Action Component</a></li>
+<li><a href="concepts/application-listeners.html">Application Listener</a></li>
+</ul>
+</li>
+<li><a href="topics/snofyre-generic-architecture-principles.html">Snofyre Generic Architecture Principles</a></li>
+<li><a href="topics/snofyre-external-frameworks.html">Snofyre External Frameworks</a></li>
+</ul>
+</li>
+<li><a href="topics/snofyre-core-services-overview.html">Services Overview</a>
+<ul>
+<li><a href="topics/snomed-services-overview.html">SNOMED CT Modules and Services</a></li>
+<li><a href="topics/query-services-overview.html">Snofyre Query Modules and Services</a></li>
+<li><a href="topics/search-services-overview.html">Search Services and Modules</a></li>
+</ul>
+</li>
+<li><a href="topics/snofyre-process-overview.html">Process Overview</a>
+<ul>
+<li><a href="topics/snofyre-data-flow.html">Data Flow in Snofyre</a></li>
+<li><a href="topics/query-execution-process.html">Query Execution Process</a></li>
+<li><a href="topics/query-execution-process-considerations.html">Query Execution Considerations</a>
+<ul>
+<li><a href="concepts/databaseDialect.html">Database Dialect</a></li>
+<li><a href="concepts/tableCreationStrategy.html">Table Creation Strategy</a></li>
+<li><a href="concepts/queryExecutionState.html">Query Execution State</a></li>
+</ul>
+</li>
+<li><a href="topics/data-generation-process.html">Data Generation Process</a></li>
+<li><a href="topics/data-generation-process-considerations.html">Data Generation Considerations</a>
+<ul>
+<li><a href="concepts/data-generation-strategy.html">Data Generation Strategy</a></li>
+</ul>
+</li>
+<li><a href="topics/interpretingResults.html">Interpreting Results</a></li>
+<li><a href="concepts/explainingResults.html">Explaining Results</a></li>
+</ul>
+</li>
+<li><a href="topics/snofyre-model-architecture-overview.html">Design &amp; Modeling Overview</a>
+<ul>
+<li><a href="topics/queryModel.html">Query Model</a>
+<ul>
+<li><a href="concepts/query-criterion.html">Query Criterion</a></li>
+<li><a href="concepts/query-component-expression.html">Query Component Expression</a></li>
+<li><a href="concepts/unionExpression.html">Union Expression</a></li>
+<li><a href="concepts/intersectionExpression.html">Intersection Expression</a></li>
+<li><a href="concepts/additionalConstraint.html">Additional Constraint</a></li>
+<li><a href="concepts/query-expression.html">Query Expression</a></li>
+<li><a href="concepts/queryStatement.html">Query Statement</a></li>
+<li><a href="topics/entityRelationships.html">Query Entities and Relationships</a></li>
+</ul>
+</li>
+<li><a href="topics/informationModel.html">Information Model</a>
+<ul>
+<li><a href="concepts/clinicalEntry.html">Clinical Entry</a></li>
+<li><a href="concepts/clinicalEvent.html">Clinical Event</a></li>
+<li><a href="concepts/clinicalFinding.html">Clinical Finding Entity</a></li>
+<li><a href="concepts/clinicalObservation.html">Clinical Observation Entity</a></li>
+<li><a href="concepts/intervention.html">Intervention Entity</a></li>
+<li><a href="concepts/anatomicalLocation.html">Anatomical Location Entity</a></li>
+<li><a href="concepts/investigation.html">Investigation Entity</a></li>
+<li><a href="concepts/medication.html">Medication Entity</a></li>
+<li><a href="topics/informationModelEntityRelationships.html">Information Model Entity Relationships</a></li>
+</ul>
+</li>
+<li><a href="topics/databaseSchemaDesign.html">Database Schema Designs</a>
+<ul>
+<li><a href="concepts/tablePerClass.html">Table per Class Mapping</a></li>
+<li><a href="concepts/tablePerClassHierarchy.html">Table Per Class Hierarchy Mapping</a></li>
+<li><a href="concepts/tablePerSubClass.html">Table per Sub Class Mapping</a></li>
+</ul>
+</li>
+<li><a href="topics/designDecisionsSummary.html">Design Decisions Summary</a></li>
+</ul>
+</li>
+<li><a href="appendix/appendix.html">Appendix</a>
+<ul>
+<li><a href="appendix/queryStatementExamples.html">Query Statement Examples</a></li>
+<li><a href="appendix/data-generation-panel.html">Data Generation Panel</a></li>
+<li><a href="appendix/queryCreationPanel.html">Query Authoring Panel</a></li>
+<li><a href="appendix/resultViewPanel.html">Query Results Panel</a></li>
+</ul>
+</li>
+</ul>
+</body>
+</html>
