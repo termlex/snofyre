@@ -20,6 +20,9 @@ import com.izforge.izpack.util.AbstractUIProcessHandler;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 
@@ -64,20 +67,51 @@ public class DocumentationLauncher {
         }
     }
 
+    public void launchOnlineDocumentation(URL url){
+
+        if(Desktop.isDesktopSupported())
+        {
+            Desktop desktop = Desktop.getDesktop();
+            // open the file
+            try
+            {
+                if (url != null) {
+                    desktop.browse(url.toURI());
+                }
+            }
+            catch (IOException e) {
+                logger.warning("Error launching browser. Nested exception is : " + e.fillInStackTrace().getMessage());
+            }
+            catch (URISyntaxException e) {
+                logger.warning("Error launching browser. Nested exception is : " + e.fillInStackTrace().getMessage());
+            }
+        }
+    }
+
     public void run(AbstractUIProcessHandler handler, String[] args) {
 
         DocumentationLauncher documentationLauncher = new DocumentationLauncher();
         logger.info("args = " + args.length);
-        // check there are exactly four arguments
-        if(args.length == 2)
+        // check there are exactly three arguments
+        if(args.length == 3)
         {
             String pdfDocUrl = args[0];
             String installPath = args[1];
+            String onlineDocURL = args[2];
             File f = new File(installPath, pdfDocUrl);
             logger.info("pdf file getAbsolutePath() = " + f.getAbsolutePath());
             if(f.exists())
             {
                 documentationLauncher.launchDocumentation(f);
+            }
+            else
+            {
+                try {
+                    documentationLauncher.launchOnlineDocumentation(new URL(onlineDocURL));
+                }
+                catch (MalformedURLException e) {
+                    logger.warning("Error launching document. Nested exception is : " + e.fillInStackTrace().getMessage());
+                }
             }
 
             logger.info("Finished launching "+pdfDocUrl);

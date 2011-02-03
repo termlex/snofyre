@@ -1,0 +1,11 @@
+open www.uktcdownload.nss.cfh.nhs.uk
+user $trud.user.name
+$trud.password
+prom off
+cd NHSSNOFYRE
+cd 2.0.0
+cd NHS_SNOFYREDATA
+binary
+get ${trud.pack.name}
+disconnect
+bye

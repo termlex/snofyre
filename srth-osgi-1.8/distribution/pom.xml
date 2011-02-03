@@ -10,8 +10,8 @@
     <properties>
         <spring.dm.version>1.2.0</spring.dm.version>
         <spring.core.version>2.5.6.SEC01</spring.core.version>
-        <snobj.project.version>0.8-SNAPSHOT</snobj.project.version>
-        <yasb.project.version>0.8-SNAPSHOT</yasb.project.version>
+        <snobj.project.version>0.8</snobj.project.version>
+        <yasb.project.version>0.8</yasb.project.version>
         <staging.dir>${project.build.directory}/staging</staging.dir>
         <configurator.staging.dir>${project.build.directory}/configurator-staging</configurator.staging.dir>
         <osgi.dir>osgi</osgi.dir>
@@ -23,17 +23,11 @@
         <app.configurator.name>AppPathFormatter</app.configurator.name>
         <executable.name>bin</executable.name>
         <installer.free.packs.location>/Users/Shared/Sappheiros/</installer.free.packs.location>
-        <!--<snomed.data.file.name>snomed-data.zip</snomed.data.file.name>-->
-        <!--<snomed.index.file.name>index.zip</snomed.index.file.name>-->
-        <!--<sappheiros.data.file.name>snofyre-data.zip</sappheiros.data.file.name>-->
-        <!--<sappheiros.javadoc.file.name>apidocs.zip</sappheiros.javadoc.file.name>-->
-        <!--<snomed.mrcm.file.name>mrcm.zip</snomed.mrcm.file.name>-->
         <inst.man.name>snofyre-installation-manual.pdf</inst.man.name>
         <func.serv.man.name>snofyre-functional-services-manual.pdf</func.serv.man.name>
         <tech.arch.man.name>snofyre-technical-architecture-manual.pdf</tech.arch.man.name>
         <user.man.name>snofyre-user-manual.pdf</user.man.name>
         <packs.folder>packs</packs.folder>
-        <!--<trud.pack.name>Archive.zip</trud.pack.name>-->
         <trud.url>www.uktcdownload.nss.cfh.nhs.uk</trud.url>
         <snofyre.download.url>http://snofyre.googlecode.com/files/</snofyre.download.url>
         <!--<trud.pack.name>nhs_snofyre_test_pack.zip</trud.pack.name>-->
@@ -41,12 +35,7 @@
         <trud.pack.path>NHSSNOFYRE/2.0.0/NHS_SNOFYREDATA/</trud.pack.path>
         <api.code.site>http://code.google.com/p/snofyre/</api.code.site>
         <api.contact.email>snofyre-users@googlegroups.com</api.contact.email>
-        <installation.guide.location>http://docs.snofyre.googlecode.com/hg/install-guide/html/frameset.html</installation.guide.location>
-        <!--<snomed.index.location>/Applications/SRTHApp/bin/index</snomed.index.location>-->
-        <!--<snomed.data.location>/Users/Shared/Sappheiros/</snomed.data.location>-->
-        <!--<snomed.index.location>/Users/Shared/Sappheiros/</snomed.index.location>-->
-        <!--<sappheiros.javadoc.location>/Users/Shared/Sappheiros/</sappheiros.javadoc.location>-->
-        <!--<sappheiros.data.location>/Users/Shared/Sappheiros/</sappheiros.data.location>-->
+        <installation.guide.location>https://snofyre.googlecode.com/svn/docs/installationmanual/index.html</installation.guide.location>
     </properties>
 
     <modelVersion>4.0.0</modelVersion>
@@ -344,7 +333,8 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>uk.nhs.cfh.dsp.srth.distribution.DocumentationLauncher</mainClass>
+                            <!--<mainClass>uk.nhs.cfh.dsp.srth.distribution.DocumentationLauncher</mainClass>-->
+                            <mainClass>uk.nhs.cfh.dsp.srth.distribution.ZipArchiveUtils</mainClass>
                             <!--<mainClass>uk.nhs.cfh.dsp.srth.distribution.FileDownloader</mainClass>-->
                         </manifest>
                         <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>                                                    
@@ -399,7 +389,6 @@
                                   <outputDirectory>${staging.dir}/temp</outputDirectory>
                               </artifactItem>
                           </artifactItems>
-                          <!--<outputDirectory>${project.build.directory}/wars</outputDirectory>-->
                           <overWriteReleases>false</overWriteReleases>
                           <overWriteSnapshots>true</overWriteSnapshots>
                       </configuration>
@@ -424,7 +413,7 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>config-assembly</id> <!-- this is used for inheritance merges -->
+                        <id>config-assembly</id> 
                         <phase>package</phase> <!-- append to the packaging phase. -->
                         <goals>
                             <goal>single</goal>
@@ -432,7 +421,8 @@
                         <configuration>
                             <archive>
                                 <manifest>
-                                    <mainClass>uk.nhs.cfh.dsp.srth.distribution.DocumentationLauncher</mainClass>
+                                    <!--<mainClass>uk.nhs.cfh.dsp.srth.distribution.DocumentationLauncher</mainClass>-->
+                                    <mainClass>uk.nhs.cfh.dsp.srth.distribution.ZipArchiveUtils</mainClass>
                                 </manifest>
                             </archive>
                             <finalName>${app.configurator.name}</finalName>
@@ -443,7 +433,7 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>installer-assembly</id> <!-- this is used for inheritance merges -->
+                        <id>installer-assembly</id>
                         <phase>deploy</phase> <!-- append to the packaging phase. -->
                         <goals>
                             <goal>single</goal>

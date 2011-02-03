@@ -62,9 +62,9 @@ import java.util.logging.Logger;
    
      public Status validateData(AutomatedInstallData arg) {
 
-         String userName = arg.getVariable("trud.user.name");
+         String userName = arg.getVariable("trud.user.name").trim();
          String serverURL = arg.getVariable("trud.url");
-         char[] pwd = arg.getVariable("trud.password").toCharArray();
+         char[] pwd = arg.getVariable("trud.password").trim().toCharArray();
 
          boolean result = false;
          try

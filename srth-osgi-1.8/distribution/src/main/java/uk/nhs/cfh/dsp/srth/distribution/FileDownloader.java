@@ -15,21 +15,17 @@
  */
 package uk.nhs.cfh.dsp.srth.distribution;
 
-import org.apache.commons.compress.archivers.zip.ZipArchiveEntry;
-import org.apache.commons.compress.archivers.zip.ZipArchiveInputStream;
-import org.apache.commons.compress.archivers.zip.ZipFile;
-import org.apache.commons.compress.utils.IOUtils;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 import org.apache.commons.net.ftp.FTPReply;
 import org.jdesktop.swingx.JXLoginPane;
 
+import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.*;
 import java.net.URL;
-import java.util.Enumeration;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 
@@ -48,6 +44,7 @@ public class FileDownloader {
     private FTPClient ftpClient;
     private final static int BUFFER = 1024;
     private static final String ERR_MESSAGE = "Nested exception message is : ";
+    private long maxBytes = 0;
 
     public FileDownloader() {
         this(new FTPClient());
@@ -102,6 +99,95 @@ public class FileDownloader {
         }
     }
 
+    public void getFileFromStreamWithProgress(InputStream inputStream, String outputURL){
+
+        try
+        {
+            File outputFile = new File(outputURL);
+            boolean exists = outputFile.exists();
+            logger.info("exists = " + exists);
+            if(!exists)
+            {
+                exists = outputFile.createNewFile();
+                logger.info("exists after new file create = " + exists);
+            }
+
+            if(exists)
+            {
+                FileOutputStream fos = new FileOutputStream(outputFile);
+                logger.info("fos = " + fos);
+                fos.flush();
+                ProgressMonitorInputStream pmis =
+                        new ProgressMonitorInputStream(null, "Getting file... "+outputFile.getName(), inputStream);
+                pmis.getProgressMonitor().setMillisToDecideToPopup(50);
+                pmis.getProgressMonitor().setMaximum(Math.round(maxBytes));
+                logger.info("Math.round(maxBytes) = " + Math.round(maxBytes));
+
+                BufferedOutputStream bout = new BufferedOutputStream(fos);
+                bout.flush();
+                logger.info("Getting ready to write bytes...");
+
+                byte[] buffer = new byte[BUFFER];
+                int count = 0;
+                int n = 0;
+
+                while ((n = inputStream.read(buffer)) != -1) {
+                    bout.write(buffer, 0, n);
+                    count += n;
+                    Object[] byteCounts = {count, maxBytes};
+                    String message = String.format("Downloaded %d of %d bytes.\n", byteCounts);
+                    pmis.getProgressMonitor().setNote(message);
+                }
+                logger.info("count = " + count);
+                fos.flush();
+                bout.flush();
+
+//                byte[] data = new byte[BUFFER];
+//                while (true) {
+//                    int count = pmis.read(data);
+//                    if (count < 0) break;
+//                    bout.write(data, 0, count);
+//                }
+
+//                byte[] b = new byte[BUFFER];
+//                int read;
+//                while ((read = pmis.read(b)) != -1) {
+//                    bout.write(b, 0, read);
+//                }
+
+//                int res;
+//                while ((res = pmis.read()) != -1) {
+//                    bout.write(res);
+//                }
+
+//                int i = 0;
+//                byte[] data = new byte[BUFFER];
+//                // write data
+//                while((i = inputStream.read(data,0,BUFFER)) >=0)
+//                {
+//                    bout.write(data, 0, i);
+//                }
+
+//                long bytesCopied = IOUtils.copy(pmis, fos, BUFFER);
+//                logger.info("Finished writing bytes : "+bytesCopied);
+
+                // close streams
+                bout.close();
+                fos.close();                
+                pmis.close();
+            }
+
+            // log message
+            logger.info("Successfully downloaded file to : "+outputURL);
+        }
+        catch (FileNotFoundException e) {
+            logger.warning(ERR_MESSAGE+ e.fillInStackTrace());
+        }
+        catch (IOException e) {
+            logger.warning(ERR_MESSAGE+ e.fillInStackTrace());
+        }
+    }
+
     public void getFileFromURL(URL inputURL, String outputURL) throws IOException {
         getFileFromStream(inputURL.openStream(), outputURL);
     }
@@ -110,7 +196,7 @@ public class FileDownloader {
         getFileFromURL(new URL(inputURL), outputURL);
     }
 
-    public void getFileFromTRUDArchive(String trudArchiveName, String fileName, String outputURL){
+    public void getFileFromTRUD(String fileName, String outputURL){
 
         logger.info("Now getting file... ");
         if (ftpClient.isConnected())
@@ -120,160 +206,12 @@ public class FileDownloader {
             try
             {
                 ftpClient.setFileTransferMode(FTP.BINARY_FILE_TYPE);
+//                ftpClient.setBufferSize(BUFFER);
                 logger.info("Sending NOOP command... ");
                 // send NOOP command to see if connection is still active
                 if(ftpClient.sendNoOp())
                 {
                     logger.info("ftpClient.getReplyString() = " + ftpClient.getReplyString());
-                    FTPFile[] files = ftpClient.listFiles(getPackPath());
-                    for(FTPFile file : files)
-                    {
-                        logger.info("file.getName() = " + file.getName());
-                        logger.info("file.getSize() = " + file.getSize());
-                        if(file.getName().equals(trudArchiveName) && file.getSize() > 0)
-                        {
-                            InputStream is = ftpClient.retrieveFileStream(getPackPath() +trudArchiveName);
-
-                            if (is != null)
-                            {
-                                ZipArchiveInputStream zipArchiveInputStream = new ZipArchiveInputStream(is);
-                                ZipArchiveEntry zipArchiveEntry = zipArchiveInputStream.getNextZipEntry();
-                                while(zipArchiveEntry != null)
-                                {
-                                    String zippedArchiveEntryName = zipArchiveEntry.getName();
-                                    logger.info("zippedArchiveEntryName = " + zippedArchiveEntryName);
-                                    logger.info("fileName = " + fileName);
-                                    if(zippedArchiveEntryName.equals(fileName))
-                                    {
-                                        logger.info("Extracting: " +zippedArchiveEntryName);
-                                        File outputLocation = new File(outputURL);
-                                        boolean canWrite = outputLocation.exists();
-                                        logger.info("canWrite = " + canWrite);
-                                        if(! canWrite)
-                                        {
-                                            canWrite = outputLocation.mkdirs();
-                                            logger.info("canWrite after mkdirs = " + canWrite);
-                                        }
-
-                                        if (canWrite && outputLocation.canWrite())
-                                        {
-                                            logger.info("outputLocation.getPath() = " + outputLocation.getPath());
-                                            File destinationFile = new File(outputLocation.getAbsolutePath(), zippedArchiveEntryName);
-                                            OutputStream out = new FileOutputStream(destinationFile);
-                                            IOUtils.copy(zipArchiveInputStream, out);
-                                            out.close();
-
-                                            if (zippedArchiveEntryName.indexOf(".zip") > -1)
-                                            {
-                                                // unpackZip file
-                                                extractZipFileContents(destinationFile);
-                                            }
-                                        }
-                                    }
-                                    else
-                                    {
-                                        logger.info("Resetting zipArchiveEntry");
-                                        zipArchiveEntry = zipArchiveInputStream.getNextZipEntry();
-                                        if (zipArchiveEntry != null) {
-                                            logger.info("zipArchiveEntry.getName() = " + zipArchiveEntry.getName());
-                                        }
-                                    }
-
-                                }
-
-                                zipArchiveInputStream.close();
-                                is.close();
-                            }
-                            break;
-                        }
-                    }
-                    
-                    // complete pending commands; needed after opening and closing streams
-                    ftpClient.completePendingCommand();
-                }
-                else
-                {
-                    logger.warning("FTP connection might have timed out.");
-                    ftpClient.disconnect();
-                }
-            }
-            catch (IOException e) {
-                logger.warning("FTP connection might have timed out. "+ERR_MESSAGE + e.fillInStackTrace());
-            }
-        }
-        else
-        {
-            logger.warning("No connection to TRUD is available. Ensure FTP connection is open");
-        }
-    }
-
-    private void copyInputStream(InputStream in, OutputStream out)
-            throws IOException
-    {
-        byte[] buffer = new byte[1024];
-        int len;
-
-        while((len = in.read(buffer)) >= 0)
-            out.write(buffer, 0, len);
-
-        in.close();
-        out.close();
-        logger.info("Finished copying inputstream.");
-    }
-
-    private void extractZipFileContents(File file) {
-        Enumeration entries;
-
-        try {
-            logger.info("Extracting zip file contents...");
-            ZipFile zipFile = new ZipFile(file);
-
-            entries = zipFile.getEntries();
-
-            while(entries.hasMoreElements()) {
-                ZipArchiveEntry entry = (ZipArchiveEntry)entries.nextElement();
-
-                if(entry.isDirectory()) {
-
-                    logger.info("Extracting directory: " + entry.getName());
-                    File dir = new File(file.getParent(), entry.getName());
-                    boolean canWrite = dir.exists();
-                    if(! canWrite)
-                    {
-                        canWrite = dir.mkdir();
-                    }
-
-                    if(canWrite){
-                        continue;
-                    }
-                    else{
-                        logger.warning("Error creating directory during extraction");
-                    }
-                }
-
-                logger.info("Extracting file: " + entry.getName());
-                copyInputStream(zipFile.getInputStream(entry),
-                        new BufferedOutputStream(new FileOutputStream(new File(file.getParent(), entry.getName()))));
-            }
-
-            zipFile.close();
-            logger.info("Closed zip file.");
-        } catch (IOException e) {
-            logger.warning("Nested exception is : " + e.fillInStackTrace());
-        }
-    }
-
-    public void getFileFromTRUD(String fileName, String outputURL){
-
-        logger.info("Now getting file... ");
-        if (ftpClient.isConnected())
-        {
-            // now get file specified by inputURL
-            try
-            {
-                // send NOOP command to see if connection is still active
-                if(ftpClient.sendNoOp())
-                {
                     logger.info("Now listing directory... ");
                     FTPFile[] files = ftpClient.listFiles(getPackPath());
                     for(FTPFile file : files)
@@ -282,13 +220,34 @@ public class FileDownloader {
                         logger.info("file.getSize() = " + file.getSize());
                         if(file.getName().equals(fileName) && file.getSize() > 0)
                         {
+//                            File destinationFile = new File(outputURL);
+//                            OutputStream out = new FileOutputStream(destinationFile);
+//                            ftpClient.retrieveFile(getPackPath()+fileName, out);
+//                            out.flush();
+//                            out.close();
+//                            logger.info("Done retrieving file from server");
+
                             InputStream is = ftpClient.retrieveFileStream(getPackPath() +fileName);
+                            logger.info("is = " + is);
+                            // set maxbytes
+                            maxBytes = file.getSize();
                             if (is != null) {
-                                getFileFromStream(is, outputURL);
+
+                                logger.info("is.available() = " + is.available());
+//                                File destinationFile = new File(outputURL);
+//                                OutputStream out = new FileOutputStream(destinationFile);
+//                                IOUtils.copy(is, out);
+//                                out.close();
+
+                                getFileFromStreamWithProgress(is, outputURL);
+                                // close stream
+                                is.close();
                             }
                             break;
                         }
                     }
+                    // complete pending commands; needed after opening and closing streams
+                    ftpClient.completePendingCommand();
                 }
                 else
                 {

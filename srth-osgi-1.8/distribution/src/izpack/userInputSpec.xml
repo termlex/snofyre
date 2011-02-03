@@ -67,8 +67,7 @@
         <field type="staticText" align="left"
                txt="Please follow all the steps described in the ${application.name} Installation Manual that the installer automatically opened for you. The installation manual describes how to import ${application.name} and SNOMED CT data into the local installation of MySQL server."/>
         <field type="space"/>
-        <field type="staticText" align="left" txt="If you closed the manual or the installer did not open it for you, it is located at $INSTALL_PATH\docs\${sappheiros.configuration.guide.name}."/>
-        <!--<field type="space"/>-->
+        <field type="staticText" align="left" txt="If you closed the manual or the installer did not open it for you, it is located at $INSTALL_PATH\docs\${inst.man.name}."/>        <!--<field type="space"/>-->
         <field type="divider" align="top"/>
 
         <!-- MySQL Server Installed -->
@@ -81,11 +80,11 @@
         </field>
         <field type="space"/>
         <field type="check" align="left" variable="mysql.snomed.data.import.check">
-          <spec txt="Have you imported the supplied SNOMED CT data into MySQL?" true="Yes" false="No"/>
+          <spec txt="Have you imported SNOMED CT data into MySQL?" true="Yes" false="No"/>
         </field>
         <field type="space"/>
         <field type="check" align="left" variable="mysql.sappheiros.data.import.check">
-          <spec txt="Have you imported the supplied ${application.name} data into MySQL?" true="Yes" false="No"/>
+          <spec txt="Have you imported the imported ${application.name} data into MySQL?" true="Yes" false="No"/>
         </field>
         <field type="space"/>
         <field type="check" align="left" variable="mysql.server.snomed.db.permissions.check">
