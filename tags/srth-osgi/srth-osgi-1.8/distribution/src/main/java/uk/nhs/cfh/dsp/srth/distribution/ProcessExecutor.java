@@ -33,11 +33,12 @@ public class ProcessExecutor {
 
     private static Logger logger = Logger.getLogger(ProcessExecutor.class.getName());
     private final static String SEPARATOR = System.getProperty("file.separator");
+    private final static String TEMP_FOLDER = System.getProperty("java.io.tmpdir");
 
     public ProcessExecutor() {
         try
         {
-            logger.addHandler(new FileHandler(System.getProperty("java.io.tmpdir")+
+            logger.addHandler(new FileHandler(TEMP_FOLDER+
                     SEPARATOR+"configurator.log", true));
         }
         catch (IOException e) {
@@ -58,10 +59,10 @@ public class ProcessExecutor {
             String packName = args[1];
             logger.info("packName = " + packName);
             handler.logOutput("PackName = " + packName, true);
-            String userName = args[2];
+            String userName = args[2].trim();
             logger.info("userName = " + userName);
-            handler.logOutput("Skipping username = " + userName, true);
-            String pwd = args[3];
+            handler.logOutput("Using username = " + userName, true);
+            String pwd = args[3].trim();
             handler.logOutput("Skipping password...", true);
             String installType = args[5];
             logger.info("installType = " + installType);
@@ -74,39 +75,79 @@ public class ProcessExecutor {
             logger.info("downloadURL = " + downloadURL);
             handler.logOutput("Opening connection to "+downloadURL, true);
 
-            TRUDLoginService trudLoginService = new TRUDLoginService();
+//            TRUDLoginService trudLoginService = new TRUDLoginService();
             try
             {
                 File outputDirectory = new File(installPath);
 
                 if(outputDirectory.exists() && outputDirectory.isDirectory() && outputDirectory.canWrite())
                 {
-                    trudLoginService.authenticate(userName, pwd.toCharArray(), downloadURL);
-                    logger.info("Finished authenticating to "+downloadURL);
-                    handler.logOutput("Finished authenticating to "+downloadURL, true);
-
-                    fileDownloader.setPackPath(packPath);
-                    logger.info("fd.getPackPath() = " + fileDownloader.getPackPath());
-                    // dont have to validate again, because we checked in previous installation step
-                    fileDownloader.setFtpClient(trudLoginService.getFtpClient());
-                    logger.info("Got ftp client from login service...");
-                    handler.logOutput("Got ftp client from login service...", true);
-
-                    // set ftp client in fileDownloader
-                    fileDownloader.setFtpClient(trudLoginService.getFtpClient());
-
-                    handler.logOutput("Getting Snofyre DATA", true);
-                    fileDownloader.getFileFromTRUDArchive(packName, "snofyre-data.zip",
-                            installPath);
-
-                    if("full".equals(installType))
-                    {
-                        handler.logOutput("Getting SNOMED CT DATA", true);
-                        fileDownloader.getFileFromTRUDArchive(packName, "snomed-data.zip",
-                                installPath);
-                    }
-
+//                    trudLoginService.authenticate(userName, pwd.toCharArray(), downloadURL);
+//                    logger.info("Finished authenticating to "+downloadURL);
+//                    handler.logOutput("Finished authenticating to "+downloadURL, true);
+//
+//                    fileDownloader.setPackPath(packPath);
+//                    logger.info("fd.getPackPath() = " + fileDownloader.getPackPath());
+//                    // dont have to validate again, because we checked in previous installation step
+//                    fileDownloader.setFtpClient(trudLoginService.getFtpClient());
+//                    logger.info("Got ftp client from login service...");
+//                    handler.logOutput("Got ftp client from login service...", true);
+//
+//                    // set ftp client in fileDownloader
+//                    fileDownloader.setFtpClient(trudLoginService.getFtpClient());
+//
+//                    handler.logOutput("Getting "+packName, true);
+////                    fileDownloader.getFileFromTRUD(packName, installPath+SEPARATOR+packName);
+//                    String downloadedPackPath = installPath+SEPARATOR+packName;
+//                    fileDownloader.getFileFromTRUD(packName, downloadedPackPath);
                     handler.logOutput("Finished downloading all packs from TRUD", true);
+
+                    // check downloaded pack exists
+                    String downloadedPackPath = installPath+SEPARATOR+packName;
+                    handler.logOutput("Verifying downloaded pack and starting extraction", true);                    
+                    File downloadedPack = new File(downloadedPackPath);
+                    if(downloadedPack.exists() && downloadedPack.canRead())
+                    {
+                        // extract pack into temp folder
+                        ZipArchiveUtils.extractZipFileContents(downloadedPack);
+//                        fileDownloader.extractZipFileContents(downloadedPack);
+
+                        // extract snofyre data to installation folder
+                        handler.logOutput("Extracting SNOFYRE Pack", true);
+//                        fileDownloader.extractZipFileContents(new File(TEMP_FOLDER, "snofyre-data.zip"), installPath);
+//                        if("full".equals(installType))
+//                        {
+//                            handler.logOutput("Extracting SNOMED CT DATA", true);
+//                            fileDownloader.extractZipFileContents(new File(TEMP_FOLDER, "snomed-data.zip"), installPath);
+//                        }
+//                        fileDownloader.extractZipFileContents(downloadedPack);
+                        ZipArchiveUtils.extractZipFileContents(downloadedPack);
+
+                        File snofyrePack = new File(installPath, "snofyre-data.zip");
+                        if(snofyrePack.exists() && snofyrePack.canRead())
+                        {
+                            handler.logOutput("Extracting SNOFYRE CT DATA", true);
+//                            fileDownloader.extractZipFileContents(snofyrePack);
+                            ZipArchiveUtils.extractZipFileContents(snofyrePack);
+                        }
+
+                        if("full".equals(installType))
+                        {
+                            File snomedPack = new File(installPath, "snomed-data.zip");
+                            if(snomedPack.exists() && snomedPack.canRead())
+                            {
+                                handler.logOutput("Extracting SNOMED CT DATA", true);                                
+//                                fileDownloader.extractZipFileContents(snomedPack);
+                                ZipArchiveUtils.extractZipFileContents(snomedPack);
+                            }
+                        }
+                        
+                        handler.logOutput("Finished downloading all packs from TRUD", true);
+                    }
+                    else
+                    {
+                        handler.logOutput("Error unpacking downloaded pack. Pack has not been downloaded or is corrupt!", false);
+                    }
                 }
                 else
                 {

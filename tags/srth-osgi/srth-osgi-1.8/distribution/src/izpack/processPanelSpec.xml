@@ -19,7 +19,36 @@
 
 <processing>
 
+    <job name="Download TRUD Data">
+        <os family="windows" />
+        <executefile name="$INSTALL_PATH/ftp-get.bat">
+        </executefile>
+    </job>
+    <job name="Download TRUD Data">
+        <os family="mac" />
+        <executefile name="$INSTALL_PATH/ftp-get.sh">
+        </executefile>
+    </job>
+    <job name="Download TRUD Data">
+        <os family="unix" />
+        <executefile name="$INSTALL_PATH/ftp-get.sh">
+            <!--<arg>doit</arg><arg>$variable</arg>-->
+        </executefile>
+    </job>
     <!-- Do not change the order of the arguments - they are hard coded -->
+    <!--<job name="Downloading IHTSDO Licensed Data">-->
+        <!--<executeclass name="uk.nhs.cfh.dsp.srth.distribution.ProcessExecutor">-->
+            <!--<arg>${trud.pack.path}</arg>-->
+            <!--<arg>${trud.pack.name}</arg>-->
+            <!--<arg>$trud.user.name</arg>-->
+            <!--<arg>$trud.password</arg>-->
+            <!--<arg>${packs.folder}</arg>-->
+            <!--<arg>$install.type.selection</arg>-->
+            <!--<arg>$INSTALL_PATH</arg>-->
+            <!--<arg>${trud.url}</arg>-->
+        <!--</executeclass>-->
+    <!--</job>-->
+
     <job name="Downloading IHTSDO Licensed Data">
         <executeclass name="uk.nhs.cfh.dsp.srth.distribution.ProcessExecutor">
             <arg>${trud.pack.path}</arg>
@@ -37,6 +66,7 @@
         <executeclass name="uk.nhs.cfh.dsp.srth.distribution.DocumentationLauncher">
             <arg>$pdf.doc.url</arg>
             <arg>$INSTALL_PATH</arg>
+            <arg>${installation.guide.location}</arg>
         </executeclass>
     </job>
     <onFail previous="true" next="false" />

@@ -35,7 +35,7 @@
         </authors>
         <url>${api.code.site}</url>
         <javaversion>1.6</javaversion>
-        <summarylogfilepath>$INSTALL_PATH/Uninstaller/install.log</summarylogfilepath>
+        <summarylogfilepath>$INSTALL_PATH/install.log</summarylogfilepath>
         <uninstaller name="${application.name}-Uninstaller.jar"/>
         <!--<webdir>https://svn.connectingforhealth.nhs.uk/svn/public/srp/installer</webdir>-->
     </info>
@@ -165,8 +165,8 @@
     <packs>
         <pack name="License" required="yes">
             <description>The license files</description>
-            <file src="README.TXT" targetdir="$INSTALL_PATH" />
-            <file src="LICENSE.TXT" targetdir="$INSTALL_PATH" />
+            <file src="readme.html" targetdir="$INSTALL_PATH" />
+            <file src="license.html" targetdir="$INSTALL_PATH" />
         </pack>
         <pack id="doc" name="Documentation" required="no" loose="false">
             <description>The documentation for ${application.name} </description>
@@ -180,8 +180,36 @@
             <description>The application</description>
             <file src="${executable.name}.zip" targetdir="$INSTALL_PATH/" unpack="true"/>
         </pack>
-        <pack name="Post installation scripts" required="yes">
-            <description>Post-installation scripts that handle configuration and clean up</description>
+        <pack name="Snofyre FTP scripts" required="yes">
+            <description>Post-installation scripts that download Snofyre Data from TRUD</description>
+            <file src="bin/ftp-get.sh" targetdir="$INSTALL_PATH" os="mac"/>
+            <file src="bin/ftp-get.sh" targetdir="$INSTALL_PATH" os="unix"/>
+            <file src="bin/ftp-get.bat" targetdir="$INSTALL_PATH" os="windows"/>
+            <file src="bin/extract-pack.sh" targetdir="$INSTALL_PATH/configurator" os="mac"/>
+            <file src="bin/extract-pack.sh" targetdir="$INSTALL_PATH/configurator" os="unix"/>
+            <file src="bin/extract-pack.bat" targetdir="$INSTALL_PATH/configurator" os="windows"/>
+            <file src="bin/ftp_info.txt" targetdir="$INSTALL_PATH" os="windows"/>
+            <file src="bin/packextract.properties" targetdir="$INSTALL_PATH/configurator"/>
+
+            <parsable type="shell" targetfile="$INSTALL_PATH/configurator/extract-pack.sh" os="mac" encoding="utf-8"/>
+            <parsable type="shell" targetfile="$INSTALL_PATH/configurator/extract-pack.sh" os="unix" encoding="utf-8"/>
+            <parsable type="plain" targetfile="$INSTALL_PATH/configurator/extract-pack.bat" os="windows" encoding="utf-8"/>
+            <parsable type="shell" targetfile="$INSTALL_PATH/ftp-get.sh" os="mac" encoding="utf-8"/>
+            <parsable type="shell" targetfile="$INSTALL_PATH/ftp-get.sh" os="unix" encoding="utf-8"/>
+            <parsable type="plain" targetfile="$INSTALL_PATH/ftp-get.bat" os="windows" encoding="utf-8"/>
+            <parsable type="plain" targetfile="$INSTALL_PATH/ftp_info.txt" os="windows" encoding="utf-8"/>
+            <parsable type="javaprop" targetfile="$INSTALL_PATH/configurator/packextract.properties" encoding="utf-8"/>
+
+            <executable targetfile="$INSTALL_PATH/configurator/extract-pack.sh" stage="never" keep="true" os="mac"/>
+            <executable targetfile="$INSTALL_PATH/configurator/extract-pack.sh" stage="never" keep="true" os="unix"/>
+            <executable targetfile="$INSTALL_PATH/configurator/extract-pack.bat" stage="never" keep="true" os="windows"/>
+            <executable targetfile="$INSTALL_PATH/ftp-get.sh" stage="never" keep="false" os="mac"/>
+            <executable targetfile="$INSTALL_PATH/ftp-get.sh" stage="never" keep="false" os="unix"/>
+            <executable targetfile="$INSTALL_PATH/ftp-get.bat" stage="never" keep="false" os="windows"/>
+            <executable targetfile="$INSTALL_PATH/ftp_info.txt" stage="never" keep="false" os="windows"/>
+        </pack>
+        <pack name="Application Launch scripts" required="yes">
+            <description>Application Launch and other scripts</description>
             <file src="bin/run.sh" targetdir="$INSTALL_PATH/bin" os="mac"/>
             <file src="bin/run.sh" targetdir="$INSTALL_PATH/bin" os="unix"/>
             <file src="bin/run.bat" targetdir="$INSTALL_PATH/bin" os="windows"/>
