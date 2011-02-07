@@ -35,34 +35,34 @@
         <field type="staticText" align="left" txt="Please note that you need to have a TRUD account and must be registered for the NHSSNOFYRE packs."/>
     </panel>
     <!-- TRUD connection validator -->
-    <panel order="1" id="trud.connection.parameters" border="false">
-        <field type="staticText" align="left"
-               text="You selected $install.type.selection installation. Please provide your TRUD FTP access credentials. The installer will automatically download relevant data for you from TRUD. This is NOT your email address."/>
-        <field type="space"/>
-        <field type="title" txt="Specify credentials for accessing TRUD" bold="true" size="1" />
-        <field type="divider" align="top"/>
-        <field type="staticText" align="left" txt="Please note that you need to have an TRUD account and must have registered for the NHSSNOFYRE packs."/>
-        <field type="space"/>
+    <!--<panel order="1" id="trud.connection.parameters" border="false">-->
+        <!--<field type="staticText" align="left"-->
+               <!--text="You selected $install.type.selection installation. Please provide your TRUD FTP access credentials. The installer will automatically download relevant data for you from TRUD. This is NOT your email address."/>-->
+        <!--<field type="space"/>-->
+        <!--<field type="title" txt="Specify credentials for accessing TRUD" bold="true" size="1" />-->
+        <!--<field type="divider" align="top"/>-->
+        <!--<field type="staticText" align="left" txt="Please note that you need to have an TRUD account and must have registered for the NHSSNOFYRE packs."/>-->
+        <!--<field type="space"/>-->
 
-        <!-- User name -->
-        <field type="text" align="left" variable="trud.user.name">
-          <spec txt="Enter User Name:" size="25" set=""/>
-            <validator class="com.izforge.izpack.util.NotEmptyValidator"
-                         txt="User name is mandatory!" />
-        </field>
-        <field type="space"/>
-        <!-- Password -->
-        <field type="password" align="left" variable="trud.password">
-          <spec>
-            <pwd txt="Enter Password :" size="25" set=""/>
-          </spec>
-            <validator class="com.izforge.izpack.util.NotEmptyValidator"
-                       txt="Password can not be empty."/>
-        </field>
-        <field type="divider" align="bottom"/>
-    </panel>
+        <!--&lt;!&ndash; User name &ndash;&gt;-->
+        <!--<field type="text" align="left" variable="trud.user.name">-->
+          <!--<spec txt="Enter User Name:" size="25" set=""/>-->
+            <!--<validator class="com.izforge.izpack.util.NotEmptyValidator"-->
+                         <!--txt="User name is mandatory!" />-->
+        <!--</field>-->
+        <!--<field type="space"/>-->
+        <!--&lt;!&ndash; Password &ndash;&gt;-->
+        <!--<field type="password" align="left" variable="trud.password">-->
+          <!--<spec>-->
+            <!--<pwd txt="Enter Password :" size="25" set=""/>-->
+          <!--</spec>-->
+            <!--<validator class="com.izforge.izpack.util.NotEmptyValidator"-->
+                       <!--txt="Password can not be empty."/>-->
+        <!--</field>-->
+        <!--<field type="divider" align="bottom"/>-->
+    <!--</panel>-->
   <!-- Nag screen that reminds users of 'to-do' items -->
-    <panel order="2" id="verify.configuration" layout="left" border="false" column_width="40">
+    <panel order="1" id="verify.configuration" layout="left" border="false" column_width="40">
         <field type="title" txt="Verify Configuration for accessing MySQL server" bold="true" size="1" />
         <field type="staticText" align="left"
                txt="Please follow all the steps described in the ${application.name} Installation Manual that the installer automatically opened for you. The installation manual describes how to import ${application.name} and SNOMED CT data into the local installation of MySQL server."/>
@@ -102,7 +102,7 @@
                txt="Please move to the next screen only if you have configured the above settings properly!"/>
     </panel>
     <!-- Database connection validator -->
-    <panel order="3" id="jdbc.connection.parameters" border="false">
+    <panel order="2" id="jdbc.connection.parameters" border="false">
         <field type="staticText" align="left"
                txt="You must have followed all the previous steps and imported ${application.name} and SNOMED CT data imto the local installation of MySQL server. In this step, please enter the password that you've specified for the ${application.name}'s MySQL server account."/>
         <field type="space"/>

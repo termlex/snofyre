@@ -36,6 +36,12 @@
         <api.code.site>http://code.google.com/p/snofyre/</api.code.site>
         <api.contact.email>snofyre-users@googlegroups.com</api.contact.email>
         <installation.guide.location>https://snofyre.googlecode.com/svn/docs/installationmanual/index.html</installation.guide.location>
+        <snomed.data.file.name>snomed-data.zip</snomed.data.file.name>
+        <snomed.index.file.name>index.zip</snomed.index.file.name>
+        <snofyre.data.file.name>snofyre-data.zip</snofyre.data.file.name>
+        <snofyre.javadoc.file.name>apidocs.zip</snofyre.javadoc.file.name>
+        <snomed.mrcm.file.name>mrcm.zip</snomed.mrcm.file.name>
+        <snofyre.osx.app.zip>snofyre.osx.app.zip</snofyre.osx.app.zip>
     </properties>
 
     <modelVersion>4.0.0</modelVersion>

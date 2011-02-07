@@ -74,14 +74,11 @@
             <name>install.type.selection</name>
             <value>lite</value>
         </condition>
-        <condition type="java" id="installonwindows">
-            <java>
-                <class>com.izforge.izpack.util.OsVersion</class>
-                <field>IS_WINDOWS</field>
-            </java>
-            <returnvalue type="boolean">true</returnvalue>
-        </condition>
         <condition type="or" id="need.trud.access">
+            <condition type="ref" refid="fullinstallation"/>
+            <condition type="ref" refid="custominstallation" />
+        </condition>
+        <condition type="or" id="need.snofyre.data">
             <condition type="ref" refid="fullinstallation"/>
             <condition type="ref" refid="custominstallation" />
         </condition>
@@ -130,9 +127,9 @@
         <panel classname="HTMLLicencePanel"/>
         <panel classname="HTMLInfoPanel" id="installtype"/>
         <panel classname="UserInputPanel" id="installation.selection.panel"/>
-        <panel classname="UserInputPanel" id="trud.connection.parameters" condition="need.trud.access">
-            <validator classname="uk.nhs.cfh.dsp.srth.distribution.TRUDConnectionValidator"/>
-        </panel>
+        <!--<panel classname="UserInputPanel" id="trud.connection.parameters" condition="need.trud.access">-->
+            <!--<validator classname="uk.nhs.cfh.dsp.srth.distribution.TRUDConnectionValidator"/>-->
+        <!--</panel>-->
         <panel classname="TargetPanel" />
         <panel classname="PacksPanel" />
         <panel classname="SummaryPanel" />
@@ -175,45 +172,61 @@
             <file src="${packs.folder}/${tech.arch.man.name}" targetdir="$INSTALL_PATH/docs" />
             <file src="${packs.folder}/${user.man.name}" targetdir="$INSTALL_PATH/docs" />
         </pack>
+        <pack name="SNOMED CT MySQL Data" required="no" condition="fullinstallation">
+            <description>The MySQL data containing SNOMED CT</description>
+            <file src="${packs.folder}/${snomed.data.file.name}" targetdir="$INSTALL_PATH/data-import/" unpack="true" />
+        </pack>
+        <pack name="${application.name} Test Data" required="no" condition="need.snofyre.data">
+            <description>Test data for ${application.name} </description>
+            <file src="${packs.folder}/${snofyre.data.file.name}" targetdir="$INSTALL_PATH/data-import/" unpack="true" />
+        </pack>
+        <pack name="MRCM Data" required="yes">
+            <description>The Machine Readable Concept Model</description>
+            <file src="${packs.folder}/${snomed.mrcm.file.name}" targetdir="$INSTALL_PATH/${executable.name}/data/DB/" unpack="true"/>
+        </pack>
+        <pack name="Index files" required="yes">
+            <description>The index files used for search</description>
+            <file src="${packs.folder}/${snomed.index.file.name}" targetdir="$INSTALL_PATH/${executable.name}" unpack="true"/>
+        </pack>
         <pack name="${application.name}-${project.version}" required="yes">
-            <loose>true</loose>
             <description>The application</description>
             <file src="${executable.name}.zip" targetdir="$INSTALL_PATH/" unpack="true"/>
         </pack>
-        <pack name="Snofyre FTP scripts" required="yes">
-            <description>Post-installation scripts that download Snofyre Data from TRUD</description>
-            <file src="bin/ftp-get.sh" targetdir="$INSTALL_PATH" os="mac"/>
-            <file src="bin/ftp-get.sh" targetdir="$INSTALL_PATH" os="unix"/>
-            <file src="bin/ftp-get.bat" targetdir="$INSTALL_PATH" os="windows"/>
-            <file src="bin/extract-pack.sh" targetdir="$INSTALL_PATH/configurator" os="mac"/>
-            <file src="bin/extract-pack.sh" targetdir="$INSTALL_PATH/configurator" os="unix"/>
-            <file src="bin/extract-pack.bat" targetdir="$INSTALL_PATH/configurator" os="windows"/>
-            <file src="bin/ftp_info.txt" targetdir="$INSTALL_PATH" os="windows"/>
-            <file src="bin/packextract.properties" targetdir="$INSTALL_PATH/configurator"/>
+        <!--<pack name="Snofyre FTP scripts" required="yes">-->
+            <!--<description>Post-installation scripts that download Snofyre Data from TRUD</description>-->
+            <!--<file src="bin/ftp-get.sh" targetdir="$INSTALL_PATH" os="mac"/>-->
+            <!--<file src="bin/ftp-get.sh" targetdir="$INSTALL_PATH" os="unix"/>-->
+            <!--<file src="bin/ftp-get.bat" targetdir="$INSTALL_PATH" os="windows"/>-->
+            <!--<file src="bin/extract-pack.sh" targetdir="$INSTALL_PATH/configurator" os="mac"/>-->
+            <!--<file src="bin/extract-pack.sh" targetdir="$INSTALL_PATH/configurator" os="unix"/>-->
+            <!--<file src="bin/extract-pack.bat" targetdir="$INSTALL_PATH/configurator" os="windows"/>-->
+            <!--<file src="bin/ftp_info.txt" targetdir="$INSTALL_PATH" os="windows"/>-->
+            <!--<file src="bin/packextract.properties" targetdir="$INSTALL_PATH/configurator"/>-->
 
-            <parsable type="shell" targetfile="$INSTALL_PATH/configurator/extract-pack.sh" os="mac" encoding="utf-8"/>
-            <parsable type="shell" targetfile="$INSTALL_PATH/configurator/extract-pack.sh" os="unix" encoding="utf-8"/>
-            <parsable type="plain" targetfile="$INSTALL_PATH/configurator/extract-pack.bat" os="windows" encoding="utf-8"/>
-            <parsable type="shell" targetfile="$INSTALL_PATH/ftp-get.sh" os="mac" encoding="utf-8"/>
-            <parsable type="shell" targetfile="$INSTALL_PATH/ftp-get.sh" os="unix" encoding="utf-8"/>
-            <parsable type="plain" targetfile="$INSTALL_PATH/ftp-get.bat" os="windows" encoding="utf-8"/>
-            <parsable type="plain" targetfile="$INSTALL_PATH/ftp_info.txt" os="windows" encoding="utf-8"/>
-            <parsable type="javaprop" targetfile="$INSTALL_PATH/configurator/packextract.properties" encoding="utf-8"/>
+            <!--<parsable type="shell" targetfile="$INSTALL_PATH/configurator/extract-pack.sh" os="mac" encoding="utf-8"/>-->
+            <!--<parsable type="shell" targetfile="$INSTALL_PATH/configurator/extract-pack.sh" os="unix" encoding="utf-8"/>-->
+            <!--<parsable type="plain" targetfile="$INSTALL_PATH/configurator/extract-pack.bat" os="windows" encoding="utf-8"/>-->
+            <!--<parsable type="shell" targetfile="$INSTALL_PATH/ftp-get.sh" os="mac" encoding="utf-8"/>-->
+            <!--<parsable type="shell" targetfile="$INSTALL_PATH/ftp-get.sh" os="unix" encoding="utf-8"/>-->
+            <!--<parsable type="plain" targetfile="$INSTALL_PATH/ftp-get.bat" os="windows" encoding="utf-8"/>-->
+            <!--<parsable type="plain" targetfile="$INSTALL_PATH/ftp_info.txt" os="windows" encoding="utf-8"/>-->
+            <!--<parsable type="javaprop" targetfile="$INSTALL_PATH/configurator/packextract.properties" encoding="utf-8"/>-->
 
-            <executable targetfile="$INSTALL_PATH/configurator/extract-pack.sh" stage="never" keep="true" os="mac"/>
-            <executable targetfile="$INSTALL_PATH/configurator/extract-pack.sh" stage="never" keep="true" os="unix"/>
-            <executable targetfile="$INSTALL_PATH/configurator/extract-pack.bat" stage="never" keep="true" os="windows"/>
-            <executable targetfile="$INSTALL_PATH/ftp-get.sh" stage="never" keep="false" os="mac"/>
-            <executable targetfile="$INSTALL_PATH/ftp-get.sh" stage="never" keep="false" os="unix"/>
-            <executable targetfile="$INSTALL_PATH/ftp-get.bat" stage="never" keep="false" os="windows"/>
-            <executable targetfile="$INSTALL_PATH/ftp_info.txt" stage="never" keep="false" os="windows"/>
-        </pack>
+            <!--<executable targetfile="$INSTALL_PATH/configurator/extract-pack.sh" stage="never" keep="true" os="mac"/>-->
+            <!--<executable targetfile="$INSTALL_PATH/configurator/extract-pack.sh" stage="never" keep="true" os="unix"/>-->
+            <!--<executable targetfile="$INSTALL_PATH/configurator/extract-pack.bat" stage="never" keep="true" os="windows"/>-->
+            <!--<executable targetfile="$INSTALL_PATH/ftp-get.sh" stage="never" keep="false" os="mac"/>-->
+            <!--<executable targetfile="$INSTALL_PATH/ftp-get.sh" stage="never" keep="false" os="unix"/>-->
+            <!--<executable targetfile="$INSTALL_PATH/ftp-get.bat" stage="never" keep="false" os="windows"/>-->
+            <!--<executable targetfile="$INSTALL_PATH/ftp_info.txt" stage="never" keep="false" os="windows"/>-->
+        <!--</pack>-->
         <pack name="Application Launch scripts" required="yes">
             <description>Application Launch and other scripts</description>
             <file src="bin/run.sh" targetdir="$INSTALL_PATH/bin" os="mac"/>
             <file src="bin/run.sh" targetdir="$INSTALL_PATH/bin" os="unix"/>
             <file src="bin/run.bat" targetdir="$INSTALL_PATH/bin" os="windows"/>
             <file src="${application.name}.exe" targetdir="$INSTALL_PATH/bin" os="windows"/>
+            <file src="${packs.folder}/${snofyre.osx.app.zip}" targetdir="$INSTALL_PATH/bin" os="mac" unpack="true"/>
             <file src="dependencies.html" targetdir="$INSTALL_PATH/bin/settings" override="true"/>
 
             <parsable type="javaprop" targetfile="$INSTALL_PATH/bin/settings/fakedata-db.properties"/>
@@ -224,6 +237,7 @@
             <executable targetfile="$INSTALL_PATH/bin/run.sh" stage="never" keep="true" os="mac"/>
             <executable targetfile="$INSTALL_PATH/bin/run.sh" stage="never" keep="true" os="unix"/>
             <executable targetfile="$INSTALL_PATH/bin/run.bat" stage="never" keep="true" os="windows"/>
+            <executable targetfile="$INSTALL_PATH/bin/Snofyre.app/Contents/MacOS/JavaApplicationStub" stage="never" keep="true" os="mac"/>
 
             <file src="temp/${app.configurator.name}.jar" targetdir="$INSTALL_PATH/configurator"/>
             <file src="temp/${app.configurator.name}.dir/${app.configurator.name}/lib/commons-dbcp.jar"
