@@ -15,7 +15,12 @@ This section assumes that you have already checked out Snofyre's source code usi
 
 =Getting Started=
 
-Netbeans is able to open an existing maven based project without importing. Select Open Project, using File Menu --> Open Project, navigate to the location of the working copy of source. You should also be able to carry out svn based tasks (e.g. diff) from the editor.
+Netbeans is able to open an existing maven based project without importing. Select Open Project, using File Menu --> Open Project, navigate to the location of the working copy of source. 
+
+[http://snofyre.googlecode.com/svn/wiki/images/netbeans-0a.PNG]
+
+
+You should also be able to carry out svn based tasks (e.g. diff) from the editor.
 
 
 
