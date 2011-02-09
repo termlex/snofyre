@@ -8,9 +8,7 @@ This section assumes that you have already checked out Snofyre's source code usi
 
 In order to work with snofyre you will need Eclipse (3.6). Since snofyre uses a Maven build, you will addtionally need to install a maven plugin e.g. m2eclipse.  
 
-To install m2eclipse 
-
-Help-->Install New Software. 
+To install m2eclipse select Help-->Install New Software. 
 
 [http://snofyre.googlecode.com/svn/wiki/images/eclipse0a.PNG]
 
@@ -20,4 +18,6 @@ http://m2eclipse.sonatype.org/sites/m2e
 
 = Import Maven Projects into Eclipse= 
 
-Once you have a suitable maven plugin installed into your eclipse environmant. 
+Once you have a suitable maven plugin installed into your eclipse environment you need to import the project. Select File--Import
+
+  [http://snofyre.googlecode.com/svn/wiki/images/eclipse1a.PNG]
