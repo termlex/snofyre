@@ -12,6 +12,8 @@ To install m2eclipse
 
 Help-->Install New Software. 
 
+[http://snofyre.googlecode.com/svn/wiki/images/eclipse0a.PNG]
+
 In the dialog enter the following url. 
 
 http://m2eclipse.sonatype.org/sites/m2e
