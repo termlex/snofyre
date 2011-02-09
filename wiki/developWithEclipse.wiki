@@ -4,7 +4,7 @@
 
 This section assumes that you have already checked out Snofyre's source code using the instructions in the getting started [conventionalGettingStartedWithSnofyreAPI page] Please read the instructions on this page, especially the note about [conventionalGettingStartedWithSnofyreAPI#Test_failures test failures] if you have not already done so. 
 
-= Details =
+= Getting Started =
 
 In order to work with snofyre you will need Eclipse (3.6). Since snofyre uses a Maven build, you will addtionally need to install a maven plugin e.g. m2eclipse.  
 
