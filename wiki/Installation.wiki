@@ -1,4 +1,4 @@
-#summary Snofyre Installation Manual.
+#summary Snofyre Installation Instructions.
 #labels Phase-Deploy,Featured
 
 = Installing Snofyre =
