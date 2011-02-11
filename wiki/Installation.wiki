@@ -8,7 +8,7 @@
   <tbody>
     <tr>
       <td>[http://snofyre.googlecode.com/files/klipper.png]</td>
-      <td>Snofyre and its installer require [http://www.java.com Java] to be installed on the client machine. Please [http://www.java.com/en/download/index.jsp download] and install Java on your machine first. Snofyre also needs an instance of [http://dev.mysql.com/downloads/mysql/ MySQL server] to be installed on the client machine. The Installation Manual will help you with this (see below).</td>
+      <td>Snofyre and its installer require [http://www.java.com Java] to be installed on the client machine. Please [http://www.java.com/en/download/index.jsp download] and install Java on your machine first. Snofyre also needs an instance of [http://dev.mysql.com/downloads/mysql/ MySQL server] to be installed on the client machine. The Installation Manual will help you with this (see below). <ul><li>We recommend using MySQL Server version 5.1</li></ul></td>
     </tr>
   </tbody>
 </table>
@@ -18,7 +18,7 @@
   <tbody>
     <tr>
       <td>[http://code.google.com/p/snofyre/downloads/list http://snofyre.googlecode.com/files/ark.png] </td>
-      <td>Download the Snofyre Installer from the [http://code.google.com/p/snofyre/downloads/list downloads page]. <ul><li>Windows installer direct download [http://snofyre.googlecode.com/files/Snofyre-1.8-Installer.exe link]</li><li>Cross platform installer direct download [http://snofyre.googlecode.com/files/Snofyre-1.8-Installer.jar link].</li><li>We recommend using MySQL Server version 5.1</li></ul>.</td>
+      <td>Online installers for Snofyre are not yet available, so you need to use the Offline installers.<ul><li>Follow the instructions on the [http://code.google.com/p/snofyre/wiki/downloadSnofyreFromTRUD Downloading Snofyre] page.</li><li>~~Download the Snofyre Installer from the [http://code.google.com/p/snofyre/downloads/list downloads page].~~</li><li>~~Windows installer direct download [http://snofyre.googlecode.com/files/Snofyre-1.8-Installer.exe link~~]</li><li>~~Cross platform installer direct download [http://snofyre.googlecode.com/files/Snofyre-1.8-Installer.jar link].~~</li></ul></td>
     </tr>
   </tbody>
 </table>
