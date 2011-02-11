@@ -10,7 +10,7 @@ This section describes the process for downloading Snofyre installer and package
   #  Please sign up for access to the pack NHSSNOFYRE (and its sub packs) by selecting the packs shown below.
   # [http://snofyre.googlecode.com/svn/wiki/images/trud-signup.png]
   # Since the current version of Snofyre bundles SNOMED CT content, you'll be asked to accept the IHTSDO and UKTC licenses.
-  # When you have been granted access to the pack (usually an overnight process), download the following following release:
+  # When you have been granted access to the pack (usually an overnight process), download the following releases in the above packs:
     * If you are on Windows : NHSSNOFYRE/2.1.0/NHS_SNOFYREINST/nhs_snofyreinst_2.1.0_20110209000001.zip
     * If you are on any other operating system : NHSSNOFYRE/2.1.0/NHS_SNOFYREINSTOTHEROS/nhs_snofyreintsotheros_2.1.0_20110209000001.zip
   # When you have downloaded the release file, unzip to a folder of your choice.
