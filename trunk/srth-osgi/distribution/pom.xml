@@ -10,8 +10,8 @@
     <properties>
         <spring.dm.version>1.2.0</spring.dm.version>
         <spring.core.version>2.5.6.SEC01</spring.core.version>
-        <snobj.project.version>0.8-SNAPSHOT</snobj.project.version>
-        <yasb.project.version>0.8-SNAPSHOT</yasb.project.version>
+        <snobj.project.version>0.8</snobj.project.version>
+        <yasb.project.version>0.8</yasb.project.version>
         <staging.dir>${project.build.directory}/staging</staging.dir>
         <configurator.staging.dir>${project.build.directory}/configurator-staging</configurator.staging.dir>
         <osgi.dir>osgi</osgi.dir>
