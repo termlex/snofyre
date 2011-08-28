@@ -185,7 +185,7 @@ public class SnomedConceptDatabaseDAO implements TerminologyConceptDAO {
             // get replacements
             getReplacementConceptStatement = connection.prepareStatement("" +
                     "SELECT CONCEPTID2 FROM SNOMED.REL WHERE CONCEPTID1 = ? AND " +
-                    "RELATIONHIPTYPE IN ('168666000', '370124000')");
+                    "RELATIONHSIPTYPE IN ('168666000', '370124000')");
 
             // get preferred term
             getPreferredTermStatement = connection.prepareStatement("" +
